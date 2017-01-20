@@ -1,0 +1,384 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{30141EDE-1973-4B51-9824-7F872DAFC57B}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>UI</RootNamespace>
+    <AssemblyName>UI</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject>UI.Program</StartupObject>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="log4net, Version=1.2.14.0, Culture=neutral, PublicKeyToken=669e0ddf0bb1aa2a, processorArchitecture=MSIL">
+      <HintPath>..\packages\log4net.2.0.4\lib\net45-full\log4net.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Practices.ServiceLocation, Version=1.3.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\CommonServiceLocator.1.3\lib\portable-net4+sl5+netcore45+wpa81+wp8\Microsoft.Practices.ServiceLocation.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Practices.Unity, Version=4.0.0.0, Culture=neutral, PublicKeyToken=6d32ff45e0ccc69f, processorArchitecture=MSIL">
+      <HintPath>..\packages\Unity.4.0.1\lib\net45\Microsoft.Practices.Unity.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Practices.Unity.Configuration, Version=4.0.0.0, Culture=neutral, PublicKeyToken=6d32ff45e0ccc69f, processorArchitecture=MSIL">
+      <HintPath>..\packages\Unity.4.0.1\lib\net45\Microsoft.Practices.Unity.Configuration.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Practices.Unity.RegistrationByConvention, Version=4.0.0.0, Culture=neutral, PublicKeyToken=6d32ff45e0ccc69f, processorArchitecture=MSIL">
+      <HintPath>..\packages\Unity.4.0.1\lib\net45\Microsoft.Practices.Unity.RegistrationByConvention.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Transactions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="CampaniaDeslizante.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="BannerDeslizante.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="PruebaCampaniaDeslizante.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PruebaCampaniaDeslizante.Designer.cs">
+      <DependentUpon>PruebaCampaniaDeslizante.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PruebaBannerDeslizante.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PruebaBannerDeslizante.Designer.cs">
+      <DependentUpon>PruebaBannerDeslizante.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PruebaTimerTimersSafeThread.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PruebaTimerTimersSafeThread.Designer.cs">
+      <DependentUpon>PruebaTimerTimersSafeThread.cs</DependentUpon>
+    </Compile>
+    <Compile Include="VAbstractBuscarCampania.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="VAbstractBuscarCampania.Designer.cs">
+      <DependentUpon>VAbstractBuscarCampania.cs</DependentUpon>
+    </Compile>
+    <Compile Include="VAbstractBuscarBanner.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="VAbstractBuscarBanner.Designer.cs">
+      <DependentUpon>VAbstractBuscarBanner.cs</DependentUpon>
+    </Compile>
+    <Compile Include="VAbstractBuscarFuenteRss.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="VAbstractBuscarFuenteRss.Designer.cs">
+      <DependentUpon>VAbstractBuscarFuenteRss.cs</DependentUpon>
+    </Compile>
+    <Compile Include="VBannerBuscarPorCodigo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="VBannerBuscarPorCodigo.designer.cs">
+      <DependentUpon>VBannerBuscarPorCodigo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="VBannerBuscarPorDescripcion.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="VBannerBuscarPorDescripcion.designer.cs">
+      <DependentUpon>VBannerBuscarPorDescripcion.cs</DependentUpon>
+    </Compile>
+    <Compile Include="VBannerBuscarPorFechaInicio.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="VBannerBuscarPorFechaInicio.designer.cs">
+      <DependentUpon>VBannerBuscarPorFechaInicio.cs</DependentUpon>
+    </Compile>
+    <Compile Include="VBannerBuscarPorHoraInicio.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="VBannerBuscarPorHoraInicio.designer.cs">
+      <DependentUpon>VBannerBuscarPorHoraInicio.cs</DependentUpon>
+    </Compile>
+    <Compile Include="VAbstractCampania.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="VAbstractCampania.designer.cs">
+      <DependentUpon>VAbstractCampania.cs</DependentUpon>
+    </Compile>
+    <Compile Include="VBanner.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="VBanner.Designer.cs">
+      <DependentUpon>VBanner.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="VAbstractBanner.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="VAbstractBanner.Designer.cs">
+      <DependentUpon>VAbstractBanner.cs</DependentUpon>
+    </Compile>
+    <Compile Include="VCampania.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="VCampania.designer.cs">
+      <DependentUpon>VCampania.cs</DependentUpon>
+    </Compile>
+    <Compile Include="VCampaniaBuscarPorCodigo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="VCampaniaBuscarPorCodigo.designer.cs">
+      <DependentUpon>VCampaniaBuscarPorCodigo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="VCampaniaBuscarPorDescripcion.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="VCampaniaBuscarPorDescripcion.designer.cs">
+      <DependentUpon>VCampaniaBuscarPorDescripcion.cs</DependentUpon>
+    </Compile>
+    <Compile Include="VCampaniaBuscarPorFechaInicio.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="VCampaniaBuscarPorFechaInicio.designer.cs">
+      <DependentUpon>VCampaniaBuscarPorFechaInicio.cs</DependentUpon>
+    </Compile>
+    <Compile Include="VCampaniaBuscarPorHoraInicio.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="VCampaniaBuscarPorHoraInicio.designer.cs">
+      <DependentUpon>VCampaniaBuscarPorHoraInicio.cs</DependentUpon>
+    </Compile>
+    <Compile Include="VFuenteRssBuscarPorTitulo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="VFuenteRssBuscarPorTitulo.designer.cs">
+      <DependentUpon>VFuenteRssBuscarPorTitulo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="VFuenteRssBuscarPorCodigo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="VFuenteRssBuscarPorCodigo.designer.cs">
+      <DependentUpon>VFuenteRssBuscarPorCodigo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="VCampaniaModificar.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="VCampaniaModificar.designer.cs">
+      <DependentUpon>VCampaniaModificar.cs</DependentUpon>
+    </Compile>
+    <Compile Include="VFuenteRssModificar.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="VFuenteRssModificar.Designer.cs">
+      <DependentUpon>VFuenteRssModificar.cs</DependentUpon>
+    </Compile>
+    <Compile Include="VAbstractFuenteRss.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="VAbstractFuenteRss.Designer.cs">
+      <DependentUpon>VAbstractFuenteRss.cs</DependentUpon>
+    </Compile>
+    <Compile Include="VCampaniaNueva.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="VCampaniaNueva.designer.cs">
+      <DependentUpon>VCampaniaNueva.cs</DependentUpon>
+    </Compile>
+    <Compile Include="VPrincipal.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="VPrincipal.designer.cs">
+      <DependentUpon>VPrincipal.cs</DependentUpon>
+    </Compile>
+    <Compile Include="VFuenteRssNueva.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="VFuenteRssNueva.Designer.cs">
+      <DependentUpon>VFuenteRssNueva.cs</DependentUpon>
+    </Compile>
+    <Compile Include="VBannerModificar.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="VBannerModificar.Designer.cs">
+      <DependentUpon>VBannerModificar.cs</DependentUpon>
+    </Compile>
+    <Compile Include="VBannerNuevo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="VBannerNuevo.Designer.cs">
+      <DependentUpon>VBannerNuevo.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="PruebaCampaniaDeslizante.resx">
+      <DependentUpon>PruebaCampaniaDeslizante.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PruebaBannerDeslizante.resx">
+      <DependentUpon>PruebaBannerDeslizante.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PruebaTimerTimersSafeThread.resx">
+      <DependentUpon>PruebaTimerTimersSafeThread.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="VAbstractBuscarCampania.resx">
+      <DependentUpon>VAbstractBuscarCampania.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="VAbstractBuscarBanner.resx">
+      <DependentUpon>VAbstractBuscarBanner.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="VAbstractBuscarFuenteRss.resx">
+      <DependentUpon>VAbstractBuscarFuenteRss.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="VBannerBuscarPorCodigo.resx">
+      <DependentUpon>VBannerBuscarPorCodigo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="VBannerBuscarPorDescripcion.resx">
+      <DependentUpon>VBannerBuscarPorDescripcion.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="VBannerBuscarPorFechaInicio.resx">
+      <DependentUpon>VBannerBuscarPorFechaInicio.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="VBannerBuscarPorHoraInicio.resx">
+      <DependentUpon>VBannerBuscarPorHoraInicio.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="VAbstractCampania.resx">
+      <DependentUpon>VAbstractCampania.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="VBanner.resx">
+      <DependentUpon>VBanner.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="VAbstractBanner.resx">
+      <DependentUpon>VAbstractBanner.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="VCampania.resx">
+      <DependentUpon>VCampania.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="VCampaniaBuscarPorCodigo.resx">
+      <DependentUpon>VCampaniaBuscarPorCodigo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="VCampaniaBuscarPorDescripcion.resx">
+      <DependentUpon>VCampaniaBuscarPorDescripcion.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="VCampaniaBuscarPorFechaInicio.resx">
+      <DependentUpon>VCampaniaBuscarPorFechaInicio.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="VCampaniaBuscarPorHoraInicio.resx">
+      <DependentUpon>VCampaniaBuscarPorHoraInicio.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="VFuenteRssBuscarPorTitulo.resx">
+      <DependentUpon>VFuenteRssBuscarPorTitulo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="VFuenteRssBuscarPorCodigo.resx">
+      <DependentUpon>VFuenteRssBuscarPorCodigo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="VCampaniaModificar.resx">
+      <DependentUpon>VCampaniaModificar.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="VAbstractFuenteRss.resx">
+      <DependentUpon>VAbstractFuenteRss.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="VFuenteRssModificar.resx">
+      <DependentUpon>VFuenteRssModificar.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="VCampaniaNueva.resx">
+      <DependentUpon>VCampaniaNueva.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="VPrincipal.resx">
+      <DependentUpon>VPrincipal.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="VFuenteRssNueva.resx">
+      <DependentUpon>VFuenteRssNueva.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="VBannerModificar.resx">
+      <DependentUpon>VBannerModificar.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="VBannerNuevo.resx">
+      <DependentUpon>VBannerNuevo.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="log4net.config" />
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Contenedor\Contenedor.csproj">
+      <Project>{187c44b0-3b64-4cbe-99de-fc6eaeecf981}</Project>
+      <Name>Contenedor</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Dominio\Dominio.csproj">
+      <Project>{1818d70a-adfb-4e0e-bed1-1ac84b15a536}</Project>
+      <Name>Dominio</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Excepciones\Excepciones.csproj">
+      <Project>{c0bd7184-1899-4535-96fd-223de19e1d25}</Project>
+      <Name>Excepciones</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Helper\Helper.csproj">
+      <Project>{86b9361e-1c96-41b4-80c6-5e7dcb76e8de}</Project>
+      <Name>Helper</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
