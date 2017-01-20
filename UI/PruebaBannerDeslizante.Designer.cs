@@ -37,12 +37,10 @@
             // 
             // bannerDeslizante1
             // 
-            this.bannerDeslizante1.CaracteresAMostrar = 45;
             this.bannerDeslizante1.Location = new System.Drawing.Point(23, 77);
             this.bannerDeslizante1.Name = "bannerDeslizante1";
             this.bannerDeslizante1.Size = new System.Drawing.Size(236, 20);
             this.bannerDeslizante1.TabIndex = 0;
-            this.bannerDeslizante1.TextoCompleto = null;
             // 
             // buttonComenzar
             // 
@@ -66,12 +64,10 @@
             // 
             // bannerDeslizante2
             // 
-            this.bannerDeslizante2.CaracteresAMostrar = 0;
             this.bannerDeslizante2.Location = new System.Drawing.Point(27, 33);
             this.bannerDeslizante2.Name = "bannerDeslizante2";
             this.bannerDeslizante2.Size = new System.Drawing.Size(100, 20);
             this.bannerDeslizante2.TabIndex = 3;
-            this.bannerDeslizante2.TextoCompleto = null;
             // 
             // comboBox1
             // 

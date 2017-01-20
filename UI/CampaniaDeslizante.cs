@@ -7,8 +7,10 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.IO;
+using Dominio;
+using Helper;
 
-namespace Prueba_BackGroundWorker
+namespace UI
 {
     public class CampaniaDeslizante : PictureBox
     {

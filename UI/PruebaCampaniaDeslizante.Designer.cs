@@ -56,7 +56,6 @@
             // 
             // campaniaDeslizante1
             // 
-            this.campaniaDeslizante1.Campania = null;
             this.campaniaDeslizante1.Location = new System.Drawing.Point(36, 12);
             this.campaniaDeslizante1.Name = "campaniaDeslizante1";
             this.campaniaDeslizante1.Size = new System.Drawing.Size(330, 260);

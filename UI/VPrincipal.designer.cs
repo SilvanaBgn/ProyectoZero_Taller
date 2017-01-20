@@ -179,7 +179,6 @@ namespace UI
             // 
             // campaniaDeslizante
             // 
-            this.campaniaDeslizante.Campania = null;
             this.campaniaDeslizante.ImageLocation = "";
             this.campaniaDeslizante.Location = new System.Drawing.Point(32, 70);
             this.campaniaDeslizante.Name = "campaniaDeslizante";
@@ -212,14 +211,12 @@ namespace UI
             // 
             this.bannerDeslizante.BackColor = System.Drawing.SystemColors.InactiveCaption;
             this.bannerDeslizante.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.bannerDeslizante.CaracteresAMostrar = 100;
             this.bannerDeslizante.Enabled = false;
             this.bannerDeslizante.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.bannerDeslizante.Location = new System.Drawing.Point(22, 33);
             this.bannerDeslizante.Name = "bannerDeslizante";
             this.bannerDeslizante.Size = new System.Drawing.Size(746, 28);
             this.bannerDeslizante.TabIndex = 0;
-            this.bannerDeslizante.TextoCompleto = null;
             // 
             // VPrincipal
             // 

@@ -20,8 +20,7 @@ namespace UI
 
         private void buttonComenzar_Click(object sender, EventArgs e)
         {
-            this.bannerDeslizante1.TextoCompleto = "hola que tal como te va maria magdalena de los champiniones escribo con la computadora que hermoso weee";
-            this.bannerDeslizante1.Start();
+            this.bannerDeslizante1.Start("hola que tal como te va maria magdalena de los champiniones escribo con la computadora que hermoso weee");
         }
 
         private void buttonStop_Click(object sender, EventArgs e)

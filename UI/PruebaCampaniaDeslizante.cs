@@ -70,8 +70,7 @@ namespace UI
 
         private void buttonComenzar_Click(object sender, EventArgs e)
         {
-            this.campaniaDeslizante1.Campania = this.iCampania;
-            this.campaniaDeslizante1.Start();
+            //this.campaniaDeslizante1.Start();
         }
 
         private void buttonStop_Click(object sender, EventArgs e)
