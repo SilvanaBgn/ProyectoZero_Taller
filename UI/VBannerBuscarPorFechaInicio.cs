@@ -24,10 +24,10 @@ namespace UI
 
         protected override void buttonBuscar_Click(object sender, EventArgs e)
         {
-            DateTime fecha = this.dateTimePickerInicio.Value;
-            List<Banner> lista = (this.iControlador.BuscarBannerPorAtributo(x => x.FechaInicio.Month==fecha.Month && x.FechaInicio.Year==fecha.Year && x.FechaInicio.Day
-            ==fecha.Day));
-            ((VBanner)this.MdiParent).CargarDataGridViewBanners(lista);
+            //DateTime fecha = this.dateTimePickerInicio.Value;
+            //List<Banner> lista = (this.iControlador.BuscarBannerPorAtributo(x => x.FechaInicio.Month==fecha.Month && x.FechaInicio.Year==fecha.Year && x.FechaInicio.Day
+            //==fecha.Day));
+            //((VBanner)this.MdiParent).CargarDataGridViewBanners(lista);
         }
     }
 }

@@ -99,19 +99,19 @@ namespace UI
                 this.iCampaniaNueva.Descripcion = this.textBoxDescripcion.Text;
                 this.iCampaniaNueva.DuracionImagen = Convert.ToInt16(this.textBoxSegundos.Text);
 
-                this.iCampaniaNueva.FechaInicio = this.dateTimePickerInicio.Value.Date;
-                this.iCampaniaNueva.FechaFin = this.dateTimePickerFin.Value.Date;
+                //this.iCampaniaNueva.FechaInicio = this.dateTimePickerInicio.Value.Date;
+                //this.iCampaniaNueva.FechaFin = this.dateTimePickerFin.Value.Date;
 
-                this.iCampaniaNueva.HoraInicio = new TimeSpan(Convert.ToInt16(this.comboBoxH1.SelectedItem), Convert.ToInt16(this.comboBoxM1.SelectedItem), 0);
-                if (Convert.ToInt16(this.comboBoxH2.SelectedItem) == 0 && Convert.ToInt16(this.comboBoxM2.SelectedItem) == 0)
-                    this.iCampaniaNueva.HoraFin = new TimeSpan(23, 59, 59);
-                else
-                    this.iCampaniaNueva.HoraFin = new TimeSpan(Convert.ToInt16(this.comboBoxH2.SelectedItem), Convert.ToInt16(this.comboBoxM2.SelectedItem), 0);
+                //this.iCampaniaNueva.HoraInicio = new TimeSpan(Convert.ToInt16(this.comboBoxH1.SelectedItem), Convert.ToInt16(this.comboBoxM1.SelectedItem), 0);
+                //if (Convert.ToInt16(this.comboBoxH2.SelectedItem) == 0 && Convert.ToInt16(this.comboBoxM2.SelectedItem) == 0)
+                //    this.iCampaniaNueva.HoraFin = new TimeSpan(23, 59, 59);
+                //else
+                //    this.iCampaniaNueva.HoraFin = new TimeSpan(Convert.ToInt16(this.comboBoxH2.SelectedItem), Convert.ToInt16(this.comboBoxM2.SelectedItem), 0);
 
-                if (this.iCampaniaNueva.HoraInicio >= this.iCampaniaNueva.HoraFin)
-                {
-                    throw new ExcepcionHoraInicioMayorAHoraFin("La hora de inicio debe ser menor que la hora de fin");
-                }
+                //if (this.iCampaniaNueva.HoraInicio >= this.iCampaniaNueva.HoraFin)
+                //{
+                //    throw new ExcepcionHoraInicioMayorAHoraFin("La hora de inicio debe ser menor que la hora de fin");
+                //}
 
                 List<Imagen> listaImagenes = new List<Imagen>();
 

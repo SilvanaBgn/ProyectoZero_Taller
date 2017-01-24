@@ -184,22 +184,22 @@ namespace UI
         /// </summary>
         private void VBannerModificar_Load(object sender, EventArgs e)
         {
-            this.dateTimePickerInicio.Text = this.iBanner.FechaInicio.ToString();
-            this.dateTimePickerFin.Text = this.iBanner.FechaFin.ToString();
+            //this.dateTimePickerInicio.Text = this.iBanner.FechaInicio.ToString();
+            //this.dateTimePickerFin.Text = this.iBanner.FechaFin.ToString();
 
-            this.comboBoxH1.Text = this.iBanner.HoraInicio.Hours.ToString();
+            //this.comboBoxH1.Text = this.iBanner.HoraInicio.Hours.ToString();
 
-            this.comboBoxM1.Text = this.iBanner.HoraInicio.Minutes.ToString();
-            if (this.iBanner.HoraFin.Hours == 23 && this.iBanner.HoraFin.Minutes == 59)
-            {
-                this.comboBoxH2.Text = "00";
-                this.comboBoxM2.Text = "00";
-            }
-            else
-            {
-                this.comboBoxH2.Text = this.iBanner.HoraFin.Hours.ToString();
-                this.comboBoxM2.Text = this.iBanner.HoraFin.Minutes.ToString();
-            }
+            //this.comboBoxM1.Text = this.iBanner.HoraInicio.Minutes.ToString();
+            //if (this.iBanner.HoraFin.Hours == 23 && this.iBanner.HoraFin.Minutes == 59)
+            //{
+            //    this.comboBoxH2.Text = "00";
+            //    this.comboBoxM2.Text = "00";
+            //}
+            //else
+            //{
+            //    this.comboBoxH2.Text = this.iBanner.HoraFin.Hours.ToString();
+            //    this.comboBoxM2.Text = this.iBanner.HoraFin.Minutes.ToString();
+            //}
         }
 
     }

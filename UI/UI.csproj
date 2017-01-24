@@ -75,23 +75,17 @@
     <Compile Include="BannerDeslizante.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="PruebaCampaniaDeslizante.cs">
+    <Compile Include="PruebaRangoFecha.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="PruebaCampaniaDeslizante.Designer.cs">
-      <DependentUpon>PruebaCampaniaDeslizante.cs</DependentUpon>
+    <Compile Include="PruebaRangoFecha.Designer.cs">
+      <DependentUpon>PruebaRangoFecha.cs</DependentUpon>
     </Compile>
-    <Compile Include="PruebaBannerDeslizante.cs">
-      <SubType>Form</SubType>
+    <Compile Include="RangoFecha.cs">
+      <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="PruebaBannerDeslizante.Designer.cs">
-      <DependentUpon>PruebaBannerDeslizante.cs</DependentUpon>
-    </Compile>
-    <Compile Include="PruebaTimerTimersSafeThread.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="PruebaTimerTimersSafeThread.Designer.cs">
-      <DependentUpon>PruebaTimerTimersSafeThread.cs</DependentUpon>
+    <Compile Include="RangoFecha.Designer.cs">
+      <DependentUpon>RangoFecha.cs</DependentUpon>
     </Compile>
     <Compile Include="VAbstractBuscarCampania.cs">
       <SubType>Form</SubType>
@@ -245,14 +239,11 @@
     <Compile Include="VBannerNuevo.Designer.cs">
       <DependentUpon>VBannerNuevo.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="PruebaCampaniaDeslizante.resx">
-      <DependentUpon>PruebaCampaniaDeslizante.cs</DependentUpon>
+    <EmbeddedResource Include="PruebaRangoFecha.resx">
+      <DependentUpon>PruebaRangoFecha.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="PruebaBannerDeslizante.resx">
-      <DependentUpon>PruebaBannerDeslizante.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="PruebaTimerTimersSafeThread.resx">
-      <DependentUpon>PruebaTimerTimersSafeThread.cs</DependentUpon>
+    <EmbeddedResource Include="RangoFecha.resx">
+      <DependentUpon>RangoFecha.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="VAbstractBuscarCampania.resx">
       <DependentUpon>VAbstractBuscarCampania.cs</DependentUpon>

@@ -22,9 +22,9 @@ namespace UI
 
         protected override void buttonBuscar_Click(object sender, EventArgs e)
         {
-            TimeSpan tiempo = TimeSpan.FromHours(Convert.ToDouble(comboBoxH1.SelectedValue)) + TimeSpan.FromMinutes((Convert.ToDouble(comboBoxM1.SelectedValue)));
-            List<Banner> lista = (this.iControlador.BuscarBannerPorAtributo(x => x.HoraInicio == tiempo));
-            ((VBanner)this.MdiParent).CargarDataGridViewBanners(lista);
+            //TimeSpan tiempo = TimeSpan.FromHours(Convert.ToDouble(comboBoxH1.SelectedValue)) + TimeSpan.FromMinutes((Convert.ToDouble(comboBoxM1.SelectedValue)));
+            //List<Banner> lista = (this.iControlador.BuscarBannerPorAtributo(x => x.HoraInicio == tiempo));
+            //((VBanner)this.MdiParent).CargarDataGridViewBanners(lista);
         }
     }
 }

@@ -135,13 +135,13 @@ namespace UI
                 this.iCampaniaModificar.Titulo = this.textBoxTitulo.Text;
                 this.iCampaniaModificar.DuracionImagen = Convert.ToInt32(this.textBoxSegundos.Text);
                 
-                this.iCampaniaModificar.FechaInicio = this.dateTimePickerInicio.Value.Date;
-                this.iCampaniaModificar.FechaFin = this.dateTimePickerFin.Value.Date;
-                this.iCampaniaModificar.HoraInicio = new TimeSpan(Convert.ToInt16(this.comboBoxH1.SelectedItem), Convert.ToInt16(this.comboBoxM1.SelectedItem), 0);
-                if (Convert.ToInt16(this.comboBoxH2.SelectedItem) == 0 && Convert.ToInt16(this.comboBoxM2.SelectedItem) == 0)
-                    this.iCampaniaModificar.HoraFin = new TimeSpan(23, 59, 59);
-                else
-                    this.iCampaniaModificar.HoraFin = new TimeSpan(Convert.ToInt16(this.comboBoxH2.SelectedItem), Convert.ToInt16(this.comboBoxM2.SelectedItem), 0);
+                //this.iCampaniaModificar.FechaInicio = this.dateTimePickerInicio.Value.Date;
+                //this.iCampaniaModificar.FechaFin = this.dateTimePickerFin.Value.Date;
+                //this.iCampaniaModificar.HoraInicio = new TimeSpan(Convert.ToInt16(this.comboBoxH1.SelectedItem), Convert.ToInt16(this.comboBoxM1.SelectedItem), 0);
+                //if (Convert.ToInt16(this.comboBoxH2.SelectedItem) == 0 && Convert.ToInt16(this.comboBoxM2.SelectedItem) == 0)
+                //    this.iCampaniaModificar.HoraFin = new TimeSpan(23, 59, 59);
+                //else
+                //    this.iCampaniaModificar.HoraFin = new TimeSpan(Convert.ToInt16(this.comboBoxH2.SelectedItem), Convert.ToInt16(this.comboBoxM2.SelectedItem), 0);
 
                 if (this.listBoxImagenes.Items.Count == 0)
                     throw new ExcepcionCampoSinCompletar("Debe cargar al menos una Imagen");
@@ -249,21 +249,21 @@ namespace UI
             //Cargamos los datos en la pantalla
             this.textBoxDescripcion.Text = this.iCampaniaModificar.Descripcion;
             this.textBoxSegundos.Text = this.iCampaniaModificar.DuracionImagen.ToString();
-            this.dateTimePickerInicio.Text = this.iCampaniaModificar.FechaInicio.ToString();
-            this.dateTimePickerFin.Text = this.iCampaniaModificar.FechaFin.ToString();
-            this.textBoxTitulo.Text = this.iCampaniaModificar.Titulo;
-            this.comboBoxH1.Text = this.iCampaniaModificar.HoraInicio.Hours.ToString();
-            this.comboBoxM1.Text = this.iCampaniaModificar.HoraInicio.Minutes.ToString();
-            if (this.iCampaniaModificar.HoraFin.Hours == 23 && this.iCampaniaModificar.HoraFin.Minutes == 59)
-            {
-                this.comboBoxH2.Text = "00";
-                this.comboBoxM2.Text = "00";
-            }
-            else
-            {
-                this.comboBoxH2.Text = this.iCampaniaModificar.HoraFin.Hours.ToString();
-                this.comboBoxM2.Text = this.iCampaniaModificar.HoraFin.Minutes.ToString();
-            }
+            //this.dateTimePickerInicio.Text = this.iCampaniaModificar.FechaInicio.ToString();
+            //this.dateTimePickerFin.Text = this.iCampaniaModificar.FechaFin.ToString();
+            //this.textBoxTitulo.Text = this.iCampaniaModificar.Titulo;
+            //this.comboBoxH1.Text = this.iCampaniaModificar.HoraInicio.Hours.ToString();
+            //this.comboBoxM1.Text = this.iCampaniaModificar.HoraInicio.Minutes.ToString();
+            //if (this.iCampaniaModificar.HoraFin.Hours == 23 && this.iCampaniaModificar.HoraFin.Minutes == 59)
+            //{
+            //    this.comboBoxH2.Text = "00";
+            //    this.comboBoxM2.Text = "00";
+            //}
+            //else
+            //{
+            //    this.comboBoxH2.Text = this.iCampaniaModificar.HoraFin.Hours.ToString();
+            //    this.comboBoxM2.Text = this.iCampaniaModificar.HoraFin.Minutes.ToString();
+            //}
 
             //Ordenamos las imágnenes para que se muestren ordenadas en la pantalla
             this.iListaOrdenada =  this.iCampaniaModificar.Imagenes.OrderBy(x=>x.Orden).ToList();

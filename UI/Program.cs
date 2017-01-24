@@ -16,12 +16,8 @@ namespace UI
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new VPrincipal());
-            //Application.Run(new PruebaTimerThreading());
-            //Application.Run(new PruebaTimerTimers());
-            //Application.Run(new PruebaTimerTimersSafeThread());
-            //Application.Run(new PruebaCampaniaDeslizante());
-            //Application.Run(new PruebaBannerDeslizante());
+            //Application.Run(new VPrincipal());
+            Application.Run(new PruebaRangoFecha());
         }
     }
 }
