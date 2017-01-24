@@ -5,31 +5,40 @@ using System.Text;
 using System.Threading.Tasks;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using System.ComponentModel;
 
 namespace Dominio
 {
     public class Banner
     {
         public int BannerId { get; set; }
+
+        /// <summary>
+        /// Título referente que se desea mostrar en la pantalla publicitaria
+        /// </summary>
+        [Required]
+        public string Titulo { get; set; }
+
+        /// <summary>
+        /// Explicación del contenido del banner
+        /// </summary>
+        [Required]
         public string Descripcion { get; set; }
 
-        [DataType(DataType.Date)]
-        public DateTime FechaInicio { get; set; }
-        [DataType(DataType.Date)]
-        public DateTime FechaFin { get; set; }
 
-        public TimeSpan HoraInicio { get; set; }
-        public TimeSpan HoraFin { get; set; }
+        [Required]
+        public int FuenteId { get; set; }
+        [Required]
+        public virtual Fuente Fuente{get; set;}
 
-        //public IBanner BannerStrategy { get; set; }
+        [Required]
+        public int RangoHorarioId { get; set; }
+        [Required]
+        public virtual RangoHorario RangoHorario { get; set; }
 
-        public int? FuenteId { get; set; }
-        public virtual Fuente Fuente{get; set;} 
-
-        //Constructor
-        public Banner()
-        {
-            this.Fuente = null;
-        }
+        [Required]
+        public int RangoFechaId { get; set; }
+        [Required]
+        public virtual RangoFecha RangoFecha { get; set; }
     }
 }

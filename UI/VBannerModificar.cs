@@ -22,7 +22,7 @@ namespace UI
         /// <summary>
         /// Fuente RSS de un banner
         /// </summary>
-        FuenteRss iFuenteActual;
+        Fuente iFuenteActual;
 
         /// <summary>
         /// Constructor

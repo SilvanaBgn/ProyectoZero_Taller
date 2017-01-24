@@ -17,14 +17,14 @@ namespace UI
         {
             InitializeComponent();
             this.buttonCancelar.Name = "Cancelar";
-            this.iFuente = new FuenteRss();
+            this.iFuente = new Fuente();
         }
 
         protected override void buttonGuardar_Click(object sender, EventArgs e)
         {
             //EXCEPCIONES:
             //this.textBoxTitulo y this. textBoxURL completado
-            ((FuenteRss)(this.iFuente)).Url = this.textBoxURL.Text;
+            this.iFuente.origenItems = this.textBoxURL.Text;
             this.iFuente.Descripcion = this.textBoxTitulo.Text;
             this.iControlador.AgregarFuente(this.iFuente);
             this.iControlador.GuardarCambios();

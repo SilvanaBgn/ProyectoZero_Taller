@@ -4,19 +4,50 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Dominio.Lecturas;
 
 namespace Dominio
 {
-    public abstract class Fuente:ILector
+    public class Fuente
     {
         public int FuenteId { get; set; }
-        [DataType(DataType.Text)]
+
+        /// <summary>
+        /// Denominación o explicación específica de la fuente
+        /// </summary>
+        [DataType(DataType.Text),Required/*(ErrorMessage = "Debe completarse Descripción")*/]
         public string Descripcion { get; set; }
+
+        /// <summary>
+        /// Información especíifica de la Fuente en cuestión
+        /// </summary>
+        [DataType(DataType.Text)]
+        public string origenItems { get; set; }
 
         public virtual ICollection<Banner> Banners { get; set; }
 
-        private TipoFuente iTipo;
+        public TipoFuente Tipo {
+            get { return this.Tipo; }
 
+            set
+            {
+                if (value == TipoFuente.TextoPlano)
+                {
+                    this.iLector = new LectorTextoPlano();
+                }
+                else //(value == TipoFuente.Rss)
+                {
+                    this.iLector = new LectorRss();
+                }
+                this.Tipo = value;
+            }
+        }
+
+
+        /// <summary>
+        /// Indica el método de lectura de esta fuente, según su Tipo
+        /// </summary>
+        private ILector iLector;
 
         /// <summary>
         /// Constructor
@@ -24,7 +55,7 @@ namespace Dominio
         public Fuente()
         {
             this.Banners = new List<Banner>();
-            //this.Descripcion = "";
+            this.Tipo = TipoFuente.TextoPlano;
         }
 
         public override string ToString()
@@ -32,15 +63,14 @@ namespace Dominio
             return Descripcion;
         }
 
-        //Método de lectura
-        public abstract IEnumerable<Item> Leer(string pInfo);
-        public abstract IEnumerable<Item> Leer();
 
-        //Properties
-        public TipoFuente Tipo
+        /// <summary>
+        /// Lee los datos
+        /// </summary>
+        /// <returns></returns>
+        public IEnumerable<Item> Leer()
         {
-            get { return this.iTipo; }
-            set { this.iTipo = value; }
+            return this.iLector.Leer(this.origenItems);
         }
     }
 }
