@@ -68,8 +68,6 @@
       <DependentUpon>Settings.settings</DependentUpon>
     </Compile>
     <Compile Include="PasoBanner.cs" />
-    <Compile Include="RangoHorario.cs" />
-    <Compile Include="RangoFecha.cs" />
     <Compile Include="TipoBanner.cs" />
   </ItemGroup>
   <ItemGroup>

@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace UI
+namespace UI.UserControls
 {
     public partial class RangoFecha : UserControl
     {
@@ -19,7 +19,7 @@ namespace UI
 
         private void dateTimePickerInicio_ValueChanged(object sender, EventArgs e)
         {
-            DateTime fechaActual = this.dateTimePickerFin.MinDate = this.dateTimePickerInicio.Value;
+            this.dateTimePickerFin.MinDate = this.dateTimePickerInicio.Value;
             this.labelCantDias.Text = "Un total de "+
                             this.DiferenciaFechas(this.dateTimePickerFin.Value, this.dateTimePickerInicio.Value);
         }

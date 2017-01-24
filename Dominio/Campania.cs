@@ -31,15 +31,15 @@ namespace Dominio
 
         public virtual ICollection<Imagen> Imagenes { get; set; }
 
-        [Required]
-        public int RangoHorarioId { get; set; }
-        [Required]
-        public virtual RangoHorario RangoHorario { get; set; }
+        [DataType(DataType.Date), Required]
+        public DateTime FechaInicio { get; set; }
+        [DataType(DataType.Date), Required]
+        public DateTime FechaFin { get; set; }
 
-        [Required]
-        public int RangoFechaId { get; set; }
-        [Required]
-        public virtual RangoFecha RangoFecha { get; set; }
+        [Timestamp, Required]
+        public TimeSpan HoraInicio { get; set; }
+        [Timestamp, Required]
+        public TimeSpan HoraFin { get; set; }
 
         /// <summary>
         /// Constructor
