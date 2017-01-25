@@ -200,6 +200,7 @@ namespace UI
             ((VCampania)this.MdiParent).CargarDataGridViewCampania(this.iControladorDominio.ObtenerTodasLasCampanias());
         }
 
+
         /// <summary>
         /// Función auxiliar que controla que todos los textBoxs estén completados, lanzando una excepción si no fuese así
         /// </summary>

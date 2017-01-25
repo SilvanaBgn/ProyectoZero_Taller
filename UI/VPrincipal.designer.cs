@@ -1,5 +1,6 @@
 ﻿using System.Windows.Forms;
 using System.Drawing;
+using UI.UserControls;
 
 namespace UI
 {
@@ -48,10 +49,10 @@ namespace UI
             this.verAyudaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.sobreToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.groupBoxCampania = new System.Windows.Forms.GroupBox();
-            this.campaniaDeslizante = new UI.CampaniaDeslizante();
+            this.campaniaDeslizante = new CampaniaDeslizante();
             this.label5 = new System.Windows.Forms.Label();
             this.groupBoxBanner = new System.Windows.Forms.GroupBox();
-            this.bannerDeslizante = new UI.BannerDeslizante();
+            this.bannerDeslizante = new BannerDeslizante();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.menuStrip1.SuspendLayout();
             this.groupBoxCampania.SuspendLayout();

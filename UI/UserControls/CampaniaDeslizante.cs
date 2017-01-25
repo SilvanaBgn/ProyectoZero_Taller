@@ -10,7 +10,7 @@ using System.IO;
 using Dominio;
 using Helper;
 
-namespace UI
+namespace UI.UserControls
 {
     public class CampaniaDeslizante : PictureBox
     {

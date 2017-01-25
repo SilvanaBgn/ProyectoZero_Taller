@@ -90,10 +90,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="CampaniaDeslizante.cs">
+    <Compile Include="UserControls\CampaniaDeslizante.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="BannerDeslizante.cs">
+    <Compile Include="UserControls\BannerDeslizante.cs">
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="NuevasPantallas\DatosBannerCampania.cs">
@@ -186,10 +186,16 @@
     <Compile Include="PruebaRangoFecha.Designer.cs">
       <DependentUpon>PruebaRangoFecha.cs</DependentUpon>
     </Compile>
-    <Compile Include="RangoFecha.cs">
+    <Compile Include="UserControls\Galeria.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="RangoFecha.Designer.cs">
+    <Compile Include="UserControls\Galeria.Designer.cs">
+      <DependentUpon>Galeria.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\RangoFecha.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\RangoFecha.Designer.cs">
       <DependentUpon>RangoFecha.cs</DependentUpon>
     </Compile>
     <Compile Include="VAbstractBuscarCampania.cs">
@@ -353,7 +359,10 @@
     <EmbeddedResource Include="PruebaRangoFecha.resx">
       <DependentUpon>PruebaRangoFecha.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="RangoFecha.resx">
+    <EmbeddedResource Include="UserControls\Galeria.resx">
+      <DependentUpon>Galeria.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\RangoFecha.resx">
       <DependentUpon>RangoFecha.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="VAbstractBuscarCampania.resx">

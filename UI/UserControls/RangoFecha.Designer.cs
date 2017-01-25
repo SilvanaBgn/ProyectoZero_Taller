@@ -1,4 +1,4 @@
-﻿namespace UI
+﻿namespace UI.UserControls
 {
     partial class RangoFecha
     {
