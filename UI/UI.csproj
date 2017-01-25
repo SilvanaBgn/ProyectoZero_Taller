@@ -11,6 +11,7 @@
     <AssemblyName>UI</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -33,6 +34,26 @@
   </PropertyGroup>
   <PropertyGroup>
     <StartupObject>UI.Program</StartupObject>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x64\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">
+    <OutputPath>bin\x64\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>true</Prefer32Bit>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="log4net, Version=1.2.14.0, Culture=neutral, PublicKeyToken=669e0ddf0bb1aa2a, processorArchitecture=MSIL">
@@ -74,6 +95,90 @@
     </Compile>
     <Compile Include="BannerDeslizante.cs">
       <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="NuevasPantallas\DatosBannerCampania.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="NuevasPantallas\DatosBannerCampania.Designer.cs">
+      <DependentUpon>DatosBannerCampania.cs</DependentUpon>
+    </Compile>
+    <Compile Include="NuevasPantallas\VAbstractBase.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="NuevasPantallas\VAbstractBase.Designer.cs">
+      <DependentUpon>VAbstractBase.cs</DependentUpon>
+    </Compile>
+    <Compile Include="NuevasPantallas\VAbstractCrearModificarBanner.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="NuevasPantallas\VAbstractCrearModificarBanner.Designer.cs">
+      <DependentUpon>VAbstractCrearModificarBanner.cs</DependentUpon>
+    </Compile>
+    <Compile Include="NuevasPantallas\VAbstractCrearModificarCampania.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="NuevasPantallas\VAbstractCrearModificarCampania.Designer.cs">
+      <DependentUpon>VAbstractCrearModificarCampania.cs</DependentUpon>
+    </Compile>
+    <Compile Include="NuevasPantallas\VBaseBanner.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="NuevasPantallas\VBaseBanner.Designer.cs">
+      <DependentUpon>VBaseBanner.cs</DependentUpon>
+    </Compile>
+    <Compile Include="NuevasPantallas\VBaseCampania.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="NuevasPantallas\VBaseCampania.Designer.cs">
+      <DependentUpon>VBaseCampania.cs</DependentUpon>
+    </Compile>
+    <Compile Include="NuevasPantallas\VBaseFuente.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="NuevasPantallas\VBaseFuente.Designer.cs">
+      <DependentUpon>VBaseFuente.cs</DependentUpon>
+    </Compile>
+    <Compile Include="NuevasPantallas\VCrearBanner.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="NuevasPantallas\VCrearBanner.Designer.cs">
+      <DependentUpon>VCrearBanner.cs</DependentUpon>
+    </Compile>
+    <Compile Include="NuevasPantallas\VCrearCampania.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="NuevasPantallas\VCrearCampania.Designer.cs">
+      <DependentUpon>VCrearCampania.cs</DependentUpon>
+    </Compile>
+    <Compile Include="NuevasPantallas\VCrearFuente.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="NuevasPantallas\VCrearFuente.Designer.cs">
+      <DependentUpon>VCrearFuente.cs</DependentUpon>
+    </Compile>
+    <Compile Include="NuevasPantallas\VModificarBanner.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="NuevasPantallas\VModificarBanner.Designer.cs">
+      <DependentUpon>VModificarBanner.cs</DependentUpon>
+    </Compile>
+    <Compile Include="NuevasPantallas\VModificarCampania.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="NuevasPantallas\VModificarCampania.Designer.cs">
+      <DependentUpon>VModificarCampania.cs</DependentUpon>
+    </Compile>
+    <Compile Include="NuevasPantallas\VModificarFuente.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="NuevasPantallas\VModificarFuente.Designer.cs">
+      <DependentUpon>VModificarFuente.cs</DependentUpon>
+    </Compile>
+    <Compile Include="NuevasPantallas\VAbstractCrearModificarFuente.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="NuevasPantallas\VAbstractCrearModificarFuente.Designer.cs">
+      <DependentUpon>VAbstractCrearModificarFuente.cs</DependentUpon>
     </Compile>
     <Compile Include="PruebaRangoFecha.cs">
       <SubType>Form</SubType>
@@ -155,12 +260,6 @@
     <Compile Include="VCampania.designer.cs">
       <DependentUpon>VCampania.cs</DependentUpon>
     </Compile>
-    <Compile Include="VCampaniaBuscarPorCodigo.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="VCampaniaBuscarPorCodigo.designer.cs">
-      <DependentUpon>VCampaniaBuscarPorCodigo.cs</DependentUpon>
-    </Compile>
     <Compile Include="VCampaniaBuscarPorDescripcion.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -197,15 +296,11 @@
     <Compile Include="VCampaniaModificar.designer.cs">
       <DependentUpon>VCampaniaModificar.cs</DependentUpon>
     </Compile>
-    <Compile Include="VFuenteRssModificar.cs">
-      <SubType>Form</SubType>
-    </Compile>
+    <Compile Include="VFuenteRssModificar.cs" />
     <Compile Include="VFuenteRssModificar.Designer.cs">
       <DependentUpon>VFuenteRssModificar.cs</DependentUpon>
     </Compile>
-    <Compile Include="VAbstractFuenteRss.cs">
-      <SubType>Form</SubType>
-    </Compile>
+    <Compile Include="VAbstractFuenteRss.cs" />
     <Compile Include="VAbstractFuenteRss.Designer.cs">
       <DependentUpon>VAbstractFuenteRss.cs</DependentUpon>
     </Compile>
@@ -221,9 +316,7 @@
     <Compile Include="VPrincipal.designer.cs">
       <DependentUpon>VPrincipal.cs</DependentUpon>
     </Compile>
-    <Compile Include="VFuenteRssNueva.cs">
-      <SubType>Form</SubType>
-    </Compile>
+    <Compile Include="VFuenteRssNueva.cs" />
     <Compile Include="VFuenteRssNueva.Designer.cs">
       <DependentUpon>VFuenteRssNueva.cs</DependentUpon>
     </Compile>
@@ -239,6 +332,24 @@
     <Compile Include="VBannerNuevo.Designer.cs">
       <DependentUpon>VBannerNuevo.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="NuevasPantallas\DatosBannerCampania.resx">
+      <DependentUpon>DatosBannerCampania.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="NuevasPantallas\VAbstractCrearModificarBanner.resx">
+      <DependentUpon>VAbstractCrearModificarBanner.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="NuevasPantallas\VAbstractCrearModificarCampania.resx">
+      <DependentUpon>VAbstractCrearModificarCampania.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="NuevasPantallas\VBaseFuente.resx">
+      <DependentUpon>VBaseFuente.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="NuevasPantallas\VModificarFuente.resx">
+      <DependentUpon>VModificarFuente.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="NuevasPantallas\VAbstractCrearModificarFuente.resx">
+      <DependentUpon>VAbstractCrearModificarFuente.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="PruebaRangoFecha.resx">
       <DependentUpon>PruebaRangoFecha.cs</DependentUpon>
     </EmbeddedResource>
@@ -280,15 +391,13 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <EmbeddedResource Include="VAbstractBanner.resx">
       <DependentUpon>VAbstractBanner.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="VCampania.resx">
       <DependentUpon>VCampania.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="VCampaniaBuscarPorCodigo.resx">
-      <DependentUpon>VCampaniaBuscarPorCodigo.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="VCampaniaBuscarPorDescripcion.resx">
       <DependentUpon>VCampaniaBuscarPorDescripcion.cs</DependentUpon>
