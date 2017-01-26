@@ -117,32 +117,4 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="buttonAbajo.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAL
-        DAAACwwBP0AiyAAAAVFJREFUeF7t17srR3EYx/GDcikGg8VmYDParEpJbHbZlNU/8Msmi0FmmVjNLIxG
-        C4tyy6UMSrm+n02/nlzP+V6Oz7te83me6TzfQimllFJKKaWUUkoppb5oGpd4S8w5JlF51/AGSMEVKu8C
-        3sdTcIbKm8AzvAFiesI4gjQPb4iY5hC0ZXiDxLCE4LVgC95AIW3CZolSJ/bhDRbCHjoQtT4cwxuwSkfo
-        RRIN4gbeoFWw//0AkmoUj/AGLtMDRpBkM3iFN3gZXjCFpFuEN3wZFpBFa/AW+IsVZFMbduAt8hvbaEVW
-        deMQ3kI/cYAuZFk/TuEt9h0nsDsj64ZxD2/Bz9xiCLVoDPZc9Rb12D1hd0WtmoW3bDO7I+yeqGUNeEt/
-        ZHdErduAt7ix+6H2tWMXzcvb3WD3w7+oB+u4g70iV5Htv14ppZRSSimllFJKKZVLRfEOWXkvqXvR7MEA
-        AAAASUVORK5CYII=
-</value>
-  </data>
-  <data name="buttonArriba.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAL
-        DAAACwwBP0AiyAAAAUhJREFUeF7t0b8rRXEcxvErkcJmsTPxF7DJRNlYZWSWVVntLJQyWtmUiUn+ARMJ
-        YVAGJeH9qat0e8iPc873nON512u53XvO8+k2nHPOOeecc84555xzroB6sYGHps3mZ/+iDuzjtcUBOlH7
-        ttB6/Ltt1LplqMM/WkEtm4U6WJlDrRrDE9SxSnx3HLVoCPdQh34lfjOMStePM6gDv+Mc8YxK1o1jqMN+
-        4gQ9qFTt2IU66Df2EM+sTGtQh/zFOirRItQBWVhCqZvGC9T4LMSzZ1DKRvAINTxL8Y5RlKoB3EINzsMd
-        BlGK+nAKNTRP8c54d9K6cAg1sAhHiA1JasMO1LAixYbYUnirUINSiC2FNg81JKUFFNIknqFGpBSbYlvu
-        XUMNKIML5N4N1MvL4Aq5N4VLqAEpxb8/Aeecc84555xzzjnnnPukRuMN8aAwKP/FkFgAAAAASUVORK5C
-        YII=
-</value>
-  </data>
-  <metadata name="columnBytes.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
 </root>

@@ -55,6 +55,10 @@
       <HintPath>..\packages\Unity.4.0.1\lib\net45\Microsoft.Practices.Unity.RegistrationByConvention.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="ObjectListView, Version=2.9.1.1072, Culture=neutral, PublicKeyToken=b1c5bf581481bcd4, processorArchitecture=MSIL">
+      <HintPath>..\packages\ObjectListView.Official.2.9.1\lib\net20\ObjectListView.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
@@ -69,6 +73,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="PruebaGaleria.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PruebaGaleria.Designer.cs">
+      <DependentUpon>PruebaGaleria.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PruebaRangoHorario.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PruebaRangoHorario.Designer.cs">
+      <DependentUpon>PruebaRangoHorario.cs</DependentUpon>
+    </Compile>
     <Compile Include="UserControls\CampaniaDeslizante.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -87,11 +103,23 @@
     <Compile Include="UserControls\Galeria.Designer.cs">
       <DependentUpon>Galeria.cs</DependentUpon>
     </Compile>
+    <Compile Include="UserControls\ItemGaleria.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\ItemGaleria.Designer.cs">
+      <DependentUpon>ItemGaleria.cs</DependentUpon>
+    </Compile>
     <Compile Include="UserControls\RangoFecha.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="UserControls\RangoFecha.Designer.cs">
       <DependentUpon>RangoFecha.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\TextBoxAncho.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="UserControls\TextBoxAncho.Designer.cs">
+      <DependentUpon>TextBoxAncho.cs</DependentUpon>
     </Compile>
     <Compile Include="VAbstractBuscarCampania.cs">
       <SubType>Form</SubType>
@@ -245,14 +273,26 @@
     <Compile Include="VBannerNuevo.Designer.cs">
       <DependentUpon>VBannerNuevo.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="PruebaGaleria.resx">
+      <DependentUpon>PruebaGaleria.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="PruebaRangoFecha.resx">
       <DependentUpon>PruebaRangoFecha.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PruebaRangoHorario.resx">
+      <DependentUpon>PruebaRangoHorario.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UserControls\Galeria.resx">
       <DependentUpon>Galeria.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\ItemGaleria.resx">
+      <DependentUpon>ItemGaleria.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UserControls\RangoFecha.resx">
       <DependentUpon>RangoFecha.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\TextBoxAncho.resx">
+      <DependentUpon>TextBoxAncho.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="VAbstractBuscarCampania.resx">
       <DependentUpon>VAbstractBuscarCampania.cs</DependentUpon>
@@ -353,6 +393,7 @@
   <ItemGroup>
     <None Include="App.config">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <SubType>Designer</SubType>
     </None>
   </ItemGroup>
   <ItemGroup>

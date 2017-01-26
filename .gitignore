@@ -240,3 +240,15 @@ ModelManifest.xml
 
 # FAKE - F# Make
 .fake/
+/UI/UserControls/Galeria.cs
+/UI/UserControls/Galeria.Designer.cs
+/UI/UserControls/Galeria.resx
+/UI/UserControls/ItemGaleria.cs
+/UI/UserControls/ItemGaleria.Designer.cs
+/UI/UserControls/ItemGaleria.resx
+/UI/UserControls/TextBoxAncho.cs
+/UI/UserControls/TextBoxAncho.Designer.cs
+/UI/UserControls/TextBoxAncho.resx
+/UI/UserControls/PruebaGaleria.cs
+/UI/UserControls/PruebaGaleria.Designer.cs
+/UI/PruebaGaleria.resx

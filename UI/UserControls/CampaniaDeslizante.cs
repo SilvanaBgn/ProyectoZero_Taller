@@ -64,9 +64,18 @@ namespace UI.UserControls
         /// </summary>
         public void Start() { this.Start(0,null); }
         /// <summary>
+        /// Se lo utiliza como pictureBox
+        /// </summary>
+        /// <param name="pImagen">Imagen en formato Bitmap, que se desea mostrar</param>
+        public void Start(byte[] pImagen)
+        {
+            this.Image = ConversorImagen.ByteToImage(pImagen);
+        }
+        /// <summary>
         /// Da comienzo a la campania deslizante
         /// </summary>
-        /// <param name="pTexto">Texto a mostrar en el banner</param>
+        /// <param name="pDuracion">Duracion en segundos de cada imagen</param>
+        /// <param name="pLista">Lista de imágenes a pasar en la campaña</param>
         public void Start(int pDuracion, List<Imagen> pLista)
         {
             if (pLista != null)
