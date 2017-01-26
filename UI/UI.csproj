@@ -120,9 +120,7 @@
     <Compile Include="NuevasPantallas\VAbstractCrearModificarCampania.Designer.cs">
       <DependentUpon>VAbstractCrearModificarCampania.cs</DependentUpon>
     </Compile>
-    <Compile Include="NuevasPantallas\VBaseBanner.cs">
-      <SubType>Form</SubType>
-    </Compile>
+    <Compile Include="NuevasPantallas\VBaseBanner.cs" />
     <Compile Include="NuevasPantallas\VBaseBanner.Designer.cs">
       <DependentUpon>VBaseBanner.cs</DependentUpon>
     </Compile>
@@ -216,6 +214,12 @@
     <Compile Include="VAbstractBuscarFuenteRss.Designer.cs">
       <DependentUpon>VAbstractBuscarFuenteRss.cs</DependentUpon>
     </Compile>
+    <Compile Include="VAbstractFuenteRss.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="VAbstractFuenteRss.designer.cs">
+      <DependentUpon>VAbstractFuenteRss.cs</DependentUpon>
+    </Compile>
     <Compile Include="VBannerBuscarPorCodigo.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -302,19 +306,17 @@
     <Compile Include="VCampaniaModificar.designer.cs">
       <DependentUpon>VCampaniaModificar.cs</DependentUpon>
     </Compile>
-    <Compile Include="VFuenteRssModificar.cs" />
-    <Compile Include="VFuenteRssModificar.Designer.cs">
-      <DependentUpon>VFuenteRssModificar.cs</DependentUpon>
-    </Compile>
-    <Compile Include="VAbstractFuenteRss.cs" />
-    <Compile Include="VAbstractFuenteRss.Designer.cs">
-      <DependentUpon>VAbstractFuenteRss.cs</DependentUpon>
-    </Compile>
     <Compile Include="VCampaniaNueva.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="VCampaniaNueva.designer.cs">
       <DependentUpon>VCampaniaNueva.cs</DependentUpon>
+    </Compile>
+    <Compile Include="VFuenteRssModificar.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="VFuenteRssModificar.Designer.cs">
+      <DependentUpon>VFuenteRssModificar.cs</DependentUpon>
     </Compile>
     <Compile Include="VPrincipal.cs">
       <SubType>Form</SubType>
@@ -322,7 +324,9 @@
     <Compile Include="VPrincipal.designer.cs">
       <DependentUpon>VPrincipal.cs</DependentUpon>
     </Compile>
-    <Compile Include="VFuenteRssNueva.cs" />
+    <Compile Include="VFuenteRssNueva.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="VFuenteRssNueva.Designer.cs">
       <DependentUpon>VFuenteRssNueva.cs</DependentUpon>
     </Compile>
@@ -373,6 +377,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="VAbstractBuscarFuenteRss.resx">
       <DependentUpon>VAbstractBuscarFuenteRss.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="VAbstractFuenteRss.resx">
+      <DependentUpon>VAbstractFuenteRss.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="VBannerBuscarPorCodigo.resx">
       <DependentUpon>VBannerBuscarPorCodigo.cs</DependentUpon>
@@ -426,14 +433,11 @@
     <EmbeddedResource Include="VCampaniaModificar.resx">
       <DependentUpon>VCampaniaModificar.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="VAbstractFuenteRss.resx">
-      <DependentUpon>VAbstractFuenteRss.cs</DependentUpon>
+    <EmbeddedResource Include="VCampaniaNueva.resx">
+      <DependentUpon>VCampaniaNueva.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="VFuenteRssModificar.resx">
       <DependentUpon>VFuenteRssModificar.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="VCampaniaNueva.resx">
-      <DependentUpon>VCampaniaNueva.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="VPrincipal.resx">
       <DependentUpon>VPrincipal.cs</DependentUpon>
