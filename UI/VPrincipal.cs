@@ -16,6 +16,7 @@ using Dominio;
 using Contenedor;
 using System.Timers;
 using System.Transactions;
+using UI.NuevasPantallas;
 
 namespace UI
 {
@@ -333,7 +334,7 @@ namespace UI
         #region ToolStripMenuItem
         private void bannerToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            VBanner vBanner = new VBanner(ref this.iControladorDominio, ref this.iControladorContenedor);
+            VBaseBanner vBanner = new VBaseBanner(ref this.iControladorDominio, ref this.iControladorContenedor);
             vBanner.Show();
         }
 

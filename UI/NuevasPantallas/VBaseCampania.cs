@@ -16,5 +16,22 @@ namespace UI.NuevasPantallas
         {
             InitializeComponent();
         }
+
+        private void buttonNuevo_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void buttonModificar_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void buttonEliminar_Click(object sender, EventArgs e)
+        {
+            int codigo = Convert.ToInt32(this.dataGridViewMostrar.SelectedRows[0].Cells[0].Value.ToString());
+            this.iControladorDominio.BorrarBanner(codigo);
+        }
+
     }
 }

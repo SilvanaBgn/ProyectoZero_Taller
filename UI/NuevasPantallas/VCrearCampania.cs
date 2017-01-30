@@ -7,12 +7,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Dominio;
 
 namespace UI.NuevasPantallas
 {
     public partial class VCrearCampania : VAbstractCrearModificarCampania
     {
-        public VCrearCampania()
+        public VCrearCampania(ref ControladorDominio pControladorDominio) : base(ref pControladorDominio)
         {
             InitializeComponent();
         }

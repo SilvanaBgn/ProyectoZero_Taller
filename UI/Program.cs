@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using UI.NuevasPantallas;
 
 namespace UI
 {
@@ -17,7 +18,7 @@ namespace UI
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             //Application.Run(new VPrincipal());
-            Application.Run(new PruebaRangoFecha());
+            Application.Run(new VPrincipal());
         }
     }
 }

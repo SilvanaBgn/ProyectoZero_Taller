@@ -28,46 +28,45 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
+            this.buttonNuevo = new System.Windows.Forms.Button();
+            this.buttonModificar = new System.Windows.Forms.Button();
+            this.buttonEliminar = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
-            this.checkBox1 = new System.Windows.Forms.CheckBox();
-            this.checkBox2 = new System.Windows.Forms.CheckBox();
-            this.checkBox3 = new System.Windows.Forms.CheckBox();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
-            this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            this.checkBoxRangoFechas = new System.Windows.Forms.CheckBox();
+            this.checkBoxRangoHoras = new System.Windows.Forms.CheckBox();
+            this.checkBoxDescripcion = new System.Windows.Forms.CheckBox();
+            this.dataGridViewMostrar = new System.Windows.Forms.DataGridView();
+            this.textBoxDescripcion = new System.Windows.Forms.TextBox();
+            this.buttonSalir = new System.Windows.Forms.Button();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewMostrar)).BeginInit();
             this.SuspendLayout();
             // 
-            // button1
+            // buttonNuevo
             // 
-            this.button1.Location = new System.Drawing.Point(13, 13);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 0;
-            this.button1.Text = "Nuevo";
-            this.button1.UseVisualStyleBackColor = true;
+            this.buttonNuevo.Location = new System.Drawing.Point(13, 13);
+            this.buttonNuevo.Name = "buttonNuevo";
+            this.buttonNuevo.Size = new System.Drawing.Size(75, 23);
+            this.buttonNuevo.TabIndex = 0;
+            this.buttonNuevo.Text = "Nuevo";
+            this.buttonNuevo.UseVisualStyleBackColor = true;
             // 
-            // button2
+            // buttonModificar
             // 
-            this.button2.Location = new System.Drawing.Point(118, 13);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(75, 23);
-            this.button2.TabIndex = 1;
-            this.button2.Text = "Modificar";
-            this.button2.UseVisualStyleBackColor = true;
+            this.buttonModificar.Location = new System.Drawing.Point(118, 13);
+            this.buttonModificar.Name = "buttonModificar";
+            this.buttonModificar.Size = new System.Drawing.Size(75, 23);
+            this.buttonModificar.TabIndex = 1;
+            this.buttonModificar.Text = "Modificar";
+            this.buttonModificar.UseVisualStyleBackColor = true;
             // 
-            // button3
+            // buttonEliminar
             // 
-            this.button3.Location = new System.Drawing.Point(231, 13);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(75, 23);
-            this.button3.TabIndex = 2;
-            this.button3.Text = "Eliminar";
-            this.button3.UseVisualStyleBackColor = true;
+            this.buttonEliminar.Location = new System.Drawing.Point(231, 13);
+            this.buttonEliminar.Name = "buttonEliminar";
+            this.buttonEliminar.Size = new System.Drawing.Size(75, 23);
+            this.buttonEliminar.TabIndex = 2;
+            this.buttonEliminar.Text = "Eliminar";
+            this.buttonEliminar.UseVisualStyleBackColor = true;
             // 
             // label1
             // 
@@ -78,92 +77,84 @@
             this.label1.TabIndex = 3;
             this.label1.Text = "Filtrar por:";
             // 
-            // checkBox1
+            // checkBoxRangoFechas
             // 
-            this.checkBox1.AutoSize = true;
-            this.checkBox1.Location = new System.Drawing.Point(12, 92);
-            this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(108, 17);
-            this.checkBox1.TabIndex = 4;
-            this.checkBox1.Text = "Rango de fechas";
-            this.checkBox1.UseVisualStyleBackColor = true;
+            this.checkBoxRangoFechas.AutoSize = true;
+            this.checkBoxRangoFechas.Location = new System.Drawing.Point(12, 92);
+            this.checkBoxRangoFechas.Name = "checkBoxRangoFechas";
+            this.checkBoxRangoFechas.Size = new System.Drawing.Size(108, 17);
+            this.checkBoxRangoFechas.TabIndex = 4;
+            this.checkBoxRangoFechas.Text = "Rango de fechas";
+            this.checkBoxRangoFechas.UseVisualStyleBackColor = true;
             // 
-            // checkBox2
+            // checkBoxRangoHoras
             // 
-            this.checkBox2.AutoSize = true;
-            this.checkBox2.Location = new System.Drawing.Point(12, 183);
-            this.checkBox2.Name = "checkBox2";
-            this.checkBox2.Size = new System.Drawing.Size(102, 17);
-            this.checkBox2.TabIndex = 5;
-            this.checkBox2.Text = "Rango de horas";
-            this.checkBox2.UseVisualStyleBackColor = true;
+            this.checkBoxRangoHoras.AutoSize = true;
+            this.checkBoxRangoHoras.Location = new System.Drawing.Point(12, 183);
+            this.checkBoxRangoHoras.Name = "checkBoxRangoHoras";
+            this.checkBoxRangoHoras.Size = new System.Drawing.Size(102, 17);
+            this.checkBoxRangoHoras.TabIndex = 5;
+            this.checkBoxRangoHoras.Text = "Rango de horas";
+            this.checkBoxRangoHoras.UseVisualStyleBackColor = true;
             // 
-            // checkBox3
+            // checkBoxDescripcion
             // 
-            this.checkBox3.AutoSize = true;
-            this.checkBox3.Location = new System.Drawing.Point(12, 260);
-            this.checkBox3.Name = "checkBox3";
-            this.checkBox3.Size = new System.Drawing.Size(82, 17);
-            this.checkBox3.TabIndex = 6;
-            this.checkBox3.Text = "Descripcion";
-            this.checkBox3.UseVisualStyleBackColor = true;
+            this.checkBoxDescripcion.AutoSize = true;
+            this.checkBoxDescripcion.Location = new System.Drawing.Point(12, 260);
+            this.checkBoxDescripcion.Name = "checkBoxDescripcion";
+            this.checkBoxDescripcion.Size = new System.Drawing.Size(82, 17);
+            this.checkBoxDescripcion.TabIndex = 6;
+            this.checkBoxDescripcion.Text = "Descripcion";
+            this.checkBoxDescripcion.UseVisualStyleBackColor = true;
             // 
-            // dataGridView1
+            // dataGridViewMostrar
             // 
-            this.dataGridView1.AllowUserToAddRows = false;
-            this.dataGridView1.AllowUserToDeleteRows = false;
-            this.dataGridView1.AllowUserToOrderColumns = true;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(236, 69);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.ReadOnly = true;
-            this.dataGridView1.Size = new System.Drawing.Size(363, 234);
-            this.dataGridView1.TabIndex = 7;
+            this.dataGridViewMostrar.AllowUserToAddRows = false;
+            this.dataGridViewMostrar.AllowUserToDeleteRows = false;
+            this.dataGridViewMostrar.AllowUserToOrderColumns = true;
+            this.dataGridViewMostrar.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridViewMostrar.Location = new System.Drawing.Point(236, 69);
+            this.dataGridViewMostrar.Name = "dataGridViewMostrar";
+            this.dataGridViewMostrar.ReadOnly = true;
+            this.dataGridViewMostrar.Size = new System.Drawing.Size(363, 234);
+            this.dataGridViewMostrar.TabIndex = 7;
             // 
-            // dateTimePicker1
+            // textBoxDescripcion
             // 
-            this.dateTimePicker1.Enabled = false;
-            this.dateTimePicker1.Location = new System.Drawing.Point(12, 116);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(200, 20);
-            this.dateTimePicker1.TabIndex = 8;
+            this.textBoxDescripcion.AcceptsTab = true;
+            this.textBoxDescripcion.Enabled = false;
+            this.textBoxDescripcion.Location = new System.Drawing.Point(12, 283);
+            this.textBoxDescripcion.Name = "textBoxDescripcion";
+            this.textBoxDescripcion.Size = new System.Drawing.Size(100, 20);
+            this.textBoxDescripcion.TabIndex = 10;
             // 
-            // dateTimePicker2
+            // buttonSalir
             // 
-            this.dateTimePicker2.Enabled = false;
-            this.dateTimePicker2.Location = new System.Drawing.Point(12, 143);
-            this.dateTimePicker2.Name = "dateTimePicker2";
-            this.dateTimePicker2.Size = new System.Drawing.Size(200, 20);
-            this.dateTimePicker2.TabIndex = 9;
+            this.buttonSalir.Location = new System.Drawing.Point(524, 330);
+            this.buttonSalir.Name = "buttonSalir";
+            this.buttonSalir.Size = new System.Drawing.Size(75, 23);
+            this.buttonSalir.TabIndex = 11;
+            this.buttonSalir.Text = "Salir";
+            this.buttonSalir.UseVisualStyleBackColor = true;
             // 
-            // textBox1
-            // 
-            this.textBox1.AcceptsTab = true;
-            this.textBox1.Enabled = false;
-            this.textBox1.Location = new System.Drawing.Point(12, 283);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(100, 20);
-            this.textBox1.TabIndex = 10;
-            // 
-            // VBanner
+            // VAbstractBase
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(613, 397);
-            this.Controls.Add(this.textBox1);
-            this.Controls.Add(this.dateTimePicker2);
-            this.Controls.Add(this.dateTimePicker1);
-            this.Controls.Add(this.dataGridView1);
-            this.Controls.Add(this.checkBox3);
-            this.Controls.Add(this.checkBox2);
-            this.Controls.Add(this.checkBox1);
+            this.ClientSize = new System.Drawing.Size(613, 368);
+            this.Controls.Add(this.buttonSalir);
+            this.Controls.Add(this.textBoxDescripcion);
+            this.Controls.Add(this.dataGridViewMostrar);
+            this.Controls.Add(this.checkBoxDescripcion);
+            this.Controls.Add(this.checkBoxRangoHoras);
+            this.Controls.Add(this.checkBoxRangoFechas);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.button3);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.buttonEliminar);
+            this.Controls.Add(this.buttonModificar);
+            this.Controls.Add(this.buttonNuevo);
             this.Name = "VAbstractBase";
             this.Text = "VAbstractBase";
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewMostrar)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -171,16 +162,15 @@
 
         #endregion
 
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.CheckBox checkBox1;
-        private System.Windows.Forms.CheckBox checkBox2;
-        private System.Windows.Forms.CheckBox checkBox3;
-        private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.DateTimePicker dateTimePicker1;
-        private System.Windows.Forms.DateTimePicker dateTimePicker2;
-        private System.Windows.Forms.TextBox textBox1;
+        protected System.Windows.Forms.Button buttonNuevo;
+        protected System.Windows.Forms.Button buttonModificar;
+        protected System.Windows.Forms.Button buttonEliminar;
+        protected System.Windows.Forms.Label label1;
+        protected System.Windows.Forms.CheckBox checkBoxRangoFechas;
+        protected System.Windows.Forms.CheckBox checkBoxRangoHoras;
+        protected System.Windows.Forms.CheckBox checkBoxDescripcion;
+        protected System.Windows.Forms.DataGridView dataGridViewMostrar;
+        protected System.Windows.Forms.TextBox textBoxDescripcion;
+        protected System.Windows.Forms.Button buttonSalir;
     }
 }

@@ -17,6 +17,16 @@ namespace UI.UserControls
             InitializeComponent();
         }
 
+        public DateTime FechaInicio
+        {
+            get { return this.dateTimePickerInicio.Value; }
+        }
+
+        public DateTime FechaFin
+        {
+            get { return this.dateTimePickerFin.Value; }
+        }
+
         private void dateTimePickerInicio_ValueChanged(object sender, EventArgs e)
         {
             this.dateTimePickerFin.MinDate = this.dateTimePickerInicio.Value;

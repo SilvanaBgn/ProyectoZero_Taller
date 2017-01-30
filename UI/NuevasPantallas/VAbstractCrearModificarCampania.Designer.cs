@@ -34,6 +34,8 @@
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
+            this.buttonGuardar = new System.Windows.Forms.Button();
+            this.buttonCancelar = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label1
@@ -86,11 +88,31 @@
             this.label4.TabIndex = 5;
             this.label4.Text = "Rango horario";
             // 
+            // buttonGuardar
+            // 
+            this.buttonGuardar.Location = new System.Drawing.Point(154, 300);
+            this.buttonGuardar.Name = "buttonGuardar";
+            this.buttonGuardar.Size = new System.Drawing.Size(75, 23);
+            this.buttonGuardar.TabIndex = 6;
+            this.buttonGuardar.Text = "Guardar";
+            this.buttonGuardar.UseVisualStyleBackColor = true;
+            // 
+            // buttonCancelar
+            // 
+            this.buttonCancelar.Location = new System.Drawing.Point(235, 300);
+            this.buttonCancelar.Name = "buttonCancelar";
+            this.buttonCancelar.Size = new System.Drawing.Size(75, 23);
+            this.buttonCancelar.TabIndex = 7;
+            this.buttonCancelar.Text = "Cancelar";
+            this.buttonCancelar.UseVisualStyleBackColor = false;
+            // 
             // VAbstractCrearModificarCampania
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(322, 335);
+            this.Controls.Add(this.buttonCancelar);
+            this.Controls.Add(this.buttonGuardar);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.textBox2);
@@ -106,11 +128,13 @@
 
         #endregion
 
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label4;
+        protected System.Windows.Forms.Label label1;
+        protected System.Windows.Forms.Label label2;
+        protected System.Windows.Forms.TextBox textBox1;
+        protected System.Windows.Forms.TextBox textBox2;
+        protected System.Windows.Forms.Label label3;
+        protected System.Windows.Forms.Label label4;
+        protected System.Windows.Forms.Button buttonGuardar;
+        protected System.Windows.Forms.Button buttonCancelar;
     }
 }

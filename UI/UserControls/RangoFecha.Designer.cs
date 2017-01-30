@@ -29,11 +29,11 @@
         private void InitializeComponent()
         {
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.labelCantDias = new System.Windows.Forms.Label();
             this.labelFin = new System.Windows.Forms.Label();
             this.labelInicio = new System.Windows.Forms.Label();
             this.dateTimePickerFin = new System.Windows.Forms.DateTimePicker();
             this.dateTimePickerInicio = new System.Windows.Forms.DateTimePicker();
-            this.labelCantDias = new System.Windows.Forms.Label();
             this.groupBox2.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -44,12 +44,20 @@
             this.groupBox2.Controls.Add(this.labelInicio);
             this.groupBox2.Controls.Add(this.dateTimePickerFin);
             this.groupBox2.Controls.Add(this.dateTimePickerInicio);
-            this.groupBox2.Location = new System.Drawing.Point(17, 15);
+            this.groupBox2.Location = new System.Drawing.Point(0, 0);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(232, 93);
             this.groupBox2.TabIndex = 47;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Rango Fecha";
+            // 
+            // labelCantDias
+            // 
+            this.labelCantDias.AutoSize = true;
+            this.labelCantDias.Location = new System.Drawing.Point(45, 72);
+            this.labelCantDias.Name = "labelCantDias";
+            this.labelCantDias.Size = new System.Drawing.Size(0, 13);
+            this.labelCantDias.TabIndex = 22;
             // 
             // labelFin
             // 
@@ -91,21 +99,13 @@
             this.dateTimePickerInicio.TabIndex = 18;
             this.dateTimePickerInicio.ValueChanged += new System.EventHandler(this.dateTimePickerInicio_ValueChanged);
             // 
-            // labelCantDias
-            // 
-            this.labelCantDias.AutoSize = true;
-            this.labelCantDias.Location = new System.Drawing.Point(45, 72);
-            this.labelCantDias.Name = "labelCantDias";
-            this.labelCantDias.Size = new System.Drawing.Size(0, 13);
-            this.labelCantDias.TabIndex = 22;
-            // 
             // RangoFecha
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.groupBox2);
             this.Name = "RangoFecha";
-            this.Size = new System.Drawing.Size(286, 111);
+            this.Size = new System.Drawing.Size(235, 96);
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
             this.ResumeLayout(false);
