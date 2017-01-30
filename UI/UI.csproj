@@ -90,6 +90,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="PruebaGaleria.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PruebaGaleria.Designer.cs">
+      <DependentUpon>PruebaGaleria.cs</DependentUpon>
+    </Compile>
     <Compile Include="UserControls\CampaniaDeslizante.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -119,10 +125,6 @@
     </Compile>
     <Compile Include="NuevasPantallas\VAbstractCrearModificarCampania.Designer.cs">
       <DependentUpon>VAbstractCrearModificarCampania.cs</DependentUpon>
-    </Compile>
-    <Compile Include="NuevasPantallas\VBaseBanner.cs" />
-    <Compile Include="NuevasPantallas\VBaseBanner.Designer.cs">
-      <DependentUpon>VBaseBanner.cs</DependentUpon>
     </Compile>
     <Compile Include="NuevasPantallas\VBaseCampania.cs">
       <SubType>Form</SubType>
@@ -183,6 +185,12 @@
     </Compile>
     <Compile Include="PruebaRangoFecha.Designer.cs">
       <DependentUpon>PruebaRangoFecha.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\GaleriaConBotones.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\GaleriaConBotones.Designer.cs">
+      <DependentUpon>GaleriaConBotones.cs</DependentUpon>
     </Compile>
     <Compile Include="UserControls\Galeria.cs">
       <SubType>UserControl</SubType>
@@ -348,9 +356,6 @@
     <EmbeddedResource Include="NuevasPantallas\VAbstractCrearModificarBanner.resx">
       <DependentUpon>VAbstractCrearModificarBanner.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="NuevasPantallas\VAbstractCrearModificarCampania.resx">
-      <DependentUpon>VAbstractCrearModificarCampania.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="NuevasPantallas\VBaseFuente.resx">
       <DependentUpon>VBaseFuente.cs</DependentUpon>
     </EmbeddedResource>
@@ -360,8 +365,14 @@
     <EmbeddedResource Include="NuevasPantallas\VAbstractCrearModificarFuente.resx">
       <DependentUpon>VAbstractCrearModificarFuente.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="PruebaGaleria.resx">
+      <DependentUpon>PruebaGaleria.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="PruebaRangoFecha.resx">
       <DependentUpon>PruebaRangoFecha.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\GaleriaConBotones.resx">
+      <DependentUpon>GaleriaConBotones.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UserControls\Galeria.resx">
       <DependentUpon>Galeria.cs</DependentUpon>
@@ -485,6 +496,30 @@
       <Project>{86b9361e-1c96-41b4-80c6-5e7dcb76e8de}</Project>
       <Name>Helper</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Eliminar2.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Agregar5.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\AgregarImagen1.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Eliminar4.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Play1.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Arriba1.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Abajo1.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Pausa1.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

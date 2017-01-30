@@ -15,7 +15,7 @@ namespace UI
     public abstract partial class VAbstractFuenteRss : Form
     {
         protected ControladorDominio iControlador;
-        protected FuenteRss iFuente;
+        protected Fuente iFuente;
 
         public VAbstractFuenteRss()
         {

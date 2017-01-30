@@ -10,17 +10,22 @@ namespace Helper
 {
     public static class ConversorImagen
     {
-        public static byte[] ImageToByte(string pImagen)
+        /// <summary>
+        /// Convierte una imagen de una ruta de archivo en una cadena de bytes
+        /// </summary>
+        /// <param name="pImagenUrl">Path (ruta de archivo) de la imagen</param>
+        /// <returns>Devuelve la cadena de bytes que representa a esa imagen</returns>
+        public static byte[] ImageToByte(string pImagenUrl)
         {
-            FileStream stream = new FileStream(pImagen, FileMode.Open, FileAccess.Read);
+            FileStream stream = new FileStream(pImagenUrl, FileMode.Open, FileAccess.Read);
             //Se inicailiza un flujo de archivo con la imagen seleccionada desde el disco.
             BinaryReader br = new BinaryReader(stream);
-            FileInfo fi = new FileInfo(pImagen);
+            FileInfo fi = new FileInfo(pImagenUrl);
 
             //Se inicializa un arreglo de Bytes del tamaño de la imagen
             byte[] binData = new byte[stream.Length];
             //Se almacena en el arreglo de bytes la informacion que se obtiene del flujo de archivos(foto)
-            //Lee el bloque de bytes del flujo y escribe los datos en un búfer dado.
+            //Lee el bloque de bytes del flujo y escribe los datos en el buffer dado.
             stream.Read(binData, 0, Convert.ToInt32(stream.Length));
             return binData;
         }

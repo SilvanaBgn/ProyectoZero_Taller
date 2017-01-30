@@ -19,7 +19,19 @@ namespace UI.UserControls
         /// Timer para cambiar las imágenes en el PictureBox
         /// </summary>
         private Timer iTimerImagenes;
+        /// <summary>
+        /// Variables para controles internos del funcionamiento del timer
+        /// </summary>
         private int iIndice, iCount;
+
+        /// <summary>
+        /// Indica si la campaña deslizante está actualmente en funcionamiento
+        /// </summary>
+        private bool iFuncionando;
+        public bool Funcionando
+        {
+            get { return this.iFuncionando; }
+        }
 
         /// <summary>
         /// Lista de las imágenes a pasar ordenadas
@@ -36,6 +48,7 @@ namespace UI.UserControls
 
             this.iIndice = this.iCount = 0;
             this.iListaImagenesOrdenada = new List<Imagen>();
+            this.iFuncionando = false;
         }
 
         /// <summary>
@@ -60,11 +73,7 @@ namespace UI.UserControls
 
 
         /// <summary>
-        /// Da comienzo a la campania deslizante
-        /// </summary>
-        public void Start() { this.Start(0,null); }
-        /// <summary>
-        /// Se lo utiliza como pictureBox
+        /// Sólo se utiliza el pictureBox de la campaña deslizante
         /// </summary>
         /// <param name="pImagen">Imagen en formato Bitmap, que se desea mostrar</param>
         public void Start(byte[] pImagen)
@@ -76,7 +85,7 @@ namespace UI.UserControls
         /// </summary>
         /// <param name="pDuracion">Duracion en segundos de cada imagen</param>
         /// <param name="pLista">Lista de imágenes a pasar en la campaña</param>
-        public void Start(int pDuracion, List<Imagen> pLista)
+        public void Start(List<Imagen> pLista, int pDuracion)
         {
             if (pLista != null)
             {
@@ -89,6 +98,7 @@ namespace UI.UserControls
                 this.iListaImagenesOrdenada = pLista.OrderBy(x => x.Orden).ToList();
 
                 this.iTimerImagenes.Start();//Se da comienzo al deslizamiento de la campaña
+                this.iFuncionando = true;
             }
         }
 
@@ -97,8 +107,11 @@ namespace UI.UserControls
         /// </summary>
         public void Stop()
         {
-            if(this.iTimerImagenes.Enabled)
+            if (this.iTimerImagenes.Enabled)
+            {
                 this.iTimerImagenes.Stop(); //Se da fin al deslizamiento de la campaña
+                this.iFuncionando = false;
+            }
         }
     }
 }
