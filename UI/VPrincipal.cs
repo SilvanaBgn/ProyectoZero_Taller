@@ -334,8 +334,8 @@ namespace UI
         #region ToolStripMenuItem
         private void bannerToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            VBaseBanner vBanner = new VBaseBanner(ref this.iControladorDominio, ref this.iControladorContenedor);
-            vBanner.Show();
+           // VBaseBanner vBanner = new VBaseBanner(ref this.iControladorDominio, ref this.iControladorContenedor);
+           // vBanner.Show();
         }
 
         private void campaniaToolStripMenuItem_Click(object sender, EventArgs e)
