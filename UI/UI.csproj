@@ -90,6 +90,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="PruebaRangoHora.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PruebaRangoHora.Designer.cs">
+      <DependentUpon>PruebaRangoHora.cs</DependentUpon>
+    </Compile>
     <Compile Include="UserControls\CampaniaDeslizante.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -119,12 +125,6 @@
     </Compile>
     <Compile Include="NuevasPantallas\VAbstractCrearModificarCampania.Designer.cs">
       <DependentUpon>VAbstractCrearModificarCampania.cs</DependentUpon>
-    </Compile>
-    <Compile Include="NuevasPantallas\VBaseBanner.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="NuevasPantallas\VBaseBanner.Designer.cs">
-      <DependentUpon>VBaseBanner.cs</DependentUpon>
     </Compile>
     <Compile Include="NuevasPantallas\VBaseCampania.cs">
       <SubType>Form</SubType>
@@ -356,9 +356,6 @@
     <EmbeddedResource Include="NuevasPantallas\VAbstractCrearModificarBanner.resx">
       <DependentUpon>VAbstractCrearModificarBanner.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="NuevasPantallas\VAbstractCrearModificarCampania.resx">
-      <DependentUpon>VAbstractCrearModificarCampania.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="NuevasPantallas\VBaseFuente.resx">
       <DependentUpon>VBaseFuente.cs</DependentUpon>
     </EmbeddedResource>
@@ -367,6 +364,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="NuevasPantallas\VAbstractCrearModificarFuente.resx">
       <DependentUpon>VAbstractCrearModificarFuente.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PruebaRangoHora.resx">
+      <DependentUpon>PruebaRangoHora.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="PruebaRangoFecha.resx">
       <DependentUpon>PruebaRangoFecha.cs</DependentUpon>

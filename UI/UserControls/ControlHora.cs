@@ -16,6 +16,12 @@ namespace RangoHorario
         {
             InitializeComponent();
             this.labelDiferenciaEntreInicioFin.Text = this.DiferenciaEntreHoras(this.dateTimePickerHoraInicio, this.dateTimePickerHoraFin);
+
+            this.dateTimePickerHoraInicio.MaxDate = DateTime.Today + new TimeSpan(23,30,0);
+            this.dateTimePickerHoraInicio.MinDate = DateTime.Today + new TimeSpan(0, 0, 0);
+
+            this.dateTimePickerHoraFin.MaxDate = DateTime.Today + new TimeSpan(23, 45, 0);
+            this.dateTimePickerHoraFin.MinDate = DateTime.Today + new TimeSpan(0, 15, 0);
         }
 
         /// <summary>
@@ -38,7 +44,7 @@ namespace RangoHorario
         }
 
         /// <summary>
-        /// Modifica el pDateTimePicker para que cambie segun el intervalo especificado
+        /// Modifica el pDateTimePicker para que cambie según el intervalo especificado
         /// </summary>
         /// <param name="pDateTimePicker">hora</param>
         /// <param name="pIntervalo">intervalo de salto</param>
@@ -69,7 +75,7 @@ namespace RangoHorario
         /// Si los valores que se le ingresa a los minutos del pDateTimePicker son distintos que 00, 15, 30 o 45,
         /// se los redondea a dichos valores (00, 15, 30, 45)
         /// </summary>
-        /// <param name="pDateTimePicker">hora</param>
+        /// <param name="pDateTimePicker">Hora a redondear</param>
         /// <param name="pPrimero">primer valor de un cuarto de hora</param>
         /// <param name="pUltimo">ultimo valor de un cuarto de hora</param>
         /// <param name="cambio">valor por el que cual se cambian los minutos cuando no corresponden con 00, 15, 30 o 45</param>
@@ -87,9 +93,9 @@ namespace RangoHorario
         /// <summary>
         /// Calcula la diferencia que existe entre dos horas (hora de inicio y hora de fin)
         /// </summary>
-        /// <param name="pHoraInicio">hora de inicio</param>
-        /// <param name="pHoraFin">hora de fin</param>
-        /// <returns>diferencia entre las horas</returns>
+        /// <param name="pHoraInicio">Hora de inicio</param>
+        /// <param name="pHoraFin">Hora de fin</param>
+        /// <returns>Devuelve un string con la diferencia entre las horas</returns>
         private string DiferenciaEntreHoras(DateTimePicker pHoraInicio, DateTimePicker pHoraFin)
         {
             TimeSpan diferenciaHoras = new TimeSpan();
