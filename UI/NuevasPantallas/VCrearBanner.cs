@@ -31,7 +31,10 @@ namespace UI.NuevasPantallas
             //bannerAAgregar.HoraInicio = this.controlHora.dateTimePickerHoraInicio;
             //bannerAAgregar.HoraFin = this.controlHora.dateTimePickerHoraFin;
             //--------------------------------------------------------------------------------
-            bannerAAgregar.Fuente = (Fuente)this.dataGridViewMostrarFuentes.CurrentRow.DataBoundItem;
+            //bannerAAgregar.Fuente = (Fuente)this.dataGridViewMostrarFuentes.CurrentRow.DataBoundItem;
+
+            this.iControladorDominio.AgregarBanner(bannerAAgregar);
+            this.iControladorDominio.GuardarCambios();
         }
     }
 }

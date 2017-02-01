@@ -36,10 +36,10 @@ namespace Dominio
         [DataType(DataType.Date), Required]
         public DateTime FechaFin { get; set; }
 
-        [Timestamp, Required]
-        public TimeSpan HoraInicio { get; set; }
-        [Timestamp, Required]
-        public TimeSpan HoraFin { get; set; }
+        //[/*Timestamp,*/ Required]
+        //public /*TimeSpan*/ byte[] HoraInicio { get; set; }
+        //[/*Timestamp,*/ Required]
+        //public /*TimeSpan*/ byte[] HoraFin { get; set; }
 
         /// <summary>
         /// Constructor

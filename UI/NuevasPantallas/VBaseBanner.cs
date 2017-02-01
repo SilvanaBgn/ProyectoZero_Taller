@@ -8,14 +8,18 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using UI.NuevasPantallas;
+using Dominio;
 
 namespace UI.NuevasPantallas
 {
     public partial class VBaseBanner : VAbstractBase
     {
-        public VBaseBanner()
+        public VBaseBanner(ref ControladorDominio pControladorDominio) : base(ref pControladorDominio)
         {
             InitializeComponent();
+            this.iControladorDominio = pControladorDominio;
+            this.buttonNuevo.Click += buttonNuevo_Click;
+            CargarBanners();
         }
 
         public void CargarBanners()
@@ -25,7 +29,9 @@ namespace UI.NuevasPantallas
 
         private void buttonNuevo_Click(object sender, EventArgs e)
         {
-
+            this.Hide();
+            var form2 = new VCrearBanner(ref iControladorDominio);
+            form2.Show();
         }
 
         private void buttonModificar_Click(object sender, EventArgs e)

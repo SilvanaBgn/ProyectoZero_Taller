@@ -26,19 +26,17 @@ namespace Dominio
         public string Descripcion { get; set; }
 
 
-        [Required]
-        public int FuenteId { get; set; }
-        [Required]
-        public virtual Fuente Fuente { get; set;}
+        //[Required]
+        //public int FuenteId { get; set; }
+        //[Required]
+        //public virtual Fuente Fuente { get; set;}
 
         [DataType(DataType.Date),Required]
         public DateTime FechaInicio { get; set; }
         [DataType(DataType.Date),Required]
         public DateTime FechaFin { get; set; }
 
-        [Timestamp,Required]
         public TimeSpan HoraInicio { get; set; }
-        [Timestamp, Required]
         public TimeSpan HoraFin { get; set; }
     }
 }

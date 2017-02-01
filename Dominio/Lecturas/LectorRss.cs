@@ -25,13 +25,8 @@ namespace Dominio.Lecturas
 
         public IEnumerable<Item> Leer(String pUrl)
         {
-            try
-            {
                     this.ItemsRss = this.Leer(new Uri(pUrl));
-            }
             //if (String.IsNullOrWhiteSpace(pUrl)) //Comprobarlo con una expresión regular!!
-            catch (Exception)
-            { }
 
             return this.ItemRss_a_Item();
         }
