@@ -103,10 +103,12 @@
             this.buttonEliminarImagen.Size = new System.Drawing.Size(28, 31);
             this.buttonEliminarImagen.TabIndex = 62;
             this.buttonEliminarImagen.UseVisualStyleBackColor = true;
+            this.buttonEliminarImagen.Click += new System.EventHandler(this.buttonEliminarImagen_Click);
             // 
             // campaniaDeslizante1
             // 
             this.campaniaDeslizante1.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.campaniaDeslizante1.ErrorImage = global::UI.Properties.Resources.Sin_imagen;
             this.campaniaDeslizante1.Location = new System.Drawing.Point(270, 6);
             this.campaniaDeslizante1.Name = "campaniaDeslizante1";
             this.campaniaDeslizante1.Size = new System.Drawing.Size(215, 179);

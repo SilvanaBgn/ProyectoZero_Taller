@@ -18,7 +18,8 @@ namespace UI
             Application.SetCompatibleTextRenderingDefault(false);
             //Application.Run(new VPrincipal());
             //Application.Run(new PruebaRangoFecha());
-            Application.Run(new PruebaRangoHora());
+            //Application.Run(new PruebaRangoHora());
+            Application.Run(new PruebaGaleria());
         }
     }
 }
