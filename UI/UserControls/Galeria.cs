@@ -109,8 +109,39 @@ namespace UI.UserControls
                     this.listView1.Items.Add(fila);
                 }
                 //Seleccionamos el primer elemento del ListView:
-                this.listView1.Items[0].Focused = true;
+                this.listView1.Focus();
                 this.listView1.Items[0].Selected = true;
+
+                //Actualizamos la lista de imágenes:
+                this.ActualizarListaImagenes();
+            }
+        }
+
+        /// <summary>
+        /// Evento que se activa al presionar el botón this.buttonEliminarImagen
+        /// </summary>
+        private void buttonEliminarImagen_Click(object sender, EventArgs e)
+        {
+            if (this.listView1.SelectedItems.Count == 1)
+            {
+                int posBorrada = this.listView1.SelectedItems[0].Index;
+                this.listView1.Items.RemoveAt(posBorrada);//(Borramos el item)
+
+                //Si no es el último item (ya que no se puede bajar más):
+                if ((this.listView1.Items.Count) > 0) //(Hay más de un item en la lista)
+                {
+                    //Cambiamos el campo "Numero" que indica el ordenamiento de los items:
+                    for (int i = posBorrada; i < (this.listView1.Items.Count); i++)
+                    {
+                        this.listView1.Items[i].SubItems[0].Text = (i + 1).ToString();
+                    }
+                    //Seleccionamos el primer elemento del ListView:
+                    this.listView1.Focus();
+                    this.listView1.Items[0].Selected = true;
+
+                }
+                else
+                    this.campaniaDeslizante1.Stop();
 
                 //Actualizamos la lista de imágenes:
                 this.ActualizarListaImagenes();
@@ -170,5 +201,7 @@ namespace UI.UserControls
                 this.campaniaDeslizante1.Start(ConversorImagen.ImageToByte(this.listView1.SelectedItems[0].SubItems[2].Text));
             }
         }
+
+       
     }
 }

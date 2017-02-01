@@ -30,14 +30,27 @@ namespace UI
         /// </summary>
         private void InitializeComponent()
         {
+            this.controlHora1 = new RangoHorario.ControlHora();
             this.SuspendLayout();
             // 
-            // rangoFecha1
+            // controlHora1
             // 
+            this.controlHora1.Location = new System.Drawing.Point(35, 41);
+            this.controlHora1.Name = "controlHora1";
+            this.controlHora1.Size = new System.Drawing.Size(120, 101);
+            this.controlHora1.TabIndex = 0;
+            // 
+            // PruebaRangoHora
+            // 
+            this.ClientSize = new System.Drawing.Size(284, 262);
+            this.Controls.Add(this.controlHora1);
+            this.Name = "PruebaRangoHora";
             this.ResumeLayout(false);
+
         }
 
         #endregion
 
+        private RangoHorario.ControlHora controlHora1;
     }
 }

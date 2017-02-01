@@ -24,6 +24,8 @@ namespace UI.UserControls
         /// </summary>
         private int iIndice, iCount;
 
+        private Image iSinImagen;
+
         /// <summary>
         /// Indica si la campaña deslizante está actualmente en funcionamiento
         /// </summary>
@@ -49,6 +51,8 @@ namespace UI.UserControls
             this.iIndice = this.iCount = 0;
             this.iListaImagenesOrdenada = new List<Imagen>();
             this.iFuncionando = false;
+
+            this.Image=this.iSinImagen= global::UI.Properties.Resources.Sin_imagen;
         }
 
         /// <summary>
@@ -110,8 +114,9 @@ namespace UI.UserControls
             if (this.iTimerImagenes.Enabled)
             {
                 this.iTimerImagenes.Stop(); //Se da fin al deslizamiento de la campaña
-                this.iFuncionando = false;
             }
+            this.iFuncionando = false;
+            this.Image = this.iSinImagen;
         }
     }
 }
