@@ -72,9 +72,7 @@
             this.dateTimePickerHoraInicio.ShowUpDown = true;
             this.dateTimePickerHoraInicio.Size = new System.Drawing.Size(56, 20);
             this.dateTimePickerHoraInicio.TabIndex = 3;
-            this.dateTimePickerHoraInicio.Value = new System.DateTime(2017, 1, 26, 0, 0, 0, 0);
-            this.dateTimePickerHoraInicio.MinDate = System.DateTime.Today + new System.TimeSpan(0, 0, 0);
-            this.dateTimePickerHoraInicio.MaxDate = System.DateTime.Today + new System.TimeSpan(23, 30, 0);
+            this.dateTimePickerHoraInicio.Value = new System.DateTime(2017, 1, 30, 0, 0, 0, 0);
             this.dateTimePickerHoraInicio.ValueChanged += new System.EventHandler(this.dateTimePickerHoraInicio_ValueChanged);
             // 
             // dateTimePickerHoraFin
@@ -86,9 +84,7 @@
             this.dateTimePickerHoraFin.ShowUpDown = true;
             this.dateTimePickerHoraFin.Size = new System.Drawing.Size(56, 20);
             this.dateTimePickerHoraFin.TabIndex = 4;
-            this.dateTimePickerHoraFin.Value = new System.DateTime(2017, 1, 26, 0, 15, 0, 0);
-            this.dateTimePickerHoraFin.MinDate = this.dateTimePickerHoraInicio.Value + new System.TimeSpan(0, 15, 0);
-            this.dateTimePickerHoraFin.MaxDate = System.DateTime.Today + new System.TimeSpan(23, 45, 0);
+            this.dateTimePickerHoraFin.Value = new System.DateTime(2017, 1, 30, 0, 0, 0, 0);
             this.dateTimePickerHoraFin.ValueChanged += new System.EventHandler(this.dateTimePickerHoraFin_ValueChanged);
             // 
             // groupBox1
@@ -101,7 +97,7 @@
             this.groupBox1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBox1.Location = new System.Drawing.Point(0, 0);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(270, 150);
+            this.groupBox1.Size = new System.Drawing.Size(120, 101);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Rango Horario";
@@ -112,7 +108,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.groupBox1);
             this.Name = "ControlHora";
-            this.Size = new System.Drawing.Size(270, 150);
+            this.Size = new System.Drawing.Size(120, 101);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.ResumeLayout(false);

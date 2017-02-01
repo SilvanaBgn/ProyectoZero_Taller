@@ -96,11 +96,23 @@
     <Compile Include="NuevasPantallas\VBaseBanner.Designer.cs">
       <DependentUpon>VBaseBanner.cs</DependentUpon>
     </Compile>
-    <Compile Include="NuevasPantallas\VPrincipal.cs">
+    <Compile Include="PruebaGaleria.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="NuevasPantallas\VPrincipal.Designer.cs">
-      <DependentUpon>VPrincipal.cs</DependentUpon>
+    <Compile Include="PruebaGaleria.Designer.cs">
+      <DependentUpon>PruebaGaleria.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PruebaRangoHora.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PruebaRangoHora.Designer.cs">
+      <DependentUpon>PruebaRangoHora.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PruebaRangoHorario.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PruebaRangoHorario.Designer.cs">
+      <DependentUpon>PruebaRangoHorario.cs</DependentUpon>
     </Compile>
     <Compile Include="UserControls\CampaniaDeslizante.cs">
       <SubType>Component</SubType>
@@ -362,9 +374,6 @@
     <EmbeddedResource Include="NuevasPantallas\VAbstractCrearModificarBanner.resx">
       <DependentUpon>VAbstractCrearModificarBanner.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="NuevasPantallas\VAbstractCrearModificarCampania.resx">
-      <DependentUpon>VAbstractCrearModificarCampania.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="NuevasPantallas\VBaseFuente.resx">
       <DependentUpon>VBaseFuente.cs</DependentUpon>
     </EmbeddedResource>
@@ -374,11 +383,17 @@
     <EmbeddedResource Include="NuevasPantallas\VAbstractCrearModificarFuente.resx">
       <DependentUpon>VAbstractCrearModificarFuente.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="NuevasPantallas\VPrincipal.resx">
-      <DependentUpon>VPrincipal.cs</DependentUpon>
+    <EmbeddedResource Include="PruebaGaleria.resx">
+      <DependentUpon>PruebaGaleria.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="PruebaRangoFecha.resx">
       <DependentUpon>PruebaRangoFecha.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PruebaRangoHora.resx">
+      <DependentUpon>PruebaRangoHora.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PruebaRangoHorario.resx">
+      <DependentUpon>PruebaRangoHorario.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UserControls\ControlHora.resx">
       <DependentUpon>ControlHora.cs</DependentUpon>
@@ -505,6 +520,17 @@
       <Project>{86b9361e-1c96-41b4-80c6-5e7dcb76e8de}</Project>
       <Name>Helper</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Resources\Abajo1.ico" />
+    <Content Include="Resources\Agregar5.ico" />
+    <Content Include="Resources\AgregarImagen1.ico" />
+    <Content Include="Resources\Arriba1.ico" />
+    <Content Include="Resources\Eliminar2.ico" />
+    <Content Include="Resources\Eliminar4.ico" />
+    <Content Include="Resources\Pausa1.ico" />
+    <Content Include="Resources\Play1.ico" />
+    <None Include="Resources\Sin imagen.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

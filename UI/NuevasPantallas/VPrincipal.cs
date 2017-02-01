@@ -7,36 +7,43 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using Dominio;
-using Contenedor;
 
 namespace UI.NuevasPantallas
 {
     public partial class VPrincipal : Form
     {
-
-        private ControladorDominio iControladorDominio;
-        private ControladorContenedor iControladorContenedor;
-
         public VPrincipal()
         {
             InitializeComponent();
-            this.iControladorContenedor = new ControladorContenedor();
-            this.iControladorDominio = new ControladorDominio(Resolucionador<IUnitOfWork>.Resolver());
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void bannerToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            this.Hide();
-            var form2 = new VBaseBanner(ref iControladorDominio);
-            form2.Show();
+            VBaseBanner vBanner = new VBaseBanner();
+            vBanner.Show();
         }
 
-        private void button2_Click(object sender, EventArgs e)
+        private void campañaToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            this.Hide();
-            var form2 = new VCrearCampania(ref iControladorDominio);
-            form2.Show();
+            VBaseCampania vCampania = new VBaseCampania();
+            vCampania.Show();
+        }
+
+        private void fuenteToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            VBaseFuente vFuente = new VBaseFuente();
+            vFuente.Show();
+        }
+
+        private void verPantallaCompletaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.WindowState = FormWindowState.Maximized;
+            this.menuStrip1.Visible = false;
+        }
+
+        private void salirToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }
