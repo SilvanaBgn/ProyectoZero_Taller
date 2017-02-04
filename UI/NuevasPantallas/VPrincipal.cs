@@ -19,8 +19,8 @@ namespace UI.NuevasPantallas
 
         private void bannerToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            VBaseBanner vBanner = new VBaseBanner();
-            vBanner.Show();
+            //VBaseBanner vBanner = new VBaseBanner();
+            //vBanner.Show();
         }
 
         private void campañaToolStripMenuItem_Click(object sender, EventArgs e)
