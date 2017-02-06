@@ -66,6 +66,65 @@ namespace Dominio
         {
             return this.iUoW.RepositorioBanners.Obtener(null, null).ToList();
         }
+
+        /// <summary>
+        /// Busca cuál es el próximo banner a pasar en el siguiente cuarto de hora
+        /// </summary>
+        /// <returns>Devuelve el banner a pasar en el siguiente cuarto de hora, sino devuelve null</returns>
+        private Banner ProximoBannerAPasar()
+        {
+            DateTime fechaActual = DateTime.Now;
+            TimeSpan horaActual = new TimeSpan(fechaActual.Hour, fechaActual.Minute, fechaActual.Second);
+
+            //Buscamos el próximo banner a pasar:
+                // que fechaActual sea mayor o igual a FechaInicio y menor o igual a FechaFin --> FechaInicio<=fechaActual<=FechaFin
+                //HoraInicio <= horaActual < HoraFin
+                //Debería devolver un solo banner
+                List<Banner> posiblesBanners = this.BuscarBannerPorAtributo
+                 (x => x.FechaInicio.CompareTo(fechaActual) <= 0 && x.FechaFin.CompareTo(fechaActual) >= 0
+                      && x.HoraInicio.CompareTo(horaActual) <= 0 && x.HoraFin.CompareTo(horaActual) > 0
+                 );
+
+            if (posiblesBanners.Count > 0) //Si encontró algún banner para el próximo cuarto de hora
+                return posiblesBanners[0]; //Tomamos el primer banner que encontró
+            else
+                return null;
+        }
+
+        /// <summary>
+        /// Busca cuál es la Fuente que corresponde a <paramref name="pBanner"/>
+        /// </summary>
+        /// <param name="pBanner">Banner del que se quiere conocer la Fuente</param>
+        /// <returns>Devuelve la fuente asociada a ese banner</returns>
+        private Fuente FuenteDeUnBanner(Banner pBanner)
+        {
+            return this.BuscarFuentePorId(pBanner.FuenteId);
+        }
+
+        /// <summary>
+        /// Averigua qué texto contiene el banner a pasar en el próximo cuarto de hora
+        /// </summary>
+        /// <returns>Devuelve un string con el texto a pasar</returns>
+        public string LeerProximoBanner()
+        {
+            string texto = "";
+            //Obtenemos el próximo banner:
+            Banner bannerAPasar = this.ProximoBannerAPasar();
+            if (bannerAPasar != null)
+            {
+                //Lo leemos:
+                Fuente fuenteDelBanner = this.FuenteDeUnBanner(bannerAPasar);
+                texto = bannerAPasar.Descripcion;
+                texto += ": ";
+                IList<Item> listaItems = (List<Item>)fuenteDelBanner.Leer();
+                //Asignamos su contenido a la variable texto:
+                for (int i = 0; i < listaItems.Count; i++)
+                {
+                    texto += listaItems[i].ToString() + " • | • ";
+                }
+            }
+            return texto;
+        }
         #endregion
 
         #region Campania

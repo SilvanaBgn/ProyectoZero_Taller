@@ -27,15 +27,25 @@ namespace UI.UserControls
         /// </summary>
         [DefaultValue("")]
         private string iTexto;
-        
-               
-    //CONSTRUCTOR
+
+        /// <summary>
+        /// Indica si el banner deslizante está actualmente en funcionamiento
+        /// </summary>
+        private bool iFuncionando;
+        public bool Funcionando
+        {
+            get { return this.iFuncionando; }
+        }
+
+
+        //CONSTRUCTOR
         public BannerDeslizante()
         {
             this.iCaracterInicial = 0;
             this.iTimerTexto = new Timer();
             this.iTimerTexto.Interval = 250;
             this.iTimerTexto.Tick += new EventHandler(timerTexto_Tick);
+            this.iFuncionando = false;
         }
 
 
@@ -105,6 +115,7 @@ namespace UI.UserControls
                 iTexto += "     " + iTexto; //Se repite el texto varias veces para completar el tamaño total
 
             this.iTimerTexto.Start();//Se da comienzo al deslizamiento del banner
+            this.iFuncionando = true;
         }
 
         /// <summary>
@@ -113,7 +124,10 @@ namespace UI.UserControls
         public void Stop()
         {
             if (this.iTimerTexto.Enabled)
+            {
                 this.iTimerTexto.Stop(); //Se da fin al deslizamiento del banner
+                this.iFuncionando = false;
+            }
         }
         #endregion
 

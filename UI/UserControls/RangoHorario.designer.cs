@@ -1,6 +1,6 @@
 ﻿namespace RangoHorario
 {
-    partial class ControlHora
+    partial class RangoHorario
     {
         /// <summary> 
         /// Variable del diseñador necesaria.

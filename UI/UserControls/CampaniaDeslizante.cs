@@ -114,9 +114,9 @@ namespace UI.UserControls
             if (this.iTimerImagenes.Enabled)
             {
                 this.iTimerImagenes.Stop(); //Se da fin al deslizamiento de la campaña
+                this.iFuncionando = false;
+                this.Image = this.iSinImagen;
             }
-            this.iFuncionando = false;
-            this.Image = this.iSinImagen;
         }
     }
 }

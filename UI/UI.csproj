@@ -88,8 +88,29 @@
     <Reference Include="System.Drawing" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
+    <Reference Include="UI">
+      <HintPath>obj\Debug\UI.exe</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="NuevasPantallas\VAbstractCrearModificarFuente.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="NuevasPantallas\VAbstractCrearModificarFuente.Designer.cs">
+      <DependentUpon>VAbstractCrearModificarFuente.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PruebaLecturaFuente.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PruebaLecturaFuente.designer.cs">
+      <DependentUpon>PruebaLecturaFuente.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PruebaLectorRss.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PruebaLectorRss.designer.cs">
+      <DependentUpon>PruebaLectorRss.cs</DependentUpon>
+    </Compile>
     <Compile Include="NuevasPantallas\VBaseBanner.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -107,12 +128,6 @@
     </Compile>
     <Compile Include="PruebaGaleria.Designer.cs">
       <DependentUpon>PruebaGaleria.cs</DependentUpon>
-    </Compile>
-    <Compile Include="PruebaRangoHora.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="PruebaRangoHora.Designer.cs">
-      <DependentUpon>PruebaRangoHora.cs</DependentUpon>
     </Compile>
     <Compile Include="PruebaRangoHorario.cs">
       <SubType>Form</SubType>
@@ -198,23 +213,23 @@
     <Compile Include="NuevasPantallas\VModificarFuente.Designer.cs">
       <DependentUpon>VModificarFuente.cs</DependentUpon>
     </Compile>
-    <Compile Include="NuevasPantallas\VAbstractCrearModificarFuente.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="NuevasPantallas\VAbstractCrearModificarFuente.Designer.cs">
-      <DependentUpon>VAbstractCrearModificarFuente.cs</DependentUpon>
-    </Compile>
     <Compile Include="PruebaRangoFecha.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="PruebaRangoFecha.Designer.cs">
       <DependentUpon>PruebaRangoFecha.cs</DependentUpon>
     </Compile>
-    <Compile Include="UserControls\ControlHora.cs">
+    <Compile Include="UserControls\LectorFuente.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="UserControls\ControlHora.designer.cs">
-      <DependentUpon>ControlHora.cs</DependentUpon>
+    <Compile Include="UserControls\LectorFuente.Designer.cs">
+      <DependentUpon>LectorFuente.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\RangoHorario.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\RangoHorario.designer.cs">
+      <DependentUpon>RangoHorario.cs</DependentUpon>
     </Compile>
     <Compile Include="UserControls\Galeria.cs">
       <SubType>UserControl</SubType>
@@ -374,6 +389,15 @@
     <Compile Include="VBannerNuevo.Designer.cs">
       <DependentUpon>VBannerNuevo.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="NuevasPantallas\VAbstractCrearModificarFuente.resx">
+      <DependentUpon>VAbstractCrearModificarFuente.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PruebaLecturaFuente.resx">
+      <DependentUpon>PruebaLecturaFuente.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PruebaLectorRss.resx">
+      <DependentUpon>PruebaLectorRss.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="NuevasPantallas\DatosBannerCampania.resx">
       <DependentUpon>DatosBannerCampania.cs</DependentUpon>
     </EmbeddedResource>
@@ -386,9 +410,6 @@
     <EmbeddedResource Include="NuevasPantallas\VModificarFuente.resx">
       <DependentUpon>VModificarFuente.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="NuevasPantallas\VAbstractCrearModificarFuente.resx">
-      <DependentUpon>VAbstractCrearModificarFuente.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="NuevasPantallas\VPrincipal.resx">
       <DependentUpon>VPrincipal.cs</DependentUpon>
     </EmbeddedResource>
@@ -398,14 +419,14 @@
     <EmbeddedResource Include="PruebaRangoFecha.resx">
       <DependentUpon>PruebaRangoFecha.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="PruebaRangoHora.resx">
-      <DependentUpon>PruebaRangoHora.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="PruebaRangoHorario.resx">
       <DependentUpon>PruebaRangoHorario.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UserControls\ControlHora.resx">
-      <DependentUpon>ControlHora.cs</DependentUpon>
+    <EmbeddedResource Include="UserControls\LectorFuente.resx">
+      <DependentUpon>LectorFuente.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\RangoHorario.resx">
+      <DependentUpon>RangoHorario.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UserControls\Galeria.resx">
       <DependentUpon>Galeria.cs</DependentUpon>
@@ -535,10 +556,26 @@
     <Content Include="Resources\Agregar5.ico" />
     <Content Include="Resources\AgregarImagen1.ico" />
     <Content Include="Resources\Arriba1.ico" />
+    <None Include="Resources\texto9.ico" />
+    <None Include="Resources\salir4.ico" />
+    <None Include="Resources\Texto6.ico" />
+    <None Include="Resources\Texto4.ico" />
+    <None Include="Resources\Texto2.ico" />
+    <None Include="Resources\Texto8.ico" />
+    <None Include="Resources\Texto7.ico" />
+    <None Include="Resources\Texto5.ico" />
+    <None Include="Resources\salir3.ico" />
+    <None Include="Resources\Vista2.ico" />
+    <None Include="Resources\campania1.ico" />
     <Content Include="Resources\Eliminar2.ico" />
     <Content Include="Resources\Eliminar4.ico" />
+    <None Include="Resources\monotype-art-pattern-leaves-colored-autumn-hd-wallpaper.jpg" />
     <Content Include="Resources\Pausa1.ico" />
     <Content Include="Resources\Play1.ico" />
+    <None Include="Resources\salir1.ico" />
+    <None Include="Resources\Texto1.ico" />
+    <None Include="Resources\Vista.ico" />
+    <None Include="Resources\salir2.png" />
     <None Include="Resources\Sin imagen.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

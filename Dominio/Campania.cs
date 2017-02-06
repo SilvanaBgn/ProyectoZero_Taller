@@ -29,17 +29,20 @@ namespace Dominio
         [Range(1,999)]
         public int DuracionImagen { get; set; }
 
+        /// <summary>
+        /// Lista de imágenes pertenecientes a la campaña
+        /// </summary>
         public virtual ICollection<Imagen> Imagenes { get; set; }
 
+        /// Rango Fecha
         [DataType(DataType.Date), Required]
         public DateTime FechaInicio { get; set; }
         [DataType(DataType.Date), Required]
         public DateTime FechaFin { get; set; }
 
-        //[/*Timestamp,*/ Required]
-        //public /*TimeSpan*/ byte[] HoraInicio { get; set; }
-        //[/*Timestamp,*/ Required]
-        //public /*TimeSpan*/ byte[] HoraFin { get; set; }
+        /// Rango Horario
+        public TimeSpan HoraInicio { get; set; }
+        public TimeSpan HoraFin { get; set; }
 
         /// <summary>
         /// Constructor

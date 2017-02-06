@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace RangoHorario
 {
-    public partial class ControlHora : UserControl
+    public partial class RangoHorario : UserControl
     {
-        public ControlHora()
+        public RangoHorario()
         {
             InitializeComponent();
             this.labelDiferenciaEntreInicioFin.Text = this.DiferenciaEntreHoras(this.dateTimePickerHoraInicio, this.dateTimePickerHoraFin);
