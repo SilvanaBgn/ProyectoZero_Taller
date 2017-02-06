@@ -52,7 +52,7 @@ namespace UI.UserControls
             this.iListaImagenesOrdenada = new List<Imagen>();
             this.iFuncionando = false;
 
-            this.Image=this.iSinImagen= global::UI.Properties.Resources.Sin_imagen;
+            //this.Image=this.iSinImagen= global::UI.Properties.Resources.Sin_imagen;
         }
 
         /// <summary>
@@ -94,9 +94,9 @@ namespace UI.UserControls
             if (pLista != null)
             {
                 if (pDuracion* 1000 > 0)
-                    this.iTimerImagenes.Interval = pDuracion * 1000;
+                    this.iTimerImagenes.Interval = pDuracion * 1000/2; //duración en segundos
                 else
-                    this.iTimerImagenes.Interval = 1000;
+                    this.iTimerImagenes.Interval = 1000/2; //1 segundo
 
                 //Ordenamos la lista de imágenes según el orden que tienen guardado:
                 this.iListaImagenesOrdenada = pLista.OrderBy(x => x.Orden).ToList();

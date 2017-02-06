@@ -41,6 +41,7 @@ namespace UI.UserControls
         //CONSTRUCTOR
         public BannerDeslizante()
         {
+            this.Enabled = false;
             this.iCaracterInicial = 0;
             this.iTimerTexto = new Timer();
             this.iTimerTexto.Interval = 250;

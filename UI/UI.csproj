@@ -135,6 +135,7 @@
     <Compile Include="PruebaRangoHorario.Designer.cs">
       <DependentUpon>PruebaRangoHorario.cs</DependentUpon>
     </Compile>
+    <Compile Include="Properties\Resources.Designer.cs" />
     <Compile Include="UserControls\CampaniaDeslizante.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -219,6 +220,12 @@
     <Compile Include="PruebaRangoFecha.Designer.cs">
       <DependentUpon>PruebaRangoFecha.cs</DependentUpon>
     </Compile>
+    <Compile Include="UserControls\Galeria.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\Galeria.designer.cs">
+      <DependentUpon>Galeria.cs</DependentUpon>
+    </Compile>
     <Compile Include="UserControls\LectorFuente.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -230,12 +237,6 @@
     </Compile>
     <Compile Include="UserControls\RangoHorario.designer.cs">
       <DependentUpon>RangoHorario.cs</DependentUpon>
-    </Compile>
-    <Compile Include="UserControls\Galeria.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="UserControls\Galeria.Designer.cs">
-      <DependentUpon>Galeria.cs</DependentUpon>
     </Compile>
     <Compile Include="UserControls\RangoFecha.cs">
       <SubType>UserControl</SubType>
@@ -422,14 +423,14 @@
     <EmbeddedResource Include="PruebaRangoHorario.resx">
       <DependentUpon>PruebaRangoHorario.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\Galeria.resx">
+      <DependentUpon>Galeria.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UserControls\LectorFuente.resx">
       <DependentUpon>LectorFuente.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UserControls\RangoHorario.resx">
       <DependentUpon>RangoHorario.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="UserControls\Galeria.resx">
-      <DependentUpon>Galeria.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UserControls\RangoFecha.resx">
       <DependentUpon>RangoFecha.cs</DependentUpon>
@@ -464,16 +465,6 @@
     <EmbeddedResource Include="VBanner.resx">
       <DependentUpon>VBanner.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Properties\Resources.resx">
-      <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
-    <Compile Include="Properties\Resources.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DependentUpon>Resources.resx</DependentUpon>
-      <DesignTime>True</DesignTime>
-    </Compile>
     <EmbeddedResource Include="VAbstractBanner.resx">
       <DependentUpon>VAbstractBanner.cs</DependentUpon>
     </EmbeddedResource>
@@ -556,27 +547,27 @@
     <Content Include="Resources\Agregar5.ico" />
     <Content Include="Resources\AgregarImagen1.ico" />
     <Content Include="Resources\Arriba1.ico" />
-    <None Include="Resources\texto9.ico" />
-    <None Include="Resources\salir4.ico" />
-    <None Include="Resources\Texto6.ico" />
-    <None Include="Resources\Texto4.ico" />
-    <None Include="Resources\Texto2.ico" />
-    <None Include="Resources\Texto8.ico" />
-    <None Include="Resources\Texto7.ico" />
-    <None Include="Resources\Texto5.ico" />
-    <None Include="Resources\salir3.ico" />
-    <None Include="Resources\Vista2.ico" />
-    <None Include="Resources\campania1.ico" />
+    <Content Include="Resources\campania1.ico" />
     <Content Include="Resources\Eliminar2.ico" />
     <Content Include="Resources\Eliminar4.ico" />
-    <None Include="Resources\monotype-art-pattern-leaves-colored-autumn-hd-wallpaper.jpg" />
+    <Content Include="Resources\monotype-art-pattern-leaves-colored-autumn-hd-wallpaper.jpg" />
     <Content Include="Resources\Pausa1.ico" />
     <Content Include="Resources\Play1.ico" />
-    <None Include="Resources\salir1.ico" />
-    <None Include="Resources\Texto1.ico" />
-    <None Include="Resources\Vista.ico" />
-    <None Include="Resources\salir2.png" />
-    <None Include="Resources\Sin imagen.png" />
+    <Content Include="Resources\salir1.ico" />
+    <Content Include="Resources\salir2.png" />
+    <Content Include="Resources\salir3.ico" />
+    <Content Include="Resources\salir4.ico" />
+    <Content Include="Resources\Sin imagen.png" />
+    <Content Include="Resources\Texto1.ico" />
+    <Content Include="Resources\Texto2.ico" />
+    <Content Include="Resources\Texto4.ico" />
+    <Content Include="Resources\Texto5.ico" />
+    <Content Include="Resources\Texto6.ico" />
+    <Content Include="Resources\Texto7.ico" />
+    <Content Include="Resources\Texto8.ico" />
+    <Content Include="Resources\texto9.ico" />
+    <Content Include="Resources\Vista.ico" />
+    <Content Include="Resources\Vista2.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

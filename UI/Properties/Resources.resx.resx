@@ -118,79 +118,31 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="Texto2" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Texto2.ico;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Agregar5" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Agregar5.ico;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="salir3" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\salir3.ico;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="salir4" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\salir4.ico;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="Pausa1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Pausa1.ico;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Eliminar4" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Eliminar4.ico;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="campania1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\campania1.ico;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="monotype-art-pattern-leaves-colored-autumn-hd-wallpaper" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\monotype-art-pattern-leaves-colored-autumn-hd-wallpaper.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Abajo1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Abajo1.ico;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="Eliminar2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Eliminar2.ico;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="AgregarImagen1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\AgregarImagen1.ico;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Vista" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Vista.ico;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="Play1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Play1.ico;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Vista2" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Vista2.ico;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="Abajo1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Abajo1.ico;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Eliminar2" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Eliminar2.ico;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Sin imagen" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Sin imagen.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Texto4" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Texto4.ico;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Pausa1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Pausa1.ico;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Texto7" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Texto7.ico;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="Agregar5" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Agregar5.ico;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Arriba1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Arriba1.ico;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Texto5" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Texto5.ico;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Texto6" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Texto6.ico;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="salir1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\salir1.ico;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="salir2" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\salir2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Texto8" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Texto8.ico;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Texto1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Texto1.ico;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="texto9" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\texto9.ico;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="Sin imagen" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Sin imagen.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>
