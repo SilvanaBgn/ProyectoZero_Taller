@@ -19,12 +19,17 @@ namespace UI.UserControls
 
         public DateTime FechaInicio
         {
-            get { return this.dateTimePickerInicio.Value; }
+            get { return new DateTime(this.dateTimePickerInicio.Value.Year,this.dateTimePickerInicio.Value.Month,
+                this.dateTimePickerInicio.Value.Day); }
+            set { dateTimePickerInicio.Value = value; }
         }
 
         public DateTime FechaFin
         {
-            get { return this.dateTimePickerFin.Value; }
+            get {return new DateTime(this.dateTimePickerFin.Value.Year, this.dateTimePickerFin.Value.Month,
+              this.dateTimePickerFin.Value.Day);
+            }
+            set { dateTimePickerFin.Value = value; }
         }
 
         private void dateTimePickerInicio_ValueChanged(object sender, EventArgs e)
@@ -88,21 +93,29 @@ namespace UI.UserControls
             if (anos > 0)
             {
                 if (anos == 1)
-                    str = str + anos.ToString() + " año ";
+                    str = str + anos.ToString() + " año";
                 else
-                    str = str + anos.ToString() + " años ";
+                    str = str + anos.ToString() + " años";
             }
 
             if (meses > 0)
             {
+                if (anos>0)
+                {
+                    str = str + ", ";
+                }
                 if (meses == 1)
-                    str = str + meses.ToString() + " mes y ";
+                    str = str + meses.ToString() + " mes";
                 else
-                    str = str + meses.ToString() + " meses y ";
+                    str = str + meses.ToString() + " meses";
             }
 
             if (dias > 0)
             {
+                if (meses > 0)
+                {
+                    str = str + ", ";
+                }
                 if (dias == 1)
                     str = str + dias.ToString() + " día ";
                 else

@@ -1,4 +1,4 @@
-﻿namespace RangoHorario
+﻿namespace UI.UserControls
 {
     partial class ControlHora
     {
@@ -119,9 +119,9 @@
 
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label labelDiferenciaEntreInicioFin;
-        private System.Windows.Forms.DateTimePicker dateTimePickerHoraInicio;
-        private System.Windows.Forms.DateTimePicker dateTimePickerHoraFin;
-        private System.Windows.Forms.GroupBox groupBox1;
+        protected System.Windows.Forms.Label labelDiferenciaEntreInicioFin;
+        protected System.Windows.Forms.DateTimePicker dateTimePickerHoraInicio;
+        protected System.Windows.Forms.DateTimePicker dateTimePickerHoraFin;
+        protected System.Windows.Forms.GroupBox groupBox1;
     }
 }

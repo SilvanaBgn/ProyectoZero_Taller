@@ -38,6 +38,9 @@
             this.dataGridViewMostrar = new System.Windows.Forms.DataGridView();
             this.textBoxDescripcion = new System.Windows.Forms.TextBox();
             this.buttonSalir = new System.Windows.Forms.Button();
+            this.rangoFecha = new UI.UserControls.RangoFecha();
+            this.controlHora = new UI.UserControls.ControlHora();
+            this.buttonFiltrar = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewMostrar)).BeginInit();
             this.SuspendLayout();
             // 
@@ -90,7 +93,7 @@
             // checkBoxRangoHoras
             // 
             this.checkBoxRangoHoras.AutoSize = true;
-            this.checkBoxRangoHoras.Location = new System.Drawing.Point(12, 183);
+            this.checkBoxRangoHoras.Location = new System.Drawing.Point(13, 217);
             this.checkBoxRangoHoras.Name = "checkBoxRangoHoras";
             this.checkBoxRangoHoras.Size = new System.Drawing.Size(102, 17);
             this.checkBoxRangoHoras.TabIndex = 5;
@@ -100,7 +103,7 @@
             // checkBoxDescripcion
             // 
             this.checkBoxDescripcion.AutoSize = true;
-            this.checkBoxDescripcion.Location = new System.Drawing.Point(12, 260);
+            this.checkBoxDescripcion.Location = new System.Drawing.Point(13, 357);
             this.checkBoxDescripcion.Name = "checkBoxDescripcion";
             this.checkBoxDescripcion.Size = new System.Drawing.Size(82, 17);
             this.checkBoxDescripcion.TabIndex = 6;
@@ -113,9 +116,10 @@
             this.dataGridViewMostrar.AllowUserToDeleteRows = false;
             this.dataGridViewMostrar.AllowUserToOrderColumns = true;
             this.dataGridViewMostrar.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridViewMostrar.Location = new System.Drawing.Point(236, 69);
+            this.dataGridViewMostrar.Location = new System.Drawing.Point(281, 69);
             this.dataGridViewMostrar.Name = "dataGridViewMostrar";
             this.dataGridViewMostrar.ReadOnly = true;
+            this.dataGridViewMostrar.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridViewMostrar.Size = new System.Drawing.Size(363, 234);
             this.dataGridViewMostrar.TabIndex = 7;
             // 
@@ -123,25 +127,55 @@
             // 
             this.textBoxDescripcion.AcceptsTab = true;
             this.textBoxDescripcion.Enabled = false;
-            this.textBoxDescripcion.Location = new System.Drawing.Point(12, 283);
+            this.textBoxDescripcion.Location = new System.Drawing.Point(13, 380);
             this.textBoxDescripcion.Name = "textBoxDescripcion";
             this.textBoxDescripcion.Size = new System.Drawing.Size(100, 20);
             this.textBoxDescripcion.TabIndex = 10;
             // 
             // buttonSalir
             // 
-            this.buttonSalir.Location = new System.Drawing.Point(524, 330);
+            this.buttonSalir.Location = new System.Drawing.Point(569, 418);
             this.buttonSalir.Name = "buttonSalir";
             this.buttonSalir.Size = new System.Drawing.Size(75, 23);
             this.buttonSalir.TabIndex = 11;
             this.buttonSalir.Text = "Salir";
             this.buttonSalir.UseVisualStyleBackColor = true;
             // 
+            // rangoFecha
+            // 
+            this.rangoFecha.FechaFin = new System.DateTime(2017, 2, 6, 0, 0, 0, 0);
+            this.rangoFecha.FechaInicio = new System.DateTime(2017, 2, 6, 0, 0, 0, 0);
+            this.rangoFecha.Location = new System.Drawing.Point(12, 115);
+            this.rangoFecha.Name = "rangoFecha";
+            this.rangoFecha.Size = new System.Drawing.Size(235, 96);
+            this.rangoFecha.TabIndex = 12;
+            // 
+            // controlHora
+            // 
+            this.controlHora.HoraFin = System.TimeSpan.Parse("00:15:00");
+            this.controlHora.HoraInicio = System.TimeSpan.Parse("00:00:00");
+            this.controlHora.Location = new System.Drawing.Point(13, 241);
+            this.controlHora.Name = "controlHora";
+            this.controlHora.Size = new System.Drawing.Size(120, 101);
+            this.controlHora.TabIndex = 13;
+            // 
+            // buttonFiltrar
+            // 
+            this.buttonFiltrar.Location = new System.Drawing.Point(12, 471);
+            this.buttonFiltrar.Name = "buttonFiltrar";
+            this.buttonFiltrar.Size = new System.Drawing.Size(75, 23);
+            this.buttonFiltrar.TabIndex = 14;
+            this.buttonFiltrar.Text = "Filtrar";
+            this.buttonFiltrar.UseVisualStyleBackColor = true;
+            // 
             // VAbstractBase
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(613, 368);
+            this.ClientSize = new System.Drawing.Size(661, 506);
+            this.Controls.Add(this.buttonFiltrar);
+            this.Controls.Add(this.controlHora);
+            this.Controls.Add(this.rangoFecha);
             this.Controls.Add(this.buttonSalir);
             this.Controls.Add(this.textBoxDescripcion);
             this.Controls.Add(this.dataGridViewMostrar);
@@ -172,5 +206,8 @@
         protected System.Windows.Forms.DataGridView dataGridViewMostrar;
         protected System.Windows.Forms.TextBox textBoxDescripcion;
         protected System.Windows.Forms.Button buttonSalir;
+        protected UserControls.RangoFecha rangoFecha;
+        protected UserControls.ControlHora controlHora;
+        protected System.Windows.Forms.Button buttonFiltrar;
     }
 }

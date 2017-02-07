@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace RangoHorario
+namespace UI.UserControls
 {
     public partial class ControlHora : UserControl
     {
@@ -22,6 +22,18 @@ namespace RangoHorario
 
             this.dateTimePickerHoraFin.MaxDate = DateTime.Today + new TimeSpan(23, 45, 0);
             this.dateTimePickerHoraFin.MinDate = DateTime.Today + new TimeSpan(0, 15, 0);
+        }
+
+        public TimeSpan HoraInicio
+        {
+            get { return new TimeSpan(this.dateTimePickerHoraInicio.Value.Hour, this.dateTimePickerHoraInicio.Value.Minute,0); }
+            set { dateTimePickerHoraInicio.Value = DateTime.Today+value; }
+        }
+
+        public TimeSpan HoraFin
+        {
+            get { return new TimeSpan(this.dateTimePickerHoraFin.Value.Hour, this.dateTimePickerHoraFin.Value.Minute, 0); }
+            set { dateTimePickerHoraFin.Value = DateTime.Today + value; }
         }
 
         /// <summary>

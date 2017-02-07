@@ -221,6 +221,6 @@
         protected System.Windows.Forms.Button buttonCancelar;
         protected System.Windows.Forms.TextBox textBoxAgregarPasoBanner;
         protected System.Windows.Forms.TextBox textBoxTituloTextoFijo;
-        private System.Windows.Forms.ListBox listBoxPasosBanner;
+        protected System.Windows.Forms.ListBox listBoxPasosBanner;
     }
 }

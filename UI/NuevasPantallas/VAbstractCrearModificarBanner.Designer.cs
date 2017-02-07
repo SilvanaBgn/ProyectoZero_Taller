@@ -40,6 +40,7 @@
             this.buttonGuardar = new System.Windows.Forms.Button();
             this.buttonCancelar = new System.Windows.Forms.Button();
             this.rangoFecha = new UI.UserControls.RangoFecha();
+            this.controlHora = new UI.UserControls.ControlHora();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewMostrarFuentes)).BeginInit();
             this.SuspendLayout();
             // 
@@ -148,11 +149,19 @@
             this.rangoFecha.Size = new System.Drawing.Size(234, 96);
             this.rangoFecha.TabIndex = 15;
             // 
+            // controlHora
+            // 
+            this.controlHora.Location = new System.Drawing.Point(258, 102);
+            this.controlHora.Name = "controlHora";
+            this.controlHora.Size = new System.Drawing.Size(120, 101);
+            this.controlHora.TabIndex = 16;
+            // 
             // VAbstractCrearModificarBanner
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(480, 477);
+            this.Controls.Add(this.controlHora);
             this.Controls.Add(this.rangoFecha);
             this.Controls.Add(this.buttonCancelar);
             this.Controls.Add(this.buttonGuardar);
@@ -187,5 +196,6 @@
         protected System.Windows.Forms.Button buttonGuardar;
         protected System.Windows.Forms.Button buttonCancelar;
         protected UserControls.RangoFecha rangoFecha;
+        protected UserControls.ControlHora controlHora;
     }
 }
