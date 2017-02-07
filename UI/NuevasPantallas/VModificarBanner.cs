@@ -28,20 +28,20 @@ namespace UI.NuevasPantallas
         {
             this.textBoxTitulo.Text = bannerAModificar.Titulo;
             this.textBoxDescripcion.Text = bannerAModificar.Descripcion;
-            this.rangoFecha.FechaInicio = bannerAModificar.FechaInicio;
-            this.rangoFecha.FechaFin = bannerAModificar.FechaFin;
-            this.controlHora.HoraInicio = bannerAModificar.HoraInicio;
-            this.controlHora.HoraFin = bannerAModificar.HoraFin;
+            //this.rangoFecha.FechaInicio = bannerAModificar.FechaInicio;
+            //this.rangoFecha.FechaFin = bannerAModificar.FechaFin;
+            //this.rangoHorario.HoraInicio = bannerAModificar.HoraInicio;
+            //this.rangoHorario.HoraFin = bannerAModificar.HoraFin;
         }
 
         private void ButtonGuardar_Click(object sender, EventArgs e)
         {
             this.iBannerAModificar.Titulo = this.textBoxTitulo.Text;
             this.iBannerAModificar.Descripcion = this.textBoxDescripcion.Text;
-            this.iBannerAModificar.FechaInicio = this.rangoFecha.FechaInicio;
-            this.iBannerAModificar.FechaFin = this.rangoFecha.FechaFin;
-            this.iBannerAModificar.HoraInicio = this.controlHora.HoraInicio;
-            this.iBannerAModificar.HoraFin = this.controlHora.HoraFin;
+            //this.iBannerAModificar.FechaInicio = this.rangoFecha.FechaInicio;
+            //this.iBannerAModificar.FechaFin = this.rangoFecha.FechaFin;
+            //this.iBannerAModificar.HoraInicio = this.rangoHorario.HoraInicio;
+            //this.iBannerAModificar.HoraFin = this.rangoHorario.HoraFin;
 
             this.iControladorDominio.ModificarBanner(this.iBannerAModificar);
             this.iControladorDominio.GuardarCambios();

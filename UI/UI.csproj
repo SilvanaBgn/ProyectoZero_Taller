@@ -102,17 +102,16 @@
     <Compile Include="NuevasPantallas\VPrincipal.Designer.cs">
       <DependentUpon>VPrincipal.cs</DependentUpon>
     </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
     <Compile Include="PruebaGaleria.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="PruebaGaleria.Designer.cs">
       <DependentUpon>PruebaGaleria.cs</DependentUpon>
-    </Compile>
-    <Compile Include="PruebaRangoHora.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="PruebaRangoHora.Designer.cs">
-      <DependentUpon>PruebaRangoHora.cs</DependentUpon>
     </Compile>
     <Compile Include="PruebaRangoHorario.cs">
       <SubType>Form</SubType>
@@ -210,12 +209,6 @@
     <Compile Include="PruebaRangoFecha.Designer.cs">
       <DependentUpon>PruebaRangoFecha.cs</DependentUpon>
     </Compile>
-    <Compile Include="UserControls\ControlHora.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="UserControls\ControlHora.designer.cs">
-      <DependentUpon>ControlHora.cs</DependentUpon>
-    </Compile>
     <Compile Include="UserControls\Galeria.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -227,6 +220,12 @@
     </Compile>
     <Compile Include="UserControls\RangoFecha.Designer.cs">
       <DependentUpon>RangoFecha.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\RangoHorario.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\RangoHorario.designer.cs">
+      <DependentUpon>RangoHorario.cs</DependentUpon>
     </Compile>
     <Compile Include="VAbstractBuscarCampania.cs">
       <SubType>Form</SubType>
@@ -350,12 +349,6 @@
     <Compile Include="VFuenteRssModificar.Designer.cs">
       <DependentUpon>VFuenteRssModificar.cs</DependentUpon>
     </Compile>
-    <Compile Include="VPrincipal.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="VPrincipal.designer.cs">
-      <DependentUpon>VPrincipal.cs</DependentUpon>
-    </Compile>
     <Compile Include="VFuenteRssNueva.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -395,26 +388,27 @@
     <EmbeddedResource Include="NuevasPantallas\VPrincipal.resx">
       <DependentUpon>VPrincipal.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
     <EmbeddedResource Include="PruebaGaleria.resx">
       <DependentUpon>PruebaGaleria.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="PruebaRangoFecha.resx">
       <DependentUpon>PruebaRangoFecha.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="PruebaRangoHora.resx">
-      <DependentUpon>PruebaRangoHora.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="PruebaRangoHorario.resx">
       <DependentUpon>PruebaRangoHorario.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="UserControls\ControlHora.resx">
-      <DependentUpon>ControlHora.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UserControls\Galeria.resx">
       <DependentUpon>Galeria.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UserControls\RangoFecha.resx">
       <DependentUpon>RangoFecha.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\RangoHorario.resx">
+      <DependentUpon>RangoHorario.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="VAbstractBuscarCampania.resx">
       <DependentUpon>VAbstractBuscarCampania.cs</DependentUpon>
@@ -446,16 +440,6 @@
     <EmbeddedResource Include="VBanner.resx">
       <DependentUpon>VBanner.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Properties\Resources.resx">
-      <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
-    <Compile Include="Properties\Resources.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DependentUpon>Resources.resx</DependentUpon>
-      <DesignTime>True</DesignTime>
-    </Compile>
     <EmbeddedResource Include="VAbstractBanner.resx">
       <DependentUpon>VAbstractBanner.cs</DependentUpon>
     </EmbeddedResource>
@@ -485,9 +469,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="VFuenteRssModificar.resx">
       <DependentUpon>VFuenteRssModificar.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="VPrincipal.resx">
-      <DependentUpon>VPrincipal.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="VFuenteRssNueva.resx">
       <DependentUpon>VFuenteRssNueva.cs</DependentUpon>

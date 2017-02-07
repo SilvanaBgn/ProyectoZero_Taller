@@ -102,12 +102,12 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Rango Horario";
             // 
-            // ControlHora
+            // RangoHorario
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.groupBox1);
-            this.Name = "ControlHora";
+            this.Name = "RangoHorario";
             this.Size = new System.Drawing.Size(120, 101);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
