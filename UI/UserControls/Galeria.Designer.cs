@@ -35,7 +35,7 @@
             this.columnNombre = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnUrl = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.buttonEliminarImagen = new System.Windows.Forms.Button();
-            this.campaniaDeslizante1 = new UI.UserControls.CampaniaDeslizante();
+            this.campaniaDeslizante1 = new CampaniaDeslizante();
             this.buttonVistaPrevia = new System.Windows.Forms.Button();
             this.buttonAgregarImagenes = new System.Windows.Forms.Button();
             this.buttonArriba = new System.Windows.Forms.Button();
@@ -95,7 +95,6 @@
             // 
             // buttonEliminarImagen
             // 
-            this.buttonEliminarImagen.BackgroundImage = global::UI.Properties.Resources.Eliminar4;
             this.buttonEliminarImagen.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.buttonEliminarImagen.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
             this.buttonEliminarImagen.Location = new System.Drawing.Point(141, 153);
@@ -108,7 +107,6 @@
             // campaniaDeslizante1
             // 
             this.campaniaDeslizante1.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.campaniaDeslizante1.ErrorImage = global::UI.Properties.Resources.Sin_imagen;
             this.campaniaDeslizante1.Location = new System.Drawing.Point(270, 6);
             this.campaniaDeslizante1.Name = "campaniaDeslizante1";
             this.campaniaDeslizante1.Size = new System.Drawing.Size(215, 179);
@@ -119,7 +117,6 @@
             // buttonVistaPrevia
             // 
             this.buttonVistaPrevia.AutoSize = true;
-            this.buttonVistaPrevia.BackgroundImage = global::UI.Properties.Resources.Play1;
             this.buttonVistaPrevia.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.buttonVistaPrevia.ForeColor = System.Drawing.SystemColors.ControlText;
             this.buttonVistaPrevia.Location = new System.Drawing.Point(178, 153);
@@ -132,7 +129,6 @@
             // buttonAgregarImagenes
             // 
             this.buttonAgregarImagenes.AutoSize = true;
-            this.buttonAgregarImagenes.BackgroundImage = global::UI.Properties.Resources.AgregarImagen1;
             this.buttonAgregarImagenes.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.buttonAgregarImagenes.ForeColor = System.Drawing.SystemColors.ControlText;
             this.buttonAgregarImagenes.Location = new System.Drawing.Point(111, 153);
@@ -145,7 +141,6 @@
             // buttonArriba
             // 
             this.buttonArriba.AutoSize = true;
-            this.buttonArriba.BackgroundImage = global::UI.Properties.Resources.Arriba1;
             this.buttonArriba.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.buttonArriba.FlatAppearance.BorderSize = 0;
             this.buttonArriba.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -159,7 +154,6 @@
             // buttonAbajo
             // 
             this.buttonAbajo.AutoSize = true;
-            this.buttonAbajo.BackgroundImage = global::UI.Properties.Resources.Abajo1;
             this.buttonAbajo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.buttonAbajo.FlatAppearance.BorderSize = 0;
             this.buttonAbajo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;

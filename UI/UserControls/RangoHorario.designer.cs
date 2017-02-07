@@ -1,6 +1,6 @@
 ﻿namespace UI.UserControls
 {
-    partial class ControlHora
+    partial class RangoHorario
     {
         /// <summary> 
         /// Variable del diseñador necesaria.

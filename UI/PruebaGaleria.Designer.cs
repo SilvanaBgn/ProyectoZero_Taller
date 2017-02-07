@@ -28,22 +28,22 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.galeria1 = new UI.UserControls.Galeria();
+            //this.galeria1 = new UI.UserControls.Galeria();
             this.SuspendLayout();
             // 
             // galeria1
             // 
-            this.galeria1.Location = new System.Drawing.Point(13, 13);
-            this.galeria1.Name = "galeria1";
-            this.galeria1.Size = new System.Drawing.Size(560, 223);
-            this.galeria1.TabIndex = 0;
+            //this.galeria1.Location = new System.Drawing.Point(13, 13);
+            //this.galeria1.Name = "galeria1";
+            //this.galeria1.Size = new System.Drawing.Size(560, 223);
+            //this.galeria1.TabIndex = 0;
             // 
             // PruebaGaleria
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(659, 344);
-            this.Controls.Add(this.galeria1);
+            //this.Controls.Add(this.galeria1);
             this.Name = "PruebaGaleria";
             this.Text = "PruebaGaleria";
             this.ResumeLayout(false);
@@ -52,6 +52,6 @@
 
         #endregion
 
-        private UserControls.Galeria galeria1;
+       // private UserControls.Galeria galeria1;
     }
 }

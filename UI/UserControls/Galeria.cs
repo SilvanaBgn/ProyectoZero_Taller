@@ -153,20 +153,30 @@ namespace UI.UserControls
         /// </summary>
         private void buttonVistaPrevia_Click(object sender, EventArgs e)
         {
+            //Cambiamos la habilitacion del listview y demás botones:
+            this.listView1.Enabled = !this.listView1.Enabled;
+            this.buttonAgregarImagenes.Enabled = !this.buttonAgregarImagenes.Enabled;
+            this.buttonEliminarImagen.Enabled = !this.buttonEliminarImagen.Enabled;
+            this.buttonArriba.Enabled = !this.buttonArriba.Enabled;
+            this.buttonAbajo.Enabled = !this.buttonAbajo.Enabled;
+            this.textBoxSegundos.Enabled = !this.textBoxSegundos.Enabled;
+
+            //De acuerdo a si está funcionando o no, cambiamos la imagen del botón, y le damos Start o Stop
             if (!this.campaniaDeslizante1.Funcionando)
             {
-                //Cambiamos la imagen del botón this.buttonVistaPrevia a "Pausa"
-                this.buttonVistaPrevia.BackgroundImage = global::UI.Properties.Resources.Pausa1;
+                //Cambiamos la imagen del botón this.buttonVistaPrevia a "Pausa":
+                //this.buttonVistaPrevia.BackgroundImage = global::UI.Properties.Resources.Pausa1;
+
                 if (this.textBoxSegundos.Text.Length > 0)
-                    this.campaniaDeslizante1.Start(this.ListaImagenes, Convert.ToInt16(this.textBoxSegundos.Text));
+                    this.campaniaDeslizante1.Start(this.ListaImagenes, Convert.ToInt32(this.textBoxSegundos.Text));
                 else
                     this.campaniaDeslizante1.Start(this.ListaImagenes, 0);
             }
             else
             {
                 this.campaniaDeslizante1.Stop();
-                //Cambiamos la imagen del botón this.buttonVistaPrevia a "Play"
-                this.buttonVistaPrevia.BackgroundImage = global::UI.Properties.Resources.Play1;
+                //Cambiamos la imagen del botón this.buttonVistaPrevia a "Play":
+                //this.buttonVistaPrevia.BackgroundImage = global::UI.Properties.Resources.Play1;
             }
         }
         #endregion

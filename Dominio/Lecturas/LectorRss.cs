@@ -10,34 +10,51 @@ namespace Dominio.Lecturas
     /// </summary>
     public class LectorRss:ILector
     {
-        private IEnumerable<ItemRss> ItemsRss;
-
-        public IEnumerable<Item> ItemRss_a_Item()
-        {
-            //foreach (var item in this.ItemsRss)
-            //{
-            //    //Hacer la conversión
-            //    new Item();
-            //}
-
-            return new List<Item>();
-        }
-
         public IEnumerable<Item> Leer(String pUrl)
         {
-                    this.ItemsRss = this.Leer(new Uri(pUrl));
-            //if (String.IsNullOrWhiteSpace(pUrl)) //Comprobarlo con una expresión regular!!
+            IEnumerable<Item> items = new List<Item>();
+            try
+            {
+                //if (String.IsNullOrWhiteSpace(pUrl)) //Comprobarlo con una expresión regular
+                if (String.IsNullOrWhiteSpace(pUrl))
+                {
+                    throw new ArgumentNullException("Debe ingresar una URL");
+                }
 
-            return this.ItemRss_a_Item();
+                Uri urlCorrecta;
+
+                if (!Uri.TryCreate(pUrl.Trim(), UriKind.Absolute, out urlCorrecta))
+                {
+                    throw new UriFormatException("La URL ingresada no es válida.");
+                }
+
+                items = this.ItemRss_a_Item(this.Leer(urlCorrecta));
+            }
+            catch (ArgumentNullException) { } //Si pUrl es un string nulo
+            catch (UriFormatException) { } //Si pUrl no cumple con l formato de una URL
+            catch (Exception) { }
+            //Si todo salió bien:
+            return items;
         }
 
-        private IEnumerable<ItemRss> Leer(Uri pUrl)
-        {
-            if (pUrl == null)
-            {
-                throw new ArgumentNullException("pUrl");
-            }
 
+
+
+
+
+        private IEnumerable<Item> ItemRss_a_Item(IEnumerable<ItemRss> pItemsRss)
+        {
+            IList<Item> listaItems= new List<Item>();
+            foreach (var itemRss in pItemsRss)
+            {
+                Item item = new Item(itemRss.ToString());
+                listaItems.Add(item);
+            }
+            return listaItems;
+        }
+        
+        private IEnumerable<ItemRss> Leer(Uri pUrl) 
+        {
             // Se recupera el XML desde la URL, y se parsea el mismo para obtener los diferentes ítems. El modelo de XML
             // utilizado es el siguiente (http://www.w3schools.com/xml/xml_rss.asp):
             //<?xml version="1.0" encoding="UTF-8"?>
@@ -58,68 +75,69 @@ namespace Dominio.Lecturas
             //    </item>
             //  </channel>
             //</rss>
-
-            XmlTextReader mXmlReader = new XmlTextReader(pUrl.AbsoluteUri);
-
-            XmlDocument mRssXmlDocument = new XmlDocument();
-
-            mRssXmlDocument.Load(mXmlReader);
-
-            IList<ItemRss> mRssItems = new List<ItemRss>();
-
-            foreach (XmlNode bRssXmlItem in mRssXmlDocument.SelectNodes("//channel/item"))
+            XmlTextReader xmlReader = new XmlTextReader(pUrl.AbsoluteUri);
+            XmlDocument xmlDocument = new XmlDocument();
+            IList<ItemRss> items = new List<ItemRss>();
+            try
             {
-                mRssItems.Add(new ItemRss
-                {
-                    Titulo = LectorRss.GetXmlNodeValue<String>(bRssXmlItem, "title"),
-                    Descripcion = LectorRss.GetXmlNodeValue<String>(bRssXmlItem, "description"),
-                    Url = new Uri(LectorRss.GetXmlNodeValue<String>(bRssXmlItem, "link")).ToString(),
-                    FechaDePublicacion = LectorRss.GetXmlNodeValue<DateTime?>(bRssXmlItem, "pubDate")
-                });
-            }
+                xmlDocument.Load(xmlReader);
 
-            return mRssItems;
+                foreach (XmlNode itemXml in xmlDocument.SelectNodes("//channel/item"))
+                {
+                    items.Add(new ItemRss
+                    {
+                        Titulo = LectorRss.GetXmlNodeValue<string>(itemXml, "title"),
+                        Descripcion = LectorRss.GetXmlNodeValue<string>(itemXml, "description"),
+                        Url = new Uri(LectorRss.GetXmlNodeValue<string>(itemXml, "link")).ToString(),
+                        FechaDePublicacion = LectorRss.GetXmlNodeValue<DateTime?>(itemXml, "pubDate")
+                    });
+                }
+            }
+            catch (Exception) //Averiguar cómo se llama la excepcion cuando no hay internet
+                              //y otras excepciones
+            {
+                //Lanzar excepcion entendible para usuario
+            }
+            return items;
         }
 
-        private static TResult GetXmlNodeValue<TResult>(XmlNode pParentNode, String pChildNodeName)
+        private static TResult GetXmlNodeValue<TResult>(XmlNode pNodoPadre, String pNombreNodoHijo)
         {
-            if (pParentNode == null)
+            if (pNodoPadre == null)
             {
-                throw new ArgumentNullException("pParentNode");
+                throw new ArgumentNullException("pNodoPadre");
             }
 
-            if (String.IsNullOrWhiteSpace(pChildNodeName))
+            if (String.IsNullOrWhiteSpace(pNombreNodoHijo))
             {
-                throw new ArgumentException("pChildNodeName");
+                throw new ArgumentException("pNombreNodoHijo");
             }
 
             // Inicialmente se devuelve el valor por defecto del tipo genérico. 
             // Si es un objeto, este valor es null, en caso contrario depende del tipo.
-            TResult mResult = default(TResult);
+            TResult result = default(TResult);
 
             // Tipo utilizado para la conversión final. Por defecto va a ser 
             // el mismo tipo genérico indicado.
-            Type mConvertToType = typeof(TResult);
+            Type tipo = typeof(TResult);
 
-            XmlNode mChildNode = pParentNode.SelectSingleNode(pChildNodeName);
+            XmlNode nodoHijo = pNodoPadre.SelectSingleNode(pNombreNodoHijo);
 
             // Si el nodo existe, entonces se obtiene el valor del texto del mismo 
             // para convertirlo al tipo genérico indicado.
-            if (mChildNode != null)
+            if (nodoHijo != null)
             {
                 // Se comprueba si el tipo es Nullable, ya que en dicho caso se debe 
                 // convertir al tipo subyacente y no directamente al Nullable.
-                if (Nullable.GetUnderlyingType(mConvertToType) != null)
+                if (Nullable.GetUnderlyingType(tipo) != null)
                 {
-                    mConvertToType = Nullable.GetUnderlyingType(mConvertToType);
+                    tipo = Nullable.GetUnderlyingType(tipo);
                 }
-
                 // Se realiza la conversión del texto del nodo al tipo adecuado, ya sea 
                 // el tipo genérico indicado o bien al tipo subyacente del Nullable.
-                mResult = (TResult)Convert.ChangeType(mChildNode.InnerText.Trim(), mConvertToType);
+                result = (TResult)Convert.ChangeType(nodoHijo.InnerText.Trim(), tipo);
             }
-
-            return mResult;
+            return result;
         }
 
     }

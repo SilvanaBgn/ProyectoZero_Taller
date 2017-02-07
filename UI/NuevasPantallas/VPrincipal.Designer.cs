@@ -1,4 +1,5 @@
-﻿namespace UI.NuevasPantallas
+﻿using UI.UserControls;
+namespace UI
 {
     partial class VPrincipal
     {
@@ -28,111 +29,153 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(VPrincipal));
+            this.groupBoxCampania = new System.Windows.Forms.GroupBox();
+            this.labelTituloCampania = new System.Windows.Forms.Label();
+            this.groupBoxBanner = new System.Windows.Forms.GroupBox();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
-            this.menúToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.configuaraciónToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.bannerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.campañaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.fuenteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.verPantallaCompletaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.configuracionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.bannersToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.fuentesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.campañasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.pantallaCompletaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.salirToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.bgwLeerBanner = new System.ComponentModel.BackgroundWorker();
+            this.bgwLeerCampania = new System.ComponentModel.BackgroundWorker();
+            this.timerChequeoCambioBanner = new System.Windows.Forms.Timer(this.components);
+            this.bannerDeslizante = new BannerDeslizante();
+            this.groupBoxCampania.SuspendLayout();
+            this.groupBoxBanner.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
+            // groupBoxCampania
+            // 
+            this.groupBoxCampania.Controls.Add(this.labelTituloCampania);
+            this.groupBoxCampania.Location = new System.Drawing.Point(27, 31);
+            this.groupBoxCampania.Name = "groupBoxCampania";
+            this.groupBoxCampania.Size = new System.Drawing.Size(587, 503);
+            this.groupBoxCampania.TabIndex = 1;
+            this.groupBoxCampania.TabStop = false;
+            // 
+            // labelTituloCampania
+            // 
+            this.labelTituloCampania.AutoSize = true;
+            this.labelTituloCampania.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelTituloCampania.Location = new System.Drawing.Point(26, 28);
+            this.labelTituloCampania.Name = "labelTituloCampania";
+            this.labelTituloCampania.Size = new System.Drawing.Size(226, 25);
+            this.labelTituloCampania.TabIndex = 1;
+            this.labelTituloCampania.Text = "(Título de la campaña)";
+            // 
+            // groupBoxBanner
+            // 
+            this.groupBoxBanner.Controls.Add(this.bannerDeslizante);
+            this.groupBoxBanner.Location = new System.Drawing.Point(27, 555);
+            this.groupBoxBanner.Name = "groupBoxBanner";
+            this.groupBoxBanner.Size = new System.Drawing.Size(587, 91);
+            this.groupBoxBanner.TabIndex = 2;
+            this.groupBoxBanner.TabStop = false;
+            // 
             // menuStrip1
             // 
+            this.menuStrip1.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.menúToolStripMenuItem});
+            this.configuracionToolStripMenuItem,
+            
+            this.pantallaCompletaToolStripMenuItem,
+            this.salirToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(1049, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(640, 28);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             // 
-            // menúToolStripMenuItem
+            // configuracionToolStripMenuItem
             // 
-            this.menúToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.configuaraciónToolStripMenuItem,
-            this.verPantallaCompletaToolStripMenuItem,
-            this.salirToolStripMenuItem});
-            this.menúToolStripMenuItem.Name = "menúToolStripMenuItem";
-            this.menúToolStripMenuItem.Size = new System.Drawing.Size(60, 20);
-            this.menúToolStripMenuItem.Text = "&Archivo";
+            this.configuracionToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.campañasToolStripMenuItem,
+            this.bannersToolStripMenuItem,
+            this.fuentesToolStripMenuItem});
+            this.configuracionToolStripMenuItem.Name = "configuracionToolStripMenuItem";
+            this.configuracionToolStripMenuItem.Size = new System.Drawing.Size(74, 24);
+            this.configuracionToolStripMenuItem.Text = "&Configuración";
             // 
-            // configuaraciónToolStripMenuItem
+            // bannersToolStripMenuItem
             // 
-            this.configuaraciónToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.bannerToolStripMenuItem,
-            this.campañaToolStripMenuItem,
-            this.fuenteToolStripMenuItem});
-            this.configuaraciónToolStripMenuItem.Name = "configuaraciónToolStripMenuItem";
-            this.configuaraciónToolStripMenuItem.Size = new System.Drawing.Size(156, 22);
-            this.configuaraciónToolStripMenuItem.Text = "&Configuaración";
+            this.bannersToolStripMenuItem.Name = "bannersToolStripMenuItem";
+            this.bannersToolStripMenuItem.Size = new System.Drawing.Size(130, 24);
+            this.bannersToolStripMenuItem.Text = "&Banners";
+            this.bannersToolStripMenuItem.Click+= new System.EventHandler(this.bannerToolStripMenuItem_Click);
             // 
-            // bannerToolStripMenuItem
+            // fuentesToolStripMenuItem
             // 
-            this.bannerToolStripMenuItem.Name = "bannerToolStripMenuItem";
-            this.bannerToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.bannerToolStripMenuItem.Text = "&Banner";
-            this.bannerToolStripMenuItem.Click += new System.EventHandler(this.bannerToolStripMenuItem_Click);
+            this.fuentesToolStripMenuItem.Name = "fuentesToolStripMenuItem";
+            this.fuentesToolStripMenuItem.Size = new System.Drawing.Size(130, 24);
+            this.fuentesToolStripMenuItem.Text = "&Fuentes";
+            this.fuentesToolStripMenuItem.Click += new System.EventHandler(this.fuenteToolStripMenuItem_Click);
             // 
-            // campañaToolStripMenuItem
+            // campañasToolStripMenuItem
             // 
-            this.campañaToolStripMenuItem.Name = "campañaToolStripMenuItem";
-            this.campañaToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.campañaToolStripMenuItem.Text = "&Campaña";
-            this.campañaToolStripMenuItem.Click += new System.EventHandler(this.campañaToolStripMenuItem_Click);
+            this.campañasToolStripMenuItem.Name = "campañasToolStripMenuItem";
+            this.campañasToolStripMenuItem.Size = new System.Drawing.Size(106, 24);
+            this.campañasToolStripMenuItem.Text = "&Campañas";
+            this.campañasToolStripMenuItem.Click += new System.EventHandler(this.campañaToolStripMenuItem_Click);
             // 
-            // fuenteToolStripMenuItem
+            // pantallaCompletaToolStripMenuItem
             // 
-            this.fuenteToolStripMenuItem.Name = "fuenteToolStripMenuItem";
-            this.fuenteToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.fuenteToolStripMenuItem.Text = "&Fuente";
-            this.fuenteToolStripMenuItem.Click += new System.EventHandler(this.fuenteToolStripMenuItem_Click);
-            // 
-            // groupBox1
-            // 
-            this.groupBox1.Location = new System.Drawing.Point(13, 28);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(1024, 378);
-            this.groupBox1.TabIndex = 1;
-            this.groupBox1.TabStop = false;
-            // 
-            // groupBox2
-            // 
-            this.groupBox2.Location = new System.Drawing.Point(12, 412);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(1025, 114);
-            this.groupBox2.TabIndex = 2;
-            this.groupBox2.TabStop = false;
-            // 
-            // verPantallaCompletaToolStripMenuItem
-            // 
-            this.verPantallaCompletaToolStripMenuItem.Name = "verPantallaCompletaToolStripMenuItem";
-            this.verPantallaCompletaToolStripMenuItem.Size = new System.Drawing.Size(188, 22);
-            this.verPantallaCompletaToolStripMenuItem.Text = "&Ver pantalla completa";
-            this.verPantallaCompletaToolStripMenuItem.Click += new System.EventHandler(this.verPantallaCompletaToolStripMenuItem_Click);
+            this.pantallaCompletaToolStripMenuItem.Name = "pantallaCompletaToolStripMenuItem";
+            this.pantallaCompletaToolStripMenuItem.Size = new System.Drawing.Size(69, 24);
+            this.pantallaCompletaToolStripMenuItem.Text = "&Vista";
+            this.pantallaCompletaToolStripMenuItem.Click += new System.EventHandler(this.verPantallaCompletaToolStripMenuItem_Click);
             // 
             // salirToolStripMenuItem
             // 
             this.salirToolStripMenuItem.Name = "salirToolStripMenuItem";
-            this.salirToolStripMenuItem.Size = new System.Drawing.Size(188, 22);
+            this.salirToolStripMenuItem.Size = new System.Drawing.Size(66, 24);
             this.salirToolStripMenuItem.Text = "&Salir";
             this.salirToolStripMenuItem.Click += new System.EventHandler(this.salirToolStripMenuItem_Click);
+            // 
+            // bgwLeerBanner
+            // 
+            this.bgwLeerBanner.DoWork += new System.ComponentModel.DoWorkEventHandler(this.bgwLeerBanner_DoWork);
+            this.bgwLeerBanner.RunWorkerCompleted += new System.ComponentModel.RunWorkerCompletedEventHandler(this.bgwLeerBanner_RunWorkerCompleted);
+            // 
+            // bgwLeerCampania
+            // 
+            this.bgwLeerCampania.DoWork += new System.ComponentModel.DoWorkEventHandler(this.bgwLeerCampania_DoWork);
+            this.bgwLeerCampania.RunWorkerCompleted += new System.ComponentModel.RunWorkerCompletedEventHandler(this.bgwLeerCampania_RunWorkerCompleted);
+            // 
+            // timerChequeoCambioBanner
+            // 
+            this.timerChequeoCambioBanner.Tick += new System.EventHandler(this.timerChequeoCambioBanner_Tick);
+            // 
+            // bannerDeslizante
+            // 
+            this.bannerDeslizante.Font = new System.Drawing.Font("Microsoft Sans Serif", 30F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.bannerDeslizante.Location = new System.Drawing.Point(17, 23);
+            this.bannerDeslizante.Name = "bannerDeslizante";
+            this.bannerDeslizante.Size = new System.Drawing.Size(550, 53);
+            this.bannerDeslizante.TabIndex = 0;
             // 
             // VPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1049, 538);
-            this.Controls.Add(this.groupBox2);
-            this.Controls.Add(this.groupBox1);
+            this.ClientSize = new System.Drawing.Size(640, 664);
+            this.Controls.Add(this.groupBoxBanner);
+            this.Controls.Add(this.groupBoxCampania);
             this.Controls.Add(this.menuStrip1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "VPrincipal";
-            this.Text = "VPrincipal";
+            this.Text = "EASY News";
+            this.Resize += new System.EventHandler(this.VPrincipal_Resize);
+            this.groupBoxCampania.ResumeLayout(false);
+            this.groupBoxCampania.PerformLayout();
+            this.groupBoxBanner.ResumeLayout(false);
+            this.groupBoxBanner.PerformLayout();
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);
@@ -143,14 +186,18 @@
         #endregion
 
         private System.Windows.Forms.MenuStrip menuStrip1;
-        private System.Windows.Forms.ToolStripMenuItem menúToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem configuaraciónToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem bannerToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem campañaToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem fuenteToolStripMenuItem;
-        private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.ToolStripMenuItem verPantallaCompletaToolStripMenuItem;
+        private System.Windows.Forms.GroupBox groupBoxCampania;
+        private System.Windows.Forms.GroupBox groupBoxBanner;
+        private System.Windows.Forms.ToolStripMenuItem configuracionToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem bannersToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem fuentesToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem campañasToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem pantallaCompletaToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem salirToolStripMenuItem;
+        private System.Windows.Forms.Label labelTituloCampania;
+        private System.ComponentModel.BackgroundWorker bgwLeerBanner;
+        private System.ComponentModel.BackgroundWorker bgwLeerCampania;
+        private System.Windows.Forms.Timer timerChequeoCambioBanner;
+        private BannerDeslizante bannerDeslizante;
     }
 }

@@ -13,12 +13,12 @@ namespace Dominio
         /// <summary>
         /// Título del ítem.
         /// </summary>
-        public String Titulo { get; set; }
+        public string Titulo { get; set; }
 
         /// <summary>
         /// Descripción acerca del ítem.
         /// </summary>
-        public String Descripcion { get; set; }
+        public string Descripcion { get; set; }
 
         /// <summary>
         /// URL del ítem.
@@ -29,5 +29,10 @@ namespace Dominio
         /// Fecha de publicación.
         /// </summary>
         public DateTime? FechaDePublicacion { get; set; }
+
+        public override string ToString()
+        {
+            return Titulo + ": " + Descripcion; //+ FechaDePublicacion.ToString();
+        }
     }
 }
