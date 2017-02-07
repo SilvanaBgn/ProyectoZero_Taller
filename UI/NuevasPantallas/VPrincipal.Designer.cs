@@ -1,4 +1,5 @@
-﻿namespace UI.NuevasPantallas
+﻿using UI.UserControls;
+namespace UI
 {
     partial class VPrincipal
     {
@@ -43,7 +44,7 @@
             this.bgwLeerBanner = new System.ComponentModel.BackgroundWorker();
             this.bgwLeerCampania = new System.ComponentModel.BackgroundWorker();
             this.timerChequeoCambioBanner = new System.Windows.Forms.Timer(this.components);
-            this.bannerDeslizante = new UI.UserControls.BannerDeslizante();
+            this.bannerDeslizante = new BannerDeslizante();
             this.groupBoxCampania.SuspendLayout();
             this.groupBoxBanner.SuspendLayout();
             this.menuStrip1.SuspendLayout();
@@ -99,37 +100,42 @@
             this.fuentesToolStripMenuItem});
             this.configuracionToolStripMenuItem.Name = "configuracionToolStripMenuItem";
             this.configuracionToolStripMenuItem.Size = new System.Drawing.Size(74, 24);
-            this.configuracionToolStripMenuItem.Text = "&Texto";
+            this.configuracionToolStripMenuItem.Text = "&Configuración";
             // 
             // bannersToolStripMenuItem
             // 
             this.bannersToolStripMenuItem.Name = "bannersToolStripMenuItem";
             this.bannersToolStripMenuItem.Size = new System.Drawing.Size(130, 24);
             this.bannersToolStripMenuItem.Text = "&Banners";
+            this.bannersToolStripMenuItem.Click+= new System.EventHandler(this.bannerToolStripMenuItem_Click);
             // 
             // fuentesToolStripMenuItem
             // 
             this.fuentesToolStripMenuItem.Name = "fuentesToolStripMenuItem";
             this.fuentesToolStripMenuItem.Size = new System.Drawing.Size(130, 24);
             this.fuentesToolStripMenuItem.Text = "&Fuentes";
+            this.fuentesToolStripMenuItem.Click += new System.EventHandler(this.fuenteToolStripMenuItem_Click);
             // 
             // campañasToolStripMenuItem
             // 
             this.campañasToolStripMenuItem.Name = "campañasToolStripMenuItem";
             this.campañasToolStripMenuItem.Size = new System.Drawing.Size(106, 24);
             this.campañasToolStripMenuItem.Text = "&Campañas";
+            this.campañasToolStripMenuItem.Click += new System.EventHandler(this.campañaToolStripMenuItem_Click);
             // 
             // pantallaCompletaToolStripMenuItem
             // 
             this.pantallaCompletaToolStripMenuItem.Name = "pantallaCompletaToolStripMenuItem";
             this.pantallaCompletaToolStripMenuItem.Size = new System.Drawing.Size(69, 24);
             this.pantallaCompletaToolStripMenuItem.Text = "&Vista";
+            this.pantallaCompletaToolStripMenuItem.Click += new System.EventHandler(this.verPantallaCompletaToolStripMenuItem_Click);
             // 
             // salirToolStripMenuItem
             // 
             this.salirToolStripMenuItem.Name = "salirToolStripMenuItem";
             this.salirToolStripMenuItem.Size = new System.Drawing.Size(66, 24);
             this.salirToolStripMenuItem.Text = "&Salir";
+            this.salirToolStripMenuItem.Click += new System.EventHandler(this.salirToolStripMenuItem_Click);
             // 
             // bgwLeerBanner
             // 
@@ -192,6 +198,6 @@
         private System.ComponentModel.BackgroundWorker bgwLeerBanner;
         private System.ComponentModel.BackgroundWorker bgwLeerCampania;
         private System.Windows.Forms.Timer timerChequeoCambioBanner;
-        private UserControls.BannerDeslizante bannerDeslizante;
+        private BannerDeslizante bannerDeslizante;
     }
 }

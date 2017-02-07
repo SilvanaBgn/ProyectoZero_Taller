@@ -99,6 +99,17 @@
     <Compile Include="NuevasPantallas\VAbstractCrearModificarFuente.Designer.cs">
       <DependentUpon>VAbstractCrearModificarFuente.cs</DependentUpon>
     </Compile>
+    <Compile Include="Properties\Resources1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="NuevasPantallas\VPrincipal.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="NuevasPantallas\VPrincipal.designer.cs">
+      <DependentUpon>VPrincipal.cs</DependentUpon>
+    </Compile>
     <Compile Include="PruebaLecturaFuente.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -117,12 +128,6 @@
     <Compile Include="NuevasPantallas\VBaseBanner.Designer.cs">
       <DependentUpon>VBaseBanner.cs</DependentUpon>
     </Compile>
-    <Compile Include="NuevasPantallas\VPrincipal.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="NuevasPantallas\VPrincipal.Designer.cs">
-      <DependentUpon>VPrincipal.cs</DependentUpon>
-    </Compile>
     <Compile Include="PruebaGaleria.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -135,7 +140,6 @@
     <Compile Include="PruebaRangoHorario.Designer.cs">
       <DependentUpon>PruebaRangoHorario.cs</DependentUpon>
     </Compile>
-    <Compile Include="Properties\Resources.Designer.cs" />
     <Compile Include="UserControls\CampaniaDeslizante.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -366,12 +370,6 @@
     <Compile Include="VFuenteRssModificar.Designer.cs">
       <DependentUpon>VFuenteRssModificar.cs</DependentUpon>
     </Compile>
-    <Compile Include="VPrincipal.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="VPrincipal.designer.cs">
-      <DependentUpon>VPrincipal.cs</DependentUpon>
-    </Compile>
     <Compile Include="VFuenteRssNueva.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -393,6 +391,13 @@
     <EmbeddedResource Include="NuevasPantallas\VAbstractCrearModificarFuente.resx">
       <DependentUpon>VAbstractCrearModificarFuente.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources1.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="NuevasPantallas\VPrincipal.resx">
+      <DependentUpon>VPrincipal.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="PruebaLecturaFuente.resx">
       <DependentUpon>PruebaLecturaFuente.cs</DependentUpon>
     </EmbeddedResource>
@@ -410,9 +415,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="NuevasPantallas\VModificarFuente.resx">
       <DependentUpon>VModificarFuente.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="NuevasPantallas\VPrincipal.resx">
-      <DependentUpon>VPrincipal.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="PruebaGaleria.resx">
       <DependentUpon>PruebaGaleria.cs</DependentUpon>
@@ -495,9 +497,6 @@
     <EmbeddedResource Include="VFuenteRssModificar.resx">
       <DependentUpon>VFuenteRssModificar.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="VPrincipal.resx">
-      <DependentUpon>VPrincipal.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="VFuenteRssNueva.resx">
       <DependentUpon>VFuenteRssNueva.cs</DependentUpon>
     </EmbeddedResource>
@@ -507,6 +506,7 @@
     <EmbeddedResource Include="VBannerNuevo.resx">
       <DependentUpon>VBannerNuevo.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="VPrincipal.resx" />
     <None Include="log4net.config" />
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
@@ -557,7 +557,6 @@
     <Content Include="Resources\salir2.png" />
     <Content Include="Resources\salir3.ico" />
     <Content Include="Resources\salir4.ico" />
-    <Content Include="Resources\Sin imagen.png" />
     <Content Include="Resources\Texto1.ico" />
     <Content Include="Resources\Texto2.ico" />
     <Content Include="Resources\Texto4.ico" />
@@ -568,6 +567,9 @@
     <Content Include="Resources\texto9.ico" />
     <Content Include="Resources\Vista.ico" />
     <Content Include="Resources\Vista2.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

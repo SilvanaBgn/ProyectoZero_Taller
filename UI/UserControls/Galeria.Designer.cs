@@ -35,7 +35,7 @@
             this.columnNombre = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnUrl = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.buttonEliminarImagen = new System.Windows.Forms.Button();
-            this.campaniaDeslizante1 = new UI.UserControls.CampaniaDeslizante();
+            this.campaniaDeslizante1 = new CampaniaDeslizante();
             this.buttonVistaPrevia = new System.Windows.Forms.Button();
             this.buttonAgregarImagenes = new System.Windows.Forms.Button();
             this.buttonArriba = new System.Windows.Forms.Button();
