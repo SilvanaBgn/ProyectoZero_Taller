@@ -23,19 +23,19 @@ namespace UI.NuevasPantallas
             vBanner.Show();
         }
 
-        private void campañaToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            VBaseCampania vCampania = new VBaseCampania();
-            vCampania.Show();
-        }
-
         private void fuenteToolStripMenuItem_Click(object sender, EventArgs e)
         {
             VBaseFuente vFuente = new VBaseFuente();
             vFuente.Show();
         }
 
-        private void verPantallaCompletaToolStripMenuItem_Click(object sender, EventArgs e)
+        private void campañaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            VBaseCampania vCampania = new VBaseCampania();
+            vCampania.Show();
+        }
+
+        private void vistaToolStripMenuItem_Click(object sender, EventArgs e)
         {
             this.WindowState = FormWindowState.Maximized;
             this.menuStrip1.Visible = false;
