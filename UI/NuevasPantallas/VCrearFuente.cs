@@ -30,6 +30,7 @@ namespace UI.NuevasPantallas
                     this.panelRss.Visible = true;
                     break;
                 case "Texto Fijo":
+                    this.panelRss.Visible = false;
                     this.panelTextoFijo.Visible = true;
                     break;
             }
@@ -47,6 +48,7 @@ namespace UI.NuevasPantallas
                     this.panelRss.Visible = true;
                     break;
                 case "Texto Fijo":
+                    this.panelRss.Visible = false;
                     this.panelTextoFijo.Visible = true;
                     break;
             }

@@ -59,7 +59,7 @@ namespace Dominio
 
         public List<Banner> BuscarBannerPorAtributo(Expression<Func<Banner, bool>> filter = null)
         {
-            return this.iUoW.RepositorioBanners.Obtener(filter,null).ToList(); 
+            return this.iUoW.RepositorioBanners.Obtener(filter,null).ToList();
         }
 
         public List<Banner> ObtenerTodosLosBanners()

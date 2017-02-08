@@ -24,13 +24,10 @@ namespace UI.NuevasPantallas
             Banner bannerAAgregar = new Banner();
             bannerAAgregar.Titulo = this.textBoxTitulo.Text;
             bannerAAgregar.Descripcion = this.textBoxDescripcion.Text;
-            bannerAAgregar.FechaInicio = this.rangoFecha.FechaInicio;
-            bannerAAgregar.FechaFin = this.rangoFecha.FechaFin;
-            //--------------------------------------------------------------------------------
-            //VER CUANDO ESTEFI ME PASE EL RANGOHORARIO
-            //bannerAAgregar.HoraInicio = this.controlHora.dateTimePickerHoraInicio;
-            //bannerAAgregar.HoraFin = this.controlHora.dateTimePickerHoraFin;
-            //--------------------------------------------------------------------------------
+            //bannerAAgregar.FechaInicio = this.rangoFecha.FechaInicio;
+            //bannerAAgregar.FechaFin = this.rangoFecha.FechaFin;
+            //bannerAAgregar.HoraInicio = this.rangoHorario.HoraInicio;
+            //bannerAAgregar.HoraFin = this.rangoHorario.HoraFin;
             //bannerAAgregar.Fuente = (Fuente)this.dataGridViewMostrarFuentes.CurrentRow.DataBoundItem;
 
             this.iControladorDominio.AgregarBanner(bannerAAgregar);

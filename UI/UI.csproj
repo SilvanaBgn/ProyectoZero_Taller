@@ -88,6 +88,9 @@
     <Reference Include="System.Drawing" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
+    <Reference Include="UI">
+      <HintPath>obj\Debug\UI.exe</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="NuevasPantallas\VAbstractBase.cs">
@@ -97,10 +100,11 @@
       <DependentUpon>VAbstractBase.cs</DependentUpon>
     </Compile>
     <Compile Include="NuevasPantallas\VAbstractCrearModificarFuente.cs">
+    <Compile Include="NuevasPantallas\VBaseBanner.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="NuevasPantallas\VAbstractCrearModificarFuente.Designer.cs">
-      <DependentUpon>VAbstractCrearModificarFuente.cs</DependentUpon>
+    <Compile Include="NuevasPantallas\VBaseBanner.Designer.cs">
+      <DependentUpon>VBaseBanner.cs</DependentUpon>
     </Compile>
     <Compile Include="NuevasPantallas\VBaseBanner.cs">
       <SubType>Form</SubType>
@@ -111,7 +115,7 @@
     <Compile Include="NuevasPantallas\VPrincipal.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="NuevasPantallas\VPrincipal.designer.cs">
+    <Compile Include="NuevasPantallas\VPrincipal.Designer.cs">
       <DependentUpon>VPrincipal.cs</DependentUpon>
     </Compile>
     <Compile Include="Properties\Resources1.Designer.cs">
@@ -121,6 +125,10 @@
     </Compile>
     <Compile Include="PruebaLecturaFuente.cs">
       <SubType>Form</SubType>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
     <Compile Include="PruebaLecturaFuente.designer.cs">
       <DependentUpon>PruebaLecturaFuente.cs</DependentUpon>
@@ -154,6 +162,12 @@
     </Compile>
     <Compile Include="NuevasPantallas\DatosBannerCampania.Designer.cs">
       <DependentUpon>DatosBannerCampania.cs</DependentUpon>
+    </Compile>
+    <Compile Include="NuevasPantallas\VAbstractBase.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="NuevasPantallas\VAbstractBase.Designer.cs">
+      <DependentUpon>VAbstractBase.cs</DependentUpon>
     </Compile>
     <Compile Include="NuevasPantallas\VAbstractCrearModificarBanner.cs">
       <SubType>Form</SubType>
@@ -215,6 +229,12 @@
     <Compile Include="NuevasPantallas\VModificarFuente.Designer.cs">
       <DependentUpon>VModificarFuente.cs</DependentUpon>
     </Compile>
+    <Compile Include="NuevasPantallas\VAbstractCrearModificarFuente.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="NuevasPantallas\VAbstractCrearModificarFuente.Designer.cs">
+      <DependentUpon>VAbstractCrearModificarFuente.cs</DependentUpon>
+    </Compile>
     <Compile Include="PruebaRangoFecha.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -224,14 +244,14 @@
     <Compile Include="UserControls\Galeria.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="UserControls\Galeria.designer.cs">
+    <Compile Include="UserControls\Galeria.Designer.cs">
       <DependentUpon>Galeria.cs</DependentUpon>
     </Compile>
-    <Compile Include="UserControls\LectorFuente.cs">
+    <Compile Include="UserControls\RangoFecha.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="UserControls\LectorFuente.Designer.cs">
-      <DependentUpon>LectorFuente.cs</DependentUpon>
+    <Compile Include="UserControls\RangoFecha.Designer.cs">
+      <DependentUpon>RangoFecha.cs</DependentUpon>
     </Compile>
     <Compile Include="UserControls\RangoHorario.cs">
       <SubType>UserControl</SubType>
@@ -385,18 +405,15 @@
     <Compile Include="VBannerNuevo.Designer.cs">
       <DependentUpon>VBannerNuevo.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="NuevasPantallas\VAbstractBase.resx">
-      <DependentUpon>VAbstractBase.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="NuevasPantallas\VAbstractCrearModificarFuente.resx">
       <DependentUpon>VAbstractCrearModificarFuente.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="NuevasPantallas\VPrincipal.resx">
-      <DependentUpon>VPrincipal.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources1.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="NuevasPantallas\VPrincipal.resx">
+      <DependentUpon>VPrincipal.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="PruebaLecturaFuente.resx">
       <DependentUpon>PruebaLecturaFuente.cs</DependentUpon>
@@ -407,6 +424,9 @@
     <EmbeddedResource Include="NuevasPantallas\DatosBannerCampania.resx">
       <DependentUpon>DatosBannerCampania.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="NuevasPantallas\VAbstractBase.resx">
+      <DependentUpon>VAbstractBase.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="NuevasPantallas\VAbstractCrearModificarBanner.resx">
       <DependentUpon>VAbstractCrearModificarBanner.cs</DependentUpon>
     </EmbeddedResource>
@@ -415,6 +435,16 @@
     </EmbeddedResource>
     <EmbeddedResource Include="NuevasPantallas\VModificarFuente.resx">
       <DependentUpon>VModificarFuente.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="NuevasPantallas\VAbstractCrearModificarFuente.resx">
+      <DependentUpon>VAbstractCrearModificarFuente.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="NuevasPantallas\VPrincipal.resx">
+      <DependentUpon>VPrincipal.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="PruebaGaleria.resx">
       <DependentUpon>PruebaGaleria.cs</DependentUpon>
@@ -428,8 +458,8 @@
     <EmbeddedResource Include="UserControls\Galeria.resx">
       <DependentUpon>Galeria.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UserControls\LectorFuente.resx">
-      <DependentUpon>LectorFuente.cs</DependentUpon>
+    <EmbeddedResource Include="UserControls\RangoFecha.resx">
+      <DependentUpon>RangoFecha.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UserControls\RangoHorario.resx">
       <DependentUpon>RangoHorario.cs</DependentUpon>
@@ -546,30 +576,13 @@
     <Content Include="Resources\Agregar5.ico" />
     <Content Include="Resources\AgregarImagen1.ico" />
     <Content Include="Resources\Arriba1.ico" />
-    <Content Include="Resources\campania1.ico" />
     <Content Include="Resources\Eliminar2.ico" />
     <Content Include="Resources\Eliminar4.ico" />
     <Content Include="Resources\monotype-art-pattern-leaves-colored-autumn-hd-wallpaper.jpg" />
     <None Include="Resources\NoImage.png" />
     <Content Include="Resources\Pausa1.ico" />
     <Content Include="Resources\Play1.ico" />
-    <Content Include="Resources\salir1.ico" />
-    <Content Include="Resources\salir2.png" />
-    <Content Include="Resources\salir3.ico" />
-    <Content Include="Resources\salir4.ico" />
-    <Content Include="Resources\Texto1.ico" />
-    <Content Include="Resources\Texto2.ico" />
-    <Content Include="Resources\Texto4.ico" />
-    <Content Include="Resources\Texto5.ico" />
-    <Content Include="Resources\Texto6.ico" />
-    <Content Include="Resources\Texto7.ico" />
-    <Content Include="Resources\Texto8.ico" />
-    <Content Include="Resources\texto9.ico" />
-    <Content Include="Resources\Vista.ico" />
-    <Content Include="Resources\Vista2.ico" />
-  </ItemGroup>
-  <ItemGroup>
-    <WCFMetadata Include="Service References\" />
+    <None Include="Resources\Sin imagen.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

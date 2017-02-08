@@ -39,7 +39,6 @@
             this.buttonCrearNuevaFuente = new System.Windows.Forms.Button();
             this.buttonGuardar = new System.Windows.Forms.Button();
             this.buttonCancelar = new System.Windows.Forms.Button();
-            this.rangoFecha = new UI.UserControls.RangoFecha();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewMostrarFuentes)).BeginInit();
             this.SuspendLayout();
             // 
@@ -71,7 +70,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(260, 71);
+            this.label3.Location = new System.Drawing.Point(261, 80);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(74, 13);
             this.label3.TabIndex = 3;
@@ -141,19 +140,11 @@
             this.buttonCancelar.Text = "Cancelar";
             this.buttonCancelar.UseVisualStyleBackColor = true;
             // 
-            // rangoFecha
-            // 
-            this.rangoFecha.Location = new System.Drawing.Point(9, 107);
-            this.rangoFecha.Name = "rangoFecha";
-            this.rangoFecha.Size = new System.Drawing.Size(234, 96);
-            this.rangoFecha.TabIndex = 15;
-            // 
             // VAbstractCrearModificarBanner
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(480, 477);
-            this.Controls.Add(this.rangoFecha);
             this.Controls.Add(this.buttonCancelar);
             this.Controls.Add(this.buttonGuardar);
             this.Controls.Add(this.buttonCrearNuevaFuente);
@@ -186,6 +177,5 @@
         protected System.Windows.Forms.Button buttonCrearNuevaFuente;
         protected System.Windows.Forms.Button buttonGuardar;
         protected System.Windows.Forms.Button buttonCancelar;
-        protected UserControls.RangoFecha rangoFecha;
     }
 }
