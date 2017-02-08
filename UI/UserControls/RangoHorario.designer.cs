@@ -1,4 +1,4 @@
-﻿namespace RangoHorario
+﻿namespace UI.UserControls
 {
     partial class RangoHorario
     {
