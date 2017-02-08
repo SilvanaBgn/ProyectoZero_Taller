@@ -105,18 +105,13 @@ namespace RangoHorario
             if (diferenciaHoras.Hours != 0) //Si las horas de la diferencia entre horas es distinto de 0
             {
                 if (diferenciaHoras.Hours == 1)
-                    resultado += diferenciaHoras.Hours + " hora";
-                else
-                    resultado += diferenciaHoras.Hours + " horas";
+                    resultado += diferenciaHoras.Hours + " hs";
             }
             if (diferenciaHoras.Minutes != 0) //Si los minutos de la diferencia entre horas es distinto de 0
             {
                 if (diferenciaHoras.Hours != 0)
                     resultado += " y ";
-                if (diferenciaHoras.Minutes == 1)
-                    resultado += diferenciaHoras.Minutes + " minuto";
-                else
-                    resultado += diferenciaHoras.Minutes + " minutos";
+                    resultado += diferenciaHoras.Minutes + " min";
             }
             return resultado;
         }

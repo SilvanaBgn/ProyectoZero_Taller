@@ -88,27 +88,36 @@
     <Reference Include="System.Drawing" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
-    <Reference Include="UI">
-      <HintPath>obj\Debug\UI.exe</HintPath>
-    </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="NuevasPantallas\VAbstractBase.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="NuevasPantallas\VAbstractBase.Designer.cs">
+      <DependentUpon>VAbstractBase.cs</DependentUpon>
+    </Compile>
     <Compile Include="NuevasPantallas\VAbstractCrearModificarFuente.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="NuevasPantallas\VAbstractCrearModificarFuente.Designer.cs">
       <DependentUpon>VAbstractCrearModificarFuente.cs</DependentUpon>
     </Compile>
-    <Compile Include="Properties\Resources1.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Resources.resx</DependentUpon>
+    <Compile Include="NuevasPantallas\VBaseBanner.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="NuevasPantallas\VBaseBanner.Designer.cs">
+      <DependentUpon>VBaseBanner.cs</DependentUpon>
     </Compile>
     <Compile Include="NuevasPantallas\VPrincipal.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="NuevasPantallas\VPrincipal.designer.cs">
       <DependentUpon>VPrincipal.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Resources1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
     <Compile Include="PruebaLecturaFuente.cs">
       <SubType>Form</SubType>
@@ -121,12 +130,6 @@
     </Compile>
     <Compile Include="PruebaLectorRss.designer.cs">
       <DependentUpon>PruebaLectorRss.cs</DependentUpon>
-    </Compile>
-    <Compile Include="NuevasPantallas\VBaseBanner.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="NuevasPantallas\VBaseBanner.Designer.cs">
-      <DependentUpon>VBaseBanner.cs</DependentUpon>
     </Compile>
     <Compile Include="PruebaGaleria.cs">
       <SubType>Form</SubType>
@@ -151,12 +154,6 @@
     </Compile>
     <Compile Include="NuevasPantallas\DatosBannerCampania.Designer.cs">
       <DependentUpon>DatosBannerCampania.cs</DependentUpon>
-    </Compile>
-    <Compile Include="NuevasPantallas\VAbstractBase.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="NuevasPantallas\VAbstractBase.Designer.cs">
-      <DependentUpon>VAbstractBase.cs</DependentUpon>
     </Compile>
     <Compile Include="NuevasPantallas\VAbstractCrearModificarBanner.cs">
       <SubType>Form</SubType>
@@ -388,15 +385,18 @@
     <Compile Include="VBannerNuevo.Designer.cs">
       <DependentUpon>VBannerNuevo.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="NuevasPantallas\VAbstractBase.resx">
+      <DependentUpon>VAbstractBase.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="NuevasPantallas\VAbstractCrearModificarFuente.resx">
       <DependentUpon>VAbstractCrearModificarFuente.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="NuevasPantallas\VPrincipal.resx">
+      <DependentUpon>VPrincipal.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources1.Designer.cs</LastGenOutput>
-    </EmbeddedResource>
-    <EmbeddedResource Include="NuevasPantallas\VPrincipal.resx">
-      <DependentUpon>VPrincipal.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="PruebaLecturaFuente.resx">
       <DependentUpon>PruebaLecturaFuente.cs</DependentUpon>
@@ -506,7 +506,6 @@
     <EmbeddedResource Include="VBannerNuevo.resx">
       <DependentUpon>VBannerNuevo.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="VPrincipal.resx" />
     <None Include="log4net.config" />
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
@@ -551,6 +550,7 @@
     <Content Include="Resources\Eliminar2.ico" />
     <Content Include="Resources\Eliminar4.ico" />
     <Content Include="Resources\monotype-art-pattern-leaves-colored-autumn-hd-wallpaper.jpg" />
+    <None Include="Resources\NoImage.png" />
     <Content Include="Resources\Pausa1.ico" />
     <Content Include="Resources\Play1.ico" />
     <Content Include="Resources\salir1.ico" />

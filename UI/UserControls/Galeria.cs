@@ -165,7 +165,7 @@ namespace UI.UserControls
             if (!this.campaniaDeslizante1.Funcionando)
             {
                 //Cambiamos la imagen del botón this.buttonVistaPrevia a "Pausa":
-                //this.buttonVistaPrevia.BackgroundImage = global::UI.Properties.Resources.Pausa1;
+                this.buttonVistaPrevia.BackgroundImage = global::UI.Properties.Resources.Pausa1;
 
                 if (this.textBoxSegundos.Text.Length > 0)
                     this.campaniaDeslizante1.Start(this.ListaImagenes, Convert.ToInt32(this.textBoxSegundos.Text));
@@ -176,7 +176,7 @@ namespace UI.UserControls
             {
                 this.campaniaDeslizante1.Stop();
                 //Cambiamos la imagen del botón this.buttonVistaPrevia a "Play":
-                //this.buttonVistaPrevia.BackgroundImage = global::UI.Properties.Resources.Play1;
+                this.buttonVistaPrevia.BackgroundImage = global::UI.Properties.Resources.Play1;
             }
         }
         #endregion

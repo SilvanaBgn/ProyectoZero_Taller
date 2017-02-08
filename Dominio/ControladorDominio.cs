@@ -93,7 +93,7 @@ namespace Dominio
         {
             string texto = "";
             Fuente fuenteDelBanner = this.BuscarFuentePorId(pBanner.FuenteId);
-            texto = pBanner.Descripcion;
+            texto = pBanner.Titulo;
             texto += ": ";
             IList<Item> listaItems = (List<Item>)fuenteDelBanner.Leer();
             //Asignamos su contenido a la variable texto:
@@ -162,6 +162,74 @@ namespace Dominio
             }
             array[0] = texto;
             array[1] = intervalo;
+            return array;
+        }
+
+
+
+
+
+
+        /// <summary>
+        /// Busca cuál es la próximo campania a pasar en el siguiente cuarto de hora
+        /// </summary>
+        /// <returns>Devuelve la campania a pasar en el siguiente cuarto de hora, sino devuelve null</returns>
+        private Campania ProximaCampaniaAPasar(DateTime pFechaActual)
+        {
+            TimeSpan horaActual = new TimeSpan(pFechaActual.Hour, pFechaActual.Minute, pFechaActual.Second);
+            //Buscamos la próximo campania a pasar:
+            // que fechaActual sea mayor o igual a FechaInicio y menor o igual a FechaFin --> FechaInicio<=fechaActual<=FechaFin
+            //HoraInicio <= horaActual < HoraFin
+            //Debería devolver una sola campania
+            List<Campania> posiblesCampanias = this.BuscarCampaniaPorAtributo
+                 (x => x.FechaInicio.CompareTo(pFechaActual) <= 0 && x.FechaFin.CompareTo(pFechaActual) >= 0
+                      && x.HoraInicio.CompareTo(horaActual) <= 0 && x.HoraFin.CompareTo(horaActual) > 0
+                 );
+
+            if (posiblesCampanias.Count > 0) //Si encontró alguna campania para el próximo cuarto de hora
+                return posiblesCampanias[0]; //Tomamos la primera campania que encontró
+            else
+                return null;
+        }
+
+        /// <summary>
+        /// Averigua las imágenes y el intervalo de tiempo de la próxima campania a pasar
+        /// </summary>
+        /// <returns>Devuelve un array, donde el primer argumento es la lista de imágenes y el segundo 
+        /// es la duracion y el tercero es el intervalo. Si no encuentra una campania para pasar en el 
+        /// próximo cuarto de hora, devuelve una lista vacía y el intervalo con la cantidad de 
+        /// milisegundos hasta el próximo</returns>
+        public object[] LeerProximaCampania()
+        {
+            IList<Imagen> listaImagenes = new List<Imagen>();
+            int duracion = 0;
+            int intervalo = 0;
+            object[] array = new object[3];
+
+            DateTime fechaActual = DateTime.Now;
+            TimeSpan horaActual = new TimeSpan(fechaActual.Hour, fechaActual.Minute, fechaActual.Second);
+
+            //Obtenemos el próximo banner:
+            Campania campaniaAPasar = this.ProximaCampaniaAPasar(fechaActual);
+
+            if (campaniaAPasar != null)
+            {
+                //*imágenes* Lo leemos, de acuerdo a la fuente que corresponde al bannerAPasar:
+                listaImagenes = (IList<Imagen>)campaniaAPasar.Imagenes;
+                duracion = campaniaAPasar.DuracionImagen;
+                //*intervalo*:
+                //Cambia el intervalo al tiempo del nuevo banner a pasar:
+                intervalo = Convert.ToInt32(campaniaAPasar.HoraFin.Subtract(horaActual).TotalMilliseconds);
+            }
+            else
+            {
+                // *imágenes* es una lista vacío.
+                //*intervalo*:
+                intervalo = Convert.ToInt32(this.IntervaloAlProxCuartoDeHora(horaActual));
+            }
+            array[0] = listaImagenes;
+            array[1] = duracion;
+            array[2] = intervalo;
             return array;
         }
         #endregion
