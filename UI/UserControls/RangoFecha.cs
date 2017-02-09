@@ -34,7 +34,6 @@ namespace UI.UserControls
 
         private void dateTimePickerInicio_ValueChanged(object sender, EventArgs e)
         {
-            this.dateTimePickerFin.MinDate = this.dateTimePickerInicio.Value;
             this.labelCantDias.Text = "Un total de "+
                             this.DiferenciaFechas(this.dateTimePickerFin.Value, this.dateTimePickerInicio.Value);
         }

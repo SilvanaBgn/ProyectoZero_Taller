@@ -10,6 +10,7 @@ using System.IO;
 using Dominio;
 using Helper;
 
+
 namespace UI.UserControls
 {
     public class CampaniaDeslizante : PictureBox
@@ -52,7 +53,7 @@ namespace UI.UserControls
             this.iListaImagenesOrdenada = new List<Imagen>();
             this.iFuncionando = false;
 
-            //this.Image=this.iSinImagen= global::UI.Properties.Resources.Sin_imagen;
+            this.Image = this.iSinImagen = global::UI.Properties.Resources.NoImage;
         }
 
         /// <summary>

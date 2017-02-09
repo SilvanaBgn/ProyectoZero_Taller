@@ -34,12 +34,12 @@
             this.columnNumero = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnNombre = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnUrl = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.buttonArriba = new System.Windows.Forms.Button();
+            this.buttonAbajo = new System.Windows.Forms.Button();
             this.buttonEliminarImagen = new System.Windows.Forms.Button();
             this.campaniaDeslizante1 = new UI.UserControls.CampaniaDeslizante();
             this.buttonVistaPrevia = new System.Windows.Forms.Button();
             this.buttonAgregarImagenes = new System.Windows.Forms.Button();
-            this.buttonArriba = new System.Windows.Forms.Button();
-            this.buttonAbajo = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.campaniaDeslizante1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -93,8 +93,37 @@
             this.columnUrl.Text = "Url";
             this.columnUrl.Width = 0;
             // 
+            // buttonArriba
+            // 
+            this.buttonArriba.AutoSize = true;
+            this.buttonArriba.BackgroundImage = global::UI.Properties.Resources.Arriba1;
+            this.buttonArriba.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.buttonArriba.FlatAppearance.BorderSize = 0;
+            this.buttonArriba.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonArriba.Location = new System.Drawing.Point(213, 33);
+            this.buttonArriba.Name = "buttonArriba";
+            this.buttonArriba.Size = new System.Drawing.Size(53, 54);
+            this.buttonArriba.TabIndex = 51;
+            this.buttonArriba.UseVisualStyleBackColor = true;
+            this.buttonArriba.Click += new System.EventHandler(this.buttonArriba_Click);
+            // 
+            // buttonAbajo
+            // 
+            this.buttonAbajo.AutoSize = true;
+            this.buttonAbajo.BackgroundImage = global::UI.Properties.Resources.Abajo1;
+            this.buttonAbajo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.buttonAbajo.FlatAppearance.BorderSize = 0;
+            this.buttonAbajo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonAbajo.Location = new System.Drawing.Point(213, 91);
+            this.buttonAbajo.Name = "buttonAbajo";
+            this.buttonAbajo.Size = new System.Drawing.Size(53, 54);
+            this.buttonAbajo.TabIndex = 52;
+            this.buttonAbajo.UseVisualStyleBackColor = true;
+            this.buttonAbajo.Click += new System.EventHandler(this.buttonAbajo_Click);
+            // 
             // buttonEliminarImagen
             // 
+            this.buttonEliminarImagen.BackgroundImage = global::UI.Properties.Resources.Eliminar4;
             this.buttonEliminarImagen.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.buttonEliminarImagen.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
             this.buttonEliminarImagen.Location = new System.Drawing.Point(141, 153);
@@ -117,6 +146,7 @@
             // buttonVistaPrevia
             // 
             this.buttonVistaPrevia.AutoSize = true;
+            this.buttonVistaPrevia.BackgroundImage = global::UI.Properties.Resources.Play1;
             this.buttonVistaPrevia.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.buttonVistaPrevia.ForeColor = System.Drawing.SystemColors.ControlText;
             this.buttonVistaPrevia.Location = new System.Drawing.Point(178, 153);
@@ -129,6 +159,7 @@
             // buttonAgregarImagenes
             // 
             this.buttonAgregarImagenes.AutoSize = true;
+            this.buttonAgregarImagenes.BackgroundImage = global::UI.Properties.Resources.AgregarImagen1;
             this.buttonAgregarImagenes.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.buttonAgregarImagenes.ForeColor = System.Drawing.SystemColors.ControlText;
             this.buttonAgregarImagenes.Location = new System.Drawing.Point(111, 153);
@@ -137,32 +168,6 @@
             this.buttonAgregarImagenes.TabIndex = 48;
             this.buttonAgregarImagenes.UseVisualStyleBackColor = true;
             this.buttonAgregarImagenes.Click += new System.EventHandler(this.buttonAgregarImagenes_Click);
-            // 
-            // buttonArriba
-            // 
-            this.buttonArriba.AutoSize = true;
-            this.buttonArriba.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.buttonArriba.FlatAppearance.BorderSize = 0;
-            this.buttonArriba.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonArriba.Location = new System.Drawing.Point(212, 33);
-            this.buttonArriba.Name = "buttonArriba";
-            this.buttonArriba.Size = new System.Drawing.Size(53, 54);
-            this.buttonArriba.TabIndex = 51;
-            this.buttonArriba.UseVisualStyleBackColor = true;
-            this.buttonArriba.Click += new System.EventHandler(this.buttonArriba_Click);
-            // 
-            // buttonAbajo
-            // 
-            this.buttonAbajo.AutoSize = true;
-            this.buttonAbajo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.buttonAbajo.FlatAppearance.BorderSize = 0;
-            this.buttonAbajo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonAbajo.Location = new System.Drawing.Point(212, 91);
-            this.buttonAbajo.Name = "buttonAbajo";
-            this.buttonAbajo.Size = new System.Drawing.Size(53, 54);
-            this.buttonAbajo.TabIndex = 52;
-            this.buttonAbajo.UseVisualStyleBackColor = true;
-            this.buttonAbajo.Click += new System.EventHandler(this.buttonAbajo_Click);
             // 
             // Galeria
             // 

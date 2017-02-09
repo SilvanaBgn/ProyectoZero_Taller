@@ -22,8 +22,7 @@ namespace UI
             //Application.Run(new PruebaGaleria());
             //Application.Run(new PruebaLectorRss());
             //Application.Run(new PruebaLecturaFuente()); 
-           
-            Application.Run(new VPrincipal());
+            Application.Run(new UI.NuevasPantallas.VPrincipal());
         }
     }
 }

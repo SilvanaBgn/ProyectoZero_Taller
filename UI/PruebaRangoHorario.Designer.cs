@@ -31,20 +31,20 @@
             this.dateTimePicker = new System.Windows.Forms.DateTimePicker();
             this.SuspendLayout();
             // 
-            // dateTimePicker1
+            // dateTimePicker
             // 
             this.dateTimePicker.Location = new System.Drawing.Point(56, 47);
-            this.dateTimePicker.Name = "dateTimePicker1";
+            this.dateTimePicker.Name = "dateTimePicker";
             this.dateTimePicker.Size = new System.Drawing.Size(200, 20);
             this.dateTimePicker.TabIndex = 0;
             // 
-            // PruebaRangoHora
+            // PruebaRangoHorario
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(320, 262);
             this.Controls.Add(this.dateTimePicker);
-            this.Name = "PruebaRangoHora";
+            this.Name = "PruebaRangoHorario";
             this.Text = "PruebaRangoHora";
             this.ResumeLayout(false);
 
