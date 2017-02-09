@@ -55,6 +55,7 @@
     <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
     <Prefer32Bit>true</Prefer32Bit>
   </PropertyGroup>
+  <PropertyGroup />
   <ItemGroup>
     <Reference Include="log4net, Version=1.2.14.0, Culture=neutral, PublicKeyToken=669e0ddf0bb1aa2a, processorArchitecture=MSIL">
       <HintPath>..\packages\log4net.2.0.4\lib\net45-full\log4net.dll</HintPath>
@@ -375,6 +376,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="NuevasPantallas\VAbstractCrearModificarBanner.resx">
       <DependentUpon>VAbstractCrearModificarBanner.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="NuevasPantallas\VAbstractCrearModificarCampania.resx">
+      <DependentUpon>VAbstractCrearModificarCampania.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="NuevasPantallas\VBaseFuente.resx">
       <DependentUpon>VBaseFuente.cs</DependentUpon>

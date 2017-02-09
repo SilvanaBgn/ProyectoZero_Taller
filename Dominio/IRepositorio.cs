@@ -19,7 +19,12 @@ namespace Dominio
         /// <param name="orderBy">Orden en el que se quiere recuperar las entidades</param>
         /// <returns>Un listado de objetos de la entidadgenerica</returns>
         IEnumerable<T> Obtener(Expression<Func<T, bool>> filter = null, Func<IQueryable<T>, IOrderedQueryable<T>> orderBy = null);
-        
+
+        IEnumerable<T> Filtrar(Expression<Func<T, bool>> filtroFechas,
+            Expression<Func<T, bool>> filtroHoras,
+            Expression<Func<T, bool>> filtroTitulo,
+            Expression<Func<T, bool>> filtroDescripcion);
+
         /// <summary>
         /// Metodo generico para recuperar una entidad a partir de su identidad
         /// </summary>

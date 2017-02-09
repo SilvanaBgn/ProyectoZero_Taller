@@ -40,7 +40,9 @@
             this.buttonSalir = new System.Windows.Forms.Button();
             this.buttonFiltrar = new System.Windows.Forms.Button();
             this.checkBoxTitulo = new System.Windows.Forms.CheckBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.textBoxTitulo = new System.Windows.Forms.TextBox();
+            this.rangoHorario = new UI.UserControls.RangoHorario();
+            this.rangoFecha = new UI.UserControls.RangoFecha();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewMostrar)).BeginInit();
             this.SuspendLayout();
             // 
@@ -89,6 +91,7 @@
             this.checkBoxRangoFechas.TabIndex = 4;
             this.checkBoxRangoFechas.Text = "Rango de fechas";
             this.checkBoxRangoFechas.UseVisualStyleBackColor = true;
+            this.checkBoxRangoFechas.CheckedChanged += new System.EventHandler(this.checkBoxRangoFechas_CheckedChanged);
             // 
             // checkBoxRangoHoras
             // 
@@ -99,6 +102,7 @@
             this.checkBoxRangoHoras.TabIndex = 5;
             this.checkBoxRangoHoras.Text = "Rango de horas";
             this.checkBoxRangoHoras.UseVisualStyleBackColor = true;
+            this.checkBoxRangoHoras.CheckedChanged += new System.EventHandler(this.checkBoxRangoHoras_CheckedChanged);
             // 
             // checkBoxDescripcion
             // 
@@ -109,6 +113,7 @@
             this.checkBoxDescripcion.TabIndex = 6;
             this.checkBoxDescripcion.Text = "Descripcion";
             this.checkBoxDescripcion.UseVisualStyleBackColor = true;
+            this.checkBoxDescripcion.CheckedChanged += new System.EventHandler(this.checkBoxDescripcion_CheckedChanged);
             // 
             // dataGridViewMostrar
             // 
@@ -159,20 +164,44 @@
             this.checkBoxTitulo.TabIndex = 15;
             this.checkBoxTitulo.Text = "Titulo";
             this.checkBoxTitulo.UseVisualStyleBackColor = true;
+            this.checkBoxTitulo.CheckedChanged += new System.EventHandler(this.checkBoxTitulo_CheckedChanged);
             // 
-            // textBox1
+            // textBoxTitulo
             // 
-            this.textBox1.Location = new System.Drawing.Point(13, 422);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(100, 20);
-            this.textBox1.TabIndex = 16;
+            this.textBoxTitulo.Enabled = false;
+            this.textBoxTitulo.Location = new System.Drawing.Point(13, 422);
+            this.textBoxTitulo.Name = "textBoxTitulo";
+            this.textBoxTitulo.Size = new System.Drawing.Size(100, 20);
+            this.textBoxTitulo.TabIndex = 16;
+            // 
+            // rangoHorario
+            // 
+            this.rangoHorario.Enabled = false;
+            this.rangoHorario.HoraFin = System.TimeSpan.Parse("00:15:00");
+            this.rangoHorario.HoraInicio = System.TimeSpan.Parse("00:00:00");
+            this.rangoHorario.Location = new System.Drawing.Point(12, 241);
+            this.rangoHorario.Name = "rangoHorario";
+            this.rangoHorario.Size = new System.Drawing.Size(120, 101);
+            this.rangoHorario.TabIndex = 18;
+            // 
+            // rangoFecha
+            // 
+            this.rangoFecha.Enabled = false;
+            this.rangoFecha.FechaFin = new System.DateTime(2017, 2, 7, 0, 0, 0, 0);
+            this.rangoFecha.FechaInicio = new System.DateTime(2017, 2, 7, 0, 0, 0, 0);
+            this.rangoFecha.Location = new System.Drawing.Point(12, 116);
+            this.rangoFecha.Name = "rangoFecha";
+            this.rangoFecha.Size = new System.Drawing.Size(235, 96);
+            this.rangoFecha.TabIndex = 17;
             // 
             // VAbstractBase
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(661, 506);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.rangoHorario);
+            this.Controls.Add(this.rangoFecha);
+            this.Controls.Add(this.textBoxTitulo);
             this.Controls.Add(this.checkBoxTitulo);
             this.Controls.Add(this.buttonFiltrar);
             this.Controls.Add(this.buttonSalir);
@@ -206,7 +235,9 @@
         protected System.Windows.Forms.TextBox textBoxDescripcion;
         protected System.Windows.Forms.Button buttonSalir;
         protected System.Windows.Forms.Button buttonFiltrar;
-        private System.Windows.Forms.CheckBox checkBoxTitulo;
-        private System.Windows.Forms.TextBox textBox1;
+        protected System.Windows.Forms.CheckBox checkBoxTitulo;
+        protected System.Windows.Forms.TextBox textBoxTitulo;
+        protected UserControls.RangoFecha rangoFecha;
+        protected UserControls.RangoHorario rangoHorario;
     }
 }

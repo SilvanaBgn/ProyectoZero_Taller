@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
-VisualStudioVersion = 14.0.25420.1
+VisualStudioVersion = 14.0.23107.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Dominio", "Dominio\Dominio.csproj", "{1818D70A-ADFB-4E0E-BED1-1AC84B15A536}"
 EndProject
@@ -14,8 +14,6 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Excepciones", "Excepciones\Excepciones.csproj", "{C0BD7184-1899-4535-96FD-223DE19E1D25}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Helper", "Helper\Helper.csproj", "{86B9361E-1C96-41B4-80C6-5E7DCB76E8DE}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LecturaExterna", "LecturaExterna\LecturaExterna.csproj", "{805CB4CD-7C15-4E36-99AC-67CA529C5B91}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -73,14 +71,6 @@ Global
 		{86B9361E-1C96-41B4-80C6-5E7DCB76E8DE}.Release|Any CPU.Build.0 = Release|Any CPU
 		{86B9361E-1C96-41B4-80C6-5E7DCB76E8DE}.Release|x64.ActiveCfg = Release|x64
 		{86B9361E-1C96-41B4-80C6-5E7DCB76E8DE}.Release|x64.Build.0 = Release|x64
-		{805CB4CD-7C15-4E36-99AC-67CA529C5B91}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{805CB4CD-7C15-4E36-99AC-67CA529C5B91}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{805CB4CD-7C15-4E36-99AC-67CA529C5B91}.Debug|x64.ActiveCfg = Debug|x64
-		{805CB4CD-7C15-4E36-99AC-67CA529C5B91}.Debug|x64.Build.0 = Debug|x64
-		{805CB4CD-7C15-4E36-99AC-67CA529C5B91}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{805CB4CD-7C15-4E36-99AC-67CA529C5B91}.Release|Any CPU.Build.0 = Release|Any CPU
-		{805CB4CD-7C15-4E36-99AC-67CA529C5B91}.Release|x64.ActiveCfg = Release|x64
-		{805CB4CD-7C15-4E36-99AC-67CA529C5B91}.Release|x64.Build.0 = Release|x64
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

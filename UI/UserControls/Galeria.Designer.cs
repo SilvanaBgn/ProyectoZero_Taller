@@ -35,7 +35,7 @@
             this.columnNombre = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnUrl = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.buttonEliminarImagen = new System.Windows.Forms.Button();
-            this.campaniaDeslizante1 = new CampaniaDeslizante();
+            this.campaniaDeslizante1 = new UI.UserControls.CampaniaDeslizante();
             this.buttonVistaPrevia = new System.Windows.Forms.Button();
             this.buttonAgregarImagenes = new System.Windows.Forms.Button();
             this.buttonArriba = new System.Windows.Forms.Button();
@@ -190,7 +190,7 @@
         private System.Windows.Forms.Label label2;
         protected System.Windows.Forms.Button buttonVistaPrevia;
         private System.Windows.Forms.Button buttonAgregarImagenes;
-        private CampaniaDeslizante campaniaDeslizante1;
+        private UI.UserControls.CampaniaDeslizante campaniaDeslizante1;
         protected System.Windows.Forms.Button buttonAbajo;
         protected System.Windows.Forms.Button buttonArriba;
         private System.Windows.Forms.ListView listView1;

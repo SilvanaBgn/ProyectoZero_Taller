@@ -25,5 +25,33 @@ namespace UI.NuevasPantallas
         {
             this.iControladorDominio = pControladorDominio;
         }
+
+        private void checkBoxRangoFechas_CheckedChanged(object sender, EventArgs e)
+        {
+            if (this.checkBoxRangoFechas.Checked)
+                this.rangoFecha.Enabled = true;
+            else this.rangoFecha.Enabled = false;
+        }
+
+        private void checkBoxRangoHoras_CheckedChanged(object sender, EventArgs e)
+        {
+            if (this.checkBoxRangoHoras.Checked)
+                this.rangoHorario.Enabled = true;
+            else this.rangoHorario.Enabled = false;
+        }
+
+        private void checkBoxTitulo_CheckedChanged(object sender, EventArgs e)
+        {
+            if (this.checkBoxTitulo.Checked)
+                this.textBoxTitulo.Enabled = true;
+            else this.textBoxTitulo.Enabled = false;
+        }
+
+        private void checkBoxDescripcion_CheckedChanged(object sender, EventArgs e)
+        {
+            if (this.checkBoxDescripcion.Checked)
+                this.textBoxDescripcion.Enabled = true;
+            else this.textBoxDescripcion.Enabled = false;
+        }
     }
 }

@@ -30,12 +30,15 @@
         {
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.textBoxTitulo = new System.Windows.Forms.TextBox();
+            this.textBoxDescripcion = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.buttonGuardar = new System.Windows.Forms.Button();
             this.buttonCancelar = new System.Windows.Forms.Button();
+            this.rangoFecha = new UI.UserControls.RangoFecha();
+            this.rangoHorario = new UI.UserControls.RangoHorario();
+            this.galeria1 = new UI.UserControls.Galeria();
             this.SuspendLayout();
             // 
             // label1
@@ -56,19 +59,19 @@
             this.label2.TabIndex = 1;
             this.label2.Text = "Descripcion";
             // 
-            // textBox1
+            // textBoxTitulo
             // 
-            this.textBox1.Location = new System.Drawing.Point(97, 13);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(213, 20);
-            this.textBox1.TabIndex = 2;
+            this.textBoxTitulo.Location = new System.Drawing.Point(97, 13);
+            this.textBoxTitulo.Name = "textBoxTitulo";
+            this.textBoxTitulo.Size = new System.Drawing.Size(213, 20);
+            this.textBoxTitulo.TabIndex = 2;
             // 
-            // textBox2
+            // textBoxDescripcion
             // 
-            this.textBox2.Location = new System.Drawing.Point(97, 43);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(213, 20);
-            this.textBox2.TabIndex = 3;
+            this.textBoxDescripcion.Location = new System.Drawing.Point(97, 43);
+            this.textBoxDescripcion.Name = "textBoxDescripcion";
+            this.textBoxDescripcion.Size = new System.Drawing.Size(213, 20);
+            this.textBoxDescripcion.TabIndex = 3;
             // 
             // label3
             // 
@@ -106,17 +109,45 @@
             this.buttonCancelar.Text = "Cancelar";
             this.buttonCancelar.UseVisualStyleBackColor = false;
             // 
+            // rangoFecha
+            // 
+            this.rangoFecha.FechaFin = new System.DateTime(2017, 2, 7, 0, 0, 0, 0);
+            this.rangoFecha.FechaInicio = new System.DateTime(2017, 2, 7, 0, 0, 0, 0);
+            this.rangoFecha.Location = new System.Drawing.Point(16, 113);
+            this.rangoFecha.Name = "rangoFecha";
+            this.rangoFecha.Size = new System.Drawing.Size(235, 96);
+            this.rangoFecha.TabIndex = 8;
+            // 
+            // rangoHorario
+            // 
+            this.rangoHorario.HoraFin = System.TimeSpan.Parse("00:15:00");
+            this.rangoHorario.HoraInicio = System.TimeSpan.Parse("00:00:00");
+            this.rangoHorario.Location = new System.Drawing.Point(258, 113);
+            this.rangoHorario.Name = "rangoHorario";
+            this.rangoHorario.Size = new System.Drawing.Size(120, 101);
+            this.rangoHorario.TabIndex = 9;
+            // 
+            // galeria1
+            // 
+            this.galeria1.Location = new System.Drawing.Point(385, 113);
+            this.galeria1.Name = "galeria1";
+            this.galeria1.Size = new System.Drawing.Size(488, 189);
+            this.galeria1.TabIndex = 10;
+            // 
             // VAbstractCrearModificarCampania
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(322, 335);
+            this.ClientSize = new System.Drawing.Size(885, 335);
+            this.Controls.Add(this.galeria1);
+            this.Controls.Add(this.rangoHorario);
+            this.Controls.Add(this.rangoFecha);
             this.Controls.Add(this.buttonCancelar);
             this.Controls.Add(this.buttonGuardar);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
-            this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.textBoxDescripcion);
+            this.Controls.Add(this.textBoxTitulo);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Name = "VAbstractCrearModificarCampania";
@@ -130,11 +161,14 @@
 
         protected System.Windows.Forms.Label label1;
         protected System.Windows.Forms.Label label2;
-        protected System.Windows.Forms.TextBox textBox1;
-        protected System.Windows.Forms.TextBox textBox2;
+        protected System.Windows.Forms.TextBox textBoxTitulo;
+        protected System.Windows.Forms.TextBox textBoxDescripcion;
         protected System.Windows.Forms.Label label3;
         protected System.Windows.Forms.Label label4;
         protected System.Windows.Forms.Button buttonGuardar;
         protected System.Windows.Forms.Button buttonCancelar;
+        protected UserControls.RangoFecha rangoFecha;
+        protected UserControls.RangoHorario rangoHorario;
+        private UserControls.Galeria galeria1;
     }
 }

@@ -14,6 +14,10 @@ namespace UI.NuevasPantallas
 {
     public partial class VBaseBanner : VAbstractBase
     {
+
+        /// <summary>
+        /// banner que se va a modificar (ver si sacar esto)
+        /// </summary>
         private Banner banner = new Banner();
 
         public VBaseBanner(ref ControladorDominio pControladorDominio) : base(ref pControladorDominio)
@@ -24,33 +28,29 @@ namespace UI.NuevasPantallas
             this.buttonModificar.Click += buttonModificar_Click;
             this.buttonEliminar.Click += buttonEliminar_Click;
             this.buttonFiltrar.Click += buttonFiltrar_Click;
-            this.checkBoxDescripcion.CheckedChanged += checkBoxDescripcion_CheckedChanged;
-            CargarBanners();
-        }
-
-        private void checkBoxDescripcion_CheckedChanged(object sender, EventArgs e)
-        {
-            if (this.checkBoxDescripcion.Checked)
-                this.textBoxDescripcion.Enabled = true;
-            else this.textBoxDescripcion.Enabled = false;
+            CargarTodosLosBanners();
         }
 
         private void buttonFiltrar_Click(object sender, EventArgs e)
         {
 
-          //  List<Banner> listaAuxiliar = new List<Banner>();
+            DateTime[] filtroFechas = null;
+            TimeSpan[] filtroHoras = null;
+            string filtroTitulo = null;
+            string filtroDescripcion = null;
 
-           // if (this.checkBoxRangoFechas.Checked &&)
-            //{
-            //    listaAuxiliar.AddRange(this.iControladorDominio.BuscarBannerPorAtributo
-            //        (x => x.FechaInicio.CompareTo(this.rangoFecha.FechaInicio) >= 0 &&
-            //    x.FechaFin.CompareTo(this.rangoFecha.FechaFin) <= 0));
-            //}
+            if (checkBoxRangoFechas.Checked)
+                filtroFechas = new DateTime[] { this.rangoFecha.FechaInicio, this.rangoFecha.FechaFin };
+            if (checkBoxRangoHoras.Checked)
+                filtroHoras = new TimeSpan[] { this.rangoHorario.HoraInicio, this.rangoHorario.HoraFin };
+            if (checkBoxTitulo.Checked)
+                filtroTitulo = this.textBoxTitulo.Text;
+            if (checkBoxDescripcion.Checked)
+                filtroDescripcion = this.textBoxDescripcion.Text;
 
-            //if (this.checkBoxRangoHoras.Checked)
-            //{
-
-            //}
+            List<Banner> listaFiltrada=this.iControladorDominio.FiltrarBanners(filtroFechas,filtroHoras,filtroTitulo,filtroDescripcion);
+            this.dataGridViewMostrar.DataSource = listaFiltrada;
+                
         }
 
         /// <summary>
@@ -64,7 +64,7 @@ namespace UI.NuevasPantallas
         /// <summary>
         /// Muestra en el datagrid los banners que se encuentran en la base de datos
         /// </summary>
-        public void CargarBanners()
+        public void CargarTodosLosBanners()
         {
             this.dataGridViewMostrar.DataSource = this.iControladorDominio.ObtenerTodosLosBanners();
         }
@@ -89,7 +89,7 @@ namespace UI.NuevasPantallas
             int codigo = Convert.ToInt32(this.dataGridViewMostrar.SelectedRows[0].Cells[0].Value.ToString());
             this.iControladorDominio.BorrarBanner(codigo);
             this.iControladorDominio.GuardarCambios();
-            this.CargarBanners();
+            this.CargarTodosLosBanners();
         }
     }
 }

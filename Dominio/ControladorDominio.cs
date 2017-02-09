@@ -62,6 +62,48 @@ namespace Dominio
             return this.iUoW.RepositorioBanners.Obtener(filter,null).ToList();
         }
 
+        public List<Banner> FiltrarBanners(DateTime[] pFiltroFechas, TimeSpan[] pFiltroHoras, string pFiltroTitulo, string pFiltroDescripcion)
+        {
+            DateTime fechaInicio;
+            DateTime fechaFin;
+            TimeSpan horaInicio;
+            TimeSpan horaFin;
+
+            Expression<Func<Banner, bool>> filtroFechas=null;
+            Expression<Func<Banner, bool>> filtroHoras=null;
+            Expression<Func<Banner, bool>> filtroTitulo = null;
+            Expression<Func<Banner, bool>> filtroDescripcion=null;
+
+            if (pFiltroFechas!=null)
+            {
+                fechaInicio = pFiltroFechas[0];
+                fechaFin = pFiltroFechas[1];
+                filtroFechas = x => x.FechaInicio.CompareTo(fechaInicio) >= 0 && x.FechaFin.CompareTo(fechaFin) <= 0;
+            }
+
+            if (pFiltroHoras!=null)
+            {
+                horaInicio = pFiltroHoras[0];
+                horaFin = pFiltroHoras[1];
+                filtroHoras = x => x.HoraInicio.CompareTo(horaInicio) >= 0 && x.HoraFin.CompareTo(horaFin) <= 0;
+            }
+
+            if (pFiltroTitulo!=null)
+            {
+                filtroTitulo = x => x.Titulo.Contains(pFiltroTitulo);
+            }
+
+            if (pFiltroDescripcion!=null)
+            {
+                filtroDescripcion = x => x.Descripcion.Contains(pFiltroDescripcion);
+            }
+
+
+            return this.iUoW.RepositorioBanners.Filtrar(filtroFechas, filtroHoras, filtroTitulo, filtroDescripcion).ToList();
+        }
+
+
+
         public List<Banner> ObtenerTodosLosBanners()
         {
             return this.iUoW.RepositorioBanners.Obtener(null, null).ToList();
@@ -89,20 +131,20 @@ namespace Dominio
                 return null;
         }
 
-        private string InfoLeidaBanner(Banner pBanner)
-        {
-            string texto = "";
-            Fuente fuenteDelBanner = this.BuscarFuentePorId(pBanner.FuenteId);
-            texto = pBanner.Descripcion;
-            texto += ": ";
-            IList<Item> listaItems = (List<Item>)fuenteDelBanner.Leer();
-            //Asignamos su contenido a la variable texto:
-            for (int i = 0; i < listaItems.Count; i++)
-            {
-                texto += listaItems[i].ToString() + " • | • ";
-            }
-            return texto;
-        }
+        //private string InfoLeidaBanner(Banner pBanner)
+        //{
+        //    string texto = "";
+        //    Fuente fuenteDelBanner = this.BuscarFuentePorId(pBanner.FuenteId);
+        //    texto = pBanner.Descripcion;
+        //    texto += ": ";
+        //    IList<Item> listaItems = (List<Item>)fuenteDelBanner.Leer();
+        //    //Asignamos su contenido a la variable texto:
+        //    for (int i = 0; i < listaItems.Count; i++)
+        //    {
+        //        texto += listaItems[i].ToString() + " • | • ";
+        //    }
+        //    return texto;
+        //}
 
         /// <summary>
         /// Calcula cuántos milisegundos faltan al próximo cuarto de hora
@@ -149,7 +191,7 @@ namespace Dominio
             if (bannerAPasar != null)
             {
                 //*texto* Lo leemos, de acuerdo a la fuente que corresponde al bannerAPasar:
-                texto = this.InfoLeidaBanner(bannerAPasar);
+   //             texto = this.InfoLeidaBanner(bannerAPasar);
 
                 //*intervalo*:
                 //Cambia el intervalo al tiempo del nuevo banner a pasar:

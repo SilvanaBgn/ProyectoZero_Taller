@@ -15,6 +15,9 @@ namespace UI.UserControls
 {
     public partial class Galeria : UserControl
     {
+        [Browsable(false)]
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         public List<Imagen> ListaImagenes { get; set; }
 
         public Galeria()

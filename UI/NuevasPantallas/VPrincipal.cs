@@ -9,6 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Contenedor;
+using UI.NuevasPantallas;
 
 namespace UI
 {
@@ -36,14 +37,14 @@ namespace UI
 
         private void bannerToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            //VBaseBanner vBanner = new VBaseBanner(ref this.iControladorDominio);
-            //vBanner.Show();
+            VBaseBanner vBanner = new VBaseBanner(ref this.iControladorDominio);
+            vBanner.Show();
         }
 
         private void campañaToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            //VBaseCampania vCampania = new VBaseCampania(ref this.iControladorDominio);
-            //vCampania.Show();
+            VBaseCampania vCampania = new VBaseCampania(ref this.iControladorDominio);
+            vCampania.Show();
         }
 
         private void fuenteToolStripMenuItem_Click(object sender, EventArgs e)
@@ -80,12 +81,12 @@ namespace UI
             }
             else if (!e.Cancelled)
             {
-                this.bannerDeslizante.Stop(); 
-                //Asignamos el valor del texto y el intervalo en el que debe reproducirlo
-                this.bannerDeslizante.Start((string)((object[])e.Result)[1]); //arrayInformacion[0]=texto  
-                this.timerChequeoCambioBanner.Interval = (int)((object[])e.Result)[1]; // arrayInformacion[1]=intervalo
+                //this.bannerDeslizante.Stop(); 
+                ////Asignamos el valor del texto y el intervalo en el que debe reproducirlo
+                //this.bannerDeslizante.Start((string)((object[])e.Result)[1]); //arrayInformacion[0]=texto  
+                //this.timerChequeoCambioBanner.Interval = (int)((object[])e.Result)[1]; // arrayInformacion[1]=intervalo
 
-                this.timerChequeoCambioBanner.Enabled = true;
+                //this.timerChequeoCambioBanner.Enabled = true;
             }
         }
 
