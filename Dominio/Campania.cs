@@ -26,7 +26,8 @@ namespace Dominio
         /// <summary>
         /// Duración en segundos de cada imagen de la campaña
         /// </summary>
-        [Range(1,999)]
+        //[Range(1,999)]
+        [Required]
         public int DuracionImagen { get; set; }
 
         /// <summary>

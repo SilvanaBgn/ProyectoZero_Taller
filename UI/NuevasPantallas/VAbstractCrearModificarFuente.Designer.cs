@@ -33,16 +33,17 @@
             this.comboBoxTipoFuente = new System.Windows.Forms.ComboBox();
             this.label3 = new System.Windows.Forms.Label();
             this.panelRss = new System.Windows.Forms.Panel();
+            this.textBoxFuenteRss = new System.Windows.Forms.TextBox();
+            this.label4 = new System.Windows.Forms.Label();
             this.panelTextoFijo = new System.Windows.Forms.Panel();
             this.listBoxPasosBanner = new System.Windows.Forms.ListBox();
             this.textBoxAgregarPasoBanner = new System.Windows.Forms.TextBox();
             this.textBoxTituloTextoFijo = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
-            this.textBoxFuenteRss = new System.Windows.Forms.TextBox();
-            this.label4 = new System.Windows.Forms.Label();
             this.buttonGuardar = new System.Windows.Forms.Button();
             this.buttonCancelar = new System.Windows.Forms.Button();
+            this.bgwFuenteRss = new System.ComponentModel.BackgroundWorker();
             this.panelRss.SuspendLayout();
             this.panelTextoFijo.SuspendLayout();
             this.SuspendLayout();
@@ -94,6 +95,22 @@
             this.panelRss.Size = new System.Drawing.Size(382, 175);
             this.panelRss.TabIndex = 6;
             this.panelRss.Visible = false;
+            // 
+            // textBoxFuenteRss
+            // 
+            this.textBoxFuenteRss.Location = new System.Drawing.Point(79, 99);
+            this.textBoxFuenteRss.Name = "textBoxFuenteRss";
+            this.textBoxFuenteRss.Size = new System.Drawing.Size(283, 20);
+            this.textBoxFuenteRss.TabIndex = 5;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(10, 102);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(61, 13);
+            this.label4.TabIndex = 4;
+            this.label4.Text = "Fuente Rss";
             // 
             // panelTextoFijo
             // 
@@ -149,22 +166,6 @@
             this.label5.TabIndex = 0;
             this.label5.Text = "Titulo";
             // 
-            // textBoxFuenteRss
-            // 
-            this.textBoxFuenteRss.Location = new System.Drawing.Point(79, 99);
-            this.textBoxFuenteRss.Name = "textBoxFuenteRss";
-            this.textBoxFuenteRss.Size = new System.Drawing.Size(283, 20);
-            this.textBoxFuenteRss.TabIndex = 5;
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(10, 102);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(61, 13);
-            this.label4.TabIndex = 4;
-            this.label4.Text = "Fuente Rss";
-            // 
             // buttonGuardar
             // 
             this.buttonGuardar.Location = new System.Drawing.Point(237, 218);
@@ -182,6 +183,10 @@
             this.buttonCancelar.TabIndex = 8;
             this.buttonCancelar.Text = "Cancelar";
             this.buttonCancelar.UseVisualStyleBackColor = true;
+            // 
+            // bgwFuenteRss
+            // 
+            this.bgwFuenteRss.DoWork += new System.ComponentModel.DoWorkEventHandler(this.bgwFuenteRss_DoWork);
             // 
             // VAbstractCrearModificarFuente
             // 
@@ -222,5 +227,6 @@
         protected System.Windows.Forms.TextBox textBoxAgregarPasoBanner;
         protected System.Windows.Forms.TextBox textBoxTituloTextoFijo;
         protected System.Windows.Forms.ListBox listBoxPasosBanner;
+        private System.ComponentModel.BackgroundWorker bgwFuenteRss;
     }
 }

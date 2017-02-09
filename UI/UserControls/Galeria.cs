@@ -15,10 +15,16 @@ namespace UI.UserControls
 {
     public partial class Galeria : UserControl
     {
+        private List<Imagen> iListaImagenes;
+
         [Browsable(false)]
         [EditorBrowsable(EditorBrowsableState.Never)]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
-        public List<Imagen> ListaImagenes { get; set; }
+        public List<Imagen> ListaImagenes
+        {
+            get { return this.iListaImagenes; }
+            set { this.iListaImagenes = value; }
+        }
 
         public Galeria()
         {
@@ -27,7 +33,7 @@ namespace UI.UserControls
             this.ActualizarListaImagenes();
         }
 
-        
+
 
         #region Eventos privados BOTONES
         /// <summary>
@@ -43,7 +49,7 @@ namespace UI.UserControls
                 if (item.Index > 0)
                 {
                     int pos = item.Index - 1;
-                    
+
                     //"Corremos" el item hacia arriba:
                     this.listView1.Items.RemoveAt(item.Index);
                     this.listView1.Items.Insert(pos, item);
@@ -171,9 +177,9 @@ namespace UI.UserControls
                 this.buttonVistaPrevia.BackgroundImage = global::UI.Properties.Resources.Pausa1;
 
                 if (this.textBoxSegundos.Text.Length > 0)
-                    this.campaniaDeslizante1.Start(this.ListaImagenes, Convert.ToInt32(this.textBoxSegundos.Text));
+                    this.campaniaDeslizante1.Start(this.iListaImagenes, Convert.ToInt32(this.textBoxSegundos.Text));
                 else
-                    this.campaniaDeslizante1.Start(this.ListaImagenes, 0);
+                    this.campaniaDeslizante1.Start(this.iListaImagenes, 0);
             }
             else
             {
@@ -185,20 +191,24 @@ namespace UI.UserControls
         #endregion
 
 
-        
+        //private void ActualizarListaImagenes()
+        //{
+        //    this.ActualizarListaImagenes(new List<Imagen>());
+        //}
+
         /// <summary>
-        /// Permite actualizar el atributo que contiene la lista de imágenes (this.ListaImagenes)
+        /// Permite actualizar el atributo que contiene la lista de imágenes (this.iListaImagenes)
         /// </summary>
         private void ActualizarListaImagenes()
         {
-            this.ListaImagenes = new List<Imagen>();
+            this.iListaImagenes = new List<Imagen>();
             for (int i = 0; i < this.listView1.Items.Count; i++)
             {
                 Imagen imagen = new Imagen();
                 imagen.Orden = Convert.ToInt16(this.listView1.Items[i].SubItems[0].Text); //SubItems[0]= Numero
                 imagen.Descripcion = this.listView1.Items[i].SubItems[1].Text; //SubItems[1]= Nombre
                 imagen.Bytes = ConversorImagen.ImageToByte(this.listView1.Items[i].SubItems[2].Text); //SubItems[2]= Url
-                this.ListaImagenes.Add(imagen);
+                this.iListaImagenes.Add(imagen);
             }
 
         }
@@ -215,6 +225,6 @@ namespace UI.UserControls
             }
         }
 
-       
+
     }
 }

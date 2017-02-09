@@ -86,7 +86,10 @@ namespace Dominio
             try
             {
                 //Con la siguiente sentencia, está guardando en la BD:
-                this.Items = (ICollection<Item>)this.iLector.Leer(this.origenItems);
+                if (this.iLector!=null)
+                {
+                    this.Items = (ICollection<Item>)this.iLector.Leer(this.origenItems);
+                }
             }
             catch(Exception) //excepcion cuando no hay internet u otra.. entendible para el usuario..
             {

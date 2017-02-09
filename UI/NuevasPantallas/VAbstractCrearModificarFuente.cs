@@ -22,9 +22,13 @@ namespace UI.NuevasPantallas
         }
 
         public VAbstractCrearModificarFuente(ref ControladorDominio pControladorDominio) : this()
-    {
+        {
             this.iControladorDominio = pControladorDominio;
         }
 
+        private void bgwFuenteRss_DoWork(object sender, DoWorkEventArgs e)
+        {
+            //e.Result = this.iControladorDominio
+        }
     }
 }

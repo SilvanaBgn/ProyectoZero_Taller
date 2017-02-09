@@ -368,12 +368,6 @@
     <Compile Include="VBannerNuevo.Designer.cs">
       <DependentUpon>VBannerNuevo.cs</DependentUpon>
     </Compile>
-    <Compile Include="VPrincipal.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="VPrincipal.designer.cs">
-      <DependentUpon>VPrincipal.cs</DependentUpon>
-    </Compile>
     <EmbeddedResource Include="NuevasPantallas\DatosBannerCampania.resx">
       <DependentUpon>DatosBannerCampania.cs</DependentUpon>
     </EmbeddedResource>
@@ -531,7 +525,6 @@
     <Content Include="Resources\Arriba1.ico" />
     <Content Include="Resources\Eliminar2.ico" />
     <Content Include="Resources\Eliminar4.ico" />
-    <None Include="Resources\NoImage.png" />
     <Content Include="Resources\Pausa1.ico" />
     <Content Include="Resources\Play1.ico" />
   </ItemGroup>

@@ -38,7 +38,7 @@
             this.buttonCancelar = new System.Windows.Forms.Button();
             this.rangoFecha = new UI.UserControls.RangoFecha();
             this.rangoHorario = new UI.UserControls.RangoHorario();
-            this.galeria1 = new UI.UserControls.Galeria();
+            this.galeria = new UI.UserControls.Galeria();
             this.SuspendLayout();
             // 
             // label1
@@ -127,19 +127,19 @@
             this.rangoHorario.Size = new System.Drawing.Size(120, 101);
             this.rangoHorario.TabIndex = 9;
             // 
-            // galeria1
+            // galeria
             // 
-            this.galeria1.Location = new System.Drawing.Point(385, 113);
-            this.galeria1.Name = "galeria1";
-            this.galeria1.Size = new System.Drawing.Size(488, 189);
-            this.galeria1.TabIndex = 10;
+            this.galeria.Location = new System.Drawing.Point(385, 25);
+            this.galeria.Name = "galeria";
+            this.galeria.Size = new System.Drawing.Size(488, 189);
+            this.galeria.TabIndex = 10;
             // 
             // VAbstractCrearModificarCampania
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(885, 335);
-            this.Controls.Add(this.galeria1);
+            this.Controls.Add(this.galeria);
             this.Controls.Add(this.rangoHorario);
             this.Controls.Add(this.rangoFecha);
             this.Controls.Add(this.buttonCancelar);
@@ -169,6 +169,6 @@
         protected System.Windows.Forms.Button buttonCancelar;
         protected UserControls.RangoFecha rangoFecha;
         protected UserControls.RangoHorario rangoHorario;
-        private UserControls.Galeria galeria1;
+        protected UserControls.Galeria galeria;
     }
 }

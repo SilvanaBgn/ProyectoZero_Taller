@@ -28,6 +28,7 @@ namespace UI.NuevasPantallas
             campaniaAAgregar.FechaFin = this.rangoFecha.FechaFin;
             campaniaAAgregar.HoraInicio = this.rangoHorario.HoraInicio;
             campaniaAAgregar.HoraFin = this.rangoHorario.HoraFin;
+            campaniaAAgregar.Imagenes = this.galeria.ListaImagenes;
 
             this.iControladorDominio.AgregarCampania(campaniaAAgregar);
             this.iControladorDominio.GuardarCambios();

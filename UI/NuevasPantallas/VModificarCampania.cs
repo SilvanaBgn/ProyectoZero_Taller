@@ -31,6 +31,7 @@ namespace UI.NuevasPantallas
             this.rangoFecha.FechaFin = campaniaAModificar.FechaFin;
             this.rangoHorario.HoraInicio = campaniaAModificar.HoraInicio;
             this.rangoHorario.HoraFin = campaniaAModificar.HoraFin;
+            this.galeria.ListaImagenes = (List<Imagen>)campaniaAModificar.Imagenes;
         }
 
         private void ButtonGuardar_Click(object sender, EventArgs e)
@@ -41,6 +42,7 @@ namespace UI.NuevasPantallas
             this.iCampaniaAModificar.FechaFin = this.rangoFecha.FechaFin;
             this.iCampaniaAModificar.HoraInicio = this.rangoHorario.HoraInicio;
             this.iCampaniaAModificar.HoraFin = this.rangoHorario.HoraFin;
+            this.iCampaniaAModificar.Imagenes = this.galeria.ListaImagenes;
 
             this.iControladorDominio.ModificarCampania(this.iCampaniaAModificar);
             this.iControladorDominio.GuardarCambios();
