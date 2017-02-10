@@ -17,7 +17,7 @@ namespace UI
         /// <summary>
         /// Lista de paso banner de un banner
         /// </summary>
-        List<PasoBanner> iPasoBannersABorrar;
+        //List<PasoBanner> iPasoBannersABorrar;
 
         /// <summary>
         /// Fuente RSS de un banner

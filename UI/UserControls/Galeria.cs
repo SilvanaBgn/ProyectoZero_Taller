@@ -15,7 +15,16 @@ namespace UI.UserControls
 {
     public partial class Galeria : UserControl
     {
-        public List<Imagen> ListaImagenes { get; set; }
+        private List<Imagen> iListaImagenes;
+
+        [Browsable(false)]
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
+        public List<Imagen> ListaImagenes
+        {
+            get { return this.iListaImagenes; }
+            set { this.iListaImagenes = value; }
+        }
 
         public Galeria()
         {
@@ -24,7 +33,7 @@ namespace UI.UserControls
             this.ActualizarListaImagenes();
         }
 
-        
+
 
         #region Eventos privados BOTONES
         /// <summary>
@@ -40,7 +49,7 @@ namespace UI.UserControls
                 if (item.Index > 0)
                 {
                     int pos = item.Index - 1;
-                    
+
                     //"Corremos" el item hacia arriba:
                     this.listView1.Items.RemoveAt(item.Index);
                     this.listView1.Items.Insert(pos, item);
@@ -153,39 +162,53 @@ namespace UI.UserControls
         /// </summary>
         private void buttonVistaPrevia_Click(object sender, EventArgs e)
         {
+            //Cambiamos la habilitacion del listview y demás botones:
+            this.listView1.Enabled = !this.listView1.Enabled;
+            this.buttonAgregarImagenes.Enabled = !this.buttonAgregarImagenes.Enabled;
+            this.buttonEliminarImagen.Enabled = !this.buttonEliminarImagen.Enabled;
+            this.buttonArriba.Enabled = !this.buttonArriba.Enabled;
+            this.buttonAbajo.Enabled = !this.buttonAbajo.Enabled;
+            this.textBoxSegundos.Enabled = !this.textBoxSegundos.Enabled;
+
+            //De acuerdo a si está funcionando o no, cambiamos la imagen del botón, y le damos Start o Stop
             if (!this.campaniaDeslizante1.Funcionando)
             {
-                //Cambiamos la imagen del botón this.buttonVistaPrevia a "Pausa"
+                //Cambiamos la imagen del botón this.buttonVistaPrevia a "Pausa":
                 this.buttonVistaPrevia.BackgroundImage = global::UI.Properties.Resources.Pausa1;
+
                 if (this.textBoxSegundos.Text.Length > 0)
-                    this.campaniaDeslizante1.Start(this.ListaImagenes, Convert.ToInt16(this.textBoxSegundos.Text));
+                    this.campaniaDeslizante1.Start(this.iListaImagenes, Convert.ToInt32(this.textBoxSegundos.Text));
                 else
-                    this.campaniaDeslizante1.Start(this.ListaImagenes, 0);
+                    this.campaniaDeslizante1.Start(this.iListaImagenes, 0);
             }
             else
             {
                 this.campaniaDeslizante1.Stop();
-                //Cambiamos la imagen del botón this.buttonVistaPrevia a "Play"
+                //Cambiamos la imagen del botón this.buttonVistaPrevia a "Play":
                 this.buttonVistaPrevia.BackgroundImage = global::UI.Properties.Resources.Play1;
             }
         }
         #endregion
 
 
-        
+        //private void ActualizarListaImagenes()
+        //{
+        //    this.ActualizarListaImagenes(new List<Imagen>());
+        //}
+
         /// <summary>
-        /// Permite actualizar el atributo que contiene la lista de imágenes (this.ListaImagenes)
+        /// Permite actualizar el atributo que contiene la lista de imágenes (this.iListaImagenes)
         /// </summary>
         private void ActualizarListaImagenes()
         {
-            this.ListaImagenes = new List<Imagen>();
+            this.iListaImagenes = new List<Imagen>();
             for (int i = 0; i < this.listView1.Items.Count; i++)
             {
                 Imagen imagen = new Imagen();
                 imagen.Orden = Convert.ToInt16(this.listView1.Items[i].SubItems[0].Text); //SubItems[0]= Numero
                 imagen.Descripcion = this.listView1.Items[i].SubItems[1].Text; //SubItems[1]= Nombre
                 imagen.Bytes = ConversorImagen.ImageToByte(this.listView1.Items[i].SubItems[2].Text); //SubItems[2]= Url
-                this.ListaImagenes.Add(imagen);
+                this.iListaImagenes.Add(imagen);
             }
 
         }
@@ -202,6 +225,6 @@ namespace UI.UserControls
             }
         }
 
-       
+
     }
 }

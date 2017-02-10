@@ -19,7 +19,10 @@ namespace UI
             //Application.Run(new VPrincipal());
             //Application.Run(new PruebaRangoFecha());
             //Application.Run(new PruebaRangoHora());
-            Application.Run(new PruebaGaleria());
+            //Application.Run(new PruebaGaleria());
+            //Application.Run(new PruebaLectorRss());
+            //Application.Run(new PruebaLecturaFuente()); 
+            Application.Run(new UI.NuevasPantallas.VPrincipal());
         }
     }
 }

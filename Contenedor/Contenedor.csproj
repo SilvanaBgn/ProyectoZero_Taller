@@ -99,16 +99,12 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Dominio\Dominio.csproj">
-      <Project>{4d254653-78f7-4ea4-b46b-9f79d3fa695f}</Project>
+      <Project>{1818d70a-adfb-4e0e-bed1-1ac84b15a536}</Project>
       <Name>Dominio</Name>
     </ProjectReference>
     <ProjectReference Include="..\Excepciones\Excepciones.csproj">
       <Project>{c0bd7184-1899-4535-96fd-223de19e1d25}</Project>
       <Name>Excepciones</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\LecturaExterna\LecturaExterna.csproj">
-      <Project>{805cb4cd-7c15-4e36-99ac-67ca529c5b91}</Project>
-      <Name>LecturaExterna</Name>
     </ProjectReference>
     <ProjectReference Include="..\Persistencia\Persistencia.csproj">
       <Project>{35e18ba6-4c7d-4e02-bf8c-13b1097c4479}</Project>

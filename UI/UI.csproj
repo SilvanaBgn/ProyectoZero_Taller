@@ -55,6 +55,7 @@
     <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
     <Prefer32Bit>true</Prefer32Bit>
   </PropertyGroup>
+  <PropertyGroup />
   <ItemGroup>
     <Reference Include="log4net, Version=1.2.14.0, Culture=neutral, PublicKeyToken=669e0ddf0bb1aa2a, processorArchitecture=MSIL">
       <HintPath>..\packages\log4net.2.0.4\lib\net45-full\log4net.dll</HintPath>
@@ -102,17 +103,16 @@
     <Compile Include="NuevasPantallas\VPrincipal.Designer.cs">
       <DependentUpon>VPrincipal.cs</DependentUpon>
     </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
     <Compile Include="PruebaGaleria.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="PruebaGaleria.Designer.cs">
       <DependentUpon>PruebaGaleria.cs</DependentUpon>
-    </Compile>
-    <Compile Include="PruebaRangoHora.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="PruebaRangoHora.Designer.cs">
-      <DependentUpon>PruebaRangoHora.cs</DependentUpon>
     </Compile>
     <Compile Include="PruebaRangoHorario.cs">
       <SubType>Form</SubType>
@@ -210,12 +210,6 @@
     <Compile Include="PruebaRangoFecha.Designer.cs">
       <DependentUpon>PruebaRangoFecha.cs</DependentUpon>
     </Compile>
-    <Compile Include="UserControls\ControlHora.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="UserControls\ControlHora.designer.cs">
-      <DependentUpon>ControlHora.cs</DependentUpon>
-    </Compile>
     <Compile Include="UserControls\Galeria.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -233,6 +227,12 @@
     </Compile>
     <Compile Include="UserControls\TextoPlano.Designer.cs">
       <DependentUpon>TextoPlano.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\RangoHorario.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\RangoHorario.designer.cs">
+      <DependentUpon>RangoHorario.cs</DependentUpon>
     </Compile>
     <Compile Include="VAbstractBuscarCampania.cs">
       <SubType>Form</SubType>
@@ -356,12 +356,6 @@
     <Compile Include="VFuenteRssModificar.Designer.cs">
       <DependentUpon>VFuenteRssModificar.cs</DependentUpon>
     </Compile>
-    <Compile Include="VPrincipal.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="VPrincipal.designer.cs">
-      <DependentUpon>VPrincipal.cs</DependentUpon>
-    </Compile>
     <Compile Include="VFuenteRssNueva.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -383,6 +377,9 @@
     <EmbeddedResource Include="NuevasPantallas\DatosBannerCampania.resx">
       <DependentUpon>DatosBannerCampania.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="NuevasPantallas\VAbstractBase.resx">
+      <DependentUpon>VAbstractBase.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="NuevasPantallas\VAbstractCrearModificarBanner.resx">
       <DependentUpon>VAbstractCrearModificarBanner.cs</DependentUpon>
     </EmbeddedResource>
@@ -401,26 +398,27 @@
     <EmbeddedResource Include="NuevasPantallas\VPrincipal.resx">
       <DependentUpon>VPrincipal.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
     <EmbeddedResource Include="PruebaGaleria.resx">
       <DependentUpon>PruebaGaleria.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="PruebaRangoFecha.resx">
       <DependentUpon>PruebaRangoFecha.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="PruebaRangoHora.resx">
-      <DependentUpon>PruebaRangoHora.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="PruebaRangoHorario.resx">
       <DependentUpon>PruebaRangoHorario.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="UserControls\ControlHora.resx">
-      <DependentUpon>ControlHora.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UserControls\Galeria.resx">
       <DependentUpon>Galeria.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UserControls\RangoFecha.resx">
       <DependentUpon>RangoFecha.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\RangoHorario.resx">
+      <DependentUpon>RangoHorario.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UserControls\TextoPlano.resx">
       <DependentUpon>TextoPlano.cs</DependentUpon>
@@ -455,16 +453,6 @@
     <EmbeddedResource Include="VBanner.resx">
       <DependentUpon>VBanner.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Properties\Resources.resx">
-      <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
-    <Compile Include="Properties\Resources.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DependentUpon>Resources.resx</DependentUpon>
-      <DesignTime>True</DesignTime>
-    </Compile>
     <EmbeddedResource Include="VAbstractBanner.resx">
       <DependentUpon>VAbstractBanner.cs</DependentUpon>
     </EmbeddedResource>
@@ -494,9 +482,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="VFuenteRssModificar.resx">
       <DependentUpon>VFuenteRssModificar.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="VPrincipal.resx">
-      <DependentUpon>VPrincipal.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="VFuenteRssNueva.resx">
       <DependentUpon>VFuenteRssNueva.cs</DependentUpon>
@@ -556,7 +541,6 @@
     <Content Include="Resources\Eliminar4.ico" />
     <Content Include="Resources\Pausa1.ico" />
     <Content Include="Resources\Play1.ico" />
-    <None Include="Resources\Sin imagen.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

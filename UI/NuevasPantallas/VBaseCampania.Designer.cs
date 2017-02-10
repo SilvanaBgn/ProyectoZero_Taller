@@ -1,6 +1,6 @@
 ﻿namespace UI.NuevasPantallas
 {
-    partial class VBaseCampania
+    partial class VBaseCampania: VAbstractBase
     {
         /// <summary>
         /// Required designer variable.

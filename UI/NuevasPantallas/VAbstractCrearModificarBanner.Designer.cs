@@ -30,8 +30,6 @@
         {
             this.label1 = new System.Windows.Forms.Label();
             this.textBoxTitulo = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.textBoxDescripcion = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
@@ -40,6 +38,7 @@
             this.buttonGuardar = new System.Windows.Forms.Button();
             this.buttonCancelar = new System.Windows.Forms.Button();
             this.rangoFecha = new UI.UserControls.RangoFecha();
+            this.rangoHorario = new UI.UserControls.RangoHorario();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewMostrarFuentes)).BeginInit();
             this.SuspendLayout();
             // 
@@ -58,24 +57,6 @@
             this.textBoxTitulo.Name = "textBoxTitulo";
             this.textBoxTitulo.Size = new System.Drawing.Size(345, 20);
             this.textBoxTitulo.TabIndex = 1;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(6, 80);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(37, 13);
-            this.label2.TabIndex = 2;
-            this.label2.Text = "Fecha";
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(260, 71);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(74, 13);
-            this.label3.TabIndex = 3;
-            this.label3.Text = "Rango horario";
             // 
             // label6
             // 
@@ -143,16 +124,28 @@
             // 
             // rangoFecha
             // 
-            this.rangoFecha.Location = new System.Drawing.Point(9, 107);
+            this.rangoFecha.FechaFin = new System.DateTime(2017, 2, 7, 0, 0, 0, 0);
+            this.rangoFecha.FechaInicio = new System.DateTime(2017, 2, 7, 0, 0, 0, 0);
+            this.rangoFecha.Location = new System.Drawing.Point(9, 97);
             this.rangoFecha.Name = "rangoFecha";
-            this.rangoFecha.Size = new System.Drawing.Size(234, 96);
+            this.rangoFecha.Size = new System.Drawing.Size(235, 96);
             this.rangoFecha.TabIndex = 15;
+            // 
+            // rangoHorario
+            // 
+            this.rangoHorario.HoraFin = System.TimeSpan.Parse("00:15:00");
+            this.rangoHorario.HoraInicio = System.TimeSpan.Parse("00:00:00");
+            this.rangoHorario.Location = new System.Drawing.Point(258, 97);
+            this.rangoHorario.Name = "rangoHorario";
+            this.rangoHorario.Size = new System.Drawing.Size(120, 101);
+            this.rangoHorario.TabIndex = 16;
             // 
             // VAbstractCrearModificarBanner
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(480, 477);
+            this.Controls.Add(this.rangoHorario);
             this.Controls.Add(this.rangoFecha);
             this.Controls.Add(this.buttonCancelar);
             this.Controls.Add(this.buttonGuardar);
@@ -161,8 +154,6 @@
             this.Controls.Add(this.label7);
             this.Controls.Add(this.textBoxDescripcion);
             this.Controls.Add(this.label6);
-            this.Controls.Add(this.label3);
-            this.Controls.Add(this.label2);
             this.Controls.Add(this.textBoxTitulo);
             this.Controls.Add(this.label1);
             this.Name = "VAbstractCrearModificarBanner";
@@ -177,8 +168,6 @@
 
         protected System.Windows.Forms.Label label1;
         protected System.Windows.Forms.TextBox textBoxTitulo;
-        protected System.Windows.Forms.Label label2;
-        protected System.Windows.Forms.Label label3;
         protected System.Windows.Forms.Label label6;
         protected System.Windows.Forms.TextBox textBoxDescripcion;
         protected System.Windows.Forms.Label label7;
@@ -187,5 +176,6 @@
         protected System.Windows.Forms.Button buttonGuardar;
         protected System.Windows.Forms.Button buttonCancelar;
         protected UserControls.RangoFecha rangoFecha;
+        protected UserControls.RangoHorario rangoHorario;
     }
 }

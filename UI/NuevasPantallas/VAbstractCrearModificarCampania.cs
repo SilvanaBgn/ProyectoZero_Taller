@@ -25,6 +25,5 @@ namespace UI.NuevasPantallas
         {
             this.iControladorDominio = pControladorDominio;
         }
-
     }
 }

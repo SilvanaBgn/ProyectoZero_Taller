@@ -37,9 +37,11 @@ namespace UI.UserControls
             get { return this.iFuncionando; }
         }
 
+
         //CONSTRUCTOR
         public BannerDeslizante()
         {
+            this.Enabled = false;
             this.iCaracterInicial = 0;
             this.iTimerTexto = new Timer();
             this.iTimerTexto.Interval = 250;
@@ -48,7 +50,7 @@ namespace UI.UserControls
         }
 
 
-        #region FUNCIONES PRIVADAS
+#region FUNCIONES PRIVADAS
         /// <summary>
         /// Evento Tick del this.iTimerTexto, que indica qué hacer cada un tick
         /// </summary>
@@ -123,12 +125,14 @@ namespace UI.UserControls
         public void Stop()
         {
             if (this.iTimerTexto.Enabled)
+            {
                 this.iTimerTexto.Stop(); //Se da fin al deslizamiento del banner
-            this.iFuncionando = false;
+                this.iFuncionando = false;
+            }
         }
         #endregion
 
-        #region PROPERTIES
+#region PROPERTIES
         /// <summary>
         /// Property que permite obtener el valor del texto del banner
         /// </summary>

@@ -46,7 +46,7 @@
             this.groupBox2.Controls.Add(this.dateTimePickerInicio);
             this.groupBox2.Location = new System.Drawing.Point(0, 0);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(232, 93);
+            this.groupBox2.Size = new System.Drawing.Size(257, 93);
             this.groupBox2.TabIndex = 47;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Rango Fecha";
@@ -54,7 +54,7 @@
             // labelCantDias
             // 
             this.labelCantDias.AutoSize = true;
-            this.labelCantDias.Location = new System.Drawing.Point(45, 72);
+            this.labelCantDias.Location = new System.Drawing.Point(10, 72);
             this.labelCantDias.Name = "labelCantDias";
             this.labelCantDias.Size = new System.Drawing.Size(0, 13);
             this.labelCantDias.TabIndex = 22;
@@ -83,7 +83,7 @@
             // 
             this.dateTimePickerFin.CustomFormat = "dddd d MMMM yyyy";
             this.dateTimePickerFin.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dateTimePickerFin.Location = new System.Drawing.Point(46, 46);
+            this.dateTimePickerFin.Location = new System.Drawing.Point(46, 49);
             this.dateTimePickerFin.Name = "dateTimePickerFin";
             this.dateTimePickerFin.Size = new System.Drawing.Size(177, 20);
             this.dateTimePickerFin.TabIndex = 19;
@@ -93,7 +93,7 @@
             // 
             this.dateTimePickerInicio.CustomFormat = "dddd d MMMM yyyy";
             this.dateTimePickerInicio.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dateTimePickerInicio.Location = new System.Drawing.Point(46, 21);
+            this.dateTimePickerInicio.Location = new System.Drawing.Point(46, 23);
             this.dateTimePickerInicio.Name = "dateTimePickerInicio";
             this.dateTimePickerInicio.Size = new System.Drawing.Size(177, 20);
             this.dateTimePickerInicio.TabIndex = 18;
@@ -105,7 +105,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.groupBox2);
             this.Name = "RangoFecha";
-            this.Size = new System.Drawing.Size(235, 96);
+            this.Size = new System.Drawing.Size(257, 96);
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
             this.ResumeLayout(false);

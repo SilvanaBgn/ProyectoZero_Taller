@@ -49,10 +49,10 @@ namespace UI
             this.verAyudaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.sobreToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.groupBoxCampania = new System.Windows.Forms.GroupBox();
-            this.campaniaDeslizante = new CampaniaDeslizante();
+            this.campaniaDeslizante = new UI.UserControls.CampaniaDeslizante();
             this.label5 = new System.Windows.Forms.Label();
             this.groupBoxBanner = new System.Windows.Forms.GroupBox();
-            this.bannerDeslizante = new BannerDeslizante();
+            this.bannerDeslizante = new UI.UserControls.BannerDeslizante();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.menuStrip1.SuspendLayout();
             this.groupBoxCampania.SuspendLayout();

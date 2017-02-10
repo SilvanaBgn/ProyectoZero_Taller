@@ -10,6 +10,7 @@ using System.IO;
 using Dominio;
 using Helper;
 
+
 namespace UI.UserControls
 {
     public class CampaniaDeslizante : PictureBox
@@ -52,7 +53,7 @@ namespace UI.UserControls
             this.iListaImagenesOrdenada = new List<Imagen>();
             this.iFuncionando = false;
 
-            this.Image=this.iSinImagen= global::UI.Properties.Resources.Sin_imagen;
+            this.Image = this.iSinImagen = global::UI.Properties.Resources.NoImage;
         }
 
         /// <summary>
@@ -94,9 +95,9 @@ namespace UI.UserControls
             if (pLista != null)
             {
                 if (pDuracion* 1000 > 0)
-                    this.iTimerImagenes.Interval = pDuracion * 1000;
+                    this.iTimerImagenes.Interval = pDuracion * 1000/2; //duración en segundos
                 else
-                    this.iTimerImagenes.Interval = 1000;
+                    this.iTimerImagenes.Interval = 1000/2; //1 segundo
 
                 //Ordenamos la lista de imágenes según el orden que tienen guardado:
                 this.iListaImagenesOrdenada = pLista.OrderBy(x => x.Orden).ToList();
@@ -114,9 +115,9 @@ namespace UI.UserControls
             if (this.iTimerImagenes.Enabled)
             {
                 this.iTimerImagenes.Stop(); //Se da fin al deslizamiento de la campaña
+                this.iFuncionando = false;
+                this.Image = this.iSinImagen;
             }
-            this.iFuncionando = false;
-            this.Image = this.iSinImagen;
         }
     }
 }

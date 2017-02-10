@@ -26,12 +26,12 @@ namespace UI.NuevasPantallas
             bannerAAgregar.Descripcion = this.textBoxDescripcion.Text;
             bannerAAgregar.FechaInicio = this.rangoFecha.FechaInicio;
             bannerAAgregar.FechaFin = this.rangoFecha.FechaFin;
-            //--------------------------------------------------------------------------------
-            //VER CUANDO ESTEFI ME PASE EL RANGOHORARIO
-            //bannerAAgregar.HoraInicio = this.controlHora.dateTimePickerHoraInicio;
-            //bannerAAgregar.HoraFin = this.controlHora.dateTimePickerHoraFin;
-            //--------------------------------------------------------------------------------
-            bannerAAgregar.Fuente = (Fuente)this.dataGridViewMostrarFuentes.CurrentRow.DataBoundItem;
+            bannerAAgregar.HoraInicio = this.rangoHorario.HoraInicio;
+            bannerAAgregar.HoraFin = this.rangoHorario.HoraFin;
+            //bannerAAgregar.Fuente = (Fuente)this.dataGridViewMostrarFuentes.CurrentRow.DataBoundItem;
+
+            this.iControladorDominio.AgregarBanner(bannerAAgregar);
+            this.iControladorDominio.GuardarCambios();
         }
     }
 }

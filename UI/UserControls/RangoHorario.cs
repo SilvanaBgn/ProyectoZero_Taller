@@ -8,11 +8,11 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace RangoHorario
+namespace UI.UserControls
 {
-    public partial class ControlHora : UserControl
+    public partial class RangoHorario : UserControl
     {
-        public ControlHora()
+        public RangoHorario()
         {
             InitializeComponent();
             this.labelDiferenciaEntreInicioFin.Text = this.DiferenciaEntreHoras(this.dateTimePickerHoraInicio, this.dateTimePickerHoraFin);
@@ -22,6 +22,18 @@ namespace RangoHorario
 
             this.dateTimePickerHoraFin.MaxDate = DateTime.Today + new TimeSpan(23, 45, 0);
             this.dateTimePickerHoraFin.MinDate = DateTime.Today + new TimeSpan(0, 15, 0);
+        }
+
+        public TimeSpan HoraInicio
+        {
+            get { return new TimeSpan(this.dateTimePickerHoraInicio.Value.Hour, this.dateTimePickerHoraInicio.Value.Minute,0); }
+            set { dateTimePickerHoraInicio.Value = DateTime.Today+value; }
+        }
+
+        public TimeSpan HoraFin
+        {
+            get { return new TimeSpan(this.dateTimePickerHoraFin.Value.Hour, this.dateTimePickerHoraFin.Value.Minute, 0); }
+            set { dateTimePickerHoraFin.Value = DateTime.Today + value; }
         }
 
         /// <summary>
@@ -105,18 +117,13 @@ namespace RangoHorario
             if (diferenciaHoras.Hours != 0) //Si las horas de la diferencia entre horas es distinto de 0
             {
                 if (diferenciaHoras.Hours == 1)
-                    resultado += diferenciaHoras.Hours + " hora";
-                else
-                    resultado += diferenciaHoras.Hours + " horas";
+                    resultado += diferenciaHoras.Hours + " hs";
             }
             if (diferenciaHoras.Minutes != 0) //Si los minutos de la diferencia entre horas es distinto de 0
             {
                 if (diferenciaHoras.Hours != 0)
                     resultado += " y ";
-                if (diferenciaHoras.Minutes == 1)
-                    resultado += diferenciaHoras.Minutes + " minuto";
-                else
-                    resultado += diferenciaHoras.Minutes + " minutos";
+                    resultado += diferenciaHoras.Minutes + " min";
             }
             return resultado;
         }

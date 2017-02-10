@@ -39,7 +39,30 @@ namespace Persistencia
                 return query.ToList();
         }
 
-        
+        public virtual IEnumerable<T> Filtrar(Expression<Func<T, bool>> filtroFechas,
+                                Expression<Func<T, bool>> filtroHoras,
+                                Expression<Func<T, bool>> filtroTitulo,
+                                Expression<Func<T, bool>> filtroDescripcion)
+        {
+            IQueryable<T> query = dbSet;
+
+            if (filtroFechas != null)
+                query = query.Where(filtroFechas);
+
+            if (filtroHoras != null)
+            query = query.Where(filtroHoras);
+
+            if (filtroTitulo != null)
+                query = query.Where(filtroTitulo);
+
+            if (filtroDescripcion != null)
+                query = query.Where(filtroDescripcion);
+
+            return query.ToList();
+        }
+
+
+
         public virtual T ObtenerPorId(int id)
         {
             return dbSet.Find(id);
