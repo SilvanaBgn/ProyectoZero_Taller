@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.label1 = new System.Windows.Forms.Label();
-            this.textBoxTituloRss = new System.Windows.Forms.TextBox();
+            this.textBoxDescripcionRss = new System.Windows.Forms.TextBox();
             this.comboBoxTipoFuente = new System.Windows.Forms.ComboBox();
             this.label3 = new System.Windows.Forms.Label();
             this.panelRss = new System.Windows.Forms.Panel();
@@ -38,12 +38,12 @@
             this.panelTextoFijo = new System.Windows.Forms.Panel();
             this.listBoxPasosBanner = new System.Windows.Forms.ListBox();
             this.textBoxAgregarPasoBanner = new System.Windows.Forms.TextBox();
-            this.textBoxTituloTextoFijo = new System.Windows.Forms.TextBox();
+            this.textBoxDescripcionTextoFijo = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.buttonGuardar = new System.Windows.Forms.Button();
             this.buttonCancelar = new System.Windows.Forms.Button();
-            this.bgwFuenteRss = new System.ComponentModel.BackgroundWorker();
+            this.bgwActualizarRssAlGuardar = new System.ComponentModel.BackgroundWorker();
             this.panelRss.SuspendLayout();
             this.panelTextoFijo.SuspendLayout();
             this.SuspendLayout();
@@ -53,16 +53,16 @@
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(14, 40);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(33, 13);
+            this.label1.Size = new System.Drawing.Size(63, 13);
             this.label1.TabIndex = 0;
-            this.label1.Text = "Titulo";
+            this.label1.Text = "Descripcion";
             // 
-            // textBoxTituloRss
+            // textBoxDescripcionRss
             // 
-            this.textBoxTituloRss.Location = new System.Drawing.Point(83, 33);
-            this.textBoxTituloRss.Name = "textBoxTituloRss";
-            this.textBoxTituloRss.Size = new System.Drawing.Size(194, 20);
-            this.textBoxTituloRss.TabIndex = 1;
+            this.textBoxDescripcionRss.Location = new System.Drawing.Point(83, 33);
+            this.textBoxDescripcionRss.Name = "textBoxDescripcionRss";
+            this.textBoxDescripcionRss.Size = new System.Drawing.Size(194, 20);
+            this.textBoxDescripcionRss.TabIndex = 1;
             // 
             // comboBoxTipoFuente
             // 
@@ -89,7 +89,7 @@
             this.panelRss.Controls.Add(this.textBoxFuenteRss);
             this.panelRss.Controls.Add(this.label4);
             this.panelRss.Controls.Add(this.label1);
-            this.panelRss.Controls.Add(this.textBoxTituloRss);
+            this.panelRss.Controls.Add(this.textBoxDescripcionRss);
             this.panelRss.Location = new System.Drawing.Point(12, 37);
             this.panelRss.Name = "panelRss";
             this.panelRss.Size = new System.Drawing.Size(382, 175);
@@ -116,10 +116,10 @@
             // 
             this.panelTextoFijo.Controls.Add(this.listBoxPasosBanner);
             this.panelTextoFijo.Controls.Add(this.textBoxAgregarPasoBanner);
-            this.panelTextoFijo.Controls.Add(this.textBoxTituloTextoFijo);
+            this.panelTextoFijo.Controls.Add(this.textBoxDescripcionTextoFijo);
             this.panelTextoFijo.Controls.Add(this.label7);
             this.panelTextoFijo.Controls.Add(this.label5);
-            this.panelTextoFijo.Location = new System.Drawing.Point(12, 37);
+            this.panelTextoFijo.Location = new System.Drawing.Point(0, 0);
             this.panelTextoFijo.Name = "panelTextoFijo";
             this.panelTextoFijo.Size = new System.Drawing.Size(382, 175);
             this.panelTextoFijo.TabIndex = 6;
@@ -141,12 +141,12 @@
             this.textBoxAgregarPasoBanner.Size = new System.Drawing.Size(345, 20);
             this.textBoxAgregarPasoBanner.TabIndex = 5;
             // 
-            // textBoxTituloTextoFijo
+            // textBoxDescripcionTextoFijo
             // 
-            this.textBoxTituloTextoFijo.Location = new System.Drawing.Point(83, 12);
-            this.textBoxTituloTextoFijo.Name = "textBoxTituloTextoFijo";
-            this.textBoxTituloTextoFijo.Size = new System.Drawing.Size(194, 20);
-            this.textBoxTituloTextoFijo.TabIndex = 3;
+            this.textBoxDescripcionTextoFijo.Location = new System.Drawing.Point(83, 12);
+            this.textBoxDescripcionTextoFijo.Name = "textBoxDescripcionTextoFijo";
+            this.textBoxDescripcionTextoFijo.Size = new System.Drawing.Size(194, 20);
+            this.textBoxDescripcionTextoFijo.TabIndex = 3;
             // 
             // label7
             // 
@@ -162,9 +162,9 @@
             this.label5.AutoSize = true;
             this.label5.Location = new System.Drawing.Point(18, 15);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(33, 13);
+            this.label5.Size = new System.Drawing.Size(63, 13);
             this.label5.TabIndex = 0;
-            this.label5.Text = "Titulo";
+            this.label5.Text = "Descripcion";
             // 
             // buttonGuardar
             // 
@@ -184,16 +184,11 @@
             this.buttonCancelar.Text = "Cancelar";
             this.buttonCancelar.UseVisualStyleBackColor = true;
             // 
-            // bgwFuenteRss
-            // 
-            this.bgwFuenteRss.DoWork += new System.ComponentModel.DoWorkEventHandler(this.bgwFuenteRss_DoWork);
-            // 
             // VAbstractCrearModificarFuente
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(406, 253);
-            this.Controls.Add(this.panelTextoFijo);
             this.Controls.Add(this.buttonCancelar);
             this.Controls.Add(this.buttonGuardar);
             this.Controls.Add(this.label3);
@@ -213,7 +208,7 @@
         #endregion
 
         protected System.Windows.Forms.Label label1;
-        protected System.Windows.Forms.TextBox textBoxTituloRss;
+        protected System.Windows.Forms.TextBox textBoxDescripcionRss;
         protected System.Windows.Forms.ComboBox comboBoxTipoFuente;
         protected System.Windows.Forms.Label label3;
         protected System.Windows.Forms.Panel panelRss;
@@ -225,8 +220,8 @@
         protected System.Windows.Forms.Button buttonGuardar;
         protected System.Windows.Forms.Button buttonCancelar;
         protected System.Windows.Forms.TextBox textBoxAgregarPasoBanner;
-        protected System.Windows.Forms.TextBox textBoxTituloTextoFijo;
+        protected System.Windows.Forms.TextBox textBoxDescripcionTextoFijo;
         protected System.Windows.Forms.ListBox listBoxPasosBanner;
-        private System.ComponentModel.BackgroundWorker bgwFuenteRss;
+        protected System.ComponentModel.BackgroundWorker bgwActualizarRssAlGuardar;
     }
 }

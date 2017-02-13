@@ -31,12 +31,18 @@
             this.buttonNuevo = new System.Windows.Forms.Button();
             this.buttonModificar = new System.Windows.Forms.Button();
             this.buttonEliminar = new System.Windows.Forms.Button();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.dataGridViewMostrar = new System.Windows.Forms.DataGridView();
             this.button4 = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            this.comboBoxTipo = new System.Windows.Forms.ComboBox();
+            this.Banners = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Tipo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.FuenteId = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.checkBoxDescripcion = new System.Windows.Forms.CheckBox();
+            this.textBoxDescripcion = new System.Windows.Forms.TextBox();
+            this.checkBoxTipo = new System.Windows.Forms.CheckBox();
+            this.buttonFiltrar = new System.Windows.Forms.Button();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewMostrar)).BeginInit();
             this.SuspendLayout();
             // 
             // buttonNuevo
@@ -69,17 +75,17 @@
             this.buttonEliminar.UseVisualStyleBackColor = true;
             this.buttonEliminar.Click += new System.EventHandler(this.buttonEliminar_Click);
             // 
-            // dataGridView1
+            // dataGridViewMostrar
             // 
-            this.dataGridView1.AllowUserToAddRows = false;
-            this.dataGridView1.AllowUserToDeleteRows = false;
-            this.dataGridView1.AllowUserToOrderColumns = true;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(219, 52);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.ReadOnly = true;
-            this.dataGridView1.Size = new System.Drawing.Size(501, 225);
-            this.dataGridView1.TabIndex = 3;
+            this.dataGridViewMostrar.AllowUserToAddRows = false;
+            this.dataGridViewMostrar.AllowUserToDeleteRows = false;
+            this.dataGridViewMostrar.AllowUserToOrderColumns = true;
+            this.dataGridViewMostrar.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridViewMostrar.Location = new System.Drawing.Point(219, 52);
+            this.dataGridViewMostrar.Name = "dataGridViewMostrar";
+            this.dataGridViewMostrar.ReadOnly = true;
+            this.dataGridViewMostrar.Size = new System.Drawing.Size(501, 225);
+            this.dataGridViewMostrar.TabIndex = 3;
             // 
             // button4
             // 
@@ -93,45 +99,93 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(13, 52);
+            this.label1.Location = new System.Drawing.Point(13, 72);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(53, 13);
             this.label1.TabIndex = 5;
             this.label1.Text = "Filtrar por:";
             // 
-            // label2
+            // comboBoxTipo
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(13, 79);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(28, 13);
-            this.label2.TabIndex = 6;
-            this.label2.Text = "Tipo";
+            this.comboBoxTipo.FormattingEnabled = true;
+            this.comboBoxTipo.Items.AddRange(new object[] {
+            "Rss",
+            "Texto Fijo"});
+            this.comboBoxTipo.Location = new System.Drawing.Point(16, 126);
+            this.comboBoxTipo.Name = "comboBoxTipo";
+            this.comboBoxTipo.Size = new System.Drawing.Size(170, 21);
+            this.comboBoxTipo.TabIndex = 7;
             // 
-            // comboBox1
+            // Banners
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(16, 96);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(170, 21);
-            this.comboBox1.TabIndex = 7;
+            this.Banners.Name = "Banners";
+            // 
+            // Tipo
+            // 
+            this.Tipo.Name = "Tipo";
+            // 
+            // FuenteId
+            // 
+            this.FuenteId.Name = "FuenteId";
+            // 
+            // checkBoxDescripcion
+            // 
+            this.checkBoxDescripcion.AutoSize = true;
+            this.checkBoxDescripcion.Location = new System.Drawing.Point(16, 170);
+            this.checkBoxDescripcion.Name = "checkBoxDescripcion";
+            this.checkBoxDescripcion.Size = new System.Drawing.Size(82, 17);
+            this.checkBoxDescripcion.TabIndex = 8;
+            this.checkBoxDescripcion.Text = "Descripcion";
+            this.checkBoxDescripcion.UseVisualStyleBackColor = true;
+            this.checkBoxDescripcion.CheckedChanged += new System.EventHandler(this.checkBoxDescripcion_CheckedChanged);
+            // 
+            // textBoxDescripcion
+            // 
+            this.textBoxDescripcion.Location = new System.Drawing.Point(16, 194);
+            this.textBoxDescripcion.Name = "textBoxDescripcion";
+            this.textBoxDescripcion.Size = new System.Drawing.Size(100, 20);
+            this.textBoxDescripcion.TabIndex = 9;
+            // 
+            // checkBoxTipo
+            // 
+            this.checkBoxTipo.AutoSize = true;
+            this.checkBoxTipo.Location = new System.Drawing.Point(16, 103);
+            this.checkBoxTipo.Name = "checkBoxTipo";
+            this.checkBoxTipo.Size = new System.Drawing.Size(47, 17);
+            this.checkBoxTipo.TabIndex = 10;
+            this.checkBoxTipo.Text = "Tipo";
+            this.checkBoxTipo.UseVisualStyleBackColor = true;
+            this.checkBoxTipo.CheckedChanged += new System.EventHandler(this.checkBoxTipo_CheckedChanged);
+            // 
+            // buttonFiltrar
+            // 
+            this.buttonFiltrar.Location = new System.Drawing.Point(16, 254);
+            this.buttonFiltrar.Name = "buttonFiltrar";
+            this.buttonFiltrar.Size = new System.Drawing.Size(75, 23);
+            this.buttonFiltrar.TabIndex = 11;
+            this.buttonFiltrar.Text = "Filtrar";
+            this.buttonFiltrar.UseVisualStyleBackColor = true;
+            this.buttonFiltrar.Click += new System.EventHandler(this.buttonFiltrar_Click);
             // 
             // VBaseFuente
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(732, 426);
-            this.Controls.Add(this.comboBox1);
-            this.Controls.Add(this.label2);
+            this.Controls.Add(this.buttonFiltrar);
+            this.Controls.Add(this.checkBoxTipo);
+            this.Controls.Add(this.textBoxDescripcion);
+            this.Controls.Add(this.checkBoxDescripcion);
+            this.Controls.Add(this.comboBoxTipo);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.button4);
-            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.dataGridViewMostrar);
             this.Controls.Add(this.buttonEliminar);
             this.Controls.Add(this.buttonModificar);
             this.Controls.Add(this.buttonNuevo);
             this.Name = "VBaseFuente";
             this.Text = "VBaseFuente";
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewMostrar)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -142,10 +196,16 @@
         private System.Windows.Forms.Button buttonNuevo;
         private System.Windows.Forms.Button buttonModificar;
         private System.Windows.Forms.Button buttonEliminar;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView dataGridViewMostrar;
         private System.Windows.Forms.Button button4;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox comboBoxTipo;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Banners;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Tipo;
+        private System.Windows.Forms.DataGridViewTextBoxColumn FuenteId;
+        private System.Windows.Forms.CheckBox checkBoxDescripcion;
+        private System.Windows.Forms.TextBox textBoxDescripcion;
+        private System.Windows.Forms.CheckBox checkBoxTipo;
+        private System.Windows.Forms.Button buttonFiltrar;
     }
 }

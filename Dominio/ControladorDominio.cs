@@ -344,6 +344,31 @@ namespace Dominio
         {
             return iUoW.RepositorioFuentes.Obtener().ToList();
         }
+
+        public List<Fuente> FiltrarFuentes(string pFiltroTipoFuente, string pFiltroDescripcion)
+        {
+
+            //Se parsea el string que representa el Enum, devuelve el TipoFuente correspondiente
+            TipoFuente tipoFuente = (TipoFuente)Enum.Parse(typeof(TipoFuente), pFiltroTipoFuente);
+            //Enum.Parse((tipoFuente, pFiltroTipoFuente, out tipoFuente);
+
+            Expression<Func<Fuente, bool>> filtroTipoFuente = null;
+            Expression<Func<Fuente, bool>> filtroDescripcion = null;
+
+            if (pFiltroTipoFuente!=null)
+            {
+                filtroTipoFuente = x => x.Tipo == tipoFuente;
+            }
+
+            if (pFiltroDescripcion != null)
+            {
+                filtroDescripcion = x => x.Descripcion.Contains(pFiltroDescripcion);
+            }
+
+
+            return this.iUoW.RepositorioFuentes.Filtrar(filtroTipoFuente, filtroDescripcion).ToList();
+        }
+
         #endregion
     }
 }

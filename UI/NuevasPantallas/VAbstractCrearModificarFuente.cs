@@ -11,9 +11,8 @@ using Dominio;
 
 namespace UI.NuevasPantallas
 {
-    public abstract partial class VAbstractCrearModificarFuente : Form
+    public partial class VAbstractCrearModificarFuente : Form
     {
-
         protected ControladorDominio iControladorDominio;
 
         public VAbstractCrearModificarFuente()
@@ -24,11 +23,6 @@ namespace UI.NuevasPantallas
         public VAbstractCrearModificarFuente(ref ControladorDominio pControladorDominio) : this()
         {
             this.iControladorDominio = pControladorDominio;
-        }
-
-        private void bgwFuenteRss_DoWork(object sender, DoWorkEventArgs e)
-        {
-            //e.Result = this.iControladorDominio
         }
     }
 }
