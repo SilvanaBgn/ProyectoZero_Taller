@@ -106,8 +106,8 @@ namespace UI.NuevasPantallas
             // 
             this.menuStrip1.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.configuracionToolStripMenuItem,
             this.pantallaCompletaToolStripMenuItem,
+            this.configuracionToolStripMenuItem,
             this.salirToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
@@ -121,7 +121,7 @@ namespace UI.NuevasPantallas
             this.campañasToolStripMenuItem,
             this.bannersToolStripMenuItem,
             this.fuentesToolStripMenuItem});
-            this.configuracionToolStripMenuItem.Image = global::UI.Properties.Resources.Texto8;
+            this.configuracionToolStripMenuItem.Image = global::UI.Properties.Resources.Configuracion4;
             this.configuracionToolStripMenuItem.Name = "configuracionToolStripMenuItem";
             this.configuracionToolStripMenuItem.Size = new System.Drawing.Size(130, 24);
             this.configuracionToolStripMenuItem.Text = "&Configuración";

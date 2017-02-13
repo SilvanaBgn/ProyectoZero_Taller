@@ -15,6 +15,9 @@ namespace UI.UserControls
 {
     public partial class Galeria : UserControl
     {
+        /// <summary>
+        /// Atributo que mantiene actualizadas la lista de imágenes del listView
+        /// </summary>
         private List<Imagen> iListaImagenes;
 
         [Browsable(false)]
@@ -23,7 +26,10 @@ namespace UI.UserControls
         public List<Imagen> ListaImagenes
         {
             get { return this.iListaImagenes; }
-            set { this.iListaImagenes = value; }
+            set {
+                    this.iListaImagenes = value;
+                    this.CargarListView();
+                }
         }
 
         public Galeria()
@@ -41,9 +47,9 @@ namespace UI.UserControls
         /// </summary>
         private void buttonArriba_Click(object sender, EventArgs e)
         {
-            if (this.listView1.SelectedItems.Count == 1)
+            if (this.listView.SelectedItems.Count == 1)
             {
-                ListViewItem item = this.listView1.SelectedItems[0];
+                ListViewItem item = this.listView.SelectedItems[0];
 
                 //Si no es el primer item (ya que no se puede subir más):
                 if (item.Index > 0)
@@ -51,15 +57,15 @@ namespace UI.UserControls
                     int pos = item.Index - 1;
 
                     //"Corremos" el item hacia arriba:
-                    this.listView1.Items.RemoveAt(item.Index);
-                    this.listView1.Items.Insert(pos, item);
+                    this.listView.Items.RemoveAt(item.Index);
+                    this.listView.Items.Insert(pos, item);
 
                     //Cambiamos el campo "Numero" que indica el ordenamiento de los items
-                    this.listView1.Items[pos].SubItems[0].Text = (pos + 1).ToString();
-                    this.listView1.Items[pos + 1].SubItems[0].Text = (pos + 2).ToString();
+                    this.listView.Items[pos].SubItems[0].Text = (pos + 1).ToString();
+                    this.listView.Items[pos + 1].SubItems[0].Text = (pos + 2).ToString();
 
-                    this.listView1.Focus();
-                    this.listView1.Items[pos].Selected = true;
+                    this.listView.Focus();
+                    this.listView.Items[pos].Selected = true;
 
                     //Actualizamos la lista de imágenes:
                     this.ActualizarListaImagenes();
@@ -72,25 +78,25 @@ namespace UI.UserControls
         /// </summary>
         private void buttonAbajo_Click(object sender, EventArgs e)
         {
-            if (this.listView1.SelectedItems.Count == 1)
+            if (this.listView.SelectedItems.Count == 1)
             {
-                ListViewItem item = this.listView1.SelectedItems[0];
+                ListViewItem item = this.listView.SelectedItems[0];
 
                 //Si no es el último item (ya que no se puede bajar más):
-                if (item.Index < (this.listView1.Items.Count - 1))
+                if (item.Index < (this.listView.Items.Count - 1))
                 {
                     int pos = item.Index + 1;
 
                     //"Corremos" el item hacia abajo:
-                    this.listView1.Items.RemoveAt(item.Index);
-                    this.listView1.Items.Insert(pos, item);
+                    this.listView.Items.RemoveAt(item.Index);
+                    this.listView.Items.Insert(pos, item);
 
                     //Cambiamos el campo "Numero" que indica el ordenamiento de los items
-                    this.listView1.Items[pos].SubItems[0].Text = (pos + 1).ToString();
-                    this.listView1.Items[pos - 1].SubItems[0].Text = (pos).ToString();
+                    this.listView.Items[pos].SubItems[0].Text = (pos + 1).ToString();
+                    this.listView.Items[pos - 1].SubItems[0].Text = (pos).ToString();
 
-                    this.listView1.Focus();
-                    this.listView1.Items[pos].Selected = true;
+                    this.listView.Focus();
+                    this.listView.Items[pos].Selected = true;
 
                     //Actualizamos la lista de imágenes:
                     this.ActualizarListaImagenes();
@@ -112,14 +118,15 @@ namespace UI.UserControls
                 string[] url = op.FileNames;
                 for (int i = 0; i < url.Length; i++)
                 {
-                    ListViewItem fila = new ListViewItem((this.listView1.Items.Count + 1).ToString());
+                    ListViewItem fila = new ListViewItem((this.listView.Items.Count + 1).ToString());
                     fila.SubItems.Add(Path.GetFileName(url[i]));
-                    fila.SubItems.Add(url[i]);
-                    this.listView1.Items.Add(fila);
+                    //ConversorImagen.ImageToByte(this.listView1.Items[i].SubItems[2].Text)
+                    fila.SubItems.Add(ConversorImagen.GetString(ConversorImagen.ImageToByte(url[i])));
+                    this.listView.Items.Add(fila);
                 }
                 //Seleccionamos el primer elemento del ListView:
-                this.listView1.Focus();
-                this.listView1.Items[0].Selected = true;
+                this.listView.Focus();
+                this.listView.Items[0].Selected = true;
 
                 //Actualizamos la lista de imágenes:
                 this.ActualizarListaImagenes();
@@ -131,26 +138,26 @@ namespace UI.UserControls
         /// </summary>
         private void buttonEliminarImagen_Click(object sender, EventArgs e)
         {
-            if (this.listView1.SelectedItems.Count == 1)
+            if (this.listView.SelectedItems.Count == 1)
             {
-                int posBorrada = this.listView1.SelectedItems[0].Index;
-                this.listView1.Items.RemoveAt(posBorrada);//(Borramos el item)
+                int posBorrada = this.listView.SelectedItems[0].Index;
+                this.listView.Items.RemoveAt(posBorrada);//(Borramos el item)
 
                 //Si no es el último item (ya que no se puede bajar más):
-                if ((this.listView1.Items.Count) > 0) //(Hay más de un item en la lista)
+                if ((this.listView.Items.Count) > 0) //(Hay más de un item en la lista)
                 {
                     //Cambiamos el campo "Numero" que indica el ordenamiento de los items:
-                    for (int i = posBorrada; i < (this.listView1.Items.Count); i++)
+                    for (int i = posBorrada; i < (this.listView.Items.Count); i++)
                     {
-                        this.listView1.Items[i].SubItems[0].Text = (i + 1).ToString();
+                        this.listView.Items[i].SubItems[0].Text = (i + 1).ToString();
                     }
                     //Seleccionamos el primer elemento del ListView:
-                    this.listView1.Focus();
-                    this.listView1.Items[0].Selected = true;
+                    this.listView.Focus();
+                    this.listView.Items[0].Selected = true;
 
                 }
                 else
-                    this.campaniaDeslizante1.Stop();
+                    this.campaniaDeslizante.Stop();
 
                 //Actualizamos la lista de imágenes:
                 this.ActualizarListaImagenes();
@@ -163,7 +170,7 @@ namespace UI.UserControls
         private void buttonVistaPrevia_Click(object sender, EventArgs e)
         {
             //Cambiamos la habilitacion del listview y demás botones:
-            this.listView1.Enabled = !this.listView1.Enabled;
+            this.listView.Enabled = !this.listView.Enabled;
             this.buttonAgregarImagenes.Enabled = !this.buttonAgregarImagenes.Enabled;
             this.buttonEliminarImagen.Enabled = !this.buttonEliminarImagen.Enabled;
             this.buttonArriba.Enabled = !this.buttonArriba.Enabled;
@@ -171,46 +178,22 @@ namespace UI.UserControls
             this.textBoxSegundos.Enabled = !this.textBoxSegundos.Enabled;
 
             //De acuerdo a si está funcionando o no, cambiamos la imagen del botón, y le damos Start o Stop
-            if (!this.campaniaDeslizante1.Funcionando)
+            if (!this.campaniaDeslizante.Funcionando)
             {
                 //Cambiamos la imagen del botón this.buttonVistaPrevia a "Pausa":
                 this.buttonVistaPrevia.BackgroundImage = global::UI.Properties.Resources.Pausa1;
 
                 if (this.textBoxSegundos.Text.Length > 0)
-                    this.campaniaDeslizante1.Start(this.iListaImagenes, Convert.ToInt32(this.textBoxSegundos.Text));
+                    this.campaniaDeslizante.Start(this.iListaImagenes, Convert.ToInt32(this.textBoxSegundos.Text));
                 else
-                    this.campaniaDeslizante1.Start(this.iListaImagenes, 0);
+                    this.campaniaDeslizante.Start(this.iListaImagenes, 0);
             }
             else
             {
-                this.campaniaDeslizante1.Stop();
+                this.campaniaDeslizante.Stop();
                 //Cambiamos la imagen del botón this.buttonVistaPrevia a "Play":
                 this.buttonVistaPrevia.BackgroundImage = global::UI.Properties.Resources.Play1;
             }
-        }
-        #endregion
-
-
-        //private void ActualizarListaImagenes()
-        //{
-        //    this.ActualizarListaImagenes(new List<Imagen>());
-        //}
-
-        /// <summary>
-        /// Permite actualizar el atributo que contiene la lista de imágenes (this.iListaImagenes)
-        /// </summary>
-        private void ActualizarListaImagenes()
-        {
-            this.iListaImagenes = new List<Imagen>();
-            for (int i = 0; i < this.listView1.Items.Count; i++)
-            {
-                Imagen imagen = new Imagen();
-                imagen.Orden = Convert.ToInt16(this.listView1.Items[i].SubItems[0].Text); //SubItems[0]= Numero
-                imagen.Descripcion = this.listView1.Items[i].SubItems[1].Text; //SubItems[1]= Nombre
-                imagen.Bytes = ConversorImagen.ImageToByte(this.listView1.Items[i].SubItems[2].Text); //SubItems[2]= Url
-                this.iListaImagenes.Add(imagen);
-            }
-
         }
 
         /// <summary>
@@ -218,13 +201,49 @@ namespace UI.UserControls
         /// </summary>
         private void listView1_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (this.listView1.SelectedItems.Count == 1)
+            if (this.listView.SelectedItems.Count == 1)
             {
                 //Al seleccionar una nueva línea, se actualiza el pictureBox:
-                this.campaniaDeslizante1.Start(ConversorImagen.ImageToByte(this.listView1.SelectedItems[0].SubItems[2].Text));
+                this.campaniaDeslizante.Start(ConversorImagen.GetBytes(this.listView.SelectedItems[0].SubItems[2].Text));
+            }
+        }
+        #endregion
+
+
+        #region Funciones Auxiliares (privadas)
+        /// <summary>
+        /// Permite actualizar las imágenes del this.iListaImagenes, de manera que estén disponibles ante un Get
+        /// </summary>
+        private void ActualizarListaImagenes()
+        {
+            this.iListaImagenes = new List<Imagen>();
+            for (int i = 0; i < this.listView.Items.Count; i++)
+            {
+                Imagen imagen = new Imagen();
+                imagen.Orden = Convert.ToInt16(this.listView.Items[i].SubItems[0].Text); //SubItems[0]= Numero
+                imagen.Descripcion = this.listView.Items[i].SubItems[1].Text; //SubItems[1]= Nombre
+                imagen.Bytes = ConversorImagen.GetBytes(this.listView.Items[i].SubItems[2].Text); //SubItems[2]= Url
+                this.iListaImagenes.Add(imagen);
             }
         }
 
-
+        /// <summary>
+        /// Permite cargar el listView con las imágenes actuales en el this.iListaImagenes
+        /// </summary>
+        private void CargarListView()
+        {
+            for (int i = 0; i < this.iListaImagenes.Count; i++)
+            {
+                ListViewItem fila = new ListViewItem((i + 1).ToString());
+                fila.SubItems.Add(this.iListaImagenes[i].Descripcion);
+                //ConversorImagen.ImageToByte(this.listView1.Items[i].SubItems[2].Text)
+                fila.SubItems.Add(ConversorImagen.GetString(this.iListaImagenes[i].Bytes));
+                this.listView.Items.Add(fila);
+            }
+            //Seleccionamos el primer elemento del ListView:
+            this.listView.Focus();
+            this.listView.Items[0].Selected = true;
+        }
+        #endregion
     }
 }
