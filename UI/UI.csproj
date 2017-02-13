@@ -240,143 +240,97 @@
     <Compile Include="UserControls\RangoHorario.designer.cs">
       <DependentUpon>RangoHorario.cs</DependentUpon>
     </Compile>
-    <Compile Include="VAbstractBuscarCampania.cs">
-      <SubType>Form</SubType>
-    </Compile>
+    <Compile Include="VAbstractBuscarCampania.cs" />
     <Compile Include="VAbstractBuscarCampania.Designer.cs">
       <DependentUpon>VAbstractBuscarCampania.cs</DependentUpon>
     </Compile>
-    <Compile Include="VAbstractBuscarBanner.cs">
-      <SubType>Form</SubType>
-    </Compile>
+    <Compile Include="VAbstractBuscarBanner.cs" />
     <Compile Include="VAbstractBuscarBanner.Designer.cs">
       <DependentUpon>VAbstractBuscarBanner.cs</DependentUpon>
     </Compile>
-    <Compile Include="VAbstractBuscarFuenteRss.cs">
-      <SubType>Form</SubType>
-    </Compile>
+    <Compile Include="VAbstractBuscarFuenteRss.cs" />
     <Compile Include="VAbstractBuscarFuenteRss.Designer.cs">
       <DependentUpon>VAbstractBuscarFuenteRss.cs</DependentUpon>
     </Compile>
-    <Compile Include="VAbstractFuenteRss.cs">
-      <SubType>Form</SubType>
-    </Compile>
+    <Compile Include="VAbstractFuenteRss.cs" />
     <Compile Include="VAbstractFuenteRss.designer.cs">
       <DependentUpon>VAbstractFuenteRss.cs</DependentUpon>
     </Compile>
-    <Compile Include="VBannerBuscarPorCodigo.cs">
-      <SubType>Form</SubType>
-    </Compile>
+    <Compile Include="VBannerBuscarPorCodigo.cs" />
     <Compile Include="VBannerBuscarPorCodigo.designer.cs">
       <DependentUpon>VBannerBuscarPorCodigo.cs</DependentUpon>
     </Compile>
-    <Compile Include="VBannerBuscarPorDescripcion.cs">
-      <SubType>Form</SubType>
-    </Compile>
+    <Compile Include="VBannerBuscarPorDescripcion.cs" />
     <Compile Include="VBannerBuscarPorDescripcion.designer.cs">
       <DependentUpon>VBannerBuscarPorDescripcion.cs</DependentUpon>
     </Compile>
-    <Compile Include="VBannerBuscarPorFechaInicio.cs">
-      <SubType>Form</SubType>
-    </Compile>
+    <Compile Include="VBannerBuscarPorFechaInicio.cs" />
     <Compile Include="VBannerBuscarPorFechaInicio.designer.cs">
       <DependentUpon>VBannerBuscarPorFechaInicio.cs</DependentUpon>
     </Compile>
-    <Compile Include="VBannerBuscarPorHoraInicio.cs">
-      <SubType>Form</SubType>
-    </Compile>
+    <Compile Include="VBannerBuscarPorHoraInicio.cs" />
     <Compile Include="VBannerBuscarPorHoraInicio.designer.cs">
       <DependentUpon>VBannerBuscarPorHoraInicio.cs</DependentUpon>
     </Compile>
-    <Compile Include="VAbstractCampania.cs">
-      <SubType>Form</SubType>
-    </Compile>
+    <Compile Include="VAbstractCampania.cs" />
     <Compile Include="VAbstractCampania.designer.cs">
       <DependentUpon>VAbstractCampania.cs</DependentUpon>
     </Compile>
-    <Compile Include="VBanner.cs">
-      <SubType>Form</SubType>
-    </Compile>
+    <Compile Include="VBanner.cs" />
     <Compile Include="VBanner.Designer.cs">
       <DependentUpon>VBanner.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="VAbstractBanner.cs">
-      <SubType>Form</SubType>
-    </Compile>
+    <Compile Include="VAbstractBanner.cs" />
     <Compile Include="VAbstractBanner.Designer.cs">
       <DependentUpon>VAbstractBanner.cs</DependentUpon>
     </Compile>
-    <Compile Include="VCampania.cs">
-      <SubType>Form</SubType>
-    </Compile>
+    <Compile Include="VCampania.cs" />
     <Compile Include="VCampania.designer.cs">
       <DependentUpon>VCampania.cs</DependentUpon>
     </Compile>
-    <Compile Include="VCampaniaBuscarPorDescripcion.cs">
-      <SubType>Form</SubType>
-    </Compile>
+    <Compile Include="VCampaniaBuscarPorDescripcion.cs" />
     <Compile Include="VCampaniaBuscarPorDescripcion.designer.cs">
       <DependentUpon>VCampaniaBuscarPorDescripcion.cs</DependentUpon>
     </Compile>
-    <Compile Include="VCampaniaBuscarPorFechaInicio.cs">
-      <SubType>Form</SubType>
-    </Compile>
+    <Compile Include="VCampaniaBuscarPorFechaInicio.cs" />
     <Compile Include="VCampaniaBuscarPorFechaInicio.designer.cs">
       <DependentUpon>VCampaniaBuscarPorFechaInicio.cs</DependentUpon>
     </Compile>
-    <Compile Include="VCampaniaBuscarPorHoraInicio.cs">
-      <SubType>Form</SubType>
-    </Compile>
+    <Compile Include="VCampaniaBuscarPorHoraInicio.cs" />
     <Compile Include="VCampaniaBuscarPorHoraInicio.designer.cs">
       <DependentUpon>VCampaniaBuscarPorHoraInicio.cs</DependentUpon>
     </Compile>
-    <Compile Include="VFuenteRssBuscarPorTitulo.cs">
-      <SubType>Form</SubType>
-    </Compile>
+    <Compile Include="VFuenteRssBuscarPorTitulo.cs" />
     <Compile Include="VFuenteRssBuscarPorTitulo.designer.cs">
       <DependentUpon>VFuenteRssBuscarPorTitulo.cs</DependentUpon>
     </Compile>
-    <Compile Include="VFuenteRssBuscarPorCodigo.cs">
-      <SubType>Form</SubType>
-    </Compile>
+    <Compile Include="VFuenteRssBuscarPorCodigo.cs" />
     <Compile Include="VFuenteRssBuscarPorCodigo.designer.cs">
       <DependentUpon>VFuenteRssBuscarPorCodigo.cs</DependentUpon>
     </Compile>
-    <Compile Include="VCampaniaModificar.cs">
-      <SubType>Form</SubType>
-    </Compile>
+    <Compile Include="VCampaniaModificar.cs" />
     <Compile Include="VCampaniaModificar.designer.cs">
       <DependentUpon>VCampaniaModificar.cs</DependentUpon>
     </Compile>
-    <Compile Include="VCampaniaNueva.cs">
-      <SubType>Form</SubType>
-    </Compile>
+    <Compile Include="VCampaniaNueva.cs" />
     <Compile Include="VCampaniaNueva.designer.cs">
       <DependentUpon>VCampaniaNueva.cs</DependentUpon>
     </Compile>
-    <Compile Include="VFuenteRssModificar.cs">
-      <SubType>Form</SubType>
-    </Compile>
+    <Compile Include="VFuenteRssModificar.cs" />
     <Compile Include="VFuenteRssModificar.Designer.cs">
       <DependentUpon>VFuenteRssModificar.cs</DependentUpon>
     </Compile>
-    <Compile Include="VFuenteRssNueva.cs">
-      <SubType>Form</SubType>
-    </Compile>
+    <Compile Include="VFuenteRssNueva.cs" />
     <Compile Include="VFuenteRssNueva.Designer.cs">
       <DependentUpon>VFuenteRssNueva.cs</DependentUpon>
     </Compile>
-    <Compile Include="VBannerModificar.cs">
-      <SubType>Form</SubType>
-    </Compile>
+    <Compile Include="VBannerModificar.cs" />
     <Compile Include="VBannerModificar.Designer.cs">
       <DependentUpon>VBannerModificar.cs</DependentUpon>
     </Compile>
-    <Compile Include="VBannerNuevo.cs">
-      <SubType>Form</SubType>
-    </Compile>
+    <Compile Include="VBannerNuevo.cs" />
     <Compile Include="VBannerNuevo.Designer.cs">
       <DependentUpon>VBannerNuevo.cs</DependentUpon>
     </Compile>

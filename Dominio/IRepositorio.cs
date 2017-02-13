@@ -25,6 +25,9 @@ namespace Dominio
             Expression<Func<T, bool>> filtroTitulo,
             Expression<Func<T, bool>> filtroDescripcion);
 
+        IEnumerable<T> Filtrar(Expression<Func<T, bool>> filtroTipoFuente,
+            Expression<Func<T, bool>> filtroDescripcion);
+
         /// <summary>
         /// Metodo generico para recuperar una entidad a partir de su identidad
         /// </summary>

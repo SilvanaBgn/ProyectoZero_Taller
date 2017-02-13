@@ -20,7 +20,7 @@ namespace Dominio
         public string Descripcion { get; set; }
 
         /// <summary>
-        /// Información especíifica de la Fuente en cuestión
+        /// Información especifica de la Fuente en cuestión
         /// </summary>
         [DataType(DataType.Text)]
         public string origenItems { get; set; }
@@ -33,10 +33,12 @@ namespace Dominio
         /// Indica el método de lectura de esta fuente, según su Tipo
         /// </summary>
         [NotMapped]
-        public ILector iLector { get; set; }
+        private ILector iLector { get; set; }
+
+        private TipoFuente iTipo;
 
         public TipoFuente Tipo {
-            get { return this.Tipo; }
+            get { return this.iTipo; }
 
             set
             {
@@ -55,9 +57,12 @@ namespace Dominio
         
 
         /// <summary>
-        /// Constructor
+        /// Constructor para el caso del texto plano, donde no hay origen de items
         /// </summary>
-        public Fuente(): this("", "", TipoFuente.TextoPlano) { }
+   //     public Fuente(string pDescripcion) : this(pDescripcion, "", TipoFuente.TextoPlano) { }
+
+        public Fuente():this("","",TipoFuente.TextoPlano)
+        { }
 
         /// <summary>
         /// Constructor
@@ -90,7 +95,7 @@ namespace Dominio
                 {
                     this.Items = (ICollection<Item>)this.iLector.Leer(this.origenItems);
                 }
-            }
+        }
             catch(Exception) //excepcion cuando no hay internet u otra.. entendible para el usuario..
             {
 

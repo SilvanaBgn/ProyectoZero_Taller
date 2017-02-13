@@ -13,16 +13,21 @@ namespace UI.NuevasPantallas
 {
     public partial class VCrearFuente : VAbstractCrearModificarFuente
     {
-        public VCrearFuente(ref ControladorDominio pControladorDominio)
+        public VCrearFuente(ref ControladorDominio pControladorDominio) : base(ref pControladorDominio)
         {
             InitializeComponent();
             this.buttonGuardar.Click += ButtonGuardar_Click;
             this.comboBoxTipoFuente.SelectedValueChanged += MostrarPanel;
+            this.bgwActualizarRssAlGuardar.DoWork += BgwActualizarRssAlGuardar_DoWork;
+            this.bgwActualizarRssAlGuardar.RunWorkerCompleted += BgwActualizarRssAlGuardar_RunWorkerCompleted;
+            this.panelTextoFijo.Visible = false;
+            this.panelRss.Visible = false;
         }
+
+        Fuente fuenteAAgregar = new Fuente();
 
         private void MostrarPanel(object sender, EventArgs e)
         {
-
             switch (this.comboBoxTipoFuente.SelectedItem.ToString())
             {
                 case "Rss":
@@ -37,23 +42,35 @@ namespace UI.NuevasPantallas
         }
 
         private void ButtonGuardar_Click(object sender, EventArgs e)
-        {
-
-            Fuente fuenteAAgregar = new Fuente();
-
+        { 
             switch (this.comboBoxTipoFuente.SelectedItem.ToString())
             {
                 case "Rss":
-                    this.panelTextoFijo.Visible = false;
-                    this.panelRss.Visible = true;
+                    this.fuenteAAgregar.Tipo = TipoFuente.Rss;
                     break;
                 case "Texto Fijo":
-                    this.panelRss.Visible = false;
-                    this.panelTextoFijo.Visible = true;
+                    this.fuenteAAgregar.Tipo = TipoFuente.TextoPlano;
                     break;
             }
+
+            this.fuenteAAgregar.origenItems = this.textBoxFuenteRss.Text;
+
+            if (!this.bgwActualizarRssAlGuardar.IsBusy)
+                this.bgwActualizarRssAlGuardar.RunWorkerAsync(this.fuenteAAgregar);
         }
 
+        private void BgwActualizarRssAlGuardar_DoWork(object sender, DoWorkEventArgs e)
+        {
+
+            e.Result = ((Fuente)e.Argument).Leer();
+        }
+
+        private void BgwActualizarRssAlGuardar_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
+        {
+                this.fuenteAAgregar.Descripcion = this.textBoxDescripcionRss.Text;
+                this.iControladorDominio.AgregarFuente(fuenteAAgregar);
+                this.iControladorDominio.GuardarCambios();
+        }
 
     }
 }

@@ -11,9 +11,8 @@ using Dominio;
 
 namespace UI.NuevasPantallas
 {
-    public abstract partial class VAbstractCrearModificarFuente : Form
+    public partial class VAbstractCrearModificarFuente : Form
     {
-
         protected ControladorDominio iControladorDominio;
 
         public VAbstractCrearModificarFuente()
@@ -21,23 +20,9 @@ namespace UI.NuevasPantallas
             InitializeComponent();
         }
 
-        private void button2_Click(object sender, EventArgs e)
+        public VAbstractCrearModificarFuente(ref ControladorDominio pControladorDominio) : this()
         {
-            this.Close();
-        }
-
-        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            if (this.comboBoxTipoFuente.SelectedIndex == 0) //Texto Plano
-            {
-                this.textoPlano1.Visible = true;
-                //this.panelRss.Visible = false;
-            }
-            else if (this.comboBoxTipoFuente.SelectedIndex == 1) //RSS
-            {
-                this.textoPlano1.Visible = false;
-                //this.panelRss.Visible = true;
-            }
+            this.iControladorDominio = pControladorDominio;
         }
     }
 }
