@@ -157,20 +157,20 @@ namespace UI.NuevasPantallas
 
         private void bannerToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            VBaseBanner vBanner = new VBaseBanner(ref this.iControladorDominio);
-            vBanner.Show();
+            //VBaseBanner vBanner = new VBaseBanner(ref this.iControladorDominio);
+            //vBanner.Show();
         }
 
         private void campañaToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            VBaseCampania vCampania = new VBaseCampania(ref this.iControladorDominio);
-            vCampania.Show();
+            //VBaseCampania vCampania = new VBaseCampania(ref this.iControladorDominio);
+            //vCampania.Show();
         }
 
         private void fuenteToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            VBaseFuente vFuente = new VBaseFuente(ref this.iControladorDominio);
-            vFuente.Show();
+            //VBaseFuente vFuente = new VBaseFuente(ref this.iControladorDominio);
+            //vFuente.Show();
         }
 
         private void verPantallaCompletaToolStripMenuItem_Click(object sender, EventArgs e)

@@ -117,59 +117,52 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="Agregar5" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Agregar5.ico;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="buttonEliminarItem.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
+        wwAADsMBx2+oZAAAAJZJREFUOE/N0kEKgkAUh/EhhW4QgTcQwhO06QZtukkhrjyUtHbTKdp0gzbRUv0e
+        ODDIezO0CPzgB4PwB2V0/2yDfCbnn9rji3Em5x2SXdHhBT/25NkdN5g1aBNqmB2gjUIlzC5YvvrSGWYn
+        aKPQEWYVtFEo+gkFtFEoep1baCNvQIZoH2hj8UYy7Sfynkj2gDYWPVaVcxODdVYhIUKy8AAAAABJRU5E
+        rkJggg==
+</value>
   </data>
-  <data name="salir3" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\salir3.ico;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="buttonVistaPrevia.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
+        wwAADsMBx2+oZAAAAPdJREFUWEft1q2KQkEYh/ETxM9LMBgWvA9hWYsW78SkZS0WL0UQN23xPiyCCyuC
+        FpOIaNJngjDh78eMMyedB37lhPedNGeSrKwHTbFHH3nzIe0ulgW+kGr2AW5+UEMqqQMYR3yjgKip5bYl
+        WoiWWqr84gPBU8vuOWGIEoKlFj3zjw6CpBa8aoY63koNdnHGCBV4pYb6WOMTzqlhvrZwTg3ytYFzapCP
+        FRpwTg1zcbsbyvBKDX1VkNtRDX7mD20ESS24x/whBygiWGqREu2NoJbZzCupiWippcYBPUR/J6rlY1SR
+        SvbiObwuk3eaYIcucuZDVlb4kuQK3JwUFXvuZWoAAAAASUVORK5CYII=
+</value>
   </data>
-  <data name="Eliminar4" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Eliminar4.ico;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="buttonAgregarItem.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
+        wwAADsMBx2+oZAAAAINJREFUWEftlEEKgDAQA/tGQfz/Ua34BE3AQpGFCl3XgxmYi2AbepgkRAcTzHCF
+        Iz9Es8PjcuOHaMrlxXA0QAM04LUBLFwdGS8Zq0fFZF6tAzxcYBO23frZwxk24TPxuawDeuTLDtCN+wXh
+        aIAGaMDnA+pYMTLhsJhsO/PqWjjxJ1I6AZxCqM25EcoNAAAAAElFTkSuQmCC
+</value>
   </data>
-  <data name="campania1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\campania1.ico;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="buttonArriba.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
+        wwAADsMBx2+oZAAAAQBJREFUaEPt1D9LQmEYhvGDuBjoaIPt4ZRfIGirrxDO7a1Bq4MguAd+haAt+gRC
+        S7RLS2sKBVIJ6vWCQhwewj/ve8574L7gB3JQnvssJkoppZRSSqkYu8Z4xX0uVFdYpLhnhegCM6RfwD07
+        R9S18IX0+LVPnCDKjvAOa/hf7jsNRFUNr7AGW15QRRSV8QRr6H8e4X6bewNYAzdxh1y7hTVsGzfIpTas
+        Qdua4xKZdoYfWIN28Y1TZFITE1hD9vGBYwTtEG+wBvgwQh1BOsAzrMM+DVGB10p4gHUwhHu4m97qwzoU
+        Ug/e8vmPs6kpvNXFL6xDIbhbHSillFJKKaVClSRLeOw68Gh9XgIAAAAASUVORK5CYII=
+</value>
   </data>
-  <data name="Abajo1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Abajo1.ico;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Vista" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Vista.ico;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Play1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Play1.ico;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Texto1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Texto1.ico;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Eliminar2" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Eliminar2.ico;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="texto9" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\texto9.ico;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Texto4" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Texto4.ico;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Pausa1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Pausa1.ico;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="NoImage" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\NoImage.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Arriba1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Arriba1.ico;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Texto6" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Texto6.ico;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="AgregarImagen1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\AgregarImagen1.ico;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Texto8" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Texto8.ico;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Configuracion4" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Configuracion4.ico;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="buttonAbajo.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
+        wwAADsMBx2+oZAAAAQhJREFUaEPt1r9KQmEcxvFDukTglhC0CoFDFxA0NHkFDQ5uQVuTkzcQhGuTtxAu
+        Ll6BNDi4SyAEQoRIS/6B6vtuIj9E7X3PeYXnC5/F4fweEeQkSimllFJKqdA9YYnflLhbj/DWDNahkL7h
+        rSasIyG5X91bR2jDOhTCC9xNrx3jFdZBn3pwt4JUxBuswz4McYqgXWACa8B/fKKEVLrGHNaQfbh/nCuk
+        WhU/sAbtwj3jFpnUgDVqF3VkWgvWsG08I/Py6MIauEkHOURRAQNYQy19nCCqzvEOa/CqEc4QZZf4gjXc
+        maKMqKvAevVe4AYH0R3Wv0ANB9UDPjDGvftAKaWUUkopFVFJ8gf7pzqWDpGufAAAAABJRU5ErkJggg==
+</value>
   </data>
 </root>
