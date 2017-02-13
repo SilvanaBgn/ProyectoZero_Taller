@@ -21,14 +21,23 @@ namespace UI.NuevasPantallas
             InitializeComponent();
         }
 
-        public VAbstractCrearModificarFuente(ref ControladorDominio pControladorDominio) : this()
+        private void button2_Click(object sender, EventArgs e)
         {
-            this.iControladorDominio = pControladorDominio;
+            this.Close();
         }
 
-        private void bgwFuenteRss_DoWork(object sender, DoWorkEventArgs e)
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
-            //e.Result = this.iControladorDominio
+            if (this.comboBoxTipoFuente.SelectedIndex == 0) //Texto Plano
+            {
+                this.textoPlano1.Visible = true;
+                //this.panelRss.Visible = false;
+            }
+            else if (this.comboBoxTipoFuente.SelectedIndex == 1) //RSS
+            {
+                this.textoPlano1.Visible = false;
+                //this.panelRss.Visible = true;
+            }
         }
     }
 }

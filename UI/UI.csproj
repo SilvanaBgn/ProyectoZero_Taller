@@ -222,6 +222,12 @@
     <Compile Include="UserControls\RangoFecha.Designer.cs">
       <DependentUpon>RangoFecha.cs</DependentUpon>
     </Compile>
+    <Compile Include="UserControls\TextoPlano.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\TextoPlano.Designer.cs">
+      <DependentUpon>TextoPlano.cs</DependentUpon>
+    </Compile>
     <Compile Include="UserControls\RangoHorario.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -414,6 +420,9 @@
     <EmbeddedResource Include="UserControls\RangoHorario.resx">
       <DependentUpon>RangoHorario.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\TextoPlano.resx">
+      <DependentUpon>TextoPlano.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="VAbstractBuscarCampania.resx">
       <DependentUpon>VAbstractBuscarCampania.cs</DependentUpon>
     </EmbeddedResource>
@@ -483,8 +492,12 @@
     <EmbeddedResource Include="VBannerNuevo.resx">
       <DependentUpon>VBannerNuevo.cs</DependentUpon>
     </EmbeddedResource>
-    <None Include="log4net.config" />
-    <None Include="packages.config" />
+    <None Include="log4net.config">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="packages.config">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -498,6 +511,7 @@
   <ItemGroup>
     <None Include="App.config">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <SubType>Designer</SubType>
     </None>
   </ItemGroup>
   <ItemGroup>
