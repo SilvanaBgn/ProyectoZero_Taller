@@ -25,11 +25,17 @@ namespace UI.UserControls
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         public List<Imagen> ListaImagenes
         {
-            get { return this.iListaImagenes; }
-            set {
-                    this.iListaImagenes = value;
-                    this.CargarListView();
-                }
+            get
+            {
+                //Actualizamos la lista de imágenes y la devolvemos:
+                this.ActualizarListaImagenes();
+                return this.iListaImagenes;
+            }
+            set
+            {
+                this.iListaImagenes = value;
+                this.CargarListView();
+            }
         }
 
         public Galeria()
@@ -66,9 +72,6 @@ namespace UI.UserControls
 
                     this.listView.Focus();
                     this.listView.Items[pos].Selected = true;
-
-                    //Actualizamos la lista de imágenes:
-                    this.ActualizarListaImagenes();
                 }
             }
         }
@@ -97,9 +100,6 @@ namespace UI.UserControls
 
                     this.listView.Focus();
                     this.listView.Items[pos].Selected = true;
-
-                    //Actualizamos la lista de imágenes:
-                    this.ActualizarListaImagenes();
                 }
             }
         }
@@ -127,9 +127,6 @@ namespace UI.UserControls
                 //Seleccionamos el primer elemento del ListView:
                 this.listView.Focus();
                 this.listView.Items[0].Selected = true;
-
-                //Actualizamos la lista de imágenes:
-                this.ActualizarListaImagenes();
             }
         }
 
@@ -158,9 +155,6 @@ namespace UI.UserControls
                 }
                 else
                     this.campaniaDeslizante.Stop();
-
-                //Actualizamos la lista de imágenes:
-                this.ActualizarListaImagenes();
             }
         }
 
@@ -180,6 +174,9 @@ namespace UI.UserControls
             //De acuerdo a si está funcionando o no, cambiamos la imagen del botón, y le damos Start o Stop
             if (!this.campaniaDeslizante.Funcionando)
             {
+                //Actualizamos la lista de imágenes y la devolvemos:
+                this.ActualizarListaImagenes();
+
                 //Cambiamos la imagen del botón this.buttonVistaPrevia a "Pausa":
                 this.buttonVistaPrevia.BackgroundImage = global::UI.Properties.Resources.Pausa1;
 

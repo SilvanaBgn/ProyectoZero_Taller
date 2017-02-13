@@ -13,13 +13,39 @@ namespace UI.UserControls
 {
     public partial class TextoPlano : UserControl
     {
-        public List<Item> ListaItems { get; set; }
+
+        private List<Item> iListaItems;
+
+        // Propertie
+        public List<Item> ListaItems
+        {
+            get //Actualiza la lista de items (this.iListaItems) y la devuelve
+            {
+                foreach (var itemComboBox in this.comboBoxItems.Items)
+                {
+                    Item item = new Item(itemComboBox.ToString());
+                    this.iListaItems.Add(item);
+                }
+
+                return this.iListaItems;
+            }
+            set //Obtiene una lista de items, y la muestra en el comboBoxItems
+            {
+                this.iListaItems = value;
+                foreach (var item in this.iListaItems)
+                {
+                    this.comboBoxItems.Items.Add(item.Descripcion);
+                }
+            }
+        }
 
         public TextoPlano()
         {
             InitializeComponent();
+            this.iListaItems = new List<Item>();
         }
 
+        #region Eventos BOTONES (privados)
         private void buttonArriba_Click(object sender, EventArgs e)
         {
             if (this.comboBoxItems.SelectedIndex != -1)
@@ -66,6 +92,24 @@ namespace UI.UserControls
                 this.comboBoxItems.Items.Remove(comboBoxItems.SelectedItem);
         }
 
+        private void buttonVistaPrevia_Click(object sender, EventArgs e)
+        {
+            if (!this.bannerDeslizante1.Funcionando)
+            {
+                //Cambiamos la imagen del botón this.buttonVistaPrevia a "Pausa"
+                this.buttonVistaPrevia.BackgroundImage = global::UI.Properties.Resources.Pausa1;
+                this.bannerDeslizante1.Start(ConvertirItemsATexto(this.comboBoxItems));
+            }
+            else
+            {
+                this.bannerDeslizante1.Stop();
+                //Cambiamos la imagen del botón this.buttonVistaPrevia a "Play"
+                this.buttonVistaPrevia.BackgroundImage = global::UI.Properties.Resources.Play1;
+            }
+        }
+        #endregion
+
+        #region Eventos (privados)
         private void comboBoxItems_PreviewKeyDown(object sender, PreviewKeyDownEventArgs e)
         {
             if (!string.IsNullOrEmpty(comboBoxItems.Text) && e.KeyCode == Keys.Delete)
@@ -77,29 +121,16 @@ namespace UI.UserControls
             if (!string.IsNullOrEmpty(comboBoxItems.Text) && e.KeyChar == (Char)Keys.Enter)
                 this.comboBoxItems.Items.Add(comboBoxItems.Text);
         }
+        #endregion
 
-        private string ActulizarStringBannerTextoPlano(ComboBox pComboBox)
+        #region Otras funciones auxiliares
+        private string ConvertirItemsATexto(ComboBox pComboBox)
         {
             string banner = " ";
             for (int i = 0; i < pComboBox.Items.Count; i++)
                 banner += pComboBox.Items[i].ToString() + " ";
             return banner;
         }
-
-        private void buttonVistaPrevia_Click(object sender, EventArgs e)
-        {
-            if (!this.bannerDeslizante1.Funcionando)
-            {
-                //Cambiamos la imagen del botón this.buttonVistaPrevia a "Pausa"
-                this.buttonVistaPrevia.BackgroundImage = global::UI.Properties.Resources.Pausa1;
-                this.bannerDeslizante1.Start(ActulizarStringBannerTextoPlano(this.comboBoxItems));
-            }
-            else
-            {
-                this.bannerDeslizante1.Stop();
-                //Cambiamos la imagen del botón this.buttonVistaPrevia a "Play"
-                this.buttonVistaPrevia.BackgroundImage = global::UI.Properties.Resources.Play1;
-            }
-        }
+        #endregion
     }
 }
