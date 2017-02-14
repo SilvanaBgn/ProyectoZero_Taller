@@ -18,8 +18,8 @@ namespace UI.NuevasPantallas
             InitializeComponent();
             this.buttonGuardar.Click += ButtonGuardar_Click;
             this.comboBoxTipoFuente.SelectedValueChanged += MostrarPanel;
-            this.bgwActualizarRssAlGuardar.DoWork += BgwActualizarRssAlGuardar_DoWork;
-            this.bgwActualizarRssAlGuardar.RunWorkerCompleted += BgwActualizarRssAlGuardar_RunWorkerCompleted;
+            //this.bgwActualizarRssAlGuardar.DoWork += BgwActualizarRssAlGuardar_DoWork;
+            //this.bgwActualizarRssAlGuardar.RunWorkerCompleted += BgwActualizarRssAlGuardar_RunWorkerCompleted;
             this.panelTextoFijo.Visible = false;
             this.panelRss.Visible = false;
         }
@@ -42,7 +42,7 @@ namespace UI.NuevasPantallas
         }
 
         private void ButtonGuardar_Click(object sender, EventArgs e)
-        { 
+        {
             switch (this.comboBoxTipoFuente.SelectedItem.ToString())
             {
                 case "Rss":
@@ -56,20 +56,20 @@ namespace UI.NuevasPantallas
             this.fuenteAAgregar.origenItems = this.textBoxFuenteRss.Text;
 
             if (!this.bgwActualizarRssAlGuardar.IsBusy)
-                this.bgwActualizarRssAlGuardar.RunWorkerAsync(this.fuenteAAgregar);
+                this.bgwActualizarRssAlGuardar.RunWorkerAsync();
         }
 
         private void BgwActualizarRssAlGuardar_DoWork(object sender, DoWorkEventArgs e)
         {
-
-            e.Result = ((Fuente)e.Argument).Leer();
+            this.fuenteAAgregar.Leer();
         }
 
         private void BgwActualizarRssAlGuardar_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
         {
-                this.fuenteAAgregar.Descripcion = this.textBoxDescripcionRss.Text;
-                this.iControladorDominio.AgregarFuente(fuenteAAgregar);
-                this.iControladorDominio.GuardarCambios();
+            this.fuenteAAgregar.Descripcion = this.textBoxDescripcionRss.Text;
+            this.iControladorDominio.AgregarFuente(fuenteAAgregar);
+            this.iControladorDominio.GuardarCambios();
+            this.Close();
         }
 
     }

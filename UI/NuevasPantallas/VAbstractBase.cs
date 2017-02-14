@@ -11,7 +11,7 @@ using Dominio;
 
 namespace UI.NuevasPantallas
 {
-    public abstract partial class VAbstractBase : Form
+    public partial class VAbstractBase : Form
     {
 
         protected ControladorDominio iControladorDominio;
@@ -52,6 +52,11 @@ namespace UI.NuevasPantallas
             if (this.checkBoxDescripcion.Checked)
                 this.textBoxDescripcion.Enabled = true;
             else this.textBoxDescripcion.Enabled = false;
+        }
+
+        private void buttonSalir_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

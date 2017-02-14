@@ -22,8 +22,8 @@ namespace UI
             //Application.Run(new PruebaGaleria());
             //Application.Run(new PruebaLectorRss());
             //Application.Run(new PruebaLecturaFuente()); 
-            Application.Run(new PruebaTextoPlano()); 
-            //Application.Run(new UI.NuevasPantallas.VPrincipal());
+            //Application.Run(new PruebaTextoPlano()); 
+            Application.Run(new UI.NuevasPantallas.VPrincipal());
         }
     }
 }

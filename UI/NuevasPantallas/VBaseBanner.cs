@@ -24,11 +24,6 @@ namespace UI.NuevasPantallas
         {
             InitializeComponent();
             this.iControladorDominio = pControladorDominio;
-            this.buttonNuevo.Click += buttonNuevo_Click;
-            this.buttonModificar.Click += buttonModificar_Click;
-            this.buttonEliminar.Click += buttonEliminar_Click;
-            this.buttonFiltrar.Click += buttonFiltrar_Click;
-            CargarTodosLosBanners();
         }
 
         private void buttonFiltrar_Click(object sender, EventArgs e)
@@ -90,6 +85,16 @@ namespace UI.NuevasPantallas
             this.iControladorDominio.BorrarBanner(codigo);
             this.iControladorDominio.GuardarCambios();
             this.CargarTodosLosBanners();
+        }
+
+        private void VBaseBanner_Activated(object sender, EventArgs e)
+        {
+            CargarTodosLosBanners();
+        }
+
+        private void VBaseBanner_Load(object sender, EventArgs e)
+        {
+            CargarTodosLosBanners();
         }
     }
 }

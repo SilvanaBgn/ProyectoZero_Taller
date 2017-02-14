@@ -24,5 +24,10 @@ namespace UI.NuevasPantallas
         {
             this.iControladorDominio = pControladorDominio;
         }
+
+        private void buttonCancelar_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }

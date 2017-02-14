@@ -145,6 +145,7 @@
             this.buttonSalir.TabIndex = 11;
             this.buttonSalir.Text = "Salir";
             this.buttonSalir.UseVisualStyleBackColor = true;
+            this.buttonSalir.Click += new System.EventHandler(this.buttonSalir_Click);
             // 
             // buttonFiltrar
             // 
@@ -187,8 +188,8 @@
             // rangoFecha
             // 
             this.rangoFecha.Enabled = false;
-            //this.rangoFecha.FechaFin = new System.DateTime();
-            //this.rangoFecha.FechaInicio = new System.DateTime();
+            this.rangoFecha.FechaFin = new System.DateTime(2017, 2, 14, 0, 0, 0, 0);
+            this.rangoFecha.FechaInicio = new System.DateTime(2017, 2, 14, 0, 0, 0, 0);
             this.rangoFecha.Location = new System.Drawing.Point(12, 116);
             this.rangoFecha.Name = "rangoFecha";
             this.rangoFecha.Size = new System.Drawing.Size(235, 96);
@@ -227,14 +228,14 @@
         protected System.Windows.Forms.Button buttonNuevo;
         protected System.Windows.Forms.Button buttonModificar;
         protected System.Windows.Forms.Button buttonEliminar;
+        private System.Windows.Forms.Button buttonSalir;
+        protected System.Windows.Forms.Button buttonFiltrar;
         protected System.Windows.Forms.Label label1;
         protected System.Windows.Forms.CheckBox checkBoxRangoFechas;
         protected System.Windows.Forms.CheckBox checkBoxRangoHoras;
         protected System.Windows.Forms.CheckBox checkBoxDescripcion;
         protected System.Windows.Forms.DataGridView dataGridViewMostrar;
         protected System.Windows.Forms.TextBox textBoxDescripcion;
-        protected System.Windows.Forms.Button buttonSalir;
-        protected System.Windows.Forms.Button buttonFiltrar;
         protected System.Windows.Forms.CheckBox checkBoxTitulo;
         protected System.Windows.Forms.TextBox textBoxTitulo;
         protected UserControls.RangoFecha rangoFecha;

@@ -20,7 +20,6 @@ namespace UI.NuevasPantallas
         {
             InitializeComponent();
             this.iControladorDominio = pControladorDominio;
-            this.CargarTodasLasFuentes();
             this.comboBoxTipo.Enabled = false;
             this.textBoxDescripcion.Enabled = false;
         }
@@ -80,6 +79,21 @@ namespace UI.NuevasPantallas
             if (this.checkBoxTipo.Checked)
                 this.comboBoxTipo.Enabled = true;
             else this.comboBoxTipo.Enabled = false;
+        }
+
+        private void buttonSalir_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void VBaseFuente_Activated(object sender, EventArgs e)
+        {
+            this.CargarTodasLasFuentes();
+        }
+
+        private void VBaseFuente_Load(object sender, EventArgs e)
+        {
+            this.CargarTodasLasFuentes();
         }
     }
 }
