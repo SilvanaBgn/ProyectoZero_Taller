@@ -32,7 +32,7 @@
             this.buttonModificar = new System.Windows.Forms.Button();
             this.buttonEliminar = new System.Windows.Forms.Button();
             this.dataGridViewMostrar = new System.Windows.Forms.DataGridView();
-            this.button4 = new System.Windows.Forms.Button();
+            this.buttonSalir = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.comboBoxTipo = new System.Windows.Forms.ComboBox();
             this.Banners = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -87,14 +87,15 @@
             this.dataGridViewMostrar.Size = new System.Drawing.Size(501, 225);
             this.dataGridViewMostrar.TabIndex = 3;
             // 
-            // button4
+            // buttonSalir
             // 
-            this.button4.Location = new System.Drawing.Point(645, 391);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(75, 23);
-            this.button4.TabIndex = 4;
-            this.button4.Text = "Salir";
-            this.button4.UseVisualStyleBackColor = true;
+            this.buttonSalir.Location = new System.Drawing.Point(645, 391);
+            this.buttonSalir.Name = "buttonSalir";
+            this.buttonSalir.Size = new System.Drawing.Size(75, 23);
+            this.buttonSalir.TabIndex = 4;
+            this.buttonSalir.Text = "Salir";
+            this.buttonSalir.UseVisualStyleBackColor = true;
+            this.buttonSalir.Click += new System.EventHandler(this.buttonSalir_Click);
             // 
             // label1
             // 
@@ -178,13 +179,15 @@
             this.Controls.Add(this.checkBoxDescripcion);
             this.Controls.Add(this.comboBoxTipo);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.button4);
+            this.Controls.Add(this.buttonSalir);
             this.Controls.Add(this.dataGridViewMostrar);
             this.Controls.Add(this.buttonEliminar);
             this.Controls.Add(this.buttonModificar);
             this.Controls.Add(this.buttonNuevo);
             this.Name = "VBaseFuente";
             this.Text = "VBaseFuente";
+            this.Activated += new System.EventHandler(this.VBaseFuente_Activated);
+            this.Load += new System.EventHandler(this.VBaseFuente_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewMostrar)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -197,7 +200,7 @@
         private System.Windows.Forms.Button buttonModificar;
         private System.Windows.Forms.Button buttonEliminar;
         private System.Windows.Forms.DataGridView dataGridViewMostrar;
-        private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.Button buttonSalir;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ComboBox comboBoxTipo;
         private System.Windows.Forms.DataGridViewTextBoxColumn Banners;

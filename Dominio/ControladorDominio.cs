@@ -103,8 +103,6 @@ namespace Dominio
             return this.iUoW.RepositorioBanners.Filtrar(filtroFechas, filtroHoras, filtroTitulo, filtroDescripcion).ToList();
         }
 
-
-
         public List<Banner> ObtenerTodosLosBanners()
         {
             return this.iUoW.RepositorioBanners.Obtener(null, null).ToList();

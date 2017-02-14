@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(TextoPlano));
-            this.bannerDeslizante1 = new BannerDeslizante();
             this.comboBoxItems = new System.Windows.Forms.ComboBox();
             this.label6 = new System.Windows.Forms.Label();
             this.buttonEliminarItem = new System.Windows.Forms.Button();
@@ -37,14 +36,8 @@
             this.buttonAgregarItem = new System.Windows.Forms.Button();
             this.buttonArriba = new System.Windows.Forms.Button();
             this.buttonAbajo = new System.Windows.Forms.Button();
+            this.bannerDeslizante1 = new UI.UserControls.BannerDeslizante();
             this.SuspendLayout();
-            // 
-            // bannerDeslizante1
-            // 
-            this.bannerDeslizante1.Location = new System.Drawing.Point(109, 161);
-            this.bannerDeslizante1.Name = "bannerDeslizante1";
-            this.bannerDeslizante1.Size = new System.Drawing.Size(242, 20);
-            this.bannerDeslizante1.TabIndex = 76;
             // 
             // comboBoxItems
             // 
@@ -111,9 +104,9 @@
             this.buttonArriba.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.buttonArriba.FlatAppearance.BorderSize = 0;
             this.buttonArriba.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonArriba.Location = new System.Drawing.Point(357, 52);
+            this.buttonArriba.Location = new System.Drawing.Point(357, 38);
             this.buttonArriba.Name = "buttonArriba";
-            this.buttonArriba.Size = new System.Drawing.Size(55, 53);
+            this.buttonArriba.Size = new System.Drawing.Size(53, 54);
             this.buttonArriba.TabIndex = 71;
             this.buttonArriba.UseVisualStyleBackColor = true;
             this.buttonArriba.Click += new System.EventHandler(this.buttonArriba_Click);
@@ -125,12 +118,20 @@
             this.buttonAbajo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.buttonAbajo.FlatAppearance.BorderSize = 0;
             this.buttonAbajo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonAbajo.Location = new System.Drawing.Point(357, 101);
+            this.buttonAbajo.Location = new System.Drawing.Point(357, 98);
             this.buttonAbajo.Name = "buttonAbajo";
-            this.buttonAbajo.Size = new System.Drawing.Size(54, 50);
+            this.buttonAbajo.Size = new System.Drawing.Size(53, 54);
             this.buttonAbajo.TabIndex = 72;
             this.buttonAbajo.UseVisualStyleBackColor = true;
             this.buttonAbajo.Click += new System.EventHandler(this.buttonAbajo_Click);
+            // 
+            // bannerDeslizante1
+            // 
+            this.bannerDeslizante1.Enabled = false;
+            this.bannerDeslizante1.Location = new System.Drawing.Point(109, 161);
+            this.bannerDeslizante1.Name = "bannerDeslizante1";
+            this.bannerDeslizante1.Size = new System.Drawing.Size(242, 20);
+            this.bannerDeslizante1.TabIndex = 76;
             // 
             // TextoPlano
             // 
@@ -155,10 +156,10 @@
 
         private BannerDeslizante bannerDeslizante1;
         private System.Windows.Forms.Button buttonEliminarItem;
-        protected System.Windows.Forms.Button buttonVistaPrevia;
+        private System.Windows.Forms.Button buttonVistaPrevia;
         private System.Windows.Forms.Button buttonAgregarItem;
-        protected System.Windows.Forms.Button buttonArriba;
-        protected System.Windows.Forms.Button buttonAbajo;
+        private System.Windows.Forms.Button buttonArriba;
+        private System.Windows.Forms.Button buttonAbajo;
         private System.Windows.Forms.ComboBox comboBoxItems;
         private System.Windows.Forms.Label label6;
     }

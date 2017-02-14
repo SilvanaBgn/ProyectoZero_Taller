@@ -32,25 +32,26 @@ namespace UI.NuevasPantallas
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(VPrincipal));
             this.groupBoxCampania = new System.Windows.Forms.GroupBox();
-            this.campaniaDeslizante1 = new UI.UserControls.CampaniaDeslizante();
             this.labelTituloCampania = new System.Windows.Forms.Label();
             this.groupBoxBanner = new System.Windows.Forms.GroupBox();
-            this.bannerDeslizante = new UI.UserControls.BannerDeslizante();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.pantallaCompletaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.configuracionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.campañasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.bannersToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.fuentesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.pantallaCompletaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.salirToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.bgwLeerBanner = new System.ComponentModel.BackgroundWorker();
             this.bgwLeerCampania = new System.ComponentModel.BackgroundWorker();
             this.timerChequeoCambioBanner = new System.Windows.Forms.Timer(this.components);
             this.timerChequeoCambioCampania = new System.Windows.Forms.Timer(this.components);
+            this.buttonSalirPantallaCompleta = new System.Windows.Forms.Button();
+            this.bannerDeslizante = new UI.UserControls.BannerDeslizante();
+            this.campaniaDeslizante1 = new UI.UserControls.CampaniaDeslizante();
             this.groupBoxCampania.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.campaniaDeslizante1)).BeginInit();
             this.groupBoxBanner.SuspendLayout();
             this.menuStrip1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.campaniaDeslizante1)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBoxCampania
@@ -62,16 +63,6 @@ namespace UI.NuevasPantallas
             this.groupBoxCampania.Size = new System.Drawing.Size(587, 503);
             this.groupBoxCampania.TabIndex = 1;
             this.groupBoxCampania.TabStop = false;
-            // 
-            // campaniaDeslizante1
-            // 
-            this.campaniaDeslizante1.Image = ((System.Drawing.Image)(resources.GetObject("campaniaDeslizante1.Image")));
-            this.campaniaDeslizante1.Location = new System.Drawing.Point(18, 68);
-            this.campaniaDeslizante1.Name = "campaniaDeslizante1";
-            this.campaniaDeslizante1.Size = new System.Drawing.Size(550, 418);
-            this.campaniaDeslizante1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.campaniaDeslizante1.TabIndex = 2;
-            this.campaniaDeslizante1.TabStop = false;
             // 
             // labelTituloCampania
             // 
@@ -92,18 +83,9 @@ namespace UI.NuevasPantallas
             this.groupBoxBanner.TabIndex = 2;
             this.groupBoxBanner.TabStop = false;
             // 
-            // bannerDeslizante
-            // 
-            this.bannerDeslizante.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.bannerDeslizante.Enabled = false;
-            this.bannerDeslizante.Font = new System.Drawing.Font("Microsoft Sans Serif", 30F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bannerDeslizante.Location = new System.Drawing.Point(18, 25);
-            this.bannerDeslizante.Name = "bannerDeslizante";
-            this.bannerDeslizante.Size = new System.Drawing.Size(550, 46);
-            this.bannerDeslizante.TabIndex = 0;
-            // 
             // menuStrip1
             // 
+            this.menuStrip1.BackColor = System.Drawing.Color.LightSalmon;
             this.menuStrip1.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.pantallaCompletaToolStripMenuItem,
@@ -114,6 +96,15 @@ namespace UI.NuevasPantallas
             this.menuStrip1.Size = new System.Drawing.Size(640, 28);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
+            // 
+            // pantallaCompletaToolStripMenuItem
+            // 
+            this.pantallaCompletaToolStripMenuItem.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.pantallaCompletaToolStripMenuItem.Image = global::UI.Properties.Resources.Vista;
+            this.pantallaCompletaToolStripMenuItem.Name = "pantallaCompletaToolStripMenuItem";
+            this.pantallaCompletaToolStripMenuItem.Size = new System.Drawing.Size(159, 24);
+            this.pantallaCompletaToolStripMenuItem.Text = "&Pantalla Completa";
+            this.pantallaCompletaToolStripMenuItem.Click += new System.EventHandler(this.verPantallaCompletaToolStripMenuItem_Click);
             // 
             // configuracionToolStripMenuItem
             // 
@@ -130,7 +121,7 @@ namespace UI.NuevasPantallas
             // 
             this.campañasToolStripMenuItem.Image = global::UI.Properties.Resources.AgregarImagen1;
             this.campañasToolStripMenuItem.Name = "campañasToolStripMenuItem";
-            this.campañasToolStripMenuItem.Size = new System.Drawing.Size(152, 24);
+            this.campañasToolStripMenuItem.Size = new System.Drawing.Size(147, 24);
             this.campañasToolStripMenuItem.Text = "&Campañas";
             this.campañasToolStripMenuItem.Click += new System.EventHandler(this.campañaToolStripMenuItem_Click);
             // 
@@ -138,7 +129,7 @@ namespace UI.NuevasPantallas
             // 
             this.bannersToolStripMenuItem.Image = global::UI.Properties.Resources.texto9;
             this.bannersToolStripMenuItem.Name = "bannersToolStripMenuItem";
-            this.bannersToolStripMenuItem.Size = new System.Drawing.Size(152, 24);
+            this.bannersToolStripMenuItem.Size = new System.Drawing.Size(147, 24);
             this.bannersToolStripMenuItem.Text = "&Banners";
             this.bannersToolStripMenuItem.Click += new System.EventHandler(this.bannerToolStripMenuItem_Click);
             // 
@@ -146,17 +137,9 @@ namespace UI.NuevasPantallas
             // 
             this.fuentesToolStripMenuItem.Image = global::UI.Properties.Resources.Texto6;
             this.fuentesToolStripMenuItem.Name = "fuentesToolStripMenuItem";
-            this.fuentesToolStripMenuItem.Size = new System.Drawing.Size(152, 24);
+            this.fuentesToolStripMenuItem.Size = new System.Drawing.Size(147, 24);
             this.fuentesToolStripMenuItem.Text = "&Fuentes";
             this.fuentesToolStripMenuItem.Click += new System.EventHandler(this.fuenteToolStripMenuItem_Click);
-            // 
-            // pantallaCompletaToolStripMenuItem
-            // 
-            this.pantallaCompletaToolStripMenuItem.Image = global::UI.Properties.Resources.Vista;
-            this.pantallaCompletaToolStripMenuItem.Name = "pantallaCompletaToolStripMenuItem";
-            this.pantallaCompletaToolStripMenuItem.Size = new System.Drawing.Size(159, 24);
-            this.pantallaCompletaToolStripMenuItem.Text = "&Pantalla Completa";
-            this.pantallaCompletaToolStripMenuItem.Click += new System.EventHandler(this.verPantallaCompletaToolStripMenuItem_Click);
             // 
             // salirToolStripMenuItem
             // 
@@ -186,27 +169,69 @@ namespace UI.NuevasPantallas
             this.timerChequeoCambioCampania.Interval = 1000;
             this.timerChequeoCambioCampania.Tick += new System.EventHandler(this.timerChequeoCambioCampania_Tick);
             // 
+            // buttonSalirPantallaCompleta
+            // 
+            this.buttonSalirPantallaCompleta.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.buttonSalirPantallaCompleta.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.buttonSalirPantallaCompleta.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonSalirPantallaCompleta.Image = global::UI.Properties.Resources.salir3;
+            this.buttonSalirPantallaCompleta.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.buttonSalirPantallaCompleta.Location = new System.Drawing.Point(1280, 5);
+            this.buttonSalirPantallaCompleta.Name = "buttonSalirPantallaCompleta";
+            this.buttonSalirPantallaCompleta.Size = new System.Drawing.Size(83, 42);
+            this.buttonSalirPantallaCompleta.TabIndex = 3;
+            this.buttonSalirPantallaCompleta.Text = "Salir";
+            this.buttonSalirPantallaCompleta.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.buttonSalirPantallaCompleta.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.buttonSalirPantallaCompleta.UseVisualStyleBackColor = true;
+            this.buttonSalirPantallaCompleta.Visible = false;
+            this.buttonSalirPantallaCompleta.Click += new System.EventHandler(this.buttonSalirPantallaCompleta_Click);
+            this.buttonSalirPantallaCompleta.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.buttonSalirPantallaCompleta_KeyPress);
+            // 
+            // bannerDeslizante
+            // 
+            this.bannerDeslizante.BackColor = System.Drawing.SystemColors.Window;
+            this.bannerDeslizante.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.bannerDeslizante.Enabled = false;
+            this.bannerDeslizante.Font = new System.Drawing.Font("Microsoft Sans Serif", 30F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.bannerDeslizante.Location = new System.Drawing.Point(18, 25);
+            this.bannerDeslizante.Name = "bannerDeslizante";
+            this.bannerDeslizante.Size = new System.Drawing.Size(550, 46);
+            this.bannerDeslizante.TabIndex = 0;
+            // 
+            // campaniaDeslizante1
+            // 
+            this.campaniaDeslizante1.Image = ((System.Drawing.Image)(resources.GetObject("campaniaDeslizante1.Image")));
+            this.campaniaDeslizante1.Location = new System.Drawing.Point(18, 68);
+            this.campaniaDeslizante1.Name = "campaniaDeslizante1";
+            this.campaniaDeslizante1.Size = new System.Drawing.Size(550, 418);
+            this.campaniaDeslizante1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.campaniaDeslizante1.TabIndex = 2;
+            this.campaniaDeslizante1.TabStop = false;
+            // 
             // VPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.Wheat;
             this.ClientSize = new System.Drawing.Size(640, 664);
+            this.Controls.Add(this.buttonSalirPantallaCompleta);
             this.Controls.Add(this.groupBoxBanner);
             this.Controls.Add(this.groupBoxCampania);
             this.Controls.Add(this.menuStrip1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.KeyPreview = true;
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "VPrincipal";
             this.Text = "EASY News";
             this.Activated += new System.EventHandler(this.VPrincipal_Activated);
-            this.Resize += new System.EventHandler(this.VPrincipal_Resize);
             this.groupBoxCampania.ResumeLayout(false);
             this.groupBoxCampania.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.campaniaDeslizante1)).EndInit();
             this.groupBoxBanner.ResumeLayout(false);
             this.groupBoxBanner.PerformLayout();
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.campaniaDeslizante1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -230,5 +255,6 @@ namespace UI.NuevasPantallas
         private BannerDeslizante bannerDeslizante;
         private CampaniaDeslizante campaniaDeslizante1;
         private System.Windows.Forms.Timer timerChequeoCambioCampania;
+        private System.Windows.Forms.Button buttonSalirPantallaCompleta;
     }
 }

@@ -120,6 +120,12 @@
     <Compile Include="PruebaRangoHorario.Designer.cs">
       <DependentUpon>PruebaRangoHorario.cs</DependentUpon>
     </Compile>
+    <Compile Include="PruebaTextoPlano.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PruebaTextoPlano.Designer.cs">
+      <DependentUpon>PruebaTextoPlano.cs</DependentUpon>
+    </Compile>
     <Compile Include="UserControls\CampaniaDeslizante.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -248,6 +254,9 @@
     <EmbeddedResource Include="NuevasPantallas\VAbstractCrearModificarCampania.resx">
       <DependentUpon>VAbstractCrearModificarCampania.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="NuevasPantallas\VBaseBanner.resx">
+      <DependentUpon>VBaseBanner.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="NuevasPantallas\VBaseFuente.resx">
       <DependentUpon>VBaseFuente.cs</DependentUpon>
       <SubType>Designer</SubType>
@@ -273,6 +282,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="PruebaRangoHorario.resx">
       <DependentUpon>PruebaRangoHorario.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PruebaTextoPlano.resx">
+      <DependentUpon>PruebaTextoPlano.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UserControls\Galeria.resx">
       <DependentUpon>Galeria.cs</DependentUpon>
