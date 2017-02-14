@@ -199,7 +199,6 @@ namespace UI.NuevasPantallas
             this.Name = "VPrincipal";
             this.Text = "EASY News";
             this.Activated += new System.EventHandler(this.VPrincipal_Activated);
-            this.Load += new System.EventHandler(this.VPrincipal_Load);
             this.Resize += new System.EventHandler(this.VPrincipal_Resize);
             this.groupBoxCampania.ResumeLayout(false);
             this.groupBoxCampania.PerformLayout();

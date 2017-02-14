@@ -124,8 +124,8 @@
             // 
             // rangoFecha
             // 
-            this.rangoFecha.FechaFin = new System.DateTime(2017, 2, 7, 0, 0, 0, 0);
-            this.rangoFecha.FechaInicio = new System.DateTime(2017, 2, 7, 0, 0, 0, 0);
+            //this.rangoFecha.FechaFin = new System.DateTime(2017, 2, 7, 0, 0, 0, 0);
+            //this.rangoFecha.FechaInicio = new System.DateTime(2017, 2, 7, 0, 0, 0, 0);
             this.rangoFecha.Location = new System.Drawing.Point(9, 97);
             this.rangoFecha.Name = "rangoFecha";
             this.rangoFecha.Size = new System.Drawing.Size(235, 96);

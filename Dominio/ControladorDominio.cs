@@ -62,7 +62,8 @@ namespace Dominio
             return this.iUoW.RepositorioBanners.Obtener(filter,null).ToList();
         }
 
-        public List<Banner> FiltrarBanners(DateTime[] pFiltroFechas, TimeSpan[] pFiltroHoras, string pFiltroTitulo, string pFiltroDescripcion)
+        public List<Banner> FiltrarBanners(
+            DateTime[] pFiltroFechas, TimeSpan[] pFiltroHoras, string pFiltroTitulo, string pFiltroDescripcion)
         {
             DateTime fechaInicio;
             DateTime fechaFin;
@@ -348,9 +349,14 @@ namespace Dominio
         public List<Fuente> FiltrarFuentes(string pFiltroTipoFuente, string pFiltroDescripcion)
         {
 
+            TipoFuente tipoFuente;
+
             //Se parsea el string que representa el Enum, devuelve el TipoFuente correspondiente
-            TipoFuente tipoFuente = (TipoFuente)Enum.Parse(typeof(TipoFuente), pFiltroTipoFuente);
-            //Enum.Parse((tipoFuente, pFiltroTipoFuente, out tipoFuente);
+            if (Enum.TryParse(pFiltroTipoFuente, out tipoFuente))
+            {
+                tipoFuente = (TipoFuente)Enum.Parse(typeof(TipoFuente), pFiltroTipoFuente);
+            }
+            
 
             Expression<Func<Fuente, bool>> filtroTipoFuente = null;
             Expression<Func<Fuente, bool>> filtroDescripcion = null;

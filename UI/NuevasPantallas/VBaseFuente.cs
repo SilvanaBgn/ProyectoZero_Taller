@@ -60,7 +60,16 @@ namespace UI.NuevasPantallas
             string filtroDescripcion = null;
 
             if (checkBoxTipo.Checked)
-                filtroTipoFuente = this.comboBoxTipo.SelectedItem.ToString();
+                switch (this.comboBoxTipo.SelectedItem.ToString())
+                {
+                    case "Rss":
+                        filtroTipoFuente = "Rss";
+                        break;
+                    case "Texto Fijo":
+                        filtroTipoFuente = "TextoPlano";
+                        break;
+                }
+
             if (checkBoxDescripcion.Checked)
                 filtroDescripcion = this.textBoxDescripcion.Text;
 
