@@ -51,7 +51,7 @@ namespace Dominio
                 {
                     this.iLector = null; //Porque el texto plano no tiene comportamiento adicional
                 }
-                //this.Tipo = value;
+                this.iTipo = value;
             }
         }
         

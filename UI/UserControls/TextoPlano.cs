@@ -13,14 +13,20 @@ namespace UI.UserControls
 {
     public partial class TextoPlano : UserControl
     {
-
+        /// <summary>
+        /// Atributo que mantiene actualizadas la lista de items del comboBoxItems
+        /// </summary>
         private List<Item> iListaItems;
 
-        // Propertie
+        [Browsable(false)]
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
+        // Property
         public List<Item> ListaItems
         {
             get //Actualiza la lista de items (this.iListaItems) y la devuelve
             {
+                this.iListaItems = new List<Item>();
                 foreach (var itemComboBox in this.comboBoxItems.Items)
                 {
                     Item item = new Item(itemComboBox.ToString());
@@ -46,6 +52,9 @@ namespace UI.UserControls
         }
 
         #region Eventos BOTONES (privados)
+        /// <summary>
+        /// Evento que se activa al presionar el botón this.buttonArriba, para cambiar el orden de los items en el combobox
+        /// </summary>
         private void buttonArriba_Click(object sender, EventArgs e)
         {
             if (this.comboBoxItems.SelectedIndex != -1)
@@ -63,6 +72,9 @@ namespace UI.UserControls
             }
         }
 
+        /// <summary>
+        /// Evento que se activa al presionar el botón this.buttonAbajo, para cambiar el orden de los items en el comboBox
+        /// </summary>
         private void buttonAbajo_Click(object sender, EventArgs e)
         {
             if (this.comboBoxItems.SelectedIndex != -1)
@@ -80,20 +92,36 @@ namespace UI.UserControls
             }
         }
 
+        /// <summary>
+        /// Botón que permite agregar un item
+        /// </summary>
         private void buttonAgregarItem_Click(object sender, EventArgs e)
         {
             if (!string.IsNullOrEmpty(comboBoxItems.Text))
                 comboBoxItems.Items.Add(comboBoxItems.Text);
         }
 
+        /// <summary>
+        /// Botón que permite eliminar un item
+        /// </summary>
         private void buttonEliminarItem_Click(object sender, EventArgs e)
         {
             if (!string.IsNullOrEmpty(comboBoxItems.Text))
+            {
                 this.comboBoxItems.Items.Remove(comboBoxItems.SelectedItem);
+            }
         }
+
 
         private void buttonVistaPrevia_Click(object sender, EventArgs e)
         {
+            //Cambiamos la habilitacion del listview y demás botones:
+            this.buttonAgregarItem.Enabled = !this.buttonAgregarItem.Enabled;
+            this.buttonEliminarItem.Enabled = !this.buttonEliminarItem.Enabled;
+            this.buttonArriba.Enabled = !this.buttonArriba.Enabled;
+            this.buttonAbajo.Enabled = !this.buttonAbajo.Enabled;
+            this.comboBoxItems.Enabled = !this.comboBoxItems.Enabled;
+
             if (!this.bannerDeslizante1.Funcionando)
             {
                 //Cambiamos la imagen del botón this.buttonVistaPrevia a "Pausa"
@@ -126,9 +154,9 @@ namespace UI.UserControls
         #region Otras funciones auxiliares
         private string ConvertirItemsATexto(ComboBox pComboBox)
         {
-            string banner = " ";
+            string banner = "";
             for (int i = 0; i < pComboBox.Items.Count; i++)
-                banner += pComboBox.Items[i].ToString() + " ";
+                banner += pComboBox.Items[i].ToString() + " • | • ";
             return banner;
         }
         #endregion

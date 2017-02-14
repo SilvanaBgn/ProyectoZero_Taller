@@ -23,6 +23,7 @@ namespace UI.UserControls
         [Browsable(false)]
         [EditorBrowsable(EditorBrowsableState.Never)]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
+        // Property
         public List<Imagen> ListaImagenes
         {
             get
