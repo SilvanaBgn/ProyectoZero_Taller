@@ -17,16 +17,7 @@ namespace UI.NuevasPantallas
         {
             InitializeComponent();
             this.buttonGuardar.Click += ButtonGuardar_Click;
-            CargarTodasLasFuentes();
-        }
-
-        public void CargarTodasLasFuentes()
-        {
-            this.dataGridViewMostrarFuentes.DataSource = this.iControladorDominio.ObtenerTodasLasFuentes();
-            this.dataGridViewMostrarFuentes.Columns["Banners"].Visible = false;
-            this.dataGridViewMostrarFuentes.Columns["Tipo"].Visible = false;
-            this.dataGridViewMostrarFuentes.Columns["Items"].Visible = false;
-            this.dataGridViewMostrarFuentes.Columns["FuenteId"].Visible = false;
+            base.CargarTodasLasFuentes();
         }
 
         private void ButtonGuardar_Click(object sender, EventArgs e)

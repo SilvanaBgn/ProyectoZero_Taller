@@ -44,8 +44,11 @@
             this.buttonGuardar = new System.Windows.Forms.Button();
             this.buttonCancelar = new System.Windows.Forms.Button();
             this.bgwActualizarRssAlGuardar = new System.ComponentModel.BackgroundWorker();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.textoPlano = new UI.UserControls.TextoPlano();
             this.panelRss.SuspendLayout();
             this.panelTextoFijo.SuspendLayout();
+            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // label1
@@ -168,7 +171,7 @@
             // 
             // buttonGuardar
             // 
-            this.buttonGuardar.Location = new System.Drawing.Point(237, 218);
+            this.buttonGuardar.Location = new System.Drawing.Point(713, 285);
             this.buttonGuardar.Name = "buttonGuardar";
             this.buttonGuardar.Size = new System.Drawing.Size(75, 23);
             this.buttonGuardar.TabIndex = 7;
@@ -177,7 +180,7 @@
             // 
             // buttonCancelar
             // 
-            this.buttonCancelar.Location = new System.Drawing.Point(319, 218);
+            this.buttonCancelar.Location = new System.Drawing.Point(795, 285);
             this.buttonCancelar.Name = "buttonCancelar";
             this.buttonCancelar.Size = new System.Drawing.Size(75, 23);
             this.buttonCancelar.TabIndex = 8;
@@ -185,11 +188,27 @@
             this.buttonCancelar.UseVisualStyleBackColor = true;
             this.buttonCancelar.Click += new System.EventHandler(this.buttonCancelar_Click);
             // 
+            // panel1
+            // 
+            this.panel1.Controls.Add(this.textoPlano);
+            this.panel1.Location = new System.Drawing.Point(415, 37);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(427, 204);
+            this.panel1.TabIndex = 9;
+            // 
+            // textoPlano
+            // 
+            this.textoPlano.Location = new System.Drawing.Point(0, 0);
+            this.textoPlano.Name = "textoPlano";
+            this.textoPlano.Size = new System.Drawing.Size(427, 189);
+            this.textoPlano.TabIndex = 0;
+            // 
             // VAbstractCrearModificarFuente
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(406, 253);
+            this.ClientSize = new System.Drawing.Size(882, 320);
+            this.Controls.Add(this.panel1);
             this.Controls.Add(this.buttonCancelar);
             this.Controls.Add(this.buttonGuardar);
             this.Controls.Add(this.label3);
@@ -201,6 +220,7 @@
             this.panelRss.PerformLayout();
             this.panelTextoFijo.ResumeLayout(false);
             this.panelTextoFijo.PerformLayout();
+            this.panel1.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -224,5 +244,7 @@
         protected System.Windows.Forms.TextBox textBoxDescripcionTextoFijo;
         protected System.Windows.Forms.ListBox listBoxPasosBanner;
         protected System.ComponentModel.BackgroundWorker bgwActualizarRssAlGuardar;
+        protected System.Windows.Forms.Panel panel1;
+        protected UserControls.TextoPlano textoPlano;
     }
 }

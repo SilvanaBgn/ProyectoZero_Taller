@@ -25,5 +25,14 @@ namespace UI.NuevasPantallas
         {
             this.iControladorDominio = pControladorDominio;
         }
+
+        public void CargarTodasLasFuentes()
+        {
+            this.dataGridViewMostrarFuentes.DataSource = this.iControladorDominio.ObtenerTodasLasFuentes();
+            this.dataGridViewMostrarFuentes.Columns["Banners"].Visible = false;
+            this.dataGridViewMostrarFuentes.Columns["Tipo"].Visible = false;
+            this.dataGridViewMostrarFuentes.Columns["Items"].Visible = false;
+            this.dataGridViewMostrarFuentes.Columns["FuenteId"].Visible = false;
+        }
     }
 }
