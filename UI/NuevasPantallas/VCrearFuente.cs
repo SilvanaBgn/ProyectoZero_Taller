@@ -47,13 +47,12 @@ namespace UI.NuevasPantallas
             {
                 case "Rss":
                     this.fuenteAAgregar.Tipo = TipoFuente.Rss;
+                    this.fuenteAAgregar.origenItems = this.textBoxFuenteRss.Text;
                     break;
                 case "Texto Fijo":
                     this.fuenteAAgregar.Tipo = TipoFuente.TextoPlano;
                     break;
             }
-
-            this.fuenteAAgregar.origenItems = this.textBoxFuenteRss.Text;
 
             if (!this.bgwActualizarRssAlGuardar.IsBusy)
                 this.bgwActualizarRssAlGuardar.RunWorkerAsync();

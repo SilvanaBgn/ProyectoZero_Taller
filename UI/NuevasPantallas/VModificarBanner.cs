@@ -25,6 +25,12 @@ namespace UI.NuevasPantallas
             base.CargarTodasLasFuentes();
         }
 
+        private void SeleccionarFuenteDelBanner(int pCodigoFuente)
+        {
+            this.iControladorDominio.BuscarFuentePorId(pCodigoFuente);
+
+        }
+
         private void CargarBannerAModificar(Banner bannerAModificar)
         {
             this.textBoxTitulo.Text = bannerAModificar.Titulo;
@@ -33,6 +39,7 @@ namespace UI.NuevasPantallas
             this.rangoFecha.FechaFin = bannerAModificar.FechaFin;
             this.rangoHorario.HoraInicio = bannerAModificar.HoraInicio;
             this.rangoHorario.HoraFin = bannerAModificar.HoraFin;
+            this.dataGridViewMostrarFuentes.Rows[1];
         }
 
         private void ButtonGuardar_Click(object sender, EventArgs e)

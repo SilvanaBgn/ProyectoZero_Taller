@@ -35,12 +35,20 @@
             // 
             // panelTextoFijo
             // 
-            this.panelTextoFijo.Location = new System.Drawing.Point(26, 29);
+            this.panelTextoFijo.Size = new System.Drawing.Size(430, 242);
             // 
             // bgwActualizarRssAlGuardar
             // 
             this.bgwActualizarRssAlGuardar.DoWork += new System.ComponentModel.DoWorkEventHandler(this.BgwActualizarRssAlGuardar_DoWork);
             this.bgwActualizarRssAlGuardar.RunWorkerCompleted += new System.ComponentModel.RunWorkerCompletedEventHandler(this.BgwActualizarRssAlGuardar_RunWorkerCompleted);
+            // 
+            // panel1
+            // 
+            this.panel1.Size = new System.Drawing.Size(427, 242);
+            // 
+            // textoPlano
+            // 
+            this.textoPlano.Size = new System.Drawing.Size(427, 228);
             // 
             // VCrearFuente
             // 

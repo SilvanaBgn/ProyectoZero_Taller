@@ -1,4 +1,6 @@
-﻿namespace UI.NuevasPantallas
+﻿using System.Windows.Forms;
+
+namespace UI.NuevasPantallas
 {
     partial class VAbstractCrearModificarFuente
     {
@@ -77,6 +79,7 @@
             this.comboBoxTipoFuente.Name = "comboBoxTipoFuente";
             this.comboBoxTipoFuente.Size = new System.Drawing.Size(194, 21);
             this.comboBoxTipoFuente.TabIndex = 4;
+            this.comboBoxTipoFuente.DropDownStyle = ComboBoxStyle.DropDownList;
             // 
             // label3
             // 
