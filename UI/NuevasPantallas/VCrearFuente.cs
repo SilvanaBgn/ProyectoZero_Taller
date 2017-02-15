@@ -13,32 +13,13 @@ namespace UI.NuevasPantallas
 {
     public partial class VCrearFuente : VAbstractCrearModificarFuente
     {
+        Fuente fuenteAAgregar = new Fuente();
+
         public VCrearFuente(ref ControladorDominio pControladorDominio) : base(ref pControladorDominio)
         {
             InitializeComponent();
-            this.buttonGuardar.Click += ButtonGuardar_Click;
-            this.comboBoxTipoFuente.SelectedValueChanged += MostrarPanel;
-            //this.bgwActualizarRssAlGuardar.DoWork += BgwActualizarRssAlGuardar_DoWork;
-            //this.bgwActualizarRssAlGuardar.RunWorkerCompleted += BgwActualizarRssAlGuardar_RunWorkerCompleted;
             this.panelTextoFijo.Visible = false;
             this.panelRss.Visible = false;
-        }
-
-        Fuente fuenteAAgregar = new Fuente();
-
-        private void MostrarPanel(object sender, EventArgs e)
-        {
-            switch (this.comboBoxTipoFuente.SelectedItem.ToString())
-            {
-                case "Rss":
-                    this.panelTextoFijo.Visible = false;
-                    this.panelRss.Visible = true;
-                    break;
-                case "Texto Fijo":
-                    this.panelRss.Visible = false;
-                    this.panelTextoFijo.Visible = true;
-                    break;
-            }
         }
 
         private void ButtonGuardar_Click(object sender, EventArgs e)
@@ -50,7 +31,7 @@ namespace UI.NuevasPantallas
                     this.fuenteAAgregar.origenItems = this.textBoxFuenteRss.Text;
                     break;
                 case "Texto Fijo":
-                    this.fuenteAAgregar.Tipo = TipoFuente.TextoPlano;
+                    this.fuenteAAgregar.Tipo = TipoFuente.TextoFijo;
                     break;
             }
 
@@ -68,8 +49,8 @@ namespace UI.NuevasPantallas
             this.fuenteAAgregar.Descripcion = this.textBoxDescripcionRss.Text;
             this.iControladorDominio.AgregarFuente(fuenteAAgregar);
             this.iControladorDominio.GuardarCambios();
+
             this.Close();
         }
-
     }
 }

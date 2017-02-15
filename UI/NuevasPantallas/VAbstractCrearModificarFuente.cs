@@ -29,5 +29,20 @@ namespace UI.NuevasPantallas
         {
             this.Close();
         }
+
+        private void MostrarPanel(object sender, EventArgs e)
+        {
+            switch (this.comboBoxTipoFuente.SelectedItem.ToString())
+            {
+                case "Rss":
+                    this.panelTextoFijo.Visible = false;
+                    this.panelRss.Visible = true;
+                    break;
+                case "Texto Fijo":
+                    this.panelRss.Visible = false;
+                    this.panelTextoFijo.Visible = true;
+                    break;
+            }
+        }
     }
 }

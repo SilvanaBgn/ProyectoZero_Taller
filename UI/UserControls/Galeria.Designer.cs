@@ -38,15 +38,15 @@
             this.buttonArriba = new System.Windows.Forms.Button();
             this.buttonAbajo = new System.Windows.Forms.Button();
             this.buttonEliminarImagen = new System.Windows.Forms.Button();
-            this.campaniaDeslizante = new UI.UserControls.CampaniaDeslizante();
             this.buttonVistaPrevia = new System.Windows.Forms.Button();
             this.buttonAgregarImagenes = new System.Windows.Forms.Button();
+            this.campaniaDeslizante = new UI.UserControls.CampaniaDeslizante();
             ((System.ComponentModel.ISupportInitialize)(this.campaniaDeslizante)).BeginInit();
             this.SuspendLayout();
             // 
             // textBoxSegundos
             // 
-            this.textBoxSegundos.Location = new System.Drawing.Point(51, 160);
+            this.textBoxSegundos.Location = new System.Drawing.Point(48, 160);
             this.textBoxSegundos.Name = "textBoxSegundos";
             this.textBoxSegundos.Size = new System.Drawing.Size(33, 20);
             this.textBoxSegundos.TabIndex = 30;
@@ -57,9 +57,9 @@
             this.labelSeg.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.labelSeg.Location = new System.Drawing.Point(14, 163);
             this.labelSeg.Name = "labelSeg";
-            this.labelSeg.Size = new System.Drawing.Size(32, 13);
+            this.labelSeg.Size = new System.Drawing.Size(26, 13);
             this.labelSeg.TabIndex = 29;
-            this.labelSeg.Text = "Seg :";
+            this.labelSeg.Text = "Seg";
             // 
             // listView
             // 
@@ -67,13 +67,13 @@
             this.columnNumero,
             this.columnNombre,
             this.columnBytes});
-            this.listView.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.listView.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.listView.FullRowSelect = true;
             this.listView.GridLines = true;
-            this.listView.Location = new System.Drawing.Point(7, 6);
+            this.listView.Location = new System.Drawing.Point(12, 9);
             this.listView.MultiSelect = false;
             this.listView.Name = "listView";
-            this.listView.Size = new System.Drawing.Size(203, 141);
+            this.listView.Size = new System.Drawing.Size(182, 141);
             this.listView.TabIndex = 53;
             this.listView.UseCompatibleStateImageBehavior = false;
             this.listView.View = System.Windows.Forms.View.Details;
@@ -81,13 +81,13 @@
             // 
             // columnNumero
             // 
-            this.columnNumero.Text = "Num";
-            this.columnNumero.Width = 40;
+            this.columnNumero.Text = "Id";
+            this.columnNumero.Width = 23;
             // 
             // columnNombre
             // 
             this.columnNombre.Text = "Nombre";
-            this.columnNombre.Width = 159;
+            this.columnNombre.Width = 154;
             // 
             // columnBytes
             // 
@@ -101,7 +101,7 @@
             this.buttonArriba.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.buttonArriba.FlatAppearance.BorderSize = 0;
             this.buttonArriba.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonArriba.Location = new System.Drawing.Point(213, 33);
+            this.buttonArriba.Location = new System.Drawing.Point(195, 35);
             this.buttonArriba.Name = "buttonArriba";
             this.buttonArriba.Size = new System.Drawing.Size(53, 54);
             this.buttonArriba.TabIndex = 51;
@@ -115,7 +115,7 @@
             this.buttonAbajo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.buttonAbajo.FlatAppearance.BorderSize = 0;
             this.buttonAbajo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonAbajo.Location = new System.Drawing.Point(213, 91);
+            this.buttonAbajo.Location = new System.Drawing.Point(195, 93);
             this.buttonAbajo.Name = "buttonAbajo";
             this.buttonAbajo.Size = new System.Drawing.Size(53, 54);
             this.buttonAbajo.TabIndex = 52;
@@ -127,23 +127,12 @@
             this.buttonEliminarImagen.BackgroundImage = global::UI.Properties.Resources.Eliminar4;
             this.buttonEliminarImagen.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.buttonEliminarImagen.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.buttonEliminarImagen.Location = new System.Drawing.Point(141, 153);
+            this.buttonEliminarImagen.Location = new System.Drawing.Point(127, 154);
             this.buttonEliminarImagen.Name = "buttonEliminarImagen";
             this.buttonEliminarImagen.Size = new System.Drawing.Size(28, 31);
             this.buttonEliminarImagen.TabIndex = 62;
             this.buttonEliminarImagen.UseVisualStyleBackColor = true;
             this.buttonEliminarImagen.Click += new System.EventHandler(this.buttonEliminarImagen_Click);
-            // 
-            // campaniaDeslizante
-            // 
-            this.campaniaDeslizante.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.campaniaDeslizante.Image = ((System.Drawing.Image)(resources.GetObject("campaniaDeslizante.Image")));
-            this.campaniaDeslizante.Location = new System.Drawing.Point(270, 6);
-            this.campaniaDeslizante.Name = "campaniaDeslizante";
-            this.campaniaDeslizante.Size = new System.Drawing.Size(215, 179);
-            this.campaniaDeslizante.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.campaniaDeslizante.TabIndex = 50;
-            this.campaniaDeslizante.TabStop = false;
             // 
             // buttonVistaPrevia
             // 
@@ -151,7 +140,7 @@
             this.buttonVistaPrevia.BackgroundImage = global::UI.Properties.Resources.Play1;
             this.buttonVistaPrevia.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.buttonVistaPrevia.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.buttonVistaPrevia.Location = new System.Drawing.Point(178, 153);
+            this.buttonVistaPrevia.Location = new System.Drawing.Point(164, 154);
             this.buttonVistaPrevia.Name = "buttonVistaPrevia";
             this.buttonVistaPrevia.Size = new System.Drawing.Size(30, 31);
             this.buttonVistaPrevia.TabIndex = 49;
@@ -164,12 +153,23 @@
             this.buttonAgregarImagenes.BackgroundImage = global::UI.Properties.Resources.AgregarImagen1;
             this.buttonAgregarImagenes.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.buttonAgregarImagenes.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.buttonAgregarImagenes.Location = new System.Drawing.Point(111, 153);
+            this.buttonAgregarImagenes.Location = new System.Drawing.Point(97, 154);
             this.buttonAgregarImagenes.Name = "buttonAgregarImagenes";
             this.buttonAgregarImagenes.Size = new System.Drawing.Size(29, 31);
             this.buttonAgregarImagenes.TabIndex = 48;
             this.buttonAgregarImagenes.UseVisualStyleBackColor = true;
             this.buttonAgregarImagenes.Click += new System.EventHandler(this.buttonAgregarImagenes_Click);
+            // 
+            // campaniaDeslizante
+            // 
+            this.campaniaDeslizante.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.campaniaDeslizante.Image = ((System.Drawing.Image)(resources.GetObject("campaniaDeslizante.Image")));
+            this.campaniaDeslizante.Location = new System.Drawing.Point(270, 6);
+            this.campaniaDeslizante.Name = "campaniaDeslizante";
+            this.campaniaDeslizante.Size = new System.Drawing.Size(215, 179);
+            this.campaniaDeslizante.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.campaniaDeslizante.TabIndex = 50;
+            this.campaniaDeslizante.TabStop = false;
             // 
             // Galeria
             // 

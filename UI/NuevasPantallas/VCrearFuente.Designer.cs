@@ -30,38 +30,27 @@
         {
             this.panelRss.SuspendLayout();
             this.panelTextoFijo.SuspendLayout();
-            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
-            // panelTextoFijo
+            // buttonGuardar
             // 
-            this.panelTextoFijo.Size = new System.Drawing.Size(430, 242);
+            this.buttonGuardar.Click += new System.EventHandler(this.ButtonGuardar_Click);
             // 
             // bgwActualizarRssAlGuardar
             // 
             this.bgwActualizarRssAlGuardar.DoWork += new System.ComponentModel.DoWorkEventHandler(this.BgwActualizarRssAlGuardar_DoWork);
             this.bgwActualizarRssAlGuardar.RunWorkerCompleted += new System.ComponentModel.RunWorkerCompletedEventHandler(this.BgwActualizarRssAlGuardar_RunWorkerCompleted);
             // 
-            // panel1
-            // 
-            this.panel1.Size = new System.Drawing.Size(427, 242);
-            // 
-            // textoPlano
-            // 
-            this.textoPlano.Size = new System.Drawing.Size(427, 228);
-            // 
             // VCrearFuente
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(876, 316);
+            this.ClientSize = new System.Drawing.Size(470, 316);
             this.Name = "VCrearFuente";
-            this.Text = "VCrearFuente";
+            this.Text = "Nueva Fuente";
             this.panelRss.ResumeLayout(false);
             this.panelRss.PerformLayout();
             this.panelTextoFijo.ResumeLayout(false);
-            this.panelTextoFijo.PerformLayout();
-            this.panel1.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 

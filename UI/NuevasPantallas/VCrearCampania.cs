@@ -16,7 +16,6 @@ namespace UI.NuevasPantallas
         public VCrearCampania(ref ControladorDominio pControladorDominio) : base(ref pControladorDominio)
         {
             InitializeComponent();
-            this.buttonGuardar.Click += ButtonGuardar_Click;
         }
 
         private void ButtonGuardar_Click(object sender, EventArgs e)
@@ -32,6 +31,7 @@ namespace UI.NuevasPantallas
 
             this.iControladorDominio.AgregarCampania(campaniaAAgregar);
             this.iControladorDominio.GuardarCambios();
+            this.Close();
         }
 
     }

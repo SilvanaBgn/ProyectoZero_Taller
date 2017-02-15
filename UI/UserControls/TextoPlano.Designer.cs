@@ -1,6 +1,6 @@
 ﻿namespace UI.UserControls
 {
-    partial class TextoPlano
+    partial class TextoFijo
     {
         /// <summary> 
         /// Variable del diseñador necesaria.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(TextoPlano));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(TextoFijo));
             this.comboBoxItems = new System.Windows.Forms.ComboBox();
             this.label6 = new System.Windows.Forms.Label();
             this.buttonEliminarItem = new System.Windows.Forms.Button();
@@ -57,9 +57,9 @@
             this.label6.AutoSize = true;
             this.label6.Location = new System.Drawing.Point(9, 52);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(345, 13);
+            this.label6.Size = new System.Drawing.Size(349, 13);
             this.label6.TabIndex = 67;
-            this.label6.Text = "Ingresar lineas separadas por [ENTER], eliminar lineas con [SUPRIMIR]";
+            this.label6.Text = "Ingresar líneas separadas por [ENTER], eliminar líneas con [SUPRIMIR]";
             // 
             // buttonEliminarItem
             // 
@@ -165,8 +165,8 @@
             this.Controls.Add(this.buttonAbajo);
             this.Controls.Add(this.comboBoxItems);
             this.Controls.Add(this.label6);
-            this.Name = "TextoPlano";
-            this.Size = new System.Drawing.Size(439, 230);
+            this.Name = "TextoFijo";
+            this.Size = new System.Drawing.Size(427, 197);
             this.ResumeLayout(false);
             this.PerformLayout();
 

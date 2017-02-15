@@ -28,9 +28,20 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
+            this.SuspendLayout();
+            // 
+            // buttonGuardar
+            // 
+            this.buttonGuardar.Click += new System.EventHandler(this.ButtonGuardar_Click);
+            // 
+            //VModificarBanner
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Text = "VModificarBanner";
+            this.Name = "VModificarBanner";
+            this.Text = "Modificar Banner";
+            this.ResumeLayout(false);
+            this.PerformLayout();
         }
 
         #endregion
