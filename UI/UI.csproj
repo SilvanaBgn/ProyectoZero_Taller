@@ -97,6 +97,12 @@
     <Compile Include="NuevasPantallas\VBaseBanner.Designer.cs">
       <DependentUpon>VBaseBanner.cs</DependentUpon>
     </Compile>
+    <Compile Include="NuevasPantallas\VModificarBanner.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="NuevasPantallas\VModificarBanner.Designer.cs">
+      <DependentUpon>VModificarBanner.cs</DependentUpon>
+    </Compile>
     <Compile Include="NuevasPantallas\VPrincipal.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -179,12 +185,6 @@
     </Compile>
     <Compile Include="NuevasPantallas\VCrearFuente.Designer.cs">
       <DependentUpon>VCrearFuente.cs</DependentUpon>
-    </Compile>
-    <Compile Include="NuevasPantallas\VModificarBanner.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="NuevasPantallas\VModificarBanner.Designer.cs">
-      <DependentUpon>VModificarBanner.cs</DependentUpon>
     </Compile>
     <Compile Include="NuevasPantallas\VModificarCampania.cs">
       <SubType>Form</SubType>

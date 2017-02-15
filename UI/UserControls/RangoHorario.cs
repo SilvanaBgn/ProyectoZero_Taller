@@ -17,7 +17,7 @@ namespace UI.UserControls
             InitializeComponent();
             this.labelDiferenciaEntreInicioFin.Text = this.DiferenciaEntreHoras(this.dateTimePickerHoraInicio, this.dateTimePickerHoraFin);
 
-            this.dateTimePickerHoraInicio.MaxDate = DateTime.Today + new TimeSpan(23,30,0);
+            this.dateTimePickerHoraInicio.MaxDate = DateTime.Today + new TimeSpan(23, 30, 0);
             this.dateTimePickerHoraInicio.MinDate = DateTime.Today + new TimeSpan(0, 0, 0);
 
             this.dateTimePickerHoraFin.MaxDate = DateTime.Today + new TimeSpan(23, 45, 0);
@@ -26,8 +26,8 @@ namespace UI.UserControls
 
         public TimeSpan HoraInicio
         {
-            get { return new TimeSpan(this.dateTimePickerHoraInicio.Value.Hour, this.dateTimePickerHoraInicio.Value.Minute,0); }
-            set { dateTimePickerHoraInicio.Value = DateTime.Today+value; }
+            get { return new TimeSpan(this.dateTimePickerHoraInicio.Value.Hour, this.dateTimePickerHoraInicio.Value.Minute, 0); }
+            set { dateTimePickerHoraInicio.Value = DateTime.Today + value; }
         }
 
         public TimeSpan HoraFin
@@ -70,18 +70,18 @@ namespace UI.UserControls
                 pDateTimePicker.Value = pDateTimePicker.Value.AddMinutes(14);
             }
 
-                if (pDateTimePicker.Value.Minute % pIntervalo == (pIntervalo-1))
-                    pDateTimePicker.Value = pDateTimePicker.Value.AddMinutes(-pIntervalo+1);
+            if (pDateTimePicker.Value.Minute % pIntervalo == (pIntervalo - 1))
+                pDateTimePicker.Value = pDateTimePicker.Value.AddMinutes(-pIntervalo + 1);
 
-                if (pDateTimePicker.Value.Minute != 0 && pDateTimePicker.Value.Minute != 15 
-                    && pDateTimePicker.Value.Minute != 30 && pDateTimePicker.Value.Minute != 45)
-                {
-                    this.Redondeo(pDateTimePicker, 1, 15, 0);
-                    this.Redondeo(pDateTimePicker, 16, 30, 15);
-                    this.Redondeo(pDateTimePicker, 31, 45, 30);
-                    this.Redondeo(pDateTimePicker, 46, 60, 45);
-                }
+            if (pDateTimePicker.Value.Minute != 0 && pDateTimePicker.Value.Minute != 15
+                && pDateTimePicker.Value.Minute != 30 && pDateTimePicker.Value.Minute != 45)
+            {
+                this.Redondeo(pDateTimePicker, 1, 15, 0);
+                this.Redondeo(pDateTimePicker, 16, 30, 15);
+                this.Redondeo(pDateTimePicker, 31, 45, 30);
+                this.Redondeo(pDateTimePicker, 46, 60, 45);
             }
+        }
 
         /// <summary>
         /// Si los valores que se le ingresa a los minutos del pDateTimePicker son distintos que 00, 15, 30 o 45,
@@ -114,16 +114,14 @@ namespace UI.UserControls
             diferenciaHoras = pHoraFin.Value.Subtract(pHoraInicio.Value);
             string resultado = "";
             resultado = "Un total de ";
-            if (diferenciaHoras.Hours != 0) //Si las horas de la diferencia entre horas es distinto de 0
+            if (diferenciaHoras.Hours > 0) //Si las horas de la diferencia entre horas es distinto de 0
+                resultado += diferenciaHoras.Hours + " hs";
+
+            if (diferenciaHoras.Minutes > 0) //Si los minutos de la diferencia entre horas es distinto de 0
             {
-                if (diferenciaHoras.Hours == 1)
-                    resultado += diferenciaHoras.Hours + " hs";
-            }
-            if (diferenciaHoras.Minutes != 0) //Si los minutos de la diferencia entre horas es distinto de 0
-            {
-                if (diferenciaHoras.Hours != 0)
+                if (diferenciaHoras.Hours > 0)
                     resultado += " y ";
-                    resultado += diferenciaHoras.Minutes + " min";
+                resultado += diferenciaHoras.Minutes + " min";
             }
             return resultado;
         }

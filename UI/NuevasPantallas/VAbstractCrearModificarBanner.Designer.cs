@@ -28,11 +28,11 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.label1 = new System.Windows.Forms.Label();
+            this.labelTitulo = new System.Windows.Forms.Label();
             this.textBoxTitulo = new System.Windows.Forms.TextBox();
-            this.label6 = new System.Windows.Forms.Label();
+            this.labelDescripcion = new System.Windows.Forms.Label();
             this.textBoxDescripcion = new System.Windows.Forms.TextBox();
-            this.label7 = new System.Windows.Forms.Label();
+            this.labelSeleccionFuente = new System.Windows.Forms.Label();
             this.dataGridViewMostrarFuentes = new System.Windows.Forms.DataGridView();
             this.buttonCrearNuevaFuente = new System.Windows.Forms.Button();
             this.buttonGuardar = new System.Windows.Forms.Button();
@@ -42,46 +42,46 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewMostrarFuentes)).BeginInit();
             this.SuspendLayout();
             // 
-            // label1
+            // labelTitulo
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(6, 13);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(33, 13);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Titulo";
+            this.labelTitulo.AutoSize = true;
+            this.labelTitulo.Location = new System.Drawing.Point(15, 10);
+            this.labelTitulo.Name = "labelTitulo";
+            this.labelTitulo.Size = new System.Drawing.Size(35, 13);
+            this.labelTitulo.TabIndex = 0;
+            this.labelTitulo.Text = "Título";
             // 
             // textBoxTitulo
             // 
-            this.textBoxTitulo.Location = new System.Drawing.Point(123, 10);
+            this.textBoxTitulo.Location = new System.Drawing.Point(104, 10);
             this.textBoxTitulo.Name = "textBoxTitulo";
-            this.textBoxTitulo.Size = new System.Drawing.Size(345, 20);
+            this.textBoxTitulo.Size = new System.Drawing.Size(364, 20);
             this.textBoxTitulo.TabIndex = 1;
             // 
-            // label6
+            // labelDescripcion
             // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(6, 37);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(63, 13);
-            this.label6.TabIndex = 8;
-            this.label6.Text = "Descripcion";
+            this.labelDescripcion.AutoSize = true;
+            this.labelDescripcion.Location = new System.Drawing.Point(15, 40);
+            this.labelDescripcion.Name = "labelDescripcion";
+            this.labelDescripcion.Size = new System.Drawing.Size(63, 13);
+            this.labelDescripcion.TabIndex = 8;
+            this.labelDescripcion.Text = "Descripción";
             // 
             // textBoxDescripcion
             // 
-            this.textBoxDescripcion.Location = new System.Drawing.Point(123, 37);
+            this.textBoxDescripcion.Location = new System.Drawing.Point(104, 37);
             this.textBoxDescripcion.Name = "textBoxDescripcion";
-            this.textBoxDescripcion.Size = new System.Drawing.Size(345, 20);
+            this.textBoxDescripcion.Size = new System.Drawing.Size(364, 20);
             this.textBoxDescripcion.TabIndex = 9;
             // 
-            // label7
+            // labelSeleccionFuente
             // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(9, 237);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(102, 13);
-            this.label7.TabIndex = 10;
-            this.label7.Text = "Seleccion de fuente";
+            this.labelSeleccionFuente.AutoSize = true;
+            this.labelSeleccionFuente.Location = new System.Drawing.Point(9, 235);
+            this.labelSeleccionFuente.Name = "labelSeleccionFuente";
+            this.labelSeleccionFuente.Size = new System.Drawing.Size(105, 13);
+            this.labelSeleccionFuente.TabIndex = 10;
+            this.labelSeleccionFuente.Text = "Selección de Fuente";
             // 
             // dataGridViewMostrarFuentes
             // 
@@ -89,19 +89,19 @@
             this.dataGridViewMostrarFuentes.AllowUserToDeleteRows = false;
             this.dataGridViewMostrarFuentes.AllowUserToOrderColumns = true;
             this.dataGridViewMostrarFuentes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridViewMostrarFuentes.Location = new System.Drawing.Point(12, 254);
+            this.dataGridViewMostrarFuentes.Location = new System.Drawing.Point(18, 254);
             this.dataGridViewMostrarFuentes.Name = "dataGridViewMostrarFuentes";
             this.dataGridViewMostrarFuentes.ReadOnly = true;
-            this.dataGridViewMostrarFuentes.Size = new System.Drawing.Size(456, 150);
+            this.dataGridViewMostrarFuentes.Size = new System.Drawing.Size(450, 150);
             this.dataGridViewMostrarFuentes.TabIndex = 11;
             // 
             // buttonCrearNuevaFuente
             // 
-            this.buttonCrearNuevaFuente.Location = new System.Drawing.Point(12, 410);
+            this.buttonCrearNuevaFuente.Location = new System.Drawing.Point(18, 410);
             this.buttonCrearNuevaFuente.Name = "buttonCrearNuevaFuente";
-            this.buttonCrearNuevaFuente.Size = new System.Drawing.Size(77, 36);
+            this.buttonCrearNuevaFuente.Size = new System.Drawing.Size(91, 24);
             this.buttonCrearNuevaFuente.TabIndex = 12;
-            this.buttonCrearNuevaFuente.Text = "Crear nueva fuente";
+            this.buttonCrearNuevaFuente.Text = "Nueva Fuente";
             this.buttonCrearNuevaFuente.UseVisualStyleBackColor = true;
             // 
             // buttonGuardar
@@ -127,7 +127,7 @@
             // 
             this.rangoHorario.HoraFin = System.TimeSpan.Parse("00:15:00");
             this.rangoHorario.HoraInicio = System.TimeSpan.Parse("00:00:00");
-            this.rangoHorario.Location = new System.Drawing.Point(258, 97);
+            this.rangoHorario.Location = new System.Drawing.Point(329, 97);
             this.rangoHorario.Name = "rangoHorario";
             this.rangoHorario.Size = new System.Drawing.Size(120, 101);
             this.rangoHorario.TabIndex = 16;
@@ -136,27 +136,27 @@
             // 
             this.rangoFecha.FechaFin = new System.DateTime(2017, 2, 14, 0, 0, 0, 0);
             this.rangoFecha.FechaInicio = new System.DateTime(2017, 2, 14, 0, 0, 0, 0);
-            this.rangoFecha.Location = new System.Drawing.Point(9, 97);
+            this.rangoFecha.Location = new System.Drawing.Point(18, 99);
             this.rangoFecha.Name = "rangoFecha";
-            this.rangoFecha.Size = new System.Drawing.Size(235, 96);
+            this.rangoFecha.Size = new System.Drawing.Size(269, 96);
             this.rangoFecha.TabIndex = 15;
             // 
             // VAbstractCrearModificarBanner
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(480, 477);
+            this.ClientSize = new System.Drawing.Size(484, 477);
             this.Controls.Add(this.rangoHorario);
             this.Controls.Add(this.rangoFecha);
             this.Controls.Add(this.buttonCancelar);
             this.Controls.Add(this.buttonGuardar);
             this.Controls.Add(this.buttonCrearNuevaFuente);
             this.Controls.Add(this.dataGridViewMostrarFuentes);
-            this.Controls.Add(this.label7);
+            this.Controls.Add(this.labelSeleccionFuente);
             this.Controls.Add(this.textBoxDescripcion);
-            this.Controls.Add(this.label6);
+            this.Controls.Add(this.labelDescripcion);
             this.Controls.Add(this.textBoxTitulo);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.labelTitulo);
             this.Name = "VAbstractCrearModificarBanner";
             this.Text = "VAbstractCrearModificarBanner";
             this.Activated += new System.EventHandler(this.VAbstractCrearModificarBanner_Activated);
@@ -169,11 +169,11 @@
 
         #endregion
 
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label labelTitulo;
         protected System.Windows.Forms.TextBox textBoxTitulo;
-        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label labelDescripcion;
         protected System.Windows.Forms.TextBox textBoxDescripcion;
-        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label labelSeleccionFuente;
         protected System.Windows.Forms.DataGridView dataGridViewMostrarFuentes;
         protected System.Windows.Forms.Button buttonCrearNuevaFuente;
         protected System.Windows.Forms.Button buttonGuardar;

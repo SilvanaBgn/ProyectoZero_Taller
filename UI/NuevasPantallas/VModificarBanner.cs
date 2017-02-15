@@ -20,7 +20,6 @@ namespace UI.NuevasPantallas
             InitializeComponent();
             this.iBannerAModificar = pBannerAModificar;
             this.CargarBannerAModificar(this.iBannerAModificar);
-            this.buttonGuardar.Click += ButtonGuardar_Click;
         }
 
         private void CargarBannerAModificar(Banner bannerAModificar)

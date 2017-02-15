@@ -28,8 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
+            this.labelTitulo = new System.Windows.Forms.Label();
+            this.labelDescripcion = new System.Windows.Forms.Label();
             this.textBoxTitulo = new System.Windows.Forms.TextBox();
             this.textBoxDescripcion = new System.Windows.Forms.TextBox();
             this.buttonGuardar = new System.Windows.Forms.Button();
@@ -39,23 +39,23 @@
             this.galeria = new UI.UserControls.Galeria();
             this.SuspendLayout();
             // 
-            // label1
+            // labelTitulo
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(13, 13);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(33, 13);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Titulo";
+            this.labelTitulo.AutoSize = true;
+            this.labelTitulo.Location = new System.Drawing.Point(13, 13);
+            this.labelTitulo.Name = "labelTitulo";
+            this.labelTitulo.Size = new System.Drawing.Size(35, 13);
+            this.labelTitulo.TabIndex = 0;
+            this.labelTitulo.Text = "Título";
             // 
-            // label2
+            // labelDescripcion
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(13, 43);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(63, 13);
-            this.label2.TabIndex = 1;
-            this.label2.Text = "Descripcion";
+            this.labelDescripcion.AutoSize = true;
+            this.labelDescripcion.Location = new System.Drawing.Point(13, 43);
+            this.labelDescripcion.Name = "labelDescripcion";
+            this.labelDescripcion.Size = new System.Drawing.Size(63, 13);
+            this.labelDescripcion.TabIndex = 1;
+            this.labelDescripcion.Text = "Descripción";
             // 
             // textBoxTitulo
             // 
@@ -126,8 +126,8 @@
             this.Controls.Add(this.buttonGuardar);
             this.Controls.Add(this.textBoxDescripcion);
             this.Controls.Add(this.textBoxTitulo);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.labelDescripcion);
+            this.Controls.Add(this.labelTitulo);
             this.Name = "VAbstractCrearModificarCampania";
             this.Text = "VAbstractCrearModificarCampania";
             this.ResumeLayout(false);
@@ -137,8 +137,8 @@
 
         #endregion
 
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label labelTitulo;
+        private System.Windows.Forms.Label labelDescripcion;
         protected System.Windows.Forms.TextBox textBoxTitulo;
         protected System.Windows.Forms.TextBox textBoxDescripcion;
         protected System.Windows.Forms.Button buttonGuardar;

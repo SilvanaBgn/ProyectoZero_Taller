@@ -43,7 +43,6 @@
             this.Text = "VModificarCampania";
             this.ResumeLayout(false);
             this.PerformLayout();
-
         }
 
         #endregion

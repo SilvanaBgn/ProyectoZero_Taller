@@ -31,7 +31,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.textBoxDescripcionRss = new System.Windows.Forms.TextBox();
             this.comboBoxTipoFuente = new System.Windows.Forms.ComboBox();
-            this.label3 = new System.Windows.Forms.Label();
+            this.labelTipoFuente = new System.Windows.Forms.Label();
             this.panelRss = new System.Windows.Forms.Panel();
             this.textBoxFuenteRss = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
@@ -71,20 +71,20 @@
             this.comboBoxTipoFuente.Items.AddRange(new object[] {
             "Rss",
             "Texto Fijo"});
-            this.comboBoxTipoFuente.Location = new System.Drawing.Point(95, 10);
+            this.comboBoxTipoFuente.Location = new System.Drawing.Point(98, 10);
             this.comboBoxTipoFuente.Name = "comboBoxTipoFuente";
             this.comboBoxTipoFuente.Size = new System.Drawing.Size(194, 21);
             this.comboBoxTipoFuente.TabIndex = 4;
             this.comboBoxTipoFuente.SelectedValueChanged += new System.EventHandler(this.MostrarPanel);
             // 
-            // label3
+            // labelTipoFuente
             // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(13, 13);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(76, 13);
-            this.label3.TabIndex = 5;
-            this.label3.Text = "Tipo de fuente";
+            this.labelTipoFuente.AutoSize = true;
+            this.labelTipoFuente.Location = new System.Drawing.Point(13, 13);
+            this.labelTipoFuente.Name = "labelTipoFuente";
+            this.labelTipoFuente.Size = new System.Drawing.Size(79, 13);
+            this.labelTipoFuente.TabIndex = 5;
+            this.labelTipoFuente.Text = "Tipo de Fuente";
             // 
             // panelRss
             // 
@@ -197,7 +197,7 @@
             this.Controls.Add(this.panelTextoFijo);
             this.Controls.Add(this.buttonCancelar);
             this.Controls.Add(this.buttonGuardar);
-            this.Controls.Add(this.label3);
+            this.Controls.Add(this.labelTipoFuente);
             this.Controls.Add(this.comboBoxTipoFuente);
             this.Controls.Add(this.panelRss);
             this.Name = "VAbstractCrearModificarFuente";
@@ -215,7 +215,7 @@
         private System.Windows.Forms.Label label1;
         protected System.Windows.Forms.TextBox textBoxDescripcionRss;
         protected System.Windows.Forms.ComboBox comboBoxTipoFuente;
-        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label labelTipoFuente;
         protected System.Windows.Forms.Panel panelRss;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label5;

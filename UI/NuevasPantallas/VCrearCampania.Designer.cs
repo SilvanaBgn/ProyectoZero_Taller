@@ -40,7 +40,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(520, 466);
             this.Name = "VCrearCampania";
-            this.Text = "VCrearCampania";
+            this.Text = "Nueva Campaña";
             this.ResumeLayout(false);
             this.PerformLayout();
 
