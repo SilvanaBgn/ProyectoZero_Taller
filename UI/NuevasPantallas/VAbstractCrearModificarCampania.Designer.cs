@@ -32,8 +32,6 @@
             this.label2 = new System.Windows.Forms.Label();
             this.textBoxTitulo = new System.Windows.Forms.TextBox();
             this.textBoxDescripcion = new System.Windows.Forms.TextBox();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
             this.buttonGuardar = new System.Windows.Forms.Button();
             this.buttonCancelar = new System.Windows.Forms.Button();
             this.rangoFecha = new UI.UserControls.RangoFecha();
@@ -63,37 +61,19 @@
             // 
             this.textBoxTitulo.Location = new System.Drawing.Point(97, 13);
             this.textBoxTitulo.Name = "textBoxTitulo";
-            this.textBoxTitulo.Size = new System.Drawing.Size(213, 20);
+            this.textBoxTitulo.Size = new System.Drawing.Size(407, 20);
             this.textBoxTitulo.TabIndex = 2;
             // 
             // textBoxDescripcion
             // 
             this.textBoxDescripcion.Location = new System.Drawing.Point(97, 43);
             this.textBoxDescripcion.Name = "textBoxDescripcion";
-            this.textBoxDescripcion.Size = new System.Drawing.Size(213, 20);
+            this.textBoxDescripcion.Size = new System.Drawing.Size(407, 20);
             this.textBoxDescripcion.TabIndex = 3;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(13, 85);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(37, 13);
-            this.label3.TabIndex = 4;
-            this.label3.Text = "Fecha";
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(180, 85);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(74, 13);
-            this.label4.TabIndex = 5;
-            this.label4.Text = "Rango horario";
             // 
             // buttonGuardar
             // 
-            this.buttonGuardar.Location = new System.Drawing.Point(154, 300);
+            this.buttonGuardar.Location = new System.Drawing.Point(348, 431);
             this.buttonGuardar.Name = "buttonGuardar";
             this.buttonGuardar.Size = new System.Drawing.Size(75, 23);
             this.buttonGuardar.TabIndex = 6;
@@ -102,7 +82,7 @@
             // 
             // buttonCancelar
             // 
-            this.buttonCancelar.Location = new System.Drawing.Point(235, 300);
+            this.buttonCancelar.Location = new System.Drawing.Point(429, 431);
             this.buttonCancelar.Name = "buttonCancelar";
             this.buttonCancelar.Size = new System.Drawing.Size(75, 23);
             this.buttonCancelar.TabIndex = 7;
@@ -111,25 +91,25 @@
             // 
             // rangoFecha
             // 
-            //this.rangoFecha.FechaFin = new System.DateTime(2017, 2, 7, 0, 0, 0, 0);
-            //this.rangoFecha.FechaInicio = new System.DateTime(2017, 2, 7, 0, 0, 0, 0);
-            this.rangoFecha.Location = new System.Drawing.Point(16, 113);
+            this.rangoFecha.FechaFin = new System.DateTime(2017, 2, 14, 0, 0, 0, 0);
+            this.rangoFecha.FechaInicio = new System.DateTime(2017, 2, 14, 0, 0, 0, 0);
+            this.rangoFecha.Location = new System.Drawing.Point(16, 89);
             this.rangoFecha.Name = "rangoFecha";
-            this.rangoFecha.Size = new System.Drawing.Size(235, 96);
+            this.rangoFecha.Size = new System.Drawing.Size(264, 96);
             this.rangoFecha.TabIndex = 8;
             // 
             // rangoHorario
             // 
             this.rangoHorario.HoraFin = System.TimeSpan.Parse("00:15:00");
             this.rangoHorario.HoraInicio = System.TimeSpan.Parse("00:00:00");
-            this.rangoHorario.Location = new System.Drawing.Point(258, 113);
+            this.rangoHorario.Location = new System.Drawing.Point(333, 89);
             this.rangoHorario.Name = "rangoHorario";
-            this.rangoHorario.Size = new System.Drawing.Size(120, 101);
+            this.rangoHorario.Size = new System.Drawing.Size(120, 96);
             this.rangoHorario.TabIndex = 9;
             // 
             // galeria
             // 
-            this.galeria.Location = new System.Drawing.Point(385, 25);
+            this.galeria.Location = new System.Drawing.Point(16, 210);
             this.galeria.Name = "galeria";
             this.galeria.Size = new System.Drawing.Size(488, 189);
             this.galeria.TabIndex = 10;
@@ -138,14 +118,12 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(885, 335);
+            this.ClientSize = new System.Drawing.Size(520, 466);
             this.Controls.Add(this.galeria);
             this.Controls.Add(this.rangoHorario);
             this.Controls.Add(this.rangoFecha);
             this.Controls.Add(this.buttonCancelar);
             this.Controls.Add(this.buttonGuardar);
-            this.Controls.Add(this.label4);
-            this.Controls.Add(this.label3);
             this.Controls.Add(this.textBoxDescripcion);
             this.Controls.Add(this.textBoxTitulo);
             this.Controls.Add(this.label2);
@@ -159,14 +137,12 @@
 
         #endregion
 
-        protected System.Windows.Forms.Label label1;
-        protected System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label2;
         protected System.Windows.Forms.TextBox textBoxTitulo;
         protected System.Windows.Forms.TextBox textBoxDescripcion;
-        protected System.Windows.Forms.Label label3;
-        protected System.Windows.Forms.Label label4;
         protected System.Windows.Forms.Button buttonGuardar;
-        protected System.Windows.Forms.Button buttonCancelar;
+        private System.Windows.Forms.Button buttonCancelar;
         protected UserControls.RangoFecha rangoFecha;
         protected UserControls.RangoHorario rangoHorario;
         protected UserControls.Galeria galeria;

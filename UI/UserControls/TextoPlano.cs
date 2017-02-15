@@ -11,7 +11,7 @@ using Dominio;
 
 namespace UI.UserControls
 {
-    public partial class TextoPlano : UserControl
+    public partial class TextoFijo : UserControl
     {
         /// <summary>
         /// Atributo que mantiene actualizadas la lista de items del comboBoxItems
@@ -45,7 +45,7 @@ namespace UI.UserControls
             }
         }
 
-        public TextoPlano()
+        public TextoFijo()
         {
             InitializeComponent();
             this.iListaItems = new List<Item>();

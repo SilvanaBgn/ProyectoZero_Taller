@@ -23,16 +23,10 @@ namespace UI.NuevasPantallas
         {
             InitializeComponent();
             this.iControladorDominio = pControladorDominio;
-            this.buttonNuevo.Click += buttonNuevo_Click;
-            this.buttonModificar.Click += buttonModificar_Click;
-            this.buttonEliminar.Click += buttonEliminar_Click;
-            this.buttonFiltrar.Click += buttonFiltrar_Click;
-            CargarTodasLasCampanias();
         }
 
         private void buttonFiltrar_Click(object sender, EventArgs e)
         {
-
             DateTime[] filtroFechas = null;
             TimeSpan[] filtroHoras = null;
             string filtroTitulo = null;
@@ -47,9 +41,8 @@ namespace UI.NuevasPantallas
             if (checkBoxDescripcion.Checked)
                 filtroDescripcion = this.textBoxDescripcion.Text;
 
-            List<Banner> listaFiltrada = this.iControladorDominio.FiltrarBanners(filtroFechas, filtroHoras, filtroTitulo, filtroDescripcion);
-            this.dataGridViewMostrar.DataSource = listaFiltrada;
-
+            //List<Campania> listaFiltrada = this.iControladorDominio.FiltrarCampanias(filtroFechas, filtroHoras, filtroTitulo, filtroDescripcion);
+            //this.CargarDataGridCampanias(listaFiltrada);
         }
 
         /// <summary>
@@ -64,9 +57,9 @@ namespace UI.NuevasPantallas
         /// <summary>
         /// Muestra en el datagrid los banners que se encuentran en la base de datos
         /// </summary>
-        public void CargarTodasLasCampanias()
+        public void CargarDataGridCampanias(List<Campania> pListaCampanias)
         {
-            this.dataGridViewMostrar.DataSource = this.iControladorDominio.ObtenerTodasLasCampanias();
+            this.dataGridViewMostrar.DataSource = pListaCampanias;
         }
 
         private void buttonNuevo_Click(object sender, EventArgs e)
@@ -89,8 +82,17 @@ namespace UI.NuevasPantallas
             int codigo = Convert.ToInt32(this.dataGridViewMostrar.SelectedRows[0].Cells[0].Value.ToString());
             this.iControladorDominio.BorrarCampania(codigo);
             this.iControladorDominio.GuardarCambios();
-            this.CargarTodasLasCampanias();
+            this.CargarDataGridCampanias(this.iControladorDominio.ObtenerTodasLasCampanias());
         }
 
+        private void VBaseCampania_Activated(object sender, EventArgs e)
+        {
+            CargarDataGridCampanias(this.iControladorDominio.ObtenerTodasLasCampanias());
+        }
+
+        private void VBaseCampania_Load(object sender, EventArgs e)
+        {
+            CargarDataGridCampanias(this.iControladorDominio.ObtenerTodasLasCampanias());
+        }
     }
 }

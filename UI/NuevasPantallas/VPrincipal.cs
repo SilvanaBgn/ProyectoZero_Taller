@@ -24,6 +24,9 @@ namespace UI.NuevasPantallas
             this.buttonSalirPantallaCompleta_Click(new object(),new EventArgs());
         }
 
+
+
+#region EVENTOS
         #region BackgroundWorkers y Timers
         private void timerChequeoCambioBanner_Tick(object sender, EventArgs e)
         {
@@ -137,7 +140,7 @@ namespace UI.NuevasPantallas
         #endregion
 
 
-#region EVENTOS
+        #region ToolStripMenu
         private void bannerToolStripMenuItem_Click(object sender, EventArgs e)
         {
             VBaseBanner vBanner = new VBaseBanner(ref this.iControladorDominio);
@@ -185,6 +188,8 @@ namespace UI.NuevasPantallas
         }
         #endregion
 
+
+        #region Otros Ventana
         private void VPrincipal_Activated(object sender, EventArgs e)
         {
             this.timerChequeoCambioBanner.Start();
@@ -221,6 +226,11 @@ namespace UI.NuevasPantallas
         {
             this.buttonSalirPantallaCompleta_Click(sender, new EventArgs());
         }
+        #endregion
+
+#endregion
+
+
     }
 }
 

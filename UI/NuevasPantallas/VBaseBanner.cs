@@ -28,7 +28,6 @@ namespace UI.NuevasPantallas
 
         private void buttonFiltrar_Click(object sender, EventArgs e)
         {
-
             DateTime[] filtroFechas = null;
             TimeSpan[] filtroHoras = null;
             string filtroTitulo = null;
@@ -44,8 +43,7 @@ namespace UI.NuevasPantallas
                 filtroDescripcion = this.textBoxDescripcion.Text;
 
             List<Banner> listaFiltrada=this.iControladorDominio.FiltrarBanners(filtroFechas,filtroHoras,filtroTitulo,filtroDescripcion);
-            this.dataGridViewMostrar.DataSource = listaFiltrada;
-                
+            this.CargarDataGridBanners(listaFiltrada);
         }
 
         /// <summary>
@@ -59,9 +57,9 @@ namespace UI.NuevasPantallas
         /// <summary>
         /// Muestra en el datagrid los banners que se encuentran en la base de datos
         /// </summary>
-        public void CargarTodosLosBanners()
+        public void CargarDataGridBanners(List<Banner> pListaBanners)
         {
-            this.dataGridViewMostrar.DataSource = this.iControladorDominio.ObtenerTodosLosBanners();
+            this.dataGridViewMostrar.DataSource = pListaBanners;
         }
 
         private void buttonNuevo_Click(object sender, EventArgs e)
@@ -84,17 +82,17 @@ namespace UI.NuevasPantallas
             int codigo = Convert.ToInt32(this.dataGridViewMostrar.SelectedRows[0].Cells[0].Value.ToString());
             this.iControladorDominio.BorrarBanner(codigo);
             this.iControladorDominio.GuardarCambios();
-            this.CargarTodosLosBanners();
+            this.CargarDataGridBanners(this.iControladorDominio.ObtenerTodosLosBanners());
         }
 
         private void VBaseBanner_Activated(object sender, EventArgs e)
         {
-            CargarTodosLosBanners();
+            CargarDataGridBanners(this.iControladorDominio.ObtenerTodosLosBanners());
         }
 
         private void VBaseBanner_Load(object sender, EventArgs e)
         {
-            CargarTodosLosBanners();
+            CargarDataGridBanners(this.iControladorDominio.ObtenerTodosLosBanners());
         }
     }
 }

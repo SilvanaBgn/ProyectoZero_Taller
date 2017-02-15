@@ -11,9 +11,8 @@ using Dominio;
 
 namespace UI.NuevasPantallas
 {
-    public abstract partial class VAbstractCrearModificarCampania : Form
+    public partial class VAbstractCrearModificarCampania : Form
     {
-
         protected ControladorDominio iControladorDominio;
 
         public VAbstractCrearModificarCampania()

@@ -47,9 +47,9 @@ namespace Dominio
                 {
                     this.iLector = new LectorRss();
                 }
-                else //(value == TipoFuente.TextoPlano)
+                else //(value == TipoFuente.TextoFijo)
                 {
-                    this.iLector = null; //Porque el texto plano no tiene comportamiento adicional
+                    this.iLector = null; //Porque el texto fijo no tiene comportamiento adicional
                 }
                 this.iTipo = value;
             }
@@ -57,11 +57,11 @@ namespace Dominio
         
 
         /// <summary>
-        /// Constructor para el caso del texto plano, donde no hay origen de items
+        /// Constructor para el caso del texto fijo, donde no hay origen de items
         /// </summary>
-   //     public Fuente(string pDescripcion) : this(pDescripcion, "", TipoFuente.TextoPlano) { }
+   //     public Fuente(string pDescripcion) : this(pDescripcion, "", TipoFuente.TextoFijo) { }
 
-        public Fuente():this("","",TipoFuente.TextoPlano)
+        public Fuente():this("","",TipoFuente.TextoFijo)
         { }
 
         /// <summary>

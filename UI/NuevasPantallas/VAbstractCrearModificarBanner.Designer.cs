@@ -37,8 +37,8 @@
             this.buttonCrearNuevaFuente = new System.Windows.Forms.Button();
             this.buttonGuardar = new System.Windows.Forms.Button();
             this.buttonCancelar = new System.Windows.Forms.Button();
-            this.rangoFecha = new UI.UserControls.RangoFecha();
             this.rangoHorario = new UI.UserControls.RangoHorario();
+            this.rangoFecha = new UI.UserControls.RangoFecha();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewMostrarFuentes)).BeginInit();
             this.SuspendLayout();
             // 
@@ -121,15 +121,7 @@
             this.buttonCancelar.TabIndex = 14;
             this.buttonCancelar.Text = "Cancelar";
             this.buttonCancelar.UseVisualStyleBackColor = true;
-            // 
-            // rangoFecha
-            // 
-            //this.rangoFecha.FechaFin = new System.DateTime(2017, 2, 7, 0, 0, 0, 0);
-            //this.rangoFecha.FechaInicio = new System.DateTime(2017, 2, 7, 0, 0, 0, 0);
-            this.rangoFecha.Location = new System.Drawing.Point(9, 97);
-            this.rangoFecha.Name = "rangoFecha";
-            this.rangoFecha.Size = new System.Drawing.Size(235, 96);
-            this.rangoFecha.TabIndex = 15;
+            this.buttonCancelar.Click += new System.EventHandler(this.buttonCancelar_Click);
             // 
             // rangoHorario
             // 
@@ -139,6 +131,15 @@
             this.rangoHorario.Name = "rangoHorario";
             this.rangoHorario.Size = new System.Drawing.Size(120, 101);
             this.rangoHorario.TabIndex = 16;
+            // 
+            // rangoFecha
+            // 
+            this.rangoFecha.FechaFin = new System.DateTime(2017, 2, 14, 0, 0, 0, 0);
+            this.rangoFecha.FechaInicio = new System.DateTime(2017, 2, 14, 0, 0, 0, 0);
+            this.rangoFecha.Location = new System.Drawing.Point(9, 97);
+            this.rangoFecha.Name = "rangoFecha";
+            this.rangoFecha.Size = new System.Drawing.Size(235, 96);
+            this.rangoFecha.TabIndex = 15;
             // 
             // VAbstractCrearModificarBanner
             // 
@@ -158,6 +159,8 @@
             this.Controls.Add(this.label1);
             this.Name = "VAbstractCrearModificarBanner";
             this.Text = "VAbstractCrearModificarBanner";
+            this.Activated += new System.EventHandler(this.VAbstractCrearModificarBanner_Activated);
+            this.Load += new System.EventHandler(this.VAbstractCrearModificarBanner_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewMostrarFuentes)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -166,15 +169,15 @@
 
         #endregion
 
-        protected System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label1;
         protected System.Windows.Forms.TextBox textBoxTitulo;
-        protected System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label label6;
         protected System.Windows.Forms.TextBox textBoxDescripcion;
-        protected System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label label7;
         protected System.Windows.Forms.DataGridView dataGridViewMostrarFuentes;
         protected System.Windows.Forms.Button buttonCrearNuevaFuente;
         protected System.Windows.Forms.Button buttonGuardar;
-        protected System.Windows.Forms.Button buttonCancelar;
+        private System.Windows.Forms.Button buttonCancelar;
         protected UserControls.RangoFecha rangoFecha;
         protected UserControls.RangoHorario rangoHorario;
     }

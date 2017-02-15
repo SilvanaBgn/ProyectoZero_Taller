@@ -36,9 +36,9 @@ namespace UI.NuevasPantallas
             vFuente.Show();
         }
 
-        public void CargarTodasLasFuentes()
+        public void CargarDataGridFuentes(List<Fuente> pListaFuentes)
         {
-            this.dataGridViewMostrar.DataSource = this.iControladorDominio.ObtenerTodasLasFuentes();
+            this.dataGridViewMostrar.DataSource = pListaFuentes;
             this.dataGridViewMostrar.Columns["Banners"].Visible = false;
             this.dataGridViewMostrar.Columns["Tipo"].Visible = false;
             this.dataGridViewMostrar.Columns["Items"].Visible = false;
@@ -50,7 +50,7 @@ namespace UI.NuevasPantallas
             int codigo = Convert.ToInt32(this.dataGridViewMostrar.SelectedRows[0].Cells[0].Value.ToString());
             this.iControladorDominio.BorrarFuente(codigo);
             this.iControladorDominio.GuardarCambios();
-            this.CargarTodasLasFuentes();
+            this.CargarDataGridFuentes(this.iControladorDominio.ObtenerTodasLasFuentes());
         }
 
         private void buttonFiltrar_Click(object sender, EventArgs e)
@@ -65,7 +65,7 @@ namespace UI.NuevasPantallas
                         filtroTipoFuente = "Rss";
                         break;
                     case "Texto Fijo":
-                        filtroTipoFuente = "TextoPlano";
+                        filtroTipoFuente = "TextoFijo";
                         break;
                 }
 
@@ -97,12 +97,12 @@ namespace UI.NuevasPantallas
 
         private void VBaseFuente_Activated(object sender, EventArgs e)
         {
-            this.CargarTodasLasFuentes();
+            this.CargarDataGridFuentes(this.iControladorDominio.ObtenerTodasLasFuentes());
         }
 
         private void VBaseFuente_Load(object sender, EventArgs e)
         {
-            this.CargarTodasLasFuentes();
+            this.CargarDataGridFuentes(this.iControladorDominio.ObtenerTodasLasFuentes());
         }
     }
 }
