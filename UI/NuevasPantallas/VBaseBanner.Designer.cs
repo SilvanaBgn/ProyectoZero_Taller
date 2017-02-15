@@ -50,13 +50,13 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(661, 506);
             this.Name = "VBaseBanner";
-            this.Text = "VBaseBanner";
+            this.Text = "Configuración BANNERS";
             this.Activated += new System.EventHandler(this.VBaseBanner_Activated);
             this.Load += new System.EventHandler(this.VBaseBanner_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
+
         }
 
         #endregion

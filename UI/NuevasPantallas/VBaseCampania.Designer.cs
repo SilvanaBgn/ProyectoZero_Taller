@@ -50,9 +50,8 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(661, 506);
             this.Name = "VBaseCampania";
-            this.Text = "VBaseCampania";
+            this.Text = "Configuración CAMPAÑAS";
             this.Activated += new System.EventHandler(this.VBaseCampania_Activated);
             this.Load += new System.EventHandler(this.VBaseCampania_Load);
             this.ResumeLayout(false);

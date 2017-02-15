@@ -81,10 +81,10 @@
             this.dataGridViewMostrar.AllowUserToDeleteRows = false;
             this.dataGridViewMostrar.AllowUserToOrderColumns = true;
             this.dataGridViewMostrar.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridViewMostrar.Location = new System.Drawing.Point(219, 52);
+            this.dataGridViewMostrar.Location = new System.Drawing.Point(211, 52);
             this.dataGridViewMostrar.Name = "dataGridViewMostrar";
             this.dataGridViewMostrar.ReadOnly = true;
-            this.dataGridViewMostrar.Size = new System.Drawing.Size(501, 225);
+            this.dataGridViewMostrar.Size = new System.Drawing.Size(509, 225);
             this.dataGridViewMostrar.TabIndex = 3;
             // 
             // buttonSalir
@@ -112,9 +112,9 @@
             this.comboBoxTipo.Items.AddRange(new object[] {
             "Rss",
             "Texto Fijo"});
-            this.comboBoxTipo.Location = new System.Drawing.Point(16, 126);
+            this.comboBoxTipo.Location = new System.Drawing.Point(34, 125);
             this.comboBoxTipo.Name = "comboBoxTipo";
-            this.comboBoxTipo.Size = new System.Drawing.Size(170, 21);
+            this.comboBoxTipo.Size = new System.Drawing.Size(152, 21);
             this.comboBoxTipo.TabIndex = 7;
             // 
             // Banners
@@ -132,7 +132,7 @@
             // checkBoxDescripcion
             // 
             this.checkBoxDescripcion.AutoSize = true;
-            this.checkBoxDescripcion.Location = new System.Drawing.Point(16, 170);
+            this.checkBoxDescripcion.Location = new System.Drawing.Point(16, 175);
             this.checkBoxDescripcion.Name = "checkBoxDescripcion";
             this.checkBoxDescripcion.Size = new System.Drawing.Size(82, 17);
             this.checkBoxDescripcion.TabIndex = 8;
@@ -142,9 +142,9 @@
             // 
             // textBoxDescripcion
             // 
-            this.textBoxDescripcion.Location = new System.Drawing.Point(16, 194);
+            this.textBoxDescripcion.Location = new System.Drawing.Point(34, 198);
             this.textBoxDescripcion.Name = "textBoxDescripcion";
-            this.textBoxDescripcion.Size = new System.Drawing.Size(100, 20);
+            this.textBoxDescripcion.Size = new System.Drawing.Size(152, 20);
             this.textBoxDescripcion.TabIndex = 9;
             // 
             // checkBoxTipo
@@ -185,7 +185,7 @@
             this.Controls.Add(this.buttonModificar);
             this.Controls.Add(this.buttonNuevo);
             this.Name = "VBaseFuente";
-            this.Text = "VBaseFuente";
+            this.Text = "Configuración FUENTES";
             this.Activated += new System.EventHandler(this.VBaseFuente_Activated);
             this.Load += new System.EventHandler(this.VBaseFuente_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewMostrar)).EndInit();

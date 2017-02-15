@@ -40,9 +40,10 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(520, 466);
             this.Name = "VModificarCampania";
-            this.Text = "VModificarCampania";
+            this.Text = "Modificar Campaña";
             this.ResumeLayout(false);
             this.PerformLayout();
+
         }
 
         #endregion

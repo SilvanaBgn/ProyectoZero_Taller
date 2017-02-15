@@ -248,6 +248,9 @@
     <EmbeddedResource Include="NuevasPantallas\VAbstractCrearModificarCampania.resx">
       <DependentUpon>VAbstractCrearModificarCampania.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="NuevasPantallas\VBaseBanner.resx">
+      <DependentUpon>VBaseBanner.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="NuevasPantallas\VBaseCampania.resx">
       <DependentUpon>VBaseCampania.cs</DependentUpon>
     </EmbeddedResource>

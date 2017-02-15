@@ -55,9 +55,9 @@
             this.label6.AutoSize = true;
             this.label6.Location = new System.Drawing.Point(3, 15);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(345, 13);
+            this.label6.Size = new System.Drawing.Size(349, 13);
             this.label6.TabIndex = 67;
-            this.label6.Text = "Ingresar lineas separadas por [ENTER], eliminar lineas con [SUPRIMIR]";
+            this.label6.Text = "Ingresar líneas separadas por [ENTER], eliminar líneas con [SUPRIMIR]";
             // 
             // buttonEliminarItem
             // 

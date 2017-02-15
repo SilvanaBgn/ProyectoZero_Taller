@@ -184,7 +184,7 @@
             // 
             // textoFijo
             // 
-            this.textoFijo.Location = new System.Drawing.Point(13, 7);
+            this.textoFijo.Location = new System.Drawing.Point(3, 7);
             this.textoFijo.Name = "textoFijo";
             this.textoFijo.Size = new System.Drawing.Size(420, 189);
             this.textoFijo.TabIndex = 0;
