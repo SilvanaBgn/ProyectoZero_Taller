@@ -29,9 +29,12 @@ namespace UI.NuevasPantallas
                 case "Rss":
                     this.fuenteAAgregar.Tipo = TipoFuente.Rss;
                     this.fuenteAAgregar.origenItems = this.textBoxFuenteRss.Text;
+                    this.fuenteAAgregar.Descripcion = this.textBoxDescripcionRss.Text;
                     break;
                 case "Texto Fijo":
                     this.fuenteAAgregar.Tipo = TipoFuente.TextoFijo;
+                    this.fuenteAAgregar.Descripcion = this.textoFijo.Descripcion;
+                    this.fuenteAAgregar.Items = this.textoFijo.ListaItems;
                     break;
             }
 
@@ -46,7 +49,6 @@ namespace UI.NuevasPantallas
 
         private void BgwActualizarRssAlGuardar_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
         {
-            this.fuenteAAgregar.Descripcion = this.textBoxDescripcionRss.Text;
             this.iControladorDominio.AgregarFuente(fuenteAAgregar);
             this.iControladorDominio.GuardarCambios();
 

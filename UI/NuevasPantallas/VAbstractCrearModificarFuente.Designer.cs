@@ -69,6 +69,7 @@ namespace UI.NuevasPantallas
             // 
             // comboBoxTipoFuente
             // 
+            this.comboBoxTipoFuente.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBoxTipoFuente.FormattingEnabled = true;
             this.comboBoxTipoFuente.Items.AddRange(new object[] {
             "Rss",
@@ -78,7 +79,6 @@ namespace UI.NuevasPantallas
             this.comboBoxTipoFuente.Size = new System.Drawing.Size(194, 21);
             this.comboBoxTipoFuente.TabIndex = 4;
             this.comboBoxTipoFuente.SelectedValueChanged += new System.EventHandler(this.MostrarPanel);
-            this.comboBoxTipoFuente.DropDownStyle = ComboBoxStyle.DropDownList;
             // 
             // labelTipoFuente
             // 
@@ -160,7 +160,7 @@ namespace UI.NuevasPantallas
             // 
             // buttonGuardar
             // 
-            this.buttonGuardar.Location = new System.Drawing.Point(283, 257);
+            this.buttonGuardar.Location = new System.Drawing.Point(283, 283);
             this.buttonGuardar.Name = "buttonGuardar";
             this.buttonGuardar.Size = new System.Drawing.Size(75, 23);
             this.buttonGuardar.TabIndex = 7;
@@ -169,7 +169,7 @@ namespace UI.NuevasPantallas
             // 
             // buttonCancelar
             // 
-            this.buttonCancelar.Location = new System.Drawing.Point(365, 257);
+            this.buttonCancelar.Location = new System.Drawing.Point(365, 283);
             this.buttonCancelar.Name = "buttonCancelar";
             this.buttonCancelar.Size = new System.Drawing.Size(75, 23);
             this.buttonCancelar.TabIndex = 8;
@@ -182,21 +182,21 @@ namespace UI.NuevasPantallas
             this.panelTextoFijo.Controls.Add(this.textoFijo);
             this.panelTextoFijo.Location = new System.Drawing.Point(12, 30);
             this.panelTextoFijo.Name = "panelTextoFijo";
-            this.panelTextoFijo.Size = new System.Drawing.Size(438, 204);
+            this.panelTextoFijo.Size = new System.Drawing.Size(438, 248);
             this.panelTextoFijo.TabIndex = 9;
             // 
             // textoFijo
             // 
             this.textoFijo.Location = new System.Drawing.Point(3, 7);
             this.textoFijo.Name = "textoFijo";
-            this.textoFijo.Size = new System.Drawing.Size(420, 189);
+            this.textoFijo.Size = new System.Drawing.Size(420, 238);
             this.textoFijo.TabIndex = 0;
             // 
             // VAbstractCrearModificarFuente
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(461, 290);
+            this.ClientSize = new System.Drawing.Size(461, 309);
             this.Controls.Add(this.panelTextoFijo);
             this.Controls.Add(this.buttonCancelar);
             this.Controls.Add(this.buttonGuardar);
