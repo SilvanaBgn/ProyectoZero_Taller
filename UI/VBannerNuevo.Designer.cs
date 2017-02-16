@@ -1,6 +1,6 @@
 ﻿namespace UI
 {
-    partial class VCampaniaBuscarPorCodigo
+    partial class VBannerNuevo
     {
         /// <summary>
         /// Required designer variable.
@@ -28,19 +28,35 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.groupBoxHora.SuspendLayout();
+            this.groupBoxFecha.SuspendLayout();
+            this.groupBoxDatos.SuspendLayout();
+            this.panelTextoPlano.SuspendLayout();
+            this.panelFuenteRss.SuspendLayout();
             this.SuspendLayout();
             // 
-            // buttonBuscar
+            // buttonUp
             // 
-            this.buttonBuscar.Click += new System.EventHandler(this.buttonBuscar_Click);
+            this.buttonUp.FlatAppearance.BorderSize = 0;
             // 
-            // VCampaniaBuscarPorCodigo
+            // buttonDown
+            // 
+            this.buttonDown.FlatAppearance.BorderSize = 0;
+            // 
+            // VBannerNuevo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(384, 51);
-            this.Name = "VCampaniaBuscarPorCodigo";
-            this.Text += "Campaña por Código";
+            this.Name = "VBannerNuevo";
+            this.groupBoxHora.ResumeLayout(false);
+            this.groupBoxHora.PerformLayout();
+            this.groupBoxFecha.ResumeLayout(false);
+            this.groupBoxFecha.PerformLayout();
+            this.groupBoxDatos.ResumeLayout(false);
+            this.panelTextoPlano.ResumeLayout(false);
+            this.panelTextoPlano.PerformLayout();
+            this.panelFuenteRss.ResumeLayout(false);
+            this.panelFuenteRss.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 

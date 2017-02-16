@@ -44,7 +44,7 @@ namespace UI.UserControls
             this.Enabled = false;
             this.iCaracterInicial = 0;
             this.iTimerTexto = new Timer();
-            this.iTimerTexto.Interval = 250;
+            this.iTimerTexto.Interval = 100;
             this.iTimerTexto.Tick += new EventHandler(timerTexto_Tick);
             this.iFuncionando = false;
         }
