@@ -34,14 +34,16 @@
             // 
             this.buttonGuardar.Click += new System.EventHandler(this.ButtonGuardar_Click);
             // 
-            //VModificarBanner
+            // VModificarBanner
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Name = "VModificarBanner";
             this.Text = "Modificar Banner";
+            this.Activated += new System.EventHandler(this.VModificarBanner_Activated);
             this.ResumeLayout(false);
             this.PerformLayout();
+
         }
 
         #endregion

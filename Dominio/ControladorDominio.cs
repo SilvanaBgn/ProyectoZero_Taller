@@ -133,7 +133,7 @@ namespace Dominio
         private string InfoLeidaBanner(Banner pBanner)
         {
             string texto = "";
-            Fuente fuenteDelBanner = this.BuscarFuentePorId(pBanner.FuenteId);
+            Fuente fuenteDelBanner = this.BuscarFuentePorId(pBanner.Fuente.FuenteId);
             texto = pBanner.Descripcion;
             texto += ": ";
             IList<Item> listaItems = (List<Item>)fuenteDelBanner.Leer();

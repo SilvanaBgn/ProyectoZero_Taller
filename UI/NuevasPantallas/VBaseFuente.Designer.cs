@@ -1,4 +1,6 @@
-﻿namespace UI.NuevasPantallas
+﻿using System.Windows.Forms;
+
+namespace UI.NuevasPantallas
 {
     partial class VBaseFuente
     {
@@ -79,11 +81,12 @@
             // 
             this.dataGridViewMostrar.AllowUserToAddRows = false;
             this.dataGridViewMostrar.AllowUserToDeleteRows = false;
-            this.dataGridViewMostrar.AllowUserToOrderColumns = true;
+            this.dataGridViewMostrar.MultiSelect = false;
             this.dataGridViewMostrar.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewMostrar.Location = new System.Drawing.Point(211, 52);
             this.dataGridViewMostrar.Name = "dataGridViewMostrar";
             this.dataGridViewMostrar.ReadOnly = true;
+            this.dataGridViewMostrar.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridViewMostrar.Size = new System.Drawing.Size(509, 225);
             this.dataGridViewMostrar.TabIndex = 3;
             // 
@@ -108,6 +111,7 @@
             // 
             // comboBoxTipo
             // 
+            this.comboBoxTipo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBoxTipo.FormattingEnabled = true;
             this.comboBoxTipo.Items.AddRange(new object[] {
             "Rss",

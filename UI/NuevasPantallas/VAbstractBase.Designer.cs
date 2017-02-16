@@ -117,14 +117,15 @@
             // 
             this.dataGridViewMostrar.AllowUserToAddRows = false;
             this.dataGridViewMostrar.AllowUserToDeleteRows = false;
-            this.dataGridViewMostrar.AllowUserToOrderColumns = true;
             this.dataGridViewMostrar.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewMostrar.Location = new System.Drawing.Point(282, 69);
+            this.dataGridViewMostrar.MultiSelect = false;
             this.dataGridViewMostrar.Name = "dataGridViewMostrar";
             this.dataGridViewMostrar.ReadOnly = true;
             this.dataGridViewMostrar.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridViewMostrar.Size = new System.Drawing.Size(363, 344);
             this.dataGridViewMostrar.TabIndex = 7;
+            this.dataGridViewMostrar.CellMouseDown += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dataGridViewMostrar_CellMouseDown);
             // 
             // textBoxDescripcion
             // 

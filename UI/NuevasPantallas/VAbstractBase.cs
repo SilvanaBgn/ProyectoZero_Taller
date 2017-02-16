@@ -58,5 +58,16 @@ namespace UI.NuevasPantallas
         {
             this.Close();
         }
+
+        private void dataGridViewMostrar_CellMouseDown(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            if ((Control.ModifierKeys & Keys.Control) == Keys.Control)
+            {
+                if (e.Button == MouseButtons.Left)
+                {
+                    dataGridViewMostrar.ClearSelection();
+                }
+            }
+        }
     }
 }

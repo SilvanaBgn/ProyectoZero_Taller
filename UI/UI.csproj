@@ -97,12 +97,6 @@
     <Compile Include="NuevasPantallas\VBaseBanner.Designer.cs">
       <DependentUpon>VBaseBanner.cs</DependentUpon>
     </Compile>
-    <Compile Include="NuevasPantallas\VModificarBanner.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="NuevasPantallas\VModificarBanner.Designer.cs">
-      <DependentUpon>VModificarBanner.cs</DependentUpon>
-    </Compile>
     <Compile Include="NuevasPantallas\VPrincipal.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -186,6 +180,12 @@
     <Compile Include="NuevasPantallas\VCrearFuente.Designer.cs">
       <DependentUpon>VCrearFuente.cs</DependentUpon>
     </Compile>
+    <Compile Include="NuevasPantallas\VModificarBanner.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="NuevasPantallas\VModificarBanner.Designer.cs">
+      <DependentUpon>VModificarBanner.cs</DependentUpon>
+    </Compile>
     <Compile Include="NuevasPantallas\VModificarCampania.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -222,11 +222,11 @@
     <Compile Include="UserControls\RangoFecha.Designer.cs">
       <DependentUpon>RangoFecha.cs</DependentUpon>
     </Compile>
-    <Compile Include="UserControls\TextoPlano.cs">
+    <Compile Include="UserControls\TextoFijo.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="UserControls\TextoPlano.Designer.cs">
-      <DependentUpon>TextoPlano.cs</DependentUpon>
+    <Compile Include="UserControls\TextoFijo.Designer.cs">
+      <DependentUpon>TextoFijo.cs</DependentUpon>
     </Compile>
     <Compile Include="UserControls\RangoHorario.cs">
       <SubType>UserControl</SubType>
@@ -248,12 +248,6 @@
     <EmbeddedResource Include="NuevasPantallas\VAbstractCrearModificarCampania.resx">
       <DependentUpon>VAbstractCrearModificarCampania.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="NuevasPantallas\VBaseBanner.resx">
-      <DependentUpon>VBaseBanner.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="NuevasPantallas\VBaseCampania.resx">
-      <DependentUpon>VBaseCampania.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="NuevasPantallas\VBaseFuente.resx">
       <DependentUpon>VBaseFuente.cs</DependentUpon>
       <SubType>Designer</SubType>
@@ -261,14 +255,11 @@
     <EmbeddedResource Include="NuevasPantallas\VCrearBanner.resx">
       <DependentUpon>VCrearBanner.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="NuevasPantallas\VCrearCampania.resx">
-      <DependentUpon>VCrearCampania.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="NuevasPantallas\VCrearFuente.resx">
       <DependentUpon>VCrearFuente.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="NuevasPantallas\VModificarCampania.resx">
-      <DependentUpon>VModificarCampania.cs</DependentUpon>
+    <EmbeddedResource Include="NuevasPantallas\VModificarBanner.resx">
+      <DependentUpon>VModificarBanner.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="NuevasPantallas\VModificarFuente.resx">
       <DependentUpon>VModificarFuente.cs</DependentUpon>
@@ -301,8 +292,8 @@
     <EmbeddedResource Include="UserControls\RangoHorario.resx">
       <DependentUpon>RangoHorario.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UserControls\TextoPlano.resx">
-      <DependentUpon>TextoPlano.cs</DependentUpon>
+    <EmbeddedResource Include="UserControls\TextoFijo.resx">
+      <DependentUpon>TextoFijo.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="log4net.config">
       <SubType>Designer</SubType>

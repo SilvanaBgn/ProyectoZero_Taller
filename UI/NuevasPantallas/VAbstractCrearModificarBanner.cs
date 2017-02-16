@@ -25,12 +25,17 @@ namespace UI.NuevasPantallas
             this.iControladorDominio = pControladorDominio;
         }
 
-        private void CargarDataGridViewFuentes(List<Fuente> pListaFuentes)
+        protected void CargarDataGridViewFuentes(List<Fuente> pListaFuentes)
         {
             this.dataGridViewMostrarFuentes.DataSource = pListaFuentes;
+            this.dataGridViewMostrarFuentes.AutoGenerateColumns = false;
+            this.dataGridViewMostrarFuentes.Columns["Tipo"].DisplayIndex = 0;
+            this.dataGridViewMostrarFuentes.Columns["Descripcion"].DisplayIndex = 1;
+            this.dataGridViewMostrarFuentes.Columns["origenItems"].DisplayIndex = 2;
+            this.dataGridViewMostrarFuentes.Columns["origenItems"].HeaderText = "Origen items";
+            this.dataGridViewMostrarFuentes.Columns["FuenteId"].Width = 0;
             this.dataGridViewMostrarFuentes.Columns["Banners"].Visible = false;
             this.dataGridViewMostrarFuentes.Columns["Items"].Visible = false;
-            this.dataGridViewMostrarFuentes.Columns["FuenteId"].Visible = false;
         }
 
         private void buttonCancelar_Click(object sender, EventArgs e)
@@ -38,14 +43,14 @@ namespace UI.NuevasPantallas
             this.Close();
         }
 
-        private void VAbstractCrearModificarBanner_Load(object sender, EventArgs e)
-        {
-            this.CargarDataGridViewFuentes(this.iControladorDominio.ObtenerTodasLasFuentes());
-        }
-
         private void VAbstractCrearModificarBanner_Activated(object sender, EventArgs e)
         {
             this.CargarDataGridViewFuentes(this.iControladorDominio.ObtenerTodasLasFuentes());
         }
+
+        //private void VAbstractCrearModificarBanner_Shown(object sender, EventArgs e)
+        //{
+        //    this.dataGridViewMostrarFuentes.ClearSelection();
+        //}
     }
 }

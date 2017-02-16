@@ -17,7 +17,6 @@ namespace Dominio
         public byte[] Bytes { get; set; }
         public int Orden { get; set; }
 
-        public int CampaniaId { get; set; }
         public virtual Campania Campania { get; set; }
     }
 }

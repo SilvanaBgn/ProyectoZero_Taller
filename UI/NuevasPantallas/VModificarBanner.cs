@@ -20,12 +20,24 @@ namespace UI.NuevasPantallas
             InitializeComponent();
             this.iBannerAModificar = pBannerAModificar;
             this.CargarBannerAModificar(this.iBannerAModificar);
+            base.CargarDataGridViewFuentes(this.iControladorDominio.ObtenerTodasLasFuentes());
         }
 
-        private void SeleccionarFuenteDelBanner(int pCodigoFuente)
+        private void SeleccionarFuenteDelBanner()
         {
-            this.iControladorDominio.BuscarFuentePorId(pCodigoFuente);
+            int indiceFila = -1;
 
+            DataGridViewRow row = this.dataGridViewMostrarFuentes.Rows
+                .Cast<DataGridViewRow>()
+                .Where(r => r.Cells["FuenteId"].Value.ToString().Equals(this.iBannerAModificar.Fuente.FuenteId.ToString()))
+                .First();
+
+            indiceFila = row.Index;
+
+            base.dataGridViewMostrarFuentes.Rows[0].Selected = false;
+            base.dataGridViewMostrarFuentes.Rows[indiceFila].Selected = true;
+            base.dataGridViewMostrarFuentes.CurrentCell = dataGridViewMostrarFuentes.Rows[indiceFila].Cells[0];
+            base.dataGridViewMostrarFuentes.Columns["FuenteId"].Visible = false;
         }
 
         private void CargarBannerAModificar(Banner bannerAModificar)
@@ -36,7 +48,6 @@ namespace UI.NuevasPantallas
             this.rangoFecha.FechaFin = bannerAModificar.FechaFin;
             this.rangoHorario.HoraInicio = bannerAModificar.HoraInicio;
             this.rangoHorario.HoraFin = bannerAModificar.HoraFin;
-            this.dataGridViewMostrarFuentes.Rows[1];
         }
 
         private void ButtonGuardar_Click(object sender, EventArgs e)
@@ -47,11 +58,24 @@ namespace UI.NuevasPantallas
             this.iBannerAModificar.FechaFin = this.rangoFecha.FechaFin;
             this.iBannerAModificar.HoraInicio = this.rangoHorario.HoraInicio;
             this.iBannerAModificar.HoraFin = this.rangoHorario.HoraFin;
+            this.iBannerAModificar.Fuente = (Fuente)this.dataGridViewMostrarFuentes.CurrentRow.DataBoundItem;
 
             this.iControladorDominio.ModificarBanner(this.iBannerAModificar);
             this.iControladorDominio.GuardarCambios();
 
             this.Close();
+        }
+
+        //private void VModificarBanner_Shown(object sender, EventArgs e)
+        //{
+        //    //this.dataGridViewMostrarFuentes.ClearSelection();
+        //    this.SeleccionarFuenteDelBanner();
+        //}
+
+        private void VModificarBanner_Activated(object sender, EventArgs e)
+        {
+            this.dataGridViewMostrarFuentes.ClearSelection();
+            this.SeleccionarFuenteDelBanner();
         }
     }
 }

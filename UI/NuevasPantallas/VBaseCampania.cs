@@ -51,7 +51,16 @@ namespace UI.NuevasPantallas
         /// <returns>Banner a modificar</returns>
         private Campania campaniaAModificar()
         {
-            return (Campania)this.dataGridViewMostrar.SelectedRows[0].DataBoundItem;
+            Campania campania = new Campania();
+            try
+            {
+                campania=(Campania)this.dataGridViewMostrar.SelectedRows[0].DataBoundItem;
+            }
+            catch (ArgumentOutOfRangeException)
+            {
+                MessageBox.Show("Debe seleccionar una campaña para continuar","Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            return campania;
         }
 
         /// <summary>
