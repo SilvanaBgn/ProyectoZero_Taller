@@ -28,39 +28,136 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.label1 = new System.Windows.Forms.Label();
+            this.textBoxDescripcionRss = new System.Windows.Forms.TextBox();
             this.comboBoxTipoFuente = new System.Windows.Forms.ComboBox();
-            this.label3 = new System.Windows.Forms.Label();
+            this.labelTipoFuente = new System.Windows.Forms.Label();
+            this.panelRss = new System.Windows.Forms.Panel();
+            this.textBoxFuenteRss = new System.Windows.Forms.TextBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.listBoxPasosBanner = new System.Windows.Forms.ListBox();
+            this.textBoxAgregarPasoBanner = new System.Windows.Forms.TextBox();
+            this.textBoxDescripcionTextoFijo = new System.Windows.Forms.TextBox();
+            this.label7 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
             this.buttonGuardar = new System.Windows.Forms.Button();
             this.buttonCancelar = new System.Windows.Forms.Button();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.textoPlano2 = new UI.UserControls.TextoPlano();
+            this.bgwActualizarRssAlGuardar = new System.ComponentModel.BackgroundWorker();
+            this.panelTextoFijo = new System.Windows.Forms.Panel();
+            this.textoFijo = new UI.UserControls.TextoFijo();
+            this.panelRss.SuspendLayout();
+            this.panelTextoFijo.SuspendLayout();
             this.SuspendLayout();
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(14, 40);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(63, 13);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "Descripcion";
+            // 
+            // textBoxDescripcionRss
+            // 
+            this.textBoxDescripcionRss.Location = new System.Drawing.Point(83, 33);
+            this.textBoxDescripcionRss.Name = "textBoxDescripcionRss";
+            this.textBoxDescripcionRss.Size = new System.Drawing.Size(194, 20);
+            this.textBoxDescripcionRss.TabIndex = 1;
             // 
             // comboBoxTipoFuente
             // 
             this.comboBoxTipoFuente.FormattingEnabled = true;
             this.comboBoxTipoFuente.Items.AddRange(new object[] {
-            "Texto Plano",
-            "RSS"});
-            this.comboBoxTipoFuente.Location = new System.Drawing.Point(95, 10);
+            "Rss",
+            "Texto Fijo"});
+            this.comboBoxTipoFuente.Location = new System.Drawing.Point(98, 10);
             this.comboBoxTipoFuente.Name = "comboBoxTipoFuente";
             this.comboBoxTipoFuente.Size = new System.Drawing.Size(194, 21);
             this.comboBoxTipoFuente.TabIndex = 4;
-            this.comboBoxTipoFuente.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
+            this.comboBoxTipoFuente.SelectedValueChanged += new System.EventHandler(this.MostrarPanel);
             // 
-            // label3
+            // labelTipoFuente
             // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(13, 13);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(76, 13);
-            this.label3.TabIndex = 5;
-            this.label3.Text = "Tipo de fuente";
+            this.labelTipoFuente.AutoSize = true;
+            this.labelTipoFuente.Location = new System.Drawing.Point(13, 13);
+            this.labelTipoFuente.Name = "labelTipoFuente";
+            this.labelTipoFuente.Size = new System.Drawing.Size(79, 13);
+            this.labelTipoFuente.TabIndex = 5;
+            this.labelTipoFuente.Text = "Tipo de Fuente";
+            // 
+            // panelRss
+            // 
+            this.panelRss.Controls.Add(this.textBoxFuenteRss);
+            this.panelRss.Controls.Add(this.label4);
+            this.panelRss.Controls.Add(this.label1);
+            this.panelRss.Controls.Add(this.textBoxDescripcionRss);
+            this.panelRss.Location = new System.Drawing.Point(12, 37);
+            this.panelRss.Name = "panelRss";
+            this.panelRss.Size = new System.Drawing.Size(382, 175);
+            this.panelRss.TabIndex = 6;
+            this.panelRss.Visible = false;
+            // 
+            // textBoxFuenteRss
+            // 
+            this.textBoxFuenteRss.Location = new System.Drawing.Point(79, 99);
+            this.textBoxFuenteRss.Name = "textBoxFuenteRss";
+            this.textBoxFuenteRss.Size = new System.Drawing.Size(283, 20);
+            this.textBoxFuenteRss.TabIndex = 5;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(10, 102);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(61, 13);
+            this.label4.TabIndex = 4;
+            this.label4.Text = "Fuente Rss";
+            // 
+            // listBoxPasosBanner
+            // 
+            this.listBoxPasosBanner.FormattingEnabled = true;
+            this.listBoxPasosBanner.Location = new System.Drawing.Point(21, 96);
+            this.listBoxPasosBanner.Name = "listBoxPasosBanner";
+            this.listBoxPasosBanner.Size = new System.Drawing.Size(345, 69);
+            this.listBoxPasosBanner.TabIndex = 6;
+            // 
+            // textBoxAgregarPasoBanner
+            // 
+            this.textBoxAgregarPasoBanner.Location = new System.Drawing.Point(21, 69);
+            this.textBoxAgregarPasoBanner.Multiline = true;
+            this.textBoxAgregarPasoBanner.Name = "textBoxAgregarPasoBanner";
+            this.textBoxAgregarPasoBanner.Size = new System.Drawing.Size(345, 20);
+            this.textBoxAgregarPasoBanner.TabIndex = 5;
+            // 
+            // textBoxDescripcionTextoFijo
+            // 
+            this.textBoxDescripcionTextoFijo.Location = new System.Drawing.Point(83, 12);
+            this.textBoxDescripcionTextoFijo.Name = "textBoxDescripcionTextoFijo";
+            this.textBoxDescripcionTextoFijo.Size = new System.Drawing.Size(194, 20);
+            this.textBoxDescripcionTextoFijo.TabIndex = 3;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(18, 53);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(299, 13);
+            this.label7.TabIndex = 2;
+            this.label7.Text = "Ingresar lineas separadas por [ENTER] (Suprimir para eliminar)";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(18, 15);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(63, 13);
+            this.label5.TabIndex = 0;
+            this.label5.Text = "Descripcion";
             // 
             // buttonGuardar
             // 
-            this.buttonGuardar.Location = new System.Drawing.Point(272, 280);
+            this.buttonGuardar.Location = new System.Drawing.Point(283, 257);
             this.buttonGuardar.Name = "buttonGuardar";
             this.buttonGuardar.Size = new System.Drawing.Size(75, 23);
             this.buttonGuardar.TabIndex = 7;
@@ -69,66 +166,68 @@
             // 
             // buttonCancelar
             // 
-            this.buttonCancelar.Location = new System.Drawing.Point(353, 280);
+            this.buttonCancelar.Location = new System.Drawing.Point(365, 257);
             this.buttonCancelar.Name = "buttonCancelar";
             this.buttonCancelar.Size = new System.Drawing.Size(75, 23);
             this.buttonCancelar.TabIndex = 8;
             this.buttonCancelar.Text = "Cancelar";
             this.buttonCancelar.UseVisualStyleBackColor = true;
-            this.buttonCancelar.Click += new System.EventHandler(this.button2_Click);
+            this.buttonCancelar.Click += new System.EventHandler(this.buttonCancelar_Click);
             // 
-            // textBox2
+            // panelTextoFijo
             // 
-            this.textBox2.Location = new System.Drawing.Point(52, 51);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(237, 20);
-            this.textBox2.TabIndex = 11;
+            this.panelTextoFijo.Controls.Add(this.textoFijo);
+            this.panelTextoFijo.Location = new System.Drawing.Point(12, 30);
+            this.panelTextoFijo.Name = "panelTextoFijo";
+            this.panelTextoFijo.Size = new System.Drawing.Size(438, 204);
+            this.panelTextoFijo.TabIndex = 9;
             // 
-            // label2
+            // textoFijo
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(13, 58);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(33, 13);
-            this.label2.TabIndex = 10;
-            this.label2.Text = "Titulo";
-            // 
-            // textoPlano2
-            // 
-            this.textoPlano2.ListaItems = null;
-            this.textoPlano2.Location = new System.Drawing.Point(12, 77);
-            this.textoPlano2.Name = "textoPlano2";
-            this.textoPlano2.Size = new System.Drawing.Size(427, 197);
-            this.textoPlano2.TabIndex = 12;
+            this.textoFijo.Location = new System.Drawing.Point(3, 7);
+            this.textoFijo.Name = "textoFijo";
+            this.textoFijo.Size = new System.Drawing.Size(420, 189);
+            this.textoFijo.TabIndex = 0;
             // 
             // VAbstractCrearModificarFuente
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(440, 315);
-            this.Controls.Add(this.textoPlano2);
-            this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.label2);
+            this.ClientSize = new System.Drawing.Size(461, 290);
+            this.Controls.Add(this.panelTextoFijo);
             this.Controls.Add(this.buttonCancelar);
             this.Controls.Add(this.buttonGuardar);
-            this.Controls.Add(this.label3);
+            this.Controls.Add(this.labelTipoFuente);
             this.Controls.Add(this.comboBoxTipoFuente);
+            this.Controls.Add(this.panelRss);
             this.Name = "VAbstractCrearModificarFuente";
             this.Text = "VAbstractCrearModificarFuente";
+            this.panelRss.ResumeLayout(false);
+            this.panelRss.PerformLayout();
+            this.panelTextoFijo.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
+
+        private System.Windows.Forms.Label label1;
+        protected System.Windows.Forms.TextBox textBoxDescripcionRss;
         protected System.Windows.Forms.ComboBox comboBoxTipoFuente;
-        protected System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label labelTipoFuente;
+        protected System.Windows.Forms.Panel panelRss;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label label5;
+        protected System.Windows.Forms.TextBox textBoxFuenteRss;
+        private System.Windows.Forms.Label label4;
         protected System.Windows.Forms.Button buttonGuardar;
-        protected System.Windows.Forms.Button buttonCancelar;
-        protected UserControls.TextoPlano textoPlano1;
-        protected System.Windows.Forms.TextBox textBox2;
-        protected System.Windows.Forms.Label label2;
-        protected UserControls.Galeria galeria1;
-        protected UserControls.TextoPlano textoPlano2;
+        private System.Windows.Forms.Button buttonCancelar;
+        protected System.Windows.Forms.TextBox textBoxAgregarPasoBanner;
+        protected System.Windows.Forms.TextBox textBoxDescripcionTextoFijo;
+        protected System.Windows.Forms.ListBox listBoxPasosBanner;
+        protected System.ComponentModel.BackgroundWorker bgwActualizarRssAlGuardar;
+        protected System.Windows.Forms.Panel panelTextoFijo;
+        protected UserControls.TextoFijo textoFijo;
     }
 }

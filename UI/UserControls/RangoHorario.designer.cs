@@ -33,8 +33,8 @@
             this.labelDiferenciaEntreInicioFin = new System.Windows.Forms.Label();
             this.dateTimePickerHoraInicio = new System.Windows.Forms.DateTimePicker();
             this.dateTimePickerHoraFin = new System.Windows.Forms.DateTimePicker();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.groupBox1.SuspendLayout();
+            this.groupBox = new System.Windows.Forms.GroupBox();
+            this.groupBox.SuspendLayout();
             this.SuspendLayout();
             // 
             // labelInicio
@@ -87,30 +87,30 @@
             this.dateTimePickerHoraFin.Value = new System.DateTime(2017, 1, 30, 0, 0, 0, 0);
             this.dateTimePickerHoraFin.ValueChanged += new System.EventHandler(this.dateTimePickerHoraFin_ValueChanged);
             // 
-            // groupBox1
+            // groupBox
             // 
-            this.groupBox1.Controls.Add(this.dateTimePickerHoraFin);
-            this.groupBox1.Controls.Add(this.dateTimePickerHoraInicio);
-            this.groupBox1.Controls.Add(this.labelDiferenciaEntreInicioFin);
-            this.groupBox1.Controls.Add(this.labelFin);
-            this.groupBox1.Controls.Add(this.labelInicio);
-            this.groupBox1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.groupBox1.Location = new System.Drawing.Point(0, 0);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(139, 96);
-            this.groupBox1.TabIndex = 0;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Rango Horario";
+            this.groupBox.Controls.Add(this.dateTimePickerHoraFin);
+            this.groupBox.Controls.Add(this.dateTimePickerHoraInicio);
+            this.groupBox.Controls.Add(this.labelDiferenciaEntreInicioFin);
+            this.groupBox.Controls.Add(this.labelFin);
+            this.groupBox.Controls.Add(this.labelInicio);
+            this.groupBox.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.groupBox.Location = new System.Drawing.Point(0, 0);
+            this.groupBox.Name = "groupBox";
+            this.groupBox.Size = new System.Drawing.Size(139, 96);
+            this.groupBox.TabIndex = 0;
+            this.groupBox.TabStop = false;
+            this.groupBox.Text = "Rango Horario";
             // 
             // RangoHorario
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.groupBox1);
+            this.Controls.Add(this.groupBox);
             this.Name = "RangoHorario";
             this.Size = new System.Drawing.Size(139, 96);
-            this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
+            this.groupBox.ResumeLayout(false);
+            this.groupBox.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -122,6 +122,6 @@
         private System.Windows.Forms.Label labelDiferenciaEntreInicioFin;
         private System.Windows.Forms.DateTimePicker dateTimePickerHoraInicio;
         private System.Windows.Forms.DateTimePicker dateTimePickerHoraFin;
-        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.GroupBox groupBox;
     }
 }

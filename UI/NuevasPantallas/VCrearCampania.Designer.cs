@@ -28,9 +28,22 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
+            this.SuspendLayout();
+            // 
+            // buttonGuardar
+            // 
+            this.buttonGuardar.Click += new System.EventHandler(this.ButtonGuardar_Click);
+            // 
+            // VCrearCampania
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Text = "VCrearCampania";
+            this.ClientSize = new System.Drawing.Size(520, 466);
+            this.Name = "VCrearCampania";
+            this.Text = "Nueva Campaña";
+            this.ResumeLayout(false);
+            this.PerformLayout();
+
         }
 
         #endregion

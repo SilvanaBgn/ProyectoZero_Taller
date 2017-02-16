@@ -20,7 +20,6 @@ namespace UI.NuevasPantallas
             InitializeComponent();
             this.iCampaniaAModificar = pCampaniaAModificar;
             this.CargarCampaniaAModificar(this.iCampaniaAModificar);
-            this.buttonGuardar.Click += ButtonGuardar_Click;
         }
 
         private void CargarCampaniaAModificar(Campania campaniaAModificar)
@@ -47,7 +46,7 @@ namespace UI.NuevasPantallas
             this.iControladorDominio.ModificarCampania(this.iCampaniaAModificar);
             this.iControladorDominio.GuardarCambios();
 
-            this.Hide();
+            this.Close();
         }
     }
 }

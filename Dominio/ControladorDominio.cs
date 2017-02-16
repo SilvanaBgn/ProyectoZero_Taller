@@ -62,7 +62,8 @@ namespace Dominio
             return this.iUoW.RepositorioBanners.Obtener(filter,null).ToList();
         }
 
-        public List<Banner> FiltrarBanners(DateTime[] pFiltroFechas, TimeSpan[] pFiltroHoras, string pFiltroTitulo, string pFiltroDescripcion)
+        public List<Banner> FiltrarBanners(
+            DateTime[] pFiltroFechas, TimeSpan[] pFiltroHoras, string pFiltroTitulo, string pFiltroDescripcion)
         {
             DateTime fechaInicio;
             DateTime fechaFin;
@@ -101,8 +102,6 @@ namespace Dominio
 
             return this.iUoW.RepositorioBanners.Filtrar(filtroFechas, filtroHoras, filtroTitulo, filtroDescripcion).ToList();
         }
-
-
 
         public List<Banner> ObtenerTodosLosBanners()
         {
@@ -344,6 +343,36 @@ namespace Dominio
         {
             return iUoW.RepositorioFuentes.Obtener().ToList();
         }
+
+        public List<Fuente> FiltrarFuentes(string pFiltroTipoFuente, string pFiltroDescripcion)
+        {
+
+            TipoFuente tipoFuente;
+
+            //Se parsea el string que representa el Enum, devuelve el TipoFuente correspondiente
+            if (Enum.TryParse(pFiltroTipoFuente, out tipoFuente))
+            {
+                tipoFuente = (TipoFuente)Enum.Parse(typeof(TipoFuente), pFiltroTipoFuente);
+            }
+            
+
+            Expression<Func<Fuente, bool>> filtroTipoFuente = null;
+            Expression<Func<Fuente, bool>> filtroDescripcion = null;
+
+            if (pFiltroTipoFuente!=null)
+            {
+                filtroTipoFuente = x => x.Tipo == tipoFuente;
+            }
+
+            if (pFiltroDescripcion != null)
+            {
+                filtroDescripcion = x => x.Descripcion.Contains(pFiltroDescripcion);
+            }
+
+
+            return this.iUoW.RepositorioFuentes.Filtrar(filtroTipoFuente, filtroDescripcion).ToList();
+        }
+
         #endregion
     }
 }

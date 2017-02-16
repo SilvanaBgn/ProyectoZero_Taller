@@ -28,16 +28,26 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.panelRss.SuspendLayout();
+            this.panelTextoFijo.SuspendLayout();
             this.SuspendLayout();
+            // 
+            // buttonGuardar
+            // 
+            this.buttonGuardar.Click += new System.EventHandler(this.ButtonGuardar_Click);
             // 
             // VModificarFuente
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(406, 254);
+            this.ClientSize = new System.Drawing.Size(472, 313);
             this.Name = "VModificarFuente";
             this.Text = "VModificarFuente";
+            this.panelRss.ResumeLayout(false);
+            this.panelRss.PerformLayout();
+            this.panelTextoFijo.ResumeLayout(false);
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 

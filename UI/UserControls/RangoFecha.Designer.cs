@@ -28,28 +28,28 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.groupBox = new System.Windows.Forms.GroupBox();
             this.labelCantDias = new System.Windows.Forms.Label();
             this.labelFin = new System.Windows.Forms.Label();
             this.labelInicio = new System.Windows.Forms.Label();
             this.dateTimePickerFin = new System.Windows.Forms.DateTimePicker();
             this.dateTimePickerInicio = new System.Windows.Forms.DateTimePicker();
-            this.groupBox2.SuspendLayout();
+            this.groupBox.SuspendLayout();
             this.SuspendLayout();
             // 
-            // groupBox2
+            // groupBox
             // 
-            this.groupBox2.Controls.Add(this.labelCantDias);
-            this.groupBox2.Controls.Add(this.labelFin);
-            this.groupBox2.Controls.Add(this.labelInicio);
-            this.groupBox2.Controls.Add(this.dateTimePickerFin);
-            this.groupBox2.Controls.Add(this.dateTimePickerInicio);
-            this.groupBox2.Location = new System.Drawing.Point(0, 0);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(257, 93);
-            this.groupBox2.TabIndex = 47;
-            this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "Rango Fecha";
+            this.groupBox.Controls.Add(this.labelCantDias);
+            this.groupBox.Controls.Add(this.labelFin);
+            this.groupBox.Controls.Add(this.labelInicio);
+            this.groupBox.Controls.Add(this.dateTimePickerFin);
+            this.groupBox.Controls.Add(this.dateTimePickerInicio);
+            this.groupBox.Location = new System.Drawing.Point(0, 0);
+            this.groupBox.Name = "groupBox";
+            this.groupBox.Size = new System.Drawing.Size(236, 93);
+            this.groupBox.TabIndex = 47;
+            this.groupBox.TabStop = false;
+            this.groupBox.Text = "Rango Fecha";
             // 
             // labelCantDias
             // 
@@ -103,18 +103,18 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.groupBox2);
+            this.Controls.Add(this.groupBox);
             this.Name = "RangoFecha";
-            this.Size = new System.Drawing.Size(257, 96);
-            this.groupBox2.ResumeLayout(false);
-            this.groupBox2.PerformLayout();
+            this.Size = new System.Drawing.Size(241, 96);
+            this.groupBox.ResumeLayout(false);
+            this.groupBox.PerformLayout();
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        protected System.Windows.Forms.GroupBox groupBox2;
+        protected System.Windows.Forms.GroupBox groupBox;
         private System.Windows.Forms.Label labelFin;
         private System.Windows.Forms.Label labelInicio;
         protected System.Windows.Forms.DateTimePicker dateTimePickerFin;

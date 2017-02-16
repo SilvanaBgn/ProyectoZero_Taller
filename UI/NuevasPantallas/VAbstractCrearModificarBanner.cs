@@ -11,9 +11,8 @@ using Dominio;
 
 namespace UI.NuevasPantallas
 {
-    public abstract partial class VAbstractCrearModificarBanner : Form
+    public partial class VAbstractCrearModificarBanner : Form
     {
-
         protected ControladorDominio iControladorDominio;
 
         public VAbstractCrearModificarBanner()
@@ -24,6 +23,29 @@ namespace UI.NuevasPantallas
         public VAbstractCrearModificarBanner(ref ControladorDominio pControladorDominio) : this()
         {
             this.iControladorDominio = pControladorDominio;
+        }
+
+        private void CargarDataGridViewFuentes(List<Fuente> pListaFuentes)
+        {
+            this.dataGridViewMostrarFuentes.DataSource = pListaFuentes;
+            this.dataGridViewMostrarFuentes.Columns["Banners"].Visible = false;
+            this.dataGridViewMostrarFuentes.Columns["Items"].Visible = false;
+            this.dataGridViewMostrarFuentes.Columns["FuenteId"].Visible = false;
+        }
+
+        private void buttonCancelar_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void VAbstractCrearModificarBanner_Load(object sender, EventArgs e)
+        {
+            this.CargarDataGridViewFuentes(this.iControladorDominio.ObtenerTodasLasFuentes());
+        }
+
+        private void VAbstractCrearModificarBanner_Activated(object sender, EventArgs e)
+        {
+            this.CargarDataGridViewFuentes(this.iControladorDominio.ObtenerTodasLasFuentes());
         }
     }
 }

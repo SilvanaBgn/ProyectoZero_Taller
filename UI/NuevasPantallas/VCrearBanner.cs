@@ -16,7 +16,6 @@ namespace UI.NuevasPantallas
         public VCrearBanner(ref ControladorDominio pControladorDominio) : base(ref pControladorDominio)
         {
             InitializeComponent();
-            this.buttonGuardar.Click += ButtonGuardar_Click;
         }
 
         private void ButtonGuardar_Click(object sender, EventArgs e)
@@ -28,10 +27,11 @@ namespace UI.NuevasPantallas
             bannerAAgregar.FechaFin = this.rangoFecha.FechaFin;
             bannerAAgregar.HoraInicio = this.rangoHorario.HoraInicio;
             bannerAAgregar.HoraFin = this.rangoHorario.HoraFin;
-            //bannerAAgregar.Fuente = (Fuente)this.dataGridViewMostrarFuentes.CurrentRow.DataBoundItem;
+            bannerAAgregar.Fuente = (Fuente)this.dataGridViewMostrarFuentes.CurrentRow.DataBoundItem;
 
             this.iControladorDominio.AgregarBanner(bannerAAgregar);
             this.iControladorDominio.GuardarCambios();
+            this.Close();
         }
     }
 }

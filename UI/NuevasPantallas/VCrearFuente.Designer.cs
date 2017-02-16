@@ -28,9 +28,32 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
+            this.panelRss.SuspendLayout();
+            this.panelTextoFijo.SuspendLayout();
+            this.SuspendLayout();
+            // 
+            // buttonGuardar
+            // 
+            this.buttonGuardar.Click += new System.EventHandler(this.ButtonGuardar_Click);
+            // 
+            // bgwActualizarRssAlGuardar
+            // 
+            this.bgwActualizarRssAlGuardar.DoWork += new System.ComponentModel.DoWorkEventHandler(this.BgwActualizarRssAlGuardar_DoWork);
+            this.bgwActualizarRssAlGuardar.RunWorkerCompleted += new System.ComponentModel.RunWorkerCompletedEventHandler(this.BgwActualizarRssAlGuardar_RunWorkerCompleted);
+            // 
+            // VCrearFuente
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Text = "VCrearFuente";
+            this.ClientSize = new System.Drawing.Size(470, 316);
+            this.Name = "VCrearFuente";
+            this.Text = "Nueva Fuente";
+            this.panelRss.ResumeLayout(false);
+            this.panelRss.PerformLayout();
+            this.panelTextoFijo.ResumeLayout(false);
+            this.ResumeLayout(false);
+            this.PerformLayout();
+
         }
 
         #endregion

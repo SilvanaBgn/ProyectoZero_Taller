@@ -13,7 +13,6 @@ namespace UI.NuevasPantallas
 {
     public partial class VModificarBanner : VAbstractCrearModificarBanner
     {
-
         private Banner iBannerAModificar;
 
         public VModificarBanner(ref ControladorDominio pControladorDominio, Banner pBannerAModificar) : base(ref pControladorDominio)
@@ -21,7 +20,12 @@ namespace UI.NuevasPantallas
             InitializeComponent();
             this.iBannerAModificar = pBannerAModificar;
             this.CargarBannerAModificar(this.iBannerAModificar);
-            this.buttonGuardar.Click += ButtonGuardar_Click;
+        }
+
+        private void SeleccionarFuenteDelBanner(int pCodigoFuente)
+        {
+            this.iControladorDominio.BuscarFuentePorId(pCodigoFuente);
+
         }
 
         private void CargarBannerAModificar(Banner bannerAModificar)
@@ -32,6 +36,7 @@ namespace UI.NuevasPantallas
             this.rangoFecha.FechaFin = bannerAModificar.FechaFin;
             this.rangoHorario.HoraInicio = bannerAModificar.HoraInicio;
             this.rangoHorario.HoraFin = bannerAModificar.HoraFin;
+            this.dataGridViewMostrarFuentes.Rows[1];
         }
 
         private void ButtonGuardar_Click(object sender, EventArgs e)
@@ -46,7 +51,7 @@ namespace UI.NuevasPantallas
             this.iControladorDominio.ModificarBanner(this.iBannerAModificar);
             this.iControladorDominio.GuardarCambios();
 
-            this.Hide();
+            this.Close();
         }
     }
 }

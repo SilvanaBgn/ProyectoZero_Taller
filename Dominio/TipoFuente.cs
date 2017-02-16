@@ -9,6 +9,6 @@ namespace Dominio
     public enum TipoFuente
     {
         Rss,
-        TextoPlano
+        TextoFijo
     }
 }

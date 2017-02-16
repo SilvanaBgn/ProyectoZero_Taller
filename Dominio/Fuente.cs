@@ -20,7 +20,7 @@ namespace Dominio
         public string Descripcion { get; set; }
 
         /// <summary>
-        /// Información especíifica de la Fuente en cuestión
+        /// Información especifica de la Fuente en cuestión
         /// </summary>
         [DataType(DataType.Text)]
         public string origenItems { get; set; }
@@ -33,10 +33,12 @@ namespace Dominio
         /// Indica el método de lectura de esta fuente, según su Tipo
         /// </summary>
         [NotMapped]
-        public ILector iLector { get; set; }
+        private ILector iLector { get; set; }
+
+        private TipoFuente iTipo;
 
         public TipoFuente Tipo {
-            get { return this.Tipo; }
+            get { return this.iTipo; }
 
             set
             {
@@ -45,19 +47,22 @@ namespace Dominio
                 {
                     this.iLector = new LectorRss();
                 }
-                else //(value == TipoFuente.TextoPlano)
+                else //(value == TipoFuente.TextoFijo)
                 {
-                    this.iLector = null; //Porque el texto plano no tiene comportamiento adicional
+                    this.iLector = null; //Porque el texto fijo no tiene comportamiento adicional
                 }
-                //this.Tipo = value;
+                this.iTipo = value;
             }
         }
         
 
         /// <summary>
-        /// Constructor
+        /// Constructor para el caso del texto fijo, donde no hay origen de items
         /// </summary>
-        public Fuente(): this("", "", TipoFuente.TextoPlano) { }
+   //     public Fuente(string pDescripcion) : this(pDescripcion, "", TipoFuente.TextoFijo) { }
+
+        public Fuente():this("","",TipoFuente.TextoFijo)
+        { }
 
         /// <summary>
         /// Constructor
@@ -90,7 +95,7 @@ namespace Dominio
                 {
                     this.Items = (ICollection<Item>)this.iLector.Leer(this.origenItems);
                 }
-            }
+        }
             catch(Exception) //excepcion cuando no hay internet u otra.. entendible para el usuario..
             {
 

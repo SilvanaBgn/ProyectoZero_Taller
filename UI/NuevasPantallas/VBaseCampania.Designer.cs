@@ -28,9 +28,35 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
+            this.SuspendLayout();
+            // 
+            // buttonNuevo
+            // 
+            this.buttonNuevo.Click += new System.EventHandler(this.buttonNuevo_Click);
+            // 
+            // buttonModificar
+            // 
+            this.buttonModificar.Click += new System.EventHandler(this.buttonModificar_Click);
+            // 
+            // buttonEliminar
+            // 
+            this.buttonEliminar.Click += new System.EventHandler(this.buttonEliminar_Click);
+            // 
+            // buttonFiltrar
+            // 
+            this.buttonFiltrar.Click += new System.EventHandler(this.buttonFiltrar_Click);
+            // 
+            // VBaseCampania
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Text = "VBaseCampania";
+            this.Name = "VBaseCampania";
+            this.Text = "Configuración CAMPAÑAS";
+            this.Activated += new System.EventHandler(this.VBaseCampania_Activated);
+            this.Load += new System.EventHandler(this.VBaseCampania_Load);
+            this.ResumeLayout(false);
+            this.PerformLayout();
+
         }
 
         #endregion

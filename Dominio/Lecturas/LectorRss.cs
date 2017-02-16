@@ -15,11 +15,11 @@ namespace Dominio.Lecturas
             IEnumerable<Item> items = new List<Item>();
             try
             {
-                //if (String.IsNullOrWhiteSpace(pUrl)) //Comprobarlo con una expresión regular
-                if (String.IsNullOrWhiteSpace(pUrl))
-                {
-                    throw new ArgumentNullException("Debe ingresar una URL");
-                }
+                if (String.IsNullOrWhiteSpace(pUrl)) //Comprobarlo con una expresión regular
+                    if (String.IsNullOrWhiteSpace(pUrl))
+                    {
+                        throw new ArgumentNullException("Debe ingresar una URL");
+                    }
 
                 Uri urlCorrecta;
 
@@ -29,7 +29,7 @@ namespace Dominio.Lecturas
                 }
 
                 items = this.ItemRss_a_Item(this.Leer(urlCorrecta));
-            }
+        }
             catch (ArgumentNullException) { } //Si pUrl es un string nulo
             catch (UriFormatException) { } //Si pUrl no cumple con l formato de una URL
             catch (Exception) { }
@@ -78,8 +78,8 @@ namespace Dominio.Lecturas
             XmlTextReader xmlReader = new XmlTextReader(pUrl.AbsoluteUri);
             XmlDocument xmlDocument = new XmlDocument();
             IList<ItemRss> items = new List<ItemRss>();
-            try
-            {
+            //try
+            //{
                 xmlDocument.Load(xmlReader);
 
                 foreach (XmlNode itemXml in xmlDocument.SelectNodes("//channel/item"))
@@ -91,13 +91,13 @@ namespace Dominio.Lecturas
                         Url = new Uri(LectorRss.GetXmlNodeValue<string>(itemXml, "link")).ToString(),
                         FechaDePublicacion = LectorRss.GetXmlNodeValue<DateTime?>(itemXml, "pubDate")
                     });
-                }
+                //}
             }
-            catch (Exception) //Averiguar cómo se llama la excepcion cuando no hay internet
-                              //y otras excepciones
-            {
-                //Lanzar excepcion entendible para usuario
-            }
+            //catch (Exception) //Averiguar cómo se llama la excepcion cuando no hay internet
+            //                  //y otras excepciones
+            //{
+            //    //Lanzar excepcion entendible para usuario
+            //}
             return items;
         }
 
