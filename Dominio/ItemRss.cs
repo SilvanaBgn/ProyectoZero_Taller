@@ -32,7 +32,7 @@ namespace Dominio
 
         public override string ToString()
         {
-            return Titulo + ": " + Descripcion; //+ FechaDePublicacion.ToString();
+            return Titulo.ToUpper() + ": " + Descripcion; //+ FechaDePublicacion.ToString();
         }
     }
 }

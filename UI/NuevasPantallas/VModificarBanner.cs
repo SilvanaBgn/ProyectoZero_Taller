@@ -36,7 +36,6 @@ namespace UI.NuevasPantallas
             this.rangoFecha.FechaFin = bannerAModificar.FechaFin;
             this.rangoHorario.HoraInicio = bannerAModificar.HoraInicio;
             this.rangoHorario.HoraFin = bannerAModificar.HoraFin;
-            this.dataGridViewMostrarFuentes.Rows[1];
         }
 
         private void ButtonGuardar_Click(object sender, EventArgs e)
