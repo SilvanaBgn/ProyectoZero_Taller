@@ -30,8 +30,8 @@
         {
             this.comboBoxTipoFuente = new System.Windows.Forms.ComboBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
+            this.buttonGuardar = new System.Windows.Forms.Button();
+            this.buttonCancelar = new System.Windows.Forms.Button();
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.textoPlano2 = new UI.UserControls.TextoPlano();
@@ -58,24 +58,24 @@
             this.label3.TabIndex = 5;
             this.label3.Text = "Tipo de fuente";
             // 
-            // button1
+            // buttonGuardar
             // 
-            this.button1.Location = new System.Drawing.Point(272, 280);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 7;
-            this.button1.Text = "Guardar";
-            this.button1.UseVisualStyleBackColor = true;
+            this.buttonGuardar.Location = new System.Drawing.Point(272, 280);
+            this.buttonGuardar.Name = "buttonGuardar";
+            this.buttonGuardar.Size = new System.Drawing.Size(75, 23);
+            this.buttonGuardar.TabIndex = 7;
+            this.buttonGuardar.Text = "Guardar";
+            this.buttonGuardar.UseVisualStyleBackColor = true;
             // 
-            // button2
+            // buttonCancelar
             // 
-            this.button2.Location = new System.Drawing.Point(353, 280);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(75, 23);
-            this.button2.TabIndex = 8;
-            this.button2.Text = "Cancelar";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
+            this.buttonCancelar.Location = new System.Drawing.Point(353, 280);
+            this.buttonCancelar.Name = "buttonCancelar";
+            this.buttonCancelar.Size = new System.Drawing.Size(75, 23);
+            this.buttonCancelar.TabIndex = 8;
+            this.buttonCancelar.Text = "Cancelar";
+            this.buttonCancelar.UseVisualStyleBackColor = true;
+            this.buttonCancelar.Click += new System.EventHandler(this.button2_Click);
             // 
             // textBox2
             // 
@@ -109,8 +109,8 @@
             this.Controls.Add(this.textoPlano2);
             this.Controls.Add(this.textBox2);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.buttonCancelar);
+            this.Controls.Add(this.buttonGuardar);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.comboBoxTipoFuente);
             this.Name = "VAbstractCrearModificarFuente";
@@ -121,14 +121,14 @@
         }
 
         #endregion
-        private System.Windows.Forms.ComboBox comboBoxTipoFuente;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
-        private UserControls.TextoPlano textoPlano1;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.Label label2;
-        private UserControls.Galeria galeria1;
-        private UserControls.TextoPlano textoPlano2;
+        protected System.Windows.Forms.ComboBox comboBoxTipoFuente;
+        protected System.Windows.Forms.Label label3;
+        protected System.Windows.Forms.Button buttonGuardar;
+        protected System.Windows.Forms.Button buttonCancelar;
+        protected UserControls.TextoPlano textoPlano1;
+        protected System.Windows.Forms.TextBox textBox2;
+        protected System.Windows.Forms.Label label2;
+        protected UserControls.Galeria galeria1;
+        protected UserControls.TextoPlano textoPlano2;
     }
 }
