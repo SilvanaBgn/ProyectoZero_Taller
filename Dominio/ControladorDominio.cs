@@ -263,7 +263,7 @@ namespace Dominio
         public string FormatearTextoBanner(Banner pBanner)
         {
             string texto = "";
-            Fuente fuenteDelBanner = this.BuscarFuentePorId(pBanner.FuenteId);
+            Fuente fuenteDelBanner = this.BuscarFuentePorId(pBanner.Fuente.FuenteId);
             //Asignamos su contenido a la variable texto:
             IList<Item> listaItems = (List<Item>)fuenteDelBanner.Items;
             for (int i = 0; i < listaItems.Count; i++)
@@ -279,7 +279,7 @@ namespace Dominio
         /// <param name="pBanner">Banner a leer</param>
         public void LeerBanner(Banner pBanner)
         {
-            Fuente fuenteDelBanner = this.BuscarFuentePorId(pBanner.FuenteId);
+            Fuente fuenteDelBanner = this.BuscarFuentePorId(pBanner.Fuente.FuenteId);
             fuenteDelBanner.Leer(); //Actualiza los items de la fuente del banner
         }
 
