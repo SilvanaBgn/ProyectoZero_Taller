@@ -30,6 +30,10 @@ namespace Dominio
         /// </summary>
         public DateTime? FechaDePublicacion { get; set; }
 
+        /// <summary>
+        /// Sobreescribe el método ToString del objeto ItemRSS
+        /// </summary>
+        /// <returns>devuelve el título más la descripción del ItemRSS</returns>
         public override string ToString()
         {
             return Titulo + ": " + Descripcion; //+ FechaDePublicacion.ToString();

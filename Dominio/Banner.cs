@@ -25,18 +25,40 @@ namespace Dominio
         [Required]
         public string Descripcion { get; set; }
 
-
+        /// <summary>
+        /// ID de la fuente del banner
+        /// </summary>
         [Required]
         public int FuenteId { get; set; }
+
+        /// <summary>
+        /// Fuente del banner
+        /// </summary>
         [Required]
         public virtual Fuente Fuente { get; set; }
 
+        //Rango fecha
+        /// <summary>
+        /// Fecha de inicio del banner
+        /// </summary>
         [DataType(DataType.Date),Required]
         public DateTime FechaInicio { get; set; }
+
+        /// <summary>
+        /// Fecha de finalización del banner
+        /// </summary>
         [DataType(DataType.Date),Required]
         public DateTime FechaFin { get; set; }
 
+        //Rango hora
+        /// <summary>
+        /// Hora de inicio del banner
+        /// </summary>
         public TimeSpan HoraInicio { get; set; }
+
+        /// <summary>
+        /// Hora de finalización del banner
+        /// </summary>
         public TimeSpan HoraFin { get; set; }
     }
 }

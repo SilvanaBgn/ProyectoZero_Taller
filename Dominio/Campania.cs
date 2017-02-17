@@ -36,13 +36,25 @@ namespace Dominio
         public virtual ICollection<Imagen> Imagenes { get; set; }
 
         /// Rango Fecha
+        /// <summary>
+        /// Fecha de inicio de la camapaña
+        /// </summary>
         [DataType(DataType.Date), Required]
         public DateTime FechaInicio { get; set; }
+        /// <summary>
+        /// Fecha de finalización de la camapaña
+        /// </summary>
         [DataType(DataType.Date), Required]
         public DateTime FechaFin { get; set; }
 
         /// Rango Horario
+        /// <summary>
+        /// Hora de inicio de la camapaña
+        /// </summary>
         public TimeSpan HoraInicio { get; set; }
+        /// <summary>
+        /// Hora de finalización de la camapaña
+        /// </summary>
         public TimeSpan HoraFin { get; set; }
 
         /// <summary>

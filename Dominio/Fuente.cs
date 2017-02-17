@@ -65,7 +65,7 @@ namespace Dominio
         { }
 
         /// <summary>
-        /// Constructor
+        /// Constructor de una fuente para el caso que tenga un origen de items
         /// </summary>
         public Fuente(string pDescripcion, string pOrigenItems,TipoFuente pTipo)
         {
@@ -76,16 +76,19 @@ namespace Dominio
             this.origenItems = pOrigenItems;
         }
 
+        /// <summary>
+        /// Sobreescribe el método ToString de fuente
+        /// </summary>
+        /// <returns>devuelve la descripción de la fuente</returns>
         public override string ToString()
         {
             return Descripcion;
         }
 
-
         /// <summary>
-        /// Lee los datos
+        /// Lee los datos 
         /// </summary>
-        /// <returns></returns>
+        /// <returns>devuelve la lista de items de la fuente</returns>
         public IEnumerable<Item> Leer()
         {
             try
