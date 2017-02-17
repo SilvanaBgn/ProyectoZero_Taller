@@ -18,6 +18,12 @@ namespace UI.UserControls
         /// </summary>
         private List<Item> iListaItems;
 
+        public string Descripcion
+        {
+            get { return this.textBoxDescripcion.Text; }
+            set { this.textBoxDescripcion.Text = value; }
+        }
+
         [Browsable(false)]
         [EditorBrowsable(EditorBrowsableState.Never)]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]

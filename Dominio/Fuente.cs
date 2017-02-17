@@ -49,7 +49,7 @@ namespace Dominio
                 }
                 else //(value == TipoFuente.TextoFijo)
                 {
-                    this.iLector = null; //Porque el texto fijo no tiene comportamiento adicional
+                    this.iLector =null; ; //Porque el texto fijo no tiene comportamiento adicional
                 }
                 this.iTipo = value;
             }

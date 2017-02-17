@@ -151,7 +151,7 @@
             this.textBoxDescripcion.Size = new System.Drawing.Size(100, 20);
             this.textBoxDescripcion.TabIndex = 78;
             // 
-            // TextoPlano
+            // TextoFijo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -166,7 +166,7 @@
             this.Controls.Add(this.comboBoxItems);
             this.Controls.Add(this.label6);
             this.Name = "TextoFijo";
-            this.Size = new System.Drawing.Size(427, 197);
+            this.Size = new System.Drawing.Size(427, 229);
             this.ResumeLayout(false);
             this.PerformLayout();
 
