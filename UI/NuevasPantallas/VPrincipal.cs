@@ -71,8 +71,15 @@ namespace UI.NuevasPantallas
         {
             //Buscamos el banner a pasar ahora
             this.iBannerAPasar = this.iControladorDominio.ProximoBannerAPasar();
-            this.iControladorDominio.ModificarFuente(this.iControladorDominio.BuscarFuentePorId(iBannerAPasar.Fuente.FuenteId));
-            this.iControladorDominio.GuardarCambios();
+            if (this.iBannerAPasar!=null)
+            {
+                this.iControladorDominio.ModificarFuente(this.iControladorDominio.BuscarFuentePorId(iBannerAPasar.Fuente.FuenteId));
+                this.iControladorDominio.GuardarCambios();
+            }
+            else
+            {
+                this.iBannerAPasar = new Banner();
+            }
         }
 
         private void bgwActualizarBannerPantalla_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
