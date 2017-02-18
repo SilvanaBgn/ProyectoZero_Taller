@@ -16,6 +16,7 @@ namespace UI.NuevasPantallas
         public VCrearBanner(ref ControladorDominio pControladorDominio) : base(ref pControladorDominio)
         {
             InitializeComponent();
+            base.CargarDataGridViewFuentes(this.iControladorDominio.ObtenerTodasLasFuentes());
         }
 
         private void ButtonGuardar_Click(object sender, EventArgs e)

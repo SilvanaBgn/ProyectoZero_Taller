@@ -86,25 +86,21 @@ namespace Dominio
         }
 
         /// <summary>
-        /// Lee los datos 
+        /// Lee los datos y actualiza el atributo Items
         /// </summary>
-        /// <returns>devuelve la lista de items de la fuente</returns>
-        public IEnumerable<Item> Leer()
+        public void Leer()
         {
             try
             {
-                //Con la siguiente sentencia, está guardando en la BD:
+                //Con la siguiente sentencia, lee y asigna los items:
                 if (this.iLector!=null)
                 {
-                    this.Items = (ICollection<Item>)this.iLector.Leer(this.origenItems);
+                    this.Items = (List<Item>)this.iLector.Leer(this.origenItems);
                 }
-        }
-            catch(Exception) //excepcion cuando no hay internet u otra.. entendible para el usuario..
-            {
-
             }
-            //Con la siguiente sentencia, los devuelve a la pantalla
-            return this.Items;
+            catch(Exception) //excepcion cuando no hay internet u otra.. entendible para el usuario..=> No leyó
+            {
+            }
         }
     }
 }
