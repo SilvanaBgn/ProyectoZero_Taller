@@ -9,6 +9,10 @@ using System.ComponentModel;
 
 namespace Dominio
 {
+    /// <summary>
+    /// Esta clase representa la información que tiene el objeto banner para su correcta
+    /// visulización en la ventana principal
+    /// </summary>
     public class Banner
     {
         public int BannerId { get; set; }

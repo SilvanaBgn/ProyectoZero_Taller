@@ -11,6 +11,9 @@ namespace Dominio
 {
     public class Fuente
     {
+        /// <summary>
+        /// Esta clase representa la información que tiene el objeto fuente del banner
+        /// </summary>
         public int FuenteId { get; set; }
 
         /// <summary>

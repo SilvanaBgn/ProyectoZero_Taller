@@ -7,6 +7,9 @@ using System.Threading.Tasks;
 
 namespace Dominio
 {
+    /// <summary>
+    /// Clase que contiene toda la información respecto al objeto imagen perteneciente a una campania
+    /// </summary>
     public class Imagen
     {
         /// <summary>

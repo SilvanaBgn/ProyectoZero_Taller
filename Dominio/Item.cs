@@ -7,6 +7,9 @@ using System.Threading.Tasks;
 
 namespace Dominio
 {
+    /// <summary>
+    /// Clase que contiene la inforación del item
+    /// </summary>
     public class Item
     {
         /// <summary>
@@ -19,6 +22,9 @@ namespace Dominio
         /// </summary>
         public string Descripcion { get; set; }
 
+        /// <summary>
+        /// Atributo fuente del item
+        /// </summary>
         public virtual Fuente Fuente { get; set; }
 
         /// <summary>

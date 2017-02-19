@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 
 namespace Dominio
 {
+    /// <summary>
+    /// Clase que contiene la información del Item RSS
+    /// </summary>
     public class ItemRss
     {
         public int ItemRssId { get; set; }

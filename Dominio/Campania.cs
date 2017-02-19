@@ -8,6 +8,10 @@ using System.ComponentModel.DataAnnotations;
 
 namespace Dominio
 {
+    /// <summary>
+    /// Esta clase representa la información que tiene el objeto campania para su correcta
+    /// visulización en la ventana principal
+    /// </summary>
     public class Campania
     {
         public int CampaniaId { get; set; }
