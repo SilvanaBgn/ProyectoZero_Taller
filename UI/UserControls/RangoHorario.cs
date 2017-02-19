@@ -12,6 +12,7 @@ namespace UI.UserControls
 {
     public partial class RangoHorario : UserControl
     {
+        //CONSTRUCTOR
         public RangoHorario()
         {
             InitializeComponent();
