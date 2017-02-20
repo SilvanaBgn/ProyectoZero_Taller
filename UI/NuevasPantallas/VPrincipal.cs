@@ -11,6 +11,7 @@ using System.Windows.Forms;
 using Contenedor;
 using System.Threading;
 
+
 namespace UI.NuevasPantallas
 {
     public partial class VPrincipal : Form
@@ -71,8 +72,6 @@ namespace UI.NuevasPantallas
         {
             //Buscamos el banner a pasar ahora
             this.iBannerAPasar = this.iControladorDominio.ProximoBannerAPasar();
-            this.iControladorDominio.ModificarFuente(this.iControladorDominio.BuscarFuentePorId(iBannerAPasar.Fuente.FuenteId));
-            this.iControladorDominio.GuardarCambios();
         }
 
         private void bgwActualizarBannerPantalla_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
@@ -85,11 +84,15 @@ namespace UI.NuevasPantallas
                 }
                 else
                 {
-                    //Obtenemos la info del this.iBannerAPasar formateada y la utilizamos para mostrarlo en pantalla:
-                    this.ActualizarBannerDeslizante();
-
-                    //Entonces invocamos a que vaya a leer para actualizar los items:
-                    this.bgwLeerBanner.RunWorkerAsync();
+                        //Obtenemos la info del this.iBannerAPasar formateada y la utilizamos para mostrarlo en pantalla:
+                        this.ActualizarBannerDeslizante();
+                    if (this.iBannerAPasar != null)
+                    {
+                        //Entonces invocamos a que vaya a leer para actualizar los items:
+                        this.bgwLeerBanner.RunWorkerAsync();
+                    }
+                    else
+                        this.timerChequeoCambioCampania.Start();
                 }
             }
             catch(Exception ex)
@@ -237,12 +240,15 @@ namespace UI.NuevasPantallas
         #region Otros Ventana
         private void VPrincipal_Activated(object sender, EventArgs e)
         {
-            this.timerChequeoCambioCampania_Tick(new object(), new EventArgs());
-            //ActualizarCampaniaDeslizante();
-            //this.timerChequeoCambioCampania.Stop();
-            ////this.timerChequeoCambioBanner.Stop();
+            //this.campaniaDeslizante1.Stop();
+            //this.bannerDeslizante.Stop();
 
+            this.timerChequeoCambioCampania.Stop();
+            this.timerChequeoCambioBanner.Stop();
+
+            this.timerChequeoCambioBanner.Interval = 1000;
             //this.timerChequeoCambioCampania.Start();
+            this.timerChequeoCambioCampania_Tick(1000, new EventArgs());
         }
 
         private void IniciarFormatoPantallaPrincipal(object sender, EventArgs e)

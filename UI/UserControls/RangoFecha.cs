@@ -34,13 +34,14 @@ namespace UI.UserControls
 
         private void dateTimePickerInicio_ValueChanged(object sender, EventArgs e)
         {
+            this.dateTimePickerFin.MinDate= this.dateTimePickerInicio.Value;
             this.labelCantDias.Text = "Un total de "+
                             this.DiferenciaFechas(this.dateTimePickerFin.Value, this.dateTimePickerInicio.Value);
         }
 
         private void dateTimePickerFin_ValueChanged(object sender, EventArgs e)
         {
-            this.dateTimePickerInicio.MaxDate = this.dateTimePickerFin.Value;
+            //this.dateTimePickerInicio.MaxDate = this.dateTimePickerFin.Value;
             this.labelCantDias.Text = "Un total de " +
                             this.DiferenciaFechas(this.dateTimePickerFin.Value, this.dateTimePickerInicio.Value);
         }

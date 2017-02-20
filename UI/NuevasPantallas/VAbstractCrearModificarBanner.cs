@@ -40,12 +40,18 @@ namespace UI.NuevasPantallas
 
         private void buttonCancelar_Click(object sender, EventArgs e)
         {
+            
             this.Close();
         }
 
         private void VAbstractCrearModificarBanner_Activated(object sender, EventArgs e)
         {
             this.CargarDataGridViewFuentes(this.iControladorDominio.ObtenerTodasLasFuentes());
+        }
+
+        private void VAbstractCrearModificarBanner_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            //this.Owner.Show();
         }
 
         //private void VAbstractCrearModificarBanner_Shown(object sender, EventArgs e)

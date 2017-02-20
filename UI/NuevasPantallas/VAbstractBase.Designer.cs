@@ -216,6 +216,7 @@
             this.Controls.Add(this.buttonNuevo);
             this.Name = "VAbstractBase";
             this.Text = "VAbstractBase";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.VAbstractBase_FormClosing);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewMostrar)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

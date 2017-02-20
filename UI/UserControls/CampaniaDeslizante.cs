@@ -92,7 +92,7 @@ namespace UI.UserControls
         /// <param name="pLista">Lista de imágenes a pasar en la campaña</param>
         public void Start(List<Imagen> pLista, int pDuracion)
         {
-            if (pLista != null)
+            if (pLista != null && pLista.Count!=0)
             {
                 if (pDuracion* 1000 > 0)
                     this.iTimerImagenes.Interval = pDuracion * 1000/2; //duración en segundos

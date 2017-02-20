@@ -56,6 +56,7 @@ namespace UI.NuevasPantallas
 
         private void buttonSalir_Click(object sender, EventArgs e)
         {
+            //this.Owner.ShowDialog();
             this.Close();
         }
 
@@ -68,6 +69,11 @@ namespace UI.NuevasPantallas
                     dataGridViewMostrar.ClearSelection();
                 }
             }
+        }
+
+        private void VAbstractBase_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            
         }
     }
 }

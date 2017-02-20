@@ -64,15 +64,16 @@ namespace UI.NuevasPantallas
 
         private void buttonNuevo_Click(object sender, EventArgs e)
         {
-            this.Hide();
             var form2 = new VCrearBanner(ref iControladorDominio);
-            form2.Show();
+            form2.Owner = this;
+            //this.Hide();
+            form2.ShowDialog();
         }
 
         private void buttonModificar_Click(object sender, EventArgs e)
         {
             this.banner = this.bannerAModificar();
-            this.Hide();
+            //this.Hide();
             var nuevoForm = new VModificarBanner(ref iControladorDominio,this.bannerAModificar());
             nuevoForm.Show();
         }

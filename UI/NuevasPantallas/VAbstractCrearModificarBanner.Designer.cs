@@ -164,6 +164,7 @@
             this.Controls.Add(this.labelTitulo);
             this.Name = "VAbstractCrearModificarBanner";
             this.Text = "VAbstractCrearModificarBanner";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.VAbstractCrearModificarBanner_FormClosing);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewMostrarFuentes)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();

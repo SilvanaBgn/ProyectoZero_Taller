@@ -215,9 +215,9 @@ namespace Dominio
         /// <summary>
         /// Calcula cuántos milisegundos faltan al próximo cuarto de hora
         /// </summary>
-        /// <param name="pHoraActual">Hora de tipo TimeSpan a partir de la que se quiere calcular el próximo cuarto de hora</param>
-        /// <returns>Devuelve un double que representa los milisegundos al próximo cuarto de hora</returns>
-        private double IntervaloAlProxCuartoDeHora(TimeSpan pHoraActual)
+        /// <param name="horaActual">Hora de tipo TimeSpan a partir de la que se quiere calcular el próximo cuarto de hora</param>
+        /// <returns>Devuelve un int que representa los milisegundos al próximo cuarto de hora</returns>
+        public int IntervaloAlProxCuartoDeHora(TimeSpan pHoraActual)
         {
             int segundos = 60 - pHoraActual.Seconds;
             int minutos;
@@ -233,7 +233,7 @@ namespace Dominio
                 minutos = 0;
                 hora++;
             }
-            return (new TimeSpan(hora, minutos, segundos)).Subtract(pHoraActual).TotalMilliseconds;
+            return Convert.ToInt32((new TimeSpan(hora, minutos, segundos)).Subtract(pHoraActual).TotalMilliseconds);
         }
 
         #region Lectura Banner
@@ -280,7 +280,10 @@ namespace Dominio
         public void LeerBanner(Banner pBanner)
         {
             Fuente fuenteDelBanner = this.BuscarFuentePorId(pBanner.Fuente.FuenteId);
-            fuenteDelBanner.Leer(); //Actualiza los items de la fuente del banner
+            fuenteDelBanner.Leer(); //Actualiza los items de la fuente del 
+            //Guardamos los cambios:
+            this.ModificarFuente(this.BuscarFuentePorId(pBanner.Fuente.FuenteId));
+            this.GuardarCambios();
         }
 
         /// <summary>
@@ -298,22 +301,20 @@ namespace Dominio
             DateTime fechaActual = DateTime.Now;
             TimeSpan horaActual = new TimeSpan(fechaActual.Hour, fechaActual.Minute, fechaActual.Second);
 
-            ////Obtenemos el próximo banner:
-            //Banner bannerAPasar = this.ProximoBannerAPasar(fechaActual);
-
             if (pBanner != null)
             {
                 //*texto* Lo leemos, de acuerdo a la fuente que corresponde al bannerAPasar:
                 texto = FormatearTextoBanner(pBanner);
-
-                //*intervalo*:
-                //Cambia el intervalo al tiempo del nuevo banner a pasar:
+                if (texto=="")
+                    texto = " Obteniendo Items RSS";
+                //*intervalo* durante el que se va a pasar el nuevo banner:
                 intervalo = Convert.ToInt32(pBanner.HoraFin.Subtract(horaActual).TotalMilliseconds);
             }
             else
             {
-                // *texto es vacío.
-                //*intervalo*:
+                // *texto con valor por defecto.
+                texto = " EASY NEWS. El lugar para su espacio publicitario. Publicite aquí.";
+                //*intervalo* al próximo cuarto de hora:
                 intervalo = Convert.ToInt32(this.IntervaloAlProxCuartoDeHora(horaActual));
             }
             array[0] = texto;
