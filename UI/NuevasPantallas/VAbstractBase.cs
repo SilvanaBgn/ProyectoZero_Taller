@@ -27,6 +27,9 @@ namespace UI.NuevasPantallas
             this.iControladorDominio = pControladorDominio;
         }
 
+        /// <summary>
+        /// Evento que se invoca cuando cambia el valor del checkBoxRangoFechas
+        /// </summary>
         private void checkBoxRangoFechas_CheckedChanged(object sender, EventArgs e)
         {
             if (this.checkBoxRangoFechas.Checked)
@@ -34,6 +37,9 @@ namespace UI.NuevasPantallas
             else this.rangoFecha.Enabled = false;
         }
 
+        /// <summary>
+        /// Evento que se invoca cuando cambia el valor del checkBoxRangoHoras
+        /// </summary>
         private void checkBoxRangoHoras_CheckedChanged(object sender, EventArgs e)
         {
             if (this.checkBoxRangoHoras.Checked)
@@ -41,6 +47,9 @@ namespace UI.NuevasPantallas
             else this.rangoHorario.Enabled = false;
         }
 
+        /// <summary>
+        /// Evento que se invoca cuando cambia el valor del checkBoxTitulo
+        /// </summary>
         private void checkBoxTitulo_CheckedChanged(object sender, EventArgs e)
         {
             if (this.checkBoxTitulo.Checked)
@@ -48,6 +57,9 @@ namespace UI.NuevasPantallas
             else this.textBoxTitulo.Enabled = false;
         }
 
+        /// <summary>
+        /// Evento que se invoca cuando cambia el valor del checkBoxDescripcion
+        /// </summary>
         private void checkBoxDescripcion_CheckedChanged(object sender, EventArgs e)
         {
             if (this.checkBoxDescripcion.Checked)
@@ -55,8 +67,12 @@ namespace UI.NuevasPantallas
             else this.textBoxDescripcion.Enabled = false;
         }
 
+        /// <summary>
+        /// Botón salir
+        /// </summary>
         private void buttonSalir_Click(object sender, EventArgs e)
         {
+            //this.Owner.ShowDialog();
             this.Close();
         }
 
@@ -66,6 +82,10 @@ namespace UI.NuevasPantallas
         /// <param name="sender"></param>
         /// <param name="e"></param>
         private void dataGridViewMostrar_SelectionChanged(object sender, EventArgs e)
+        /// <summary>
+        ///  Evento que se invoca cuando se hace click con el mouse sobre una celda
+        /// </summary>
+        private void dataGridViewMostrar_CellMouseDown(object sender, DataGridViewCellMouseEventArgs e)
         {
             if (this.dataGridViewMostrar.Rows.Count>0 && this.dataGridViewMostrar.SelectedRows.Count <= 0)
             {
@@ -75,18 +95,18 @@ namespace UI.NuevasPantallas
         }
 
         private void InputValido(KeyPressEventArgs e)
-        {
+            {
             var regex = new Regex(@"[^a-zA-Z0-9\s\b]");
             if (regex.IsMatch(e.KeyChar.ToString()))
-            {
+                {
                 e.Handled = true;
             }
-        }
+                }
 
         private void textBoxDescripcion_KeyPress(object sender, KeyPressEventArgs e)
         {
             this.InputValido(e);
-        }
+            }
 
         private void textBoxTitulo_KeyPress(object sender, KeyPressEventArgs e)
         {

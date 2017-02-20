@@ -10,6 +10,11 @@ namespace Dominio.Lecturas
     /// </summary>
     public class LectorRss:ILector
     {
+        /// <summary>
+        /// Lee una URL válida 
+        /// </summary>
+        /// <param name="pUrl">String de la URL a leer</param>
+        /// <returns>devuelve una colección de los elementos que contiene la URL</returns>
         public IEnumerable<Item> Leer(String pUrl)
         {
             IEnumerable<Item> items = new List<Item>();
@@ -37,11 +42,11 @@ namespace Dominio.Lecturas
             return items;
         }
 
-
-
-
-
-
+        /// <summary>
+        /// Pasa de Item RSS a Item
+        /// </summary>
+        /// <param name="pItemsRss">colección de Item RSS</param>
+        /// <returns>devuelve una colección de items con la descripción del Item RSS</returns>
         private IEnumerable<Item> ItemRss_a_Item(IEnumerable<ItemRss> pItemsRss)
         {
             IList<Item> listaItems= new List<Item>();
@@ -52,7 +57,12 @@ namespace Dominio.Lecturas
             }
             return listaItems;
         }
-        
+
+        /// <summary>
+        /// Lee una URL
+        /// </summary>
+        /// <param name="pUrl">URL a leer</param>
+        /// <returns>devuelve una colección de los elementos que contiene la URL</returns>
         private IEnumerable<ItemRss> Leer(Uri pUrl) 
         {
             // Se recupera el XML desde la URL, y se parsea el mismo para obtener los diferentes ítems. El modelo de XML
@@ -101,6 +111,11 @@ namespace Dominio.Lecturas
             return items;
         }
 
+        /// <summary>
+        /// Mátodo genérico. Obtiene el valor XML de un nodo
+        /// </summary>
+        /// <param name="pNodoPadre">nodo padre</param>
+        /// <param name="pNombreNodoHijo">nombre del nodo hijo</param>
         private static TResult GetXmlNodeValue<TResult>(XmlNode pNodoPadre, String pNombreNodoHijo)
         {
             if (pNodoPadre == null)

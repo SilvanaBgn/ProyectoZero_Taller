@@ -16,6 +16,9 @@ namespace UI.NuevasPantallas
     public partial class VPrincipal : Form
     {
         private ControladorDominio iControladorDominio;
+        private DateTime iFechaActual;
+        private TimeSpan iHoraActual;
+        private string iInfoBannerActual;
         private Banner iBannerAPasar;
         private Campania iCampaniaAPasar;
 
@@ -23,7 +26,6 @@ namespace UI.NuevasPantallas
         {
             InitializeComponent();
             this.iControladorDominio = new ControladorDominio(Resolucionador<IUnitOfWork>.Resolver());
-            this.iBannerAPasar = new Banner();
             this.iCampaniaAPasar = new Campania();
 
             //Y ejecutamos el próximo método que da formato a la pantalla principal
@@ -32,16 +34,101 @@ namespace UI.NuevasPantallas
 
 
 
-#region EVENTOS
+        #region EVENTOS
         #region BackgroundWorkers y Timers
+
+        /// <summary>
+        /// Actualiza la información en pantalla del banner deslizante
+        /// </summary>
+        private void ActualizarBannerDeslizante()
+        {
+            string infoBannerNuevo = this.iControladorDominio.InfoBanner(this.iBannerAPasar);
+
+            if (this.iInfoBannerActual != infoBannerNuevo)//En el caso de una Lectura Externa, serían distintos
+                                                          //Entonces, preguntamos para que en el caso, el bannerDesl no se recargue
+            {
+                this.iInfoBannerActual = infoBannerNuevo;
+                this.bannerDeslizante.Stop();
+                //Asignamos el valor del texto y el intervalo en el que debe reproducirlo
+                this.bannerDeslizante.Start(this.iInfoBannerActual);
+            }
+        }
+
+        /// <summary>
+        /// Actualiza la información en pantalla de la campania deslizante
+        /// </summary>
+        private void ActualizarCampaniaDeslizante()
+        {
+            object[] infoCampaniaNueva = this.iControladorDominio.InfoCampania(this.iCampaniaAPasar);
+            this.campaniaDeslizante1.Stop();
+            //Asignamos el valor de y el intervalo en el que debe reproducirlo
+            this.campaniaDeslizante1.Start((List<Imagen>)(infoCampaniaNueva)[0], (int)(infoCampaniaNueva)[1]);
+            this.timerChequeoCambioCampania.Interval = (int)(infoCampaniaNueva)[2]; // arrayInformacion[1]=intervalo
+        }
+
+
+
+
+
+
+
+        private void timerChequeoCambioCampania_Tick(object sender, EventArgs e)
+        {
+            this.timerChequeoCambioCampania.Stop();
+            try
+            {
+                if (!this.bgwObtenerCampania.IsBusy)
+                {
+                    this.bgwObtenerCampania.RunWorkerAsync();
+                }
+                else //Esperamos 1 seg y volvemos a intentar
+                {
+                    this.timerChequeoCambioCampania.Interval = 1000;
+                    this.timerChequeoCambioCampania.Start();
+                }
+            }
+            catch (Exception bEx)
+            {
+            }
+        }
+
+
+        private void bgwObtenerCampania_DoWork(object sender, DoWorkEventArgs e)
+        {
+            this.iFechaActual = DateTime.Now;
+            this.iHoraActual = new TimeSpan(this.iFechaActual.Hour, this.iFechaActual.Minute, this.iFechaActual.Second);
+
+            this.iCampaniaAPasar = this.iControladorDominio.ProximaCampaniaAPasar(this.iFechaActual, this.iHoraActual);
+        }
+
+        private void bgwObtenerCampania_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
+        {
+            try
+            {
+                if (e.Error != null)
+                {
+                    throw new Exception("Error al buscar la Campaña a pasar", e.Error);
+                }
+                this.timerChequeoCambioBanner.Start();
+            }
+            catch (Exception ex)
+            {
+            }
+        }
+
+
+
+
+
+
         private void timerChequeoCambioBanner_Tick(object sender, EventArgs e)
         {
             this.timerChequeoCambioBanner.Stop();
             try
             {
-                if (!this.bgwActualizarBannerPantalla.IsBusy)
+                if (!this.bgwObtenerBanner.IsBusy)
                 {
-                    this.bgwActualizarBannerPantalla.RunWorkerAsync();
+                    this.bgwObtenerBanner.RunWorkerAsync();
                 }
                 else //Esperamos 1 seg y volvemos a intentar
                 {
@@ -55,48 +142,37 @@ namespace UI.NuevasPantallas
             }
         }
 
-        /// <summary>
-        /// Actualiza la información en pantalla del banner deslizante
-        /// </summary>
-        private void ActualizarBannerDeslizante()
+        private void bgwObtenerBanner_DoWork(object sender, DoWorkEventArgs e)
         {
-            object[] infoBanner = this.iControladorDominio.InfoBanner(this.iBannerAPasar);
-            this.bannerDeslizante.Stop();
-            //Asignamos el valor del texto y el intervalo en el que debe reproducirlo
-            this.bannerDeslizante.Start((string)((object[])infoBanner)[0]); 
-            this.timerChequeoCambioBanner.Interval = (int)((object[])infoBanner)[1];
-        }
-
-        private void bgwActualizarBannerPantalla_DoWork(object sender, DoWorkEventArgs e)
-        {
+            this.iFechaActual = DateTime.Now;
+            this.iHoraActual = new TimeSpan(this.iFechaActual.Hour, this.iFechaActual.Minute, this.iFechaActual.Second);
             //Buscamos el banner a pasar ahora
-            this.iBannerAPasar = this.iControladorDominio.ProximoBannerAPasar();
-            if (this.iBannerAPasar!=null)
-            {
-                this.iControladorDominio.ModificarFuente(this.iControladorDominio.BuscarFuentePorId(iBannerAPasar.Fuente.FuenteId));
-                this.iControladorDominio.GuardarCambios();
-            }
-            else
-            {
-                this.iBannerAPasar = new Banner();
-            }
+            this.iBannerAPasar = this.iControladorDominio.ProximoBannerAPasar(this.iFechaActual,this.iHoraActual);
+            this.timerChequeoCambioBanner.Interval = this.iControladorDominio.IntervaloAlProxCuartoDeHora(this.iHoraActual);
         }
 
-        private void bgwActualizarBannerPantalla_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
+        private void bgwObtenerBanner_ActualizarPantalla_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
         {
             try
             {
                 if (e.Error != null)
                 {
-                    throw new Exception("", e.Error);
+                    throw new Exception("Error al buscar el Banner a pasar", e.Error);
                 }
                 else
                 {
+                    //Actualiza el contenido de la campania deslizante
+                    this.ActualizarCampaniaDeslizante();
+
                     //Obtenemos la info del this.iBannerAPasar formateada y la utilizamos para mostrarlo en pantalla:
                     this.ActualizarBannerDeslizante();
 
-                    //Entonces invocamos a que vaya a leer para actualizar los items:
-                    this.bgwLeerBanner.RunWorkerAsync();
+                    if (this.iBannerAPasar != null)
+                    { //Entonces invocamos a que vaya a leer para actualizar los items:
+                        this.bgwLeerBanner.RunWorkerAsync();
+                    }
+                    else
+                        this.timerChequeoCambioCampania.Start();
                 }
             }
             catch(Exception ex)
@@ -129,66 +205,6 @@ namespace UI.NuevasPantallas
             {
             }
         }
-
-
-
-
-        private void timerChequeoCambioCampania_Tick(object sender, EventArgs e)
-        {
-            this.timerChequeoCambioCampania.Stop();
-            try
-            {
-                if (!this.bgwActualizarCampaniaPantalla.IsBusy)
-                {
-                    this.bgwActualizarCampaniaPantalla.RunWorkerAsync();
-                }
-                else //Esperamos 1 seg y volvemos a intentar
-                {
-                    this.timerChequeoCambioCampania.Interval = 1000;
-                    this.timerChequeoCambioCampania.Start();
-                }
-            }
-            catch (Exception bEx)
-            {
-            }
-        }
-
-        /// <summary>
-        /// Actualiza la información en pantalla de la campania deslizante
-        /// </summary>
-        private void ActualizarCampaniaDeslizante()
-        {
-            object[] infoCampania = this.iControladorDominio.InfoCampania(this.iCampaniaAPasar);
-            this.campaniaDeslizante1.Stop();
-            //Asignamos el valor de y el intervalo en el que debe reproducirlo
-            this.campaniaDeslizante1.Start((List<Imagen>)((object[])infoCampania)[0], (int)((object[])infoCampania)[1]);
-            this.timerChequeoCambioCampania.Interval = (int)((object[])infoCampania)[2]; // arrayInformacion[1]=intervalo
-        }
-
-        private void bgwActualizarCampaniaPantalla_DoWork(object sender, DoWorkEventArgs e)
-        {
-            this.iCampaniaAPasar = this.iControladorDominio.ProximaCampaniaAPasar();
-        }
-
-        private void bgwActualizarCampaniaPantalla_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
-        {
-            try
-            {
-                if (e.Error != null)
-                {
-                    throw new Exception("", e.Error);
-                }
-                else if (!e.Cancelled)
-                {
-                    //Actualiza el contenido de la campania deslizante
-                    this.ActualizarCampaniaDeslizante();
-                }
-                this.timerChequeoCambioBanner.Start();
-            }
-            catch (Exception ex)
-            {
-            }
-        }
         #endregion
 
 
@@ -196,12 +212,18 @@ namespace UI.NuevasPantallas
         private void bannerToolStripMenuItem_Click(object sender, EventArgs e)
         {
             VBaseBanner vBanner = new VBaseBanner(ref this.iControladorDominio);
+            //vBanner.Owner = this;
+            //this.Hide();
+            //vBanner.ShowDialog();
             vBanner.Show();
         }
 
         private void campañaToolStripMenuItem_Click(object sender, EventArgs e)
         {
             VBaseCampania vCampania = new VBaseCampania(ref this.iControladorDominio);
+            //vCampania.Owner = this;
+            //this.Hide();
+            //vCampania.ShowDialog();
             vCampania.Show();
         }
 
@@ -244,12 +266,12 @@ namespace UI.NuevasPantallas
         #region Otros Ventana
         private void VPrincipal_Activated(object sender, EventArgs e)
         {
-            this.timerChequeoCambioCampania_Tick(new object(), new EventArgs());
-            //ActualizarCampaniaDeslizante();
-            //this.timerChequeoCambioCampania.Stop();
-            ////this.timerChequeoCambioBanner.Stop();
+            this.timerChequeoCambioCampania.Stop();
+            this.timerChequeoCambioBanner.Stop();
 
+            this.timerChequeoCambioBanner.Interval = 1000;
             //this.timerChequeoCambioCampania.Start();
+            this.timerChequeoCambioCampania_Tick(1000, new EventArgs());
         }
 
         private void IniciarFormatoPantallaPrincipal(object sender, EventArgs e)

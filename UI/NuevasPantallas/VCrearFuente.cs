@@ -22,6 +22,9 @@ namespace UI.NuevasPantallas
             this.panelRss.Visible = false;
         }
 
+        /// <summary>
+        /// Evento que se invoca cuando se hace click en el botón guardar, agregando una nueva fuente
+        /// </summary>
         private void ButtonGuardar_Click(object sender, EventArgs e)
         {
             switch (this.comboBoxTipoFuente.SelectedItem.ToString())

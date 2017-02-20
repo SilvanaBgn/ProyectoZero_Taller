@@ -12,6 +12,7 @@ namespace UI.UserControls
 {
     public partial class RangoFecha : UserControl
     {
+        //CONSTRUCTOR
         public RangoFecha()
         {
             InitializeComponent();
@@ -32,15 +33,24 @@ namespace UI.UserControls
             set { dateTimePickerFin.Value = value; }
         }
 
+        /// <summary>
+        /// Evento que ejecuta al cambiar el valor del dateTimePickerInicio, mostrando en labelCantDias
+        /// la cantidad de días que existe entre la fecha inicio y la fecha fin
+        /// </summary>
         private void dateTimePickerInicio_ValueChanged(object sender, EventArgs e)
         {
+            this.dateTimePickerFin.MinDate= this.dateTimePickerInicio.Value;
             this.labelCantDias.Text = "Un total de "+
                             this.DiferenciaFechas(this.dateTimePickerFin.Value, this.dateTimePickerInicio.Value);
         }
 
+        /// <summary>
+        /// Evento que ejecuta al cambiar el valor del dateTimePickerFin, mostrando en labelCantDias
+        /// la cantidad de días que existe entre la fecha inicio y la fecha fin
+        /// </summary>
         private void dateTimePickerFin_ValueChanged(object sender, EventArgs e)
         {
-            this.dateTimePickerInicio.MaxDate = this.dateTimePickerFin.Value;
+            //this.dateTimePickerInicio.MaxDate = this.dateTimePickerFin.Value;
             this.labelCantDias.Text = "Un total de " +
                             this.DiferenciaFechas(this.dateTimePickerFin.Value, this.dateTimePickerInicio.Value);
         }

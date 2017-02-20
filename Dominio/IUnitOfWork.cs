@@ -6,10 +6,24 @@ using System.Threading.Tasks;
 
 namespace Dominio
 {
+    /// <summary>
+    /// Iterface que se encarga de la conección con la base de datos
+    /// </summary>
     public interface IUnitOfWork
     {
+        /// <summary>
+        /// Repositorio de las campañas
+        /// </summary>
         IRepositorio<Campania> RepositorioCampanias { get; }
+
+        /// <summary>
+        /// Repositorio de los banners
+        /// </summary>
         IRepositorio<Banner> RepositorioBanners { get; }
+
+        /// <summary>
+        /// Repositorio de las fuentes
+        /// </summary>
         IRepositorio<Fuente> RepositorioFuentes { get; }
 
         /// <summary>

@@ -32,7 +32,9 @@ namespace UI.NuevasPantallas
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(VPrincipal));
             this.groupBoxCampania = new System.Windows.Forms.GroupBox();
+            this.campaniaDeslizante1 = new UI.UserControls.CampaniaDeslizante();
             this.groupBoxBanner = new System.Windows.Forms.GroupBox();
+            this.bannerDeslizante = new UI.UserControls.BannerDeslizante();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.pantallaCompletaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.configuracionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -40,18 +42,16 @@ namespace UI.NuevasPantallas
             this.bannersToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.fuentesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.salirToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.bgwActualizarBannerPantalla = new System.ComponentModel.BackgroundWorker();
-            this.bgwActualizarCampaniaPantalla = new System.ComponentModel.BackgroundWorker();
+            this.bgwObtenerBanner = new System.ComponentModel.BackgroundWorker();
+            this.bgwObtenerCampania = new System.ComponentModel.BackgroundWorker();
             this.timerChequeoCambioBanner = new System.Windows.Forms.Timer(this.components);
             this.timerChequeoCambioCampania = new System.Windows.Forms.Timer(this.components);
             this.buttonSalirPantallaCompleta = new System.Windows.Forms.Button();
             this.bgwLeerBanner = new System.ComponentModel.BackgroundWorker();
-            this.bannerDeslizante = new UI.UserControls.BannerDeslizante();
-            this.campaniaDeslizante1 = new UI.UserControls.CampaniaDeslizante();
             this.groupBoxCampania.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.campaniaDeslizante1)).BeginInit();
             this.groupBoxBanner.SuspendLayout();
             this.menuStrip1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.campaniaDeslizante1)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBoxCampania
@@ -63,6 +63,16 @@ namespace UI.NuevasPantallas
             this.groupBoxCampania.TabIndex = 1;
             this.groupBoxCampania.TabStop = false;
             // 
+            // campaniaDeslizante1
+            // 
+            this.campaniaDeslizante1.Image = ((System.Drawing.Image)(resources.GetObject("campaniaDeslizante1.Image")));
+            this.campaniaDeslizante1.Location = new System.Drawing.Point(18, 78);
+            this.campaniaDeslizante1.Name = "campaniaDeslizante1";
+            this.campaniaDeslizante1.Size = new System.Drawing.Size(550, 332);
+            this.campaniaDeslizante1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.campaniaDeslizante1.TabIndex = 2;
+            this.campaniaDeslizante1.TabStop = false;
+            // 
             // groupBoxBanner
             // 
             this.groupBoxBanner.Controls.Add(this.bannerDeslizante);
@@ -71,6 +81,17 @@ namespace UI.NuevasPantallas
             this.groupBoxBanner.Size = new System.Drawing.Size(587, 91);
             this.groupBoxBanner.TabIndex = 2;
             this.groupBoxBanner.TabStop = false;
+            // 
+            // bannerDeslizante
+            // 
+            this.bannerDeslizante.BackColor = System.Drawing.Color.Wheat;
+            this.bannerDeslizante.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.bannerDeslizante.Enabled = false;
+            this.bannerDeslizante.Font = new System.Drawing.Font("Microsoft Sans Serif", 30F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.bannerDeslizante.Location = new System.Drawing.Point(18, 25);
+            this.bannerDeslizante.Name = "bannerDeslizante";
+            this.bannerDeslizante.Size = new System.Drawing.Size(550, 46);
+            this.bannerDeslizante.TabIndex = 0;
             // 
             // menuStrip1
             // 
@@ -138,15 +159,15 @@ namespace UI.NuevasPantallas
             this.salirToolStripMenuItem.Text = "&Salir";
             this.salirToolStripMenuItem.Click += new System.EventHandler(this.salirToolStripMenuItem_Click);
             // 
-            // bgwActualizarBannerPantalla
+            // bgwObtenerBanner
             // 
-            this.bgwActualizarBannerPantalla.DoWork += new System.ComponentModel.DoWorkEventHandler(this.bgwActualizarBannerPantalla_DoWork);
-            this.bgwActualizarBannerPantalla.RunWorkerCompleted += new System.ComponentModel.RunWorkerCompletedEventHandler(this.bgwActualizarBannerPantalla_RunWorkerCompleted);
+            this.bgwObtenerBanner.DoWork += new System.ComponentModel.DoWorkEventHandler(this.bgwObtenerBanner_DoWork);
+            this.bgwObtenerBanner.RunWorkerCompleted += new System.ComponentModel.RunWorkerCompletedEventHandler(this.bgwObtenerBanner_ActualizarPantalla_RunWorkerCompleted);
             // 
-            // bgwActualizarCampaniaPantalla
+            // bgwObtenerCampania
             // 
-            this.bgwActualizarCampaniaPantalla.DoWork += new System.ComponentModel.DoWorkEventHandler(this.bgwActualizarCampaniaPantalla_DoWork);
-            this.bgwActualizarCampaniaPantalla.RunWorkerCompleted += new System.ComponentModel.RunWorkerCompletedEventHandler(this.bgwActualizarCampaniaPantalla_RunWorkerCompleted);
+            this.bgwObtenerCampania.DoWork += new System.ComponentModel.DoWorkEventHandler(this.bgwObtenerCampania_DoWork);
+            this.bgwObtenerCampania.RunWorkerCompleted += new System.ComponentModel.RunWorkerCompletedEventHandler(this.bgwObtenerCampania_RunWorkerCompleted);
             // 
             // timerChequeoCambioBanner
             // 
@@ -182,27 +203,6 @@ namespace UI.NuevasPantallas
             this.bgwLeerBanner.DoWork += new System.ComponentModel.DoWorkEventHandler(this.bgwLeerBanner_DoWork);
             this.bgwLeerBanner.RunWorkerCompleted += new System.ComponentModel.RunWorkerCompletedEventHandler(this.bgwLeerBanner_RunWorkerCompleted);
             // 
-            // bannerDeslizante
-            // 
-            this.bannerDeslizante.BackColor = System.Drawing.Color.Wheat;
-            this.bannerDeslizante.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.bannerDeslizante.Enabled = false;
-            this.bannerDeslizante.Font = new System.Drawing.Font("Microsoft Sans Serif", 30F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bannerDeslizante.Location = new System.Drawing.Point(18, 25);
-            this.bannerDeslizante.Name = "bannerDeslizante";
-            this.bannerDeslizante.Size = new System.Drawing.Size(550, 46);
-            this.bannerDeslizante.TabIndex = 0;
-            // 
-            // campaniaDeslizante1
-            // 
-            this.campaniaDeslizante1.Image = ((System.Drawing.Image)(resources.GetObject("campaniaDeslizante1.Image")));
-            this.campaniaDeslizante1.Location = new System.Drawing.Point(18, 78);
-            this.campaniaDeslizante1.Name = "campaniaDeslizante1";
-            this.campaniaDeslizante1.Size = new System.Drawing.Size(550, 332);
-            this.campaniaDeslizante1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.campaniaDeslizante1.TabIndex = 2;
-            this.campaniaDeslizante1.TabStop = false;
-            // 
             // VPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -220,11 +220,11 @@ namespace UI.NuevasPantallas
             this.Text = "EASY News";
             this.Activated += new System.EventHandler(this.VPrincipal_Activated);
             this.groupBoxCampania.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.campaniaDeslizante1)).EndInit();
             this.groupBoxBanner.ResumeLayout(false);
             this.groupBoxBanner.PerformLayout();
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.campaniaDeslizante1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -241,8 +241,8 @@ namespace UI.NuevasPantallas
         private System.Windows.Forms.ToolStripMenuItem campañasToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem pantallaCompletaToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem salirToolStripMenuItem;
-        private System.ComponentModel.BackgroundWorker bgwActualizarBannerPantalla;
-        private System.ComponentModel.BackgroundWorker bgwActualizarCampaniaPantalla;
+        private System.ComponentModel.BackgroundWorker bgwObtenerBanner;
+        private System.ComponentModel.BackgroundWorker bgwObtenerCampania;
         private System.Windows.Forms.Timer timerChequeoCambioBanner;
         private BannerDeslizante bannerDeslizante;
         private CampaniaDeslizante campaniaDeslizante1;

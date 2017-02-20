@@ -9,6 +9,9 @@ using System.Windows.Forms;
 
 namespace UI.UserControls
 {
+    /// <summary>
+    /// Clase que contiene todos los métodos necesarios para la movilización por un TextBox de un banner
+    /// </summary>
     public class BannerDeslizante : TextBox
     {
     //VARIABLES       
@@ -42,7 +45,7 @@ namespace UI.UserControls
         public BannerDeslizante()
         {
             this.Enabled = false;
-            this.iCaracterInicial = 0;
+            
             this.iTimerTexto = new Timer();
             this.iTimerTexto.Interval = 100;
             this.iTimerTexto.Tick += new EventHandler(timerTexto_Tick);
@@ -110,6 +113,7 @@ namespace UI.UserControls
         /// <param name="pTexto">Texto a mostrar en el banner</param>
         public void Start(string pTexto)
         {
+            this.iCaracterInicial = 0;
             this.iTexto = pTexto;
             
             while (iTexto.Length < this.Width) //Si la longitud del texto es menor al tamaño del control bannerDeslizante

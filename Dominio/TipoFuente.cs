@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 
 namespace Dominio
 {
+    /// <summary>
+    /// Define un enum de los tipos de fuentes
+    /// </summary>
     public enum TipoFuente
     {
         Rss,

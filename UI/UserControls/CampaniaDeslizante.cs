@@ -13,6 +13,9 @@ using Helper;
 
 namespace UI.UserControls
 {
+    /// <summary>
+    /// Clase que contiene todos los métodos necesarios para la movilización por un PictureBox de una campania
+    /// </summary>
     public class CampaniaDeslizante : PictureBox
     {
     //VARIABLES
@@ -92,7 +95,7 @@ namespace UI.UserControls
         /// <param name="pLista">Lista de imágenes a pasar en la campaña</param>
         public void Start(List<Imagen> pLista, int pDuracion)
         {
-            if (pLista != null)
+            if (pLista != null && pLista.Count!=0)
             {
                 if (pDuracion* 1000 > 0)
                     this.iTimerImagenes.Interval = pDuracion * 1000/2; //duración en segundos

@@ -11,6 +11,9 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Persistencia
 {
+    /// <summary>
+    /// Clase que define el contexto
+    /// </summary>
     public class Contexto : DbContext
     {
         public DbSet<Campania> Campanias { get; }
@@ -19,31 +22,34 @@ namespace Persistencia
 
         public Contexto() : base("DataBase")
         {
-            Database.SetInitializer<Contexto>(new DropCreateDatabaseIfModelChanges<Contexto>());
+            //Database.SetInitializer<Contexto>(new DropCreateDatabaseIfModelChanges<Contexto>());
             var type = typeof(System.Data.Entity.SqlServer.SqlProviderServices);
             if (type == null)
                 throw new Exception("Do not remove, ensures static reference to System.Data.Entity.SqlServer");
         }
 
-        protected override void OnModelCreating(DbModelBuilder modelBuilder)
+        /// <summary>
+        /// Especifica al Entity Framework como modelar la base de datos
+        /// </summary>
+        protected override void OnModelCreating(DbModelBuilder pModelBuilder)
         {
-            base.OnModelCreating(modelBuilder);
-            modelBuilder.Conventions.Remove<PluralizingTableNameConvention>();
+            base.OnModelCreating(pModelBuilder);
+            pModelBuilder.Conventions.Remove<PluralizingTableNameConvention>();
 
             // modelBuilder.Entity<Fuente>().HasOptional(c => c.Items).WithOptionalDependent().WillCascadeOnDelete(true);
 
-            modelBuilder.Entity<Item>()
-            .HasOptional<Fuente>(s => s.Fuente)
-            .WithMany(i => i.Items)
-            .WillCascadeOnDelete(true);
+            //pModelBuilder.Entity<Item>()
+            //.HasRequired<Fuente>(s => s.Fuente)
+            //.WithMany(i => i.Items)
+            //.WillCascadeOnDelete(true);
 
-            modelBuilder.Entity<Imagen>()
-            .HasOptional<Campania>(s => s.Campania)
-            .WithMany(i => i.Imagenes)
-            .WillCascadeOnDelete(true);
+            //pModelBuilder.Entity<Imagen>()
+            //.HasRequired<Campania>(s => s.Campania)
+            //.WithMany(i => i.Imagenes)
+            //.WillCascadeOnDelete(true);
 
-            modelBuilder.Entity<Banner>()
-            .HasOptional<Fuente>(s => s.Fuente)
+            pModelBuilder.Entity<Banner>()
+            .HasRequired<Fuente>(s => s.Fuente)
             .WithMany(i => i.Banners)
             .WillCascadeOnDelete(true);
 

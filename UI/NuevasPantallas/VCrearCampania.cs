@@ -19,6 +19,9 @@ namespace UI.NuevasPantallas
             InitializeComponent();
         }
 
+        /// <summary>
+        /// Evento que se invoca cuando se hace click en el botón guardar, agregando una nueva campaña
+        /// </summary>
         private void ButtonGuardar_Click(object sender, EventArgs e)
         {
             Campania campaniaAAgregar = new Campania();

@@ -17,6 +17,7 @@ namespace UI.NuevasPantallas
 
         private ControladorDominio iControladorDominio;
 
+        //CONSTRUCTOR
         public VBaseFuente(ref ControladorDominio pControladorDominio)
         {
             InitializeComponent();
@@ -25,6 +26,9 @@ namespace UI.NuevasPantallas
             this.textBoxDescripcion.Enabled = false;
         }
 
+        /// <summary>
+        /// Evento que se invoca cuando se hace click sobre el botón nuevo, creando una nueva fuente
+        /// </summary>
         private void buttonNuevo_Click(object sender, EventArgs e)
         {
             VCrearFuente vFuente = new VCrearFuente(ref this.iControladorDominio);
@@ -36,12 +40,19 @@ namespace UI.NuevasPantallas
             return (Fuente)this.dataGridViewMostrar.SelectedRows[0].DataBoundItem;
         }
 
+        /// <summary>
+        /// Evento que se invoca cuando se hace click sobre el botón modificar, modificando una fuente
+        /// </summary>
         private void buttonModificar_Click(object sender, EventArgs e)
         {
             VModificarFuente vFuente = new VModificarFuente(ref this.iControladorDominio, this.fuenteAModificar());
             vFuente.Show();
         }
 
+        /// <summary>
+        /// Craga el DataGridFuentes con la lista de fuentes
+        /// </summary>
+        /// <param name="pListaFuentes">lista de fuentes a cargar</param>
         public void CargarDataGridFuentes(List<Fuente> pListaFuentes)
         {
             this.dataGridViewMostrar.DataSource = pListaFuentes;
@@ -54,6 +65,10 @@ namespace UI.NuevasPantallas
             this.dataGridViewMostrar.Columns["FuenteId"].Visible = false;
         }
 
+        /// <summary>
+        /// Evento que se invoca cuando se hace click sobre el botón eliminar, eliminando una fuente.
+        /// Actualiza el DataGrid
+        /// </summary>
         private void buttonEliminar_Click(object sender, EventArgs e)
         {
             int codigo = Convert.ToInt32(this.dataGridViewMostrar.SelectedRows[0].Cells[0].Value.ToString());
@@ -62,6 +77,10 @@ namespace UI.NuevasPantallas
             this.CargarDataGridFuentes(this.iControladorDominio.ObtenerTodasLasFuentes());
         }
 
+        /// <summary>
+        /// Evento que se invoca cuando se hace click en el botón filtrar
+        /// y muestra el nuevo listado de fuentes según los filtros
+        /// </summary>
         private void buttonFiltrar_Click(object sender, EventArgs e)
         {
             string filtroTipoFuente = null;
@@ -85,6 +104,9 @@ namespace UI.NuevasPantallas
             this.dataGridViewMostrar.DataSource = listaFiltrada;
         }
 
+        /// <summary>
+        /// Evento que se invoca cuando cambia el valor del checkBoxDescripcion
+        /// </summary>
         private void checkBoxDescripcion_CheckedChanged(object sender, EventArgs e)
         {
             if (this.checkBoxDescripcion.Checked)
@@ -92,6 +114,9 @@ namespace UI.NuevasPantallas
             else this.textBoxDescripcion.Enabled = false;
         }
 
+        /// <summary>
+        /// Evento que se invoca cuando cambia el valor del checkBoxTipo
+        /// </summary>
         private void checkBoxTipo_CheckedChanged(object sender, EventArgs e)
         {
             if (this.checkBoxTipo.Checked)
@@ -104,6 +129,9 @@ namespace UI.NuevasPantallas
             this.Close();
         }
 
+        /// <summary>
+        /// Evento que se invoca cuando VBaseFuente se activa
+        /// </summary>
         private void VBaseFuente_Activated(object sender, EventArgs e)
         {
             this.CargarDataGridFuentes(this.iControladorDominio.ObtenerTodasLasFuentes());

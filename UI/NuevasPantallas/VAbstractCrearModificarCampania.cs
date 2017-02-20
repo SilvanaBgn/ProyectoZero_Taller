@@ -16,11 +16,12 @@ namespace UI.NuevasPantallas
     {
         protected ControladorDominio iControladorDominio;
 
+        //CONSTRUCTOR
         public VAbstractCrearModificarCampania()
         {
             InitializeComponent();
         }
-
+        //CONSTRUCTOR
         public VAbstractCrearModificarCampania(ref ControladorDominio pControladorDominio) : this()
         {
             this.iControladorDominio = pControladorDominio;
