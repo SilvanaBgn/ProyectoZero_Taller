@@ -6,6 +6,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Dominio;
+using System.Data.Entity.Infrastructure;
+using Excepciones.ExcepcionesIntermedias;
 
 namespace Persistencia
 {
@@ -57,7 +59,12 @@ namespace Persistencia
 
         public void GuardarCambios()
         {
-            iContexto.SaveChanges();
+            try
+            {
+                iContexto.SaveChanges();
+            }
+            catch (DbUpdateException)
+            { throw new ExcepcionValidacionBBDD(); }
         }
 
         public void Rollback()
@@ -72,4 +79,3 @@ namespace Persistencia
 
 
 
-       

@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Dominio;
+using System.Text.RegularExpressions;
 
 namespace UI.NuevasPantallas
 {
@@ -30,17 +31,25 @@ namespace UI.NuevasPantallas
             vFuente.Show();
         }
 
+        private Fuente fuenteAModificar()
+        {
+            return (Fuente)this.dataGridViewMostrar.SelectedRows[0].DataBoundItem;
+        }
+
         private void buttonModificar_Click(object sender, EventArgs e)
         {
-            VModificarFuente vFuente = new VModificarFuente(ref this.iControladorDominio);
+            VModificarFuente vFuente = new VModificarFuente(ref this.iControladorDominio, this.fuenteAModificar());
             vFuente.Show();
         }
 
         public void CargarDataGridFuentes(List<Fuente> pListaFuentes)
         {
             this.dataGridViewMostrar.DataSource = pListaFuentes;
+            this.dataGridViewMostrar.Columns["Tipo"].DisplayIndex = 0;
+            this.dataGridViewMostrar.Columns["Descripcion"].DisplayIndex = 1;
+            this.dataGridViewMostrar.Columns["origenItems"].DisplayIndex = 2;
+            this.dataGridViewMostrar.Columns["origenItems"].HeaderText = "Fuente";
             this.dataGridViewMostrar.Columns["Banners"].Visible = false;
-            this.dataGridViewMostrar.Columns["Tipo"].Visible = false;
             this.dataGridViewMostrar.Columns["Items"].Visible = false;
             this.dataGridViewMostrar.Columns["FuenteId"].Visible = false;
         }
@@ -58,7 +67,7 @@ namespace UI.NuevasPantallas
             string filtroTipoFuente = null;
             string filtroDescripcion = null;
 
-            if (checkBoxTipo.Checked)
+            if (checkBoxTipo.Checked && this.comboBoxTipo.Text != "")
                 switch (this.comboBoxTipo.SelectedItem.ToString())
                 {
                     case "Rss":
@@ -100,9 +109,32 @@ namespace UI.NuevasPantallas
             this.CargarDataGridFuentes(this.iControladorDominio.ObtenerTodasLasFuentes());
         }
 
-        private void VBaseFuente_Load(object sender, EventArgs e)
+        /// <summary>
+        /// Devuelve la seleccion a la primer fila si no hay filas seleccionadas
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void dataGridViewMostrar_SelectionChanged(object sender, EventArgs e)
         {
-            this.CargarDataGridFuentes(this.iControladorDominio.ObtenerTodasLasFuentes());
+            if (this.dataGridViewMostrar.Rows.Count > 0 && this.dataGridViewMostrar.SelectedRows.Count <= 0)
+            {
+                this.dataGridViewMostrar.CurrentCell = this.dataGridViewMostrar.Rows[0].Cells[1];
+                this.dataGridViewMostrar.Rows[0].Selected = true;
+            }
+        }
+
+        private void InputValido(KeyPressEventArgs e)
+        {
+            var regex = new Regex(@"[^a-zA-Z0-9\s\b]");
+            if (regex.IsMatch(e.KeyChar.ToString()))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void textBoxDescripcion_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            this.InputValido(e);
         }
     }
 }

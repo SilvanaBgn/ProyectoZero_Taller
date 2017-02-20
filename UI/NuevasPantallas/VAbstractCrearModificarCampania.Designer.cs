@@ -60,16 +60,22 @@
             // textBoxTitulo
             // 
             this.textBoxTitulo.Location = new System.Drawing.Point(97, 13);
+            this.textBoxTitulo.MaxLength = 20;
             this.textBoxTitulo.Name = "textBoxTitulo";
+            this.textBoxTitulo.ShortcutsEnabled = false;
             this.textBoxTitulo.Size = new System.Drawing.Size(407, 20);
             this.textBoxTitulo.TabIndex = 2;
+            this.textBoxTitulo.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBoxValido_KeyPress);
             // 
             // textBoxDescripcion
             // 
             this.textBoxDescripcion.Location = new System.Drawing.Point(97, 43);
+            this.textBoxDescripcion.MaxLength = 30;
             this.textBoxDescripcion.Name = "textBoxDescripcion";
+            this.textBoxDescripcion.ShortcutsEnabled = false;
             this.textBoxDescripcion.Size = new System.Drawing.Size(407, 20);
             this.textBoxDescripcion.TabIndex = 3;
+            this.textBoxDescripcion.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBoxValido_KeyPress);
             // 
             // buttonGuardar
             // 
@@ -91,6 +97,8 @@
             // 
             // rangoFecha
             // 
+            this.rangoFecha.FechaFin = new System.DateTime(2017, 2, 18, 0, 0, 0, 0);
+            this.rangoFecha.FechaInicio = new System.DateTime(2017, 2, 18, 0, 0, 0, 0);
             this.rangoFecha.Location = new System.Drawing.Point(16, 89);
             this.rangoFecha.Name = "rangoFecha";
             this.rangoFecha.Size = new System.Drawing.Size(264, 96);
@@ -98,6 +106,8 @@
             // 
             // rangoHorario
             // 
+            this.rangoHorario.HoraFin = System.TimeSpan.Parse("00:15:00");
+            this.rangoHorario.HoraInicio = System.TimeSpan.Parse("00:00:00");
             this.rangoHorario.Location = new System.Drawing.Point(333, 89);
             this.rangoHorario.Name = "rangoHorario";
             this.rangoHorario.Size = new System.Drawing.Size(120, 96);
@@ -107,7 +117,8 @@
             // 
             this.galeria.Location = new System.Drawing.Point(16, 210);
             this.galeria.Name = "galeria";
-            this.galeria.Size = new System.Drawing.Size(488, 189);
+            this.galeria.Segundos = 0;
+            this.galeria.Size = new System.Drawing.Size(488, 215);
             this.galeria.TabIndex = 10;
             // 
             // VAbstractCrearModificarCampania

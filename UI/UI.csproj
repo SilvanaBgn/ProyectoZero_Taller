@@ -255,6 +255,9 @@
     <EmbeddedResource Include="NuevasPantallas\VCrearBanner.resx">
       <DependentUpon>VCrearBanner.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="NuevasPantallas\VCrearCampania.resx">
+      <DependentUpon>VCrearCampania.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="NuevasPantallas\VCrearFuente.resx">
       <DependentUpon>VCrearFuente.cs</DependentUpon>
     </EmbeddedResource>
@@ -273,6 +276,7 @@
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="PruebaGaleria.resx">
       <DependentUpon>PruebaGaleria.cs</DependentUpon>

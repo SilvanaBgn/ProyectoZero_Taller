@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Dominio;
+using System.Text.RegularExpressions;
 
 namespace UI.UserControls
 {
@@ -166,5 +167,20 @@ namespace UI.UserControls
             return banner;
         }
         #endregion
+
+        private void InputValido(KeyPressEventArgs e)
+        {
+            var regex = new Regex(@"[^a-zA-Z0-9\s\b]");
+            if (regex.IsMatch(e.KeyChar.ToString()))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void textBoxValido_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            this.InputValido(e);
+        }
+
     }
 }

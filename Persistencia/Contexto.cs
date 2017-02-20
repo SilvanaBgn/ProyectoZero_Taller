@@ -6,7 +6,8 @@ using System.Threading.Tasks;
 using System.Data.Entity;
 using System.Data.Entity.ModelConfiguration.Conventions;
 using Dominio;
-
+using System.Data.Entity.Infrastructure.Annotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Persistencia
 {
@@ -46,12 +47,16 @@ namespace Persistencia
             .WithMany(i => i.Banners)
             .WillCascadeOnDelete(true);
 
-            //modelBuilder.Entity<Campania>().ToTable("Campania");
-            //modelBuilder.Entity<Imagen>().ToTable("Imagen");
-
-
-            //HACER DELETEs EN CASCADA
-            //modelBuilder.Entity<Campania>()
+            modelBuilder
+    .Entity<Fuente>()
+    .Property(t => t.origenItems)
+    .HasColumnAnnotation(
+        "Index",
+        new IndexAnnotation(new[]
+            {
+                new IndexAttribute("Index1"),
+                new IndexAttribute("Index2") { IsUnique = true }
+            }));
         }
     }
 }

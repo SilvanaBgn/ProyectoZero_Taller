@@ -1,4 +1,6 @@
-﻿namespace UI.NuevasPantallas
+﻿using System.Windows.Forms;
+
+namespace UI.NuevasPantallas
 {
     partial class VAbstractBase
     {
@@ -117,7 +119,12 @@
             // 
             this.dataGridViewMostrar.AllowUserToAddRows = false;
             this.dataGridViewMostrar.AllowUserToDeleteRows = false;
-            this.dataGridViewMostrar.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridViewMostrar.RowHeadersWidthSizeMode = DataGridViewRowHeadersWidthSizeMode.DisableResizing;
+            this.dataGridViewMostrar.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+            this.dataGridViewMostrar.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
+            this.dataGridViewMostrar.AllowUserToResizeRows = false;
+            this.dataGridViewMostrar.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
+            this.dataGridViewMostrar.AllowUserToResizeColumns = false;
             this.dataGridViewMostrar.Location = new System.Drawing.Point(282, 69);
             this.dataGridViewMostrar.MultiSelect = false;
             this.dataGridViewMostrar.Name = "dataGridViewMostrar";
@@ -125,16 +132,19 @@
             this.dataGridViewMostrar.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridViewMostrar.Size = new System.Drawing.Size(363, 344);
             this.dataGridViewMostrar.TabIndex = 7;
-            this.dataGridViewMostrar.CellMouseDown += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dataGridViewMostrar_CellMouseDown);
+            this.dataGridViewMostrar.SelectionChanged += new System.EventHandler(this.dataGridViewMostrar_SelectionChanged);
             // 
             // textBoxDescripcion
             // 
             this.textBoxDescripcion.AcceptsTab = true;
             this.textBoxDescripcion.Enabled = false;
             this.textBoxDescripcion.Location = new System.Drawing.Point(34, 339);
+            this.textBoxDescripcion.MaxLength = 30;
             this.textBoxDescripcion.Name = "textBoxDescripcion";
             this.textBoxDescripcion.Size = new System.Drawing.Size(198, 20);
+            this.textBoxDescripcion.ShortcutsEnabled = false;
             this.textBoxDescripcion.TabIndex = 10;
+            this.textBoxDescripcion.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBoxDescripcion_KeyPress);
             // 
             // buttonSalir
             // 
@@ -170,9 +180,12 @@
             // 
             this.textBoxTitulo.Enabled = false;
             this.textBoxTitulo.Location = new System.Drawing.Point(34, 393);
+            this.textBoxTitulo.MaxLength = 20;
             this.textBoxTitulo.Name = "textBoxTitulo";
             this.textBoxTitulo.Size = new System.Drawing.Size(198, 20);
+            this.textBoxDescripcion.ShortcutsEnabled = false;
             this.textBoxTitulo.TabIndex = 16;
+            this.textBoxTitulo.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBoxTitulo_KeyPress);
             // 
             // rangoHorario
             // 

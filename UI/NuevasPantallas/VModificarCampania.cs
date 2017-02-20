@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Dominio;
+using Excepciones.ExcepcionesEspecíficas;
 
 namespace UI.NuevasPantallas
 {
@@ -31,6 +32,7 @@ namespace UI.NuevasPantallas
             this.rangoHorario.HoraInicio = campaniaAModificar.HoraInicio;
             this.rangoHorario.HoraFin = campaniaAModificar.HoraFin;
             this.galeria.ListaImagenes = (List<Imagen>)campaniaAModificar.Imagenes;
+            this.galeria.Segundos = campaniaAModificar.DuracionImagen;
         }
 
         private void ButtonGuardar_Click(object sender, EventArgs e)
@@ -42,11 +44,18 @@ namespace UI.NuevasPantallas
             this.iCampaniaAModificar.HoraInicio = this.rangoHorario.HoraInicio;
             this.iCampaniaAModificar.HoraFin = this.rangoHorario.HoraFin;
             this.iCampaniaAModificar.Imagenes = this.galeria.ListaImagenes;
+            this.iCampaniaAModificar.DuracionImagen = this.galeria.Segundos;
 
-            this.iControladorDominio.ModificarCampania(this.iCampaniaAModificar);
-            this.iControladorDominio.GuardarCambios();
-
-            this.Close();
+            try
+            {
+                this.iControladorDominio.ModificarCampania(this.iCampaniaAModificar);
+                this.iControladorDominio.GuardarCambios();
+                this.Close();
+            }
+            catch (ExcepcionCamposSinCompletar ex)
+            {
+                MessageBox.Show(ex.Message, "Faltan campos", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
     }
 }

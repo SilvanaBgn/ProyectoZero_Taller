@@ -54,12 +54,15 @@ namespace UI.NuevasPantallas
         {
             return (Banner)this.dataGridViewMostrar.SelectedRows[0].DataBoundItem;
         }
+
+
         /// <summary>
         /// Muestra en el datagrid los banners que se encuentran en la base de datos
         /// </summary>
         public void CargarDataGridBanners(List<Banner> pListaBanners)
         {
             this.dataGridViewMostrar.DataSource = pListaBanners;
+            this.dataGridViewMostrar.Columns["BannerId"].Visible = false;
         }
 
         private void buttonNuevo_Click(object sender, EventArgs e)
@@ -71,11 +74,15 @@ namespace UI.NuevasPantallas
 
         private void buttonModificar_Click(object sender, EventArgs e)
         {
-            this.banner = this.bannerAModificar();
-            this.Hide();
-            var nuevoForm = new VModificarBanner(ref iControladorDominio,this.bannerAModificar());
-            nuevoForm.Show();
+            if (this.bannerAModificar() == null)
+                MessageBox.Show("Seleccione una fuente");
+            else
+            {
+                VModificarBanner vBanner = new VModificarBanner(ref this.iControladorDominio, this.bannerAModificar());
+                vBanner.Show();
+            }
         }
+
 
         private void buttonEliminar_Click(object sender, EventArgs e)
         {
@@ -86,11 +93,6 @@ namespace UI.NuevasPantallas
         }
 
         private void VBaseBanner_Activated(object sender, EventArgs e)
-        {
-            CargarDataGridBanners(this.iControladorDominio.ObtenerTodosLosBanners());
-        }
-
-        private void VBaseBanner_Load(object sender, EventArgs e)
         {
             CargarDataGridBanners(this.iControladorDominio.ObtenerTodosLosBanners());
         }

@@ -41,26 +41,17 @@ namespace UI.NuevasPantallas
             if (checkBoxDescripcion.Checked)
                 filtroDescripcion = this.textBoxDescripcion.Text;
 
-            //List<Campania> listaFiltrada = this.iControladorDominio.FiltrarCampanias(filtroFechas, filtroHoras, filtroTitulo, filtroDescripcion);
-            //this.CargarDataGridCampanias(listaFiltrada);
+            List<Campania> listaFiltrada = this.iControladorDominio.FiltrarCampanias(filtroFechas, filtroHoras, filtroTitulo, filtroDescripcion);
+            this.CargarDataGridCampanias(listaFiltrada);
         }
 
         /// <summary>
-        /// Devuelve el banner seleccionado en el datagrid
+        /// Busca la campania que se va a modificar
         /// </summary>
-        /// <returns>Banner a modificar</returns>
+        /// <returns>Devuelve la campania encontrada, null si no se selecciona ninguna</returns>
         private Campania campaniaAModificar()
         {
-            Campania campania = new Campania();
-            try
-            {
-                campania=(Campania)this.dataGridViewMostrar.SelectedRows[0].DataBoundItem;
-            }
-            catch (ArgumentOutOfRangeException)
-            {
-                MessageBox.Show("Debe seleccionar una campaña para continuar","Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-            return campania;
+                return (Campania)this.dataGridViewMostrar.SelectedRows[0].DataBoundItem;
         }
 
         /// <summary>
@@ -69,6 +60,9 @@ namespace UI.NuevasPantallas
         public void CargarDataGridCampanias(List<Campania> pListaCampanias)
         {
             this.dataGridViewMostrar.DataSource = pListaCampanias;
+            this.dataGridViewMostrar.Columns["CampaniaId"].Visible = false;
+            this.dataGridViewMostrar.Columns["Imagenes"].Visible = false;
+            this.dataGridViewMostrar.Columns["DuracionImagen"].HeaderText = "Duración de imagenes";
         }
 
         private void buttonNuevo_Click(object sender, EventArgs e)
@@ -80,11 +74,15 @@ namespace UI.NuevasPantallas
 
         private void buttonModificar_Click(object sender, EventArgs e)
         {
-            this.campania = this.campaniaAModificar();
-            this.Hide();
-            var nuevoForm = new VModificarCampania(ref iControladorDominio, this.campaniaAModificar());
-            nuevoForm.Show();
+            if (this.campaniaAModificar() == null)
+                MessageBox.Show("Seleccione una fuente");
+            else
+            {
+                VModificarCampania vCampania = new VModificarCampania(ref this.iControladorDominio, this.campaniaAModificar());
+                vCampania.Show();
+            }
         }
+
 
         private void buttonEliminar_Click(object sender, EventArgs e)
         {
@@ -95,11 +93,6 @@ namespace UI.NuevasPantallas
         }
 
         private void VBaseCampania_Activated(object sender, EventArgs e)
-        {
-            CargarDataGridCampanias(this.iControladorDominio.ObtenerTodasLasCampanias());
-        }
-
-        private void VBaseCampania_Load(object sender, EventArgs e)
         {
             CargarDataGridCampanias(this.iControladorDominio.ObtenerTodasLasCampanias());
         }

@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Dominio;
+using System.Text.RegularExpressions;
 
 namespace UI.NuevasPantallas
 {
@@ -59,15 +60,37 @@ namespace UI.NuevasPantallas
             this.Close();
         }
 
-        private void dataGridViewMostrar_CellMouseDown(object sender, DataGridViewCellMouseEventArgs e)
+        /// <summary>
+        /// Devuelve la seleccion a la primer fila si no hay filas seleccionadas
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void dataGridViewMostrar_SelectionChanged(object sender, EventArgs e)
         {
-            if ((Control.ModifierKeys & Keys.Control) == Keys.Control)
+            if (this.dataGridViewMostrar.Rows.Count>0 && this.dataGridViewMostrar.SelectedRows.Count <= 0)
             {
-                if (e.Button == MouseButtons.Left)
-                {
-                    dataGridViewMostrar.ClearSelection();
-                }
+                this.dataGridViewMostrar.CurrentCell = this.dataGridViewMostrar.Rows[0].Cells[1];
+                this.dataGridViewMostrar.Rows[0].Selected = true;
             }
+        }
+
+        private void InputValido(KeyPressEventArgs e)
+        {
+            var regex = new Regex(@"[^a-zA-Z0-9\s\b]");
+            if (regex.IsMatch(e.KeyChar.ToString()))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void textBoxDescripcion_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            this.InputValido(e);
+        }
+
+        private void textBoxTitulo_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            this.InputValido(e);
         }
     }
 }

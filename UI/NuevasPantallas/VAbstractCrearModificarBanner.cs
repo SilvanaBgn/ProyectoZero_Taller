@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Dominio;
+using System.Text.RegularExpressions;
 
 namespace UI.NuevasPantallas
 {
@@ -33,12 +34,13 @@ namespace UI.NuevasPantallas
             this.dataGridViewMostrarFuentes.Columns["Descripcion"].DisplayIndex = 1;
             this.dataGridViewMostrarFuentes.Columns["origenItems"].DisplayIndex = 2;
             this.dataGridViewMostrarFuentes.Columns["origenItems"].HeaderText = "Origen items";
-            this.dataGridViewMostrarFuentes.Columns["FuenteId"].Width = 0;
             this.dataGridViewMostrarFuentes.Columns["Banners"].Visible = false;
             this.dataGridViewMostrarFuentes.Columns["Items"].Visible = false;
         }
 
-        private void buttonCancelar_Click(object sender, EventArgs e)
+
+
+    private void buttonCancelar_Click(object sender, EventArgs e)
         {
             this.Close();
         }
@@ -48,9 +50,37 @@ namespace UI.NuevasPantallas
             this.CargarDataGridViewFuentes(this.iControladorDominio.ObtenerTodasLasFuentes());
         }
 
-        //private void VAbstractCrearModificarBanner_Shown(object sender, EventArgs e)
-        //{
-        //    this.dataGridViewMostrarFuentes.ClearSelection();
-        //}
+        private Fuente fuenteAModificar()
+        {
+                return (Fuente)this.dataGridViewMostrarFuentes.SelectedRows[0].DataBoundItem;
+        }
+
+        /// <summary>
+        /// Devuelve la seleccion a la primer fila si no hay filas seleccionadas
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void dataGridViewMostrarFuentes_SelectionChanged(object sender, EventArgs e)
+        {
+            if (this.dataGridViewMostrarFuentes.Rows.Count > 0 && this.dataGridViewMostrarFuentes.SelectedRows.Count <= 0)
+            {
+                this.dataGridViewMostrarFuentes.CurrentCell = this.dataGridViewMostrarFuentes.Rows[0].Cells[1];
+                this.dataGridViewMostrarFuentes.Rows[0].Selected = true;
+            }
+        }
+
+        private void InputValido(KeyPressEventArgs e)
+        {
+            var regex = new Regex(@"[^a-zA-Z0-9\s\b]");
+            if (regex.IsMatch(e.KeyChar.ToString()))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void textBoxValido_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            this.InputValido(e);
+        }
     }
 }

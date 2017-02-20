@@ -63,9 +63,12 @@ namespace UI.NuevasPantallas
             // textBoxDescripcionRss
             // 
             this.textBoxDescripcionRss.Location = new System.Drawing.Point(83, 33);
+            this.textBoxDescripcionRss.MaxLength = 30;
             this.textBoxDescripcionRss.Name = "textBoxDescripcionRss";
+            this.textBoxDescripcionRss.ShortcutsEnabled = false;
             this.textBoxDescripcionRss.Size = new System.Drawing.Size(194, 20);
             this.textBoxDescripcionRss.TabIndex = 1;
+            this.textBoxDescripcionRss.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBoxValido_KeyPress);
             // 
             // comboBoxTipoFuente
             // 
@@ -104,6 +107,7 @@ namespace UI.NuevasPantallas
             // textBoxFuenteRss
             // 
             this.textBoxFuenteRss.Location = new System.Drawing.Point(79, 99);
+            this.textBoxFuenteRss.MaxLength = 50;
             this.textBoxFuenteRss.Name = "textBoxFuenteRss";
             this.textBoxFuenteRss.Size = new System.Drawing.Size(283, 20);
             this.textBoxFuenteRss.TabIndex = 5;
@@ -128,6 +132,7 @@ namespace UI.NuevasPantallas
             // textBoxAgregarPasoBanner
             // 
             this.textBoxAgregarPasoBanner.Location = new System.Drawing.Point(21, 69);
+            this.textBoxAgregarPasoBanner.MaxLength = 50;
             this.textBoxAgregarPasoBanner.Multiline = true;
             this.textBoxAgregarPasoBanner.Name = "textBoxAgregarPasoBanner";
             this.textBoxAgregarPasoBanner.Size = new System.Drawing.Size(345, 20);
@@ -136,7 +141,9 @@ namespace UI.NuevasPantallas
             // textBoxDescripcionTextoFijo
             // 
             this.textBoxDescripcionTextoFijo.Location = new System.Drawing.Point(83, 12);
+            this.textBoxDescripcionTextoFijo.MaxLength = 30;
             this.textBoxDescripcionTextoFijo.Name = "textBoxDescripcionTextoFijo";
+            this.textBoxDescripcionTextoFijo.ShortcutsEnabled = false;
             this.textBoxDescripcionTextoFijo.Size = new System.Drawing.Size(194, 20);
             this.textBoxDescripcionTextoFijo.TabIndex = 3;
             // 
@@ -180,13 +187,14 @@ namespace UI.NuevasPantallas
             // panelTextoFijo
             // 
             this.panelTextoFijo.Controls.Add(this.textoFijo);
-            this.panelTextoFijo.Location = new System.Drawing.Point(12, 30);
+            this.panelTextoFijo.Location = new System.Drawing.Point(11, 37);
             this.panelTextoFijo.Name = "panelTextoFijo";
-            this.panelTextoFijo.Size = new System.Drawing.Size(438, 248);
+            this.panelTextoFijo.Size = new System.Drawing.Size(438, 240);
             this.panelTextoFijo.TabIndex = 9;
             // 
             // textoFijo
             // 
+            this.textoFijo.Descripcion = "";
             this.textoFijo.Location = new System.Drawing.Point(3, 7);
             this.textoFijo.Name = "textoFijo";
             this.textoFijo.Size = new System.Drawing.Size(420, 238);

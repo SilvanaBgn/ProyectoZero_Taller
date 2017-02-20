@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
@@ -10,6 +11,7 @@ namespace Dominio
     public class Item
     {
         public int ItemId { get; set; }
+
         public string Descripcion { get; set; }
 
         public virtual Fuente Fuente { get; set; }

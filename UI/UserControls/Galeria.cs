@@ -38,6 +38,15 @@ namespace UI.UserControls
                 this.CargarListView();
             }
         }
+        public int Segundos
+        {
+
+            get
+            {
+                return Convert.ToInt32(this.comboBoxSegundos.SelectedItem);
+            }
+            set { this.comboBoxSegundos.SelectedIndex = value-1; }
+        }
 
         public Galeria()
         {
@@ -170,7 +179,7 @@ namespace UI.UserControls
             this.buttonEliminarImagen.Enabled = !this.buttonEliminarImagen.Enabled;
             this.buttonArriba.Enabled = !this.buttonArriba.Enabled;
             this.buttonAbajo.Enabled = !this.buttonAbajo.Enabled;
-            this.textBoxSegundos.Enabled = !this.textBoxSegundos.Enabled;
+            this.comboBoxSegundos.Enabled = !this.comboBoxSegundos.Enabled;
 
             //De acuerdo a si está funcionando o no, cambiamos la imagen del botón, y le damos Start o Stop
             if (!this.campaniaDeslizante.Funcionando)
@@ -181,8 +190,8 @@ namespace UI.UserControls
                 //Cambiamos la imagen del botón this.buttonVistaPrevia a "Pausa":
                 this.buttonVistaPrevia.BackgroundImage = global::UI.Properties.Resources.Pausa1;
 
-                if (this.textBoxSegundos.Text.Length > 0)
-                    this.campaniaDeslizante.Start(this.iListaImagenes, Convert.ToInt32(this.textBoxSegundos.Text));
+                if (Convert.ToInt32(this.comboBoxSegundos.SelectedItem) > -1)
+                    this.campaniaDeslizante.Start(this.iListaImagenes, Convert.ToInt32(this.comboBoxSegundos.SelectedItem));
                 else
                     this.campaniaDeslizante.Start(this.iListaImagenes, 0);
             }
@@ -232,7 +241,7 @@ namespace UI.UserControls
         {
             for (int i = 0; i < this.iListaImagenes.Count; i++)
             {
-                ListViewItem fila = new ListViewItem((i + 1).ToString());
+                ListViewItem fila = new ListViewItem((i + 1).ToString());                  
                 fila.SubItems.Add(this.iListaImagenes[i].Descripcion);
                 //ConversorImagen.ImageToByte(this.listView1.Items[i].SubItems[2].Text)
                 fila.SubItems.Add(ConversorImagen.GetString(this.iListaImagenes[i].Bytes));
@@ -241,6 +250,8 @@ namespace UI.UserControls
             //Seleccionamos el primer elemento del ListView:
             this.listView.Focus();
             this.listView.Items[0].Selected = true;
+            //this.listView.Columns.RemoveAt(2);
+            //this.listView.Columns.RemoveAt(0);
         }
         #endregion
     }
