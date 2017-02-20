@@ -37,13 +37,13 @@ namespace UI.NuevasPantallas
             string filtroTitulo = null;
             string filtroDescripcion = null;
 
-            if (this.checkBoxRangoFechas.Checked)
+            if (checkBoxRangoFechas.Checked)
                 filtroFechas = new DateTime[] { this.rangoFecha.FechaInicio, this.rangoFecha.FechaFin };
-            if (this.checkBoxRangoHoras.Checked)
+            if (checkBoxRangoHoras.Checked)
                 filtroHoras = new TimeSpan[] { this.rangoHorario.HoraInicio, this.rangoHorario.HoraFin };
-            if (this.checkBoxTitulo.Checked)
+            if (checkBoxTitulo.Checked)
                 filtroTitulo = this.textBoxTitulo.Text;
-            if (this.checkBoxDescripcion.Checked)
+            if (checkBoxDescripcion.Checked)
                 filtroDescripcion = this.textBoxDescripcion.Text;
 
             List<Banner> listaFiltrada=this.iControladorDominio.FiltrarBanners(filtroFechas,filtroHoras,filtroTitulo,filtroDescripcion);
@@ -110,6 +110,14 @@ namespace UI.NuevasPantallas
         /// Evento que se invoca cuando VBaseBanner se activa
         /// </summary>
         private void VBaseBanner_Activated(object sender, EventArgs e)
+        {
+            CargarDataGridBanners(this.iControladorDominio.ObtenerTodosLosBanners());
+        }
+
+        /// <summary>
+        /// Evento que se invoca cuando VBaseBanner se carga
+        /// </summary>
+        private void VBaseBanner_Load(object sender, EventArgs e)
         {
             CargarDataGridBanners(this.iControladorDominio.ObtenerTodosLosBanners());
         }

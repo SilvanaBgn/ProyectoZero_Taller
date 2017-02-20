@@ -77,12 +77,6 @@ namespace UI.NuevasPantallas
         }
 
         /// <summary>
-        /// Devuelve la seleccion a la primer fila si no hay filas seleccionadas
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void dataGridViewMostrar_SelectionChanged(object sender, EventArgs e)
-        /// <summary>
         ///  Evento que se invoca cuando se hace click con el mouse sobre una celda
         /// </summary>
         private void dataGridViewMostrar_CellMouseDown(object sender, DataGridViewCellMouseEventArgs e)
@@ -112,5 +106,20 @@ namespace UI.NuevasPantallas
         {
             this.InputValido(e);
         }
+
+        /// <summary>
+        /// Devuelve la seleccion a la primer fila si no hay filas seleccionadas
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void dataGridViewMostrar_SelectionChanged(object sender, EventArgs e)
+        {
+            if (this.dataGridViewMostrar.Rows.Count > 0 && this.dataGridViewMostrar.SelectedRows.Count <= 0)
+            {
+                this.dataGridViewMostrar.CurrentCell = this.dataGridViewMostrar.Rows[0].Cells[1];
+                this.dataGridViewMostrar.Rows[0].Selected = true;
+            }
+        }
+
     }
 }

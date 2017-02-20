@@ -22,7 +22,7 @@ namespace Persistencia
 
         public Contexto() : base("DataBase")
         {
-            //Database.SetInitializer<Contexto>(new DropCreateDatabaseIfModelChanges<Contexto>());
+            Database.SetInitializer<Contexto>(new DropCreateDatabaseIfModelChanges<Contexto>());
             var type = typeof(System.Data.Entity.SqlServer.SqlProviderServices);
             if (type == null)
                 throw new Exception("Do not remove, ensures static reference to System.Data.Entity.SqlServer");
@@ -53,7 +53,7 @@ namespace Persistencia
             .WithMany(i => i.Banners)
             .WillCascadeOnDelete(true);
 
-            modelBuilder
+            pModelBuilder
     .Entity<Fuente>()
     .Property(t => t.origenItems)
     .HasColumnAnnotation(
