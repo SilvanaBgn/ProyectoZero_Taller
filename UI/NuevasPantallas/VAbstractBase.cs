@@ -26,6 +26,9 @@ namespace UI.NuevasPantallas
             this.iControladorDominio = pControladorDominio;
         }
 
+        /// <summary>
+        /// Evento que se invoca cuando cambia el valor del checkBoxRangoFechas
+        /// </summary>
         private void checkBoxRangoFechas_CheckedChanged(object sender, EventArgs e)
         {
             if (this.checkBoxRangoFechas.Checked)
@@ -33,6 +36,9 @@ namespace UI.NuevasPantallas
             else this.rangoFecha.Enabled = false;
         }
 
+        /// <summary>
+        /// Evento que se invoca cuando cambia el valor del checkBoxRangoHoras
+        /// </summary>
         private void checkBoxRangoHoras_CheckedChanged(object sender, EventArgs e)
         {
             if (this.checkBoxRangoHoras.Checked)
@@ -40,6 +46,9 @@ namespace UI.NuevasPantallas
             else this.rangoHorario.Enabled = false;
         }
 
+        /// <summary>
+        /// Evento que se invoca cuando cambia el valor del checkBoxTitulo
+        /// </summary>
         private void checkBoxTitulo_CheckedChanged(object sender, EventArgs e)
         {
             if (this.checkBoxTitulo.Checked)
@@ -47,6 +56,9 @@ namespace UI.NuevasPantallas
             else this.textBoxTitulo.Enabled = false;
         }
 
+        /// <summary>
+        /// Evento que se invoca cuando cambia el valor del checkBoxDescripcion
+        /// </summary>
         private void checkBoxDescripcion_CheckedChanged(object sender, EventArgs e)
         {
             if (this.checkBoxDescripcion.Checked)
@@ -54,11 +66,17 @@ namespace UI.NuevasPantallas
             else this.textBoxDescripcion.Enabled = false;
         }
 
+        /// <summary>
+        /// Botón salir
+        /// </summary>
         private void buttonSalir_Click(object sender, EventArgs e)
         {
             this.Close();
         }
 
+        /// <summary>
+        ///  Evento que se invoca cuando se hace click con el mouse sobre una celda
+        /// </summary>
         private void dataGridViewMostrar_CellMouseDown(object sender, DataGridViewCellMouseEventArgs e)
         {
             if ((Control.ModifierKeys & Keys.Control) == Keys.Control)

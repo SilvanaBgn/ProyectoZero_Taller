@@ -15,11 +15,13 @@ namespace UI.NuevasPantallas
     {
         protected ControladorDominio iControladorDominio;
 
+        //CONSTRUCTOR
         public VAbstractCrearModificarFuente()
         {
             InitializeComponent();
         }
 
+        //CONSTRUCTOR
         public VAbstractCrearModificarFuente(ref ControladorDominio pControladorDominio) : this()
         {
             this.iControladorDominio = pControladorDominio;
@@ -30,6 +32,10 @@ namespace UI.NuevasPantallas
             this.Close();
         }
 
+        /// <summary>
+        /// Si se selecciona RSS en el comboBox se muestra el panel RSS
+        /// Si se selecciona Texto Fijo en el comboBox se muestra el panel texto fijo
+        /// </summary>
         private void MostrarPanel(object sender, EventArgs e)
         {
             switch (this.comboBoxTipoFuente.SelectedItem.ToString())

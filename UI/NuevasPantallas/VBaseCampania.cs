@@ -25,6 +25,9 @@ namespace UI.NuevasPantallas
             this.iControladorDominio = pControladorDominio;
         }
 
+        /// <summary>
+        /// Evento que se invoca cuando se hace click en el botón filtrar
+        /// </summary>
         private void buttonFiltrar_Click(object sender, EventArgs e)
         {
             DateTime[] filtroFechas = null;
@@ -71,6 +74,9 @@ namespace UI.NuevasPantallas
             this.dataGridViewMostrar.DataSource = pListaCampanias;
         }
 
+        /// <summary>
+        /// Evento que se invoca cuando se hace click sobre el botón nuevo, creando una nueva campaña
+        /// </summary>
         private void buttonNuevo_Click(object sender, EventArgs e)
         {
             this.Hide();
@@ -78,6 +84,9 @@ namespace UI.NuevasPantallas
             form2.Show();
         }
 
+        /// <summary>
+        /// Evento que se invoca cuando se hace click sobre el botón modificar, modificando una campaña
+        /// </summary>
         private void buttonModificar_Click(object sender, EventArgs e)
         {
             this.campania = this.campaniaAModificar();
@@ -86,6 +95,10 @@ namespace UI.NuevasPantallas
             nuevoForm.Show();
         }
 
+        /// <summary>
+        /// Evento que se invoca cuando se hace click sobre el botón eliminar, eliminando una campaña.
+        /// Actualiza el DataGrid
+        /// </summary>
         private void buttonEliminar_Click(object sender, EventArgs e)
         {
             int codigo = Convert.ToInt32(this.dataGridViewMostrar.SelectedRows[0].Cells[0].Value.ToString());
@@ -94,11 +107,17 @@ namespace UI.NuevasPantallas
             this.CargarDataGridCampanias(this.iControladorDominio.ObtenerTodasLasCampanias());
         }
 
+        /// <summary>
+        /// Evento que se invoca cuando VBaseCampania se activa
+        /// </summary>
         private void VBaseCampania_Activated(object sender, EventArgs e)
         {
             CargarDataGridCampanias(this.iControladorDominio.ObtenerTodasLasCampanias());
         }
 
+        /// <summary>
+        /// Evento que se invoca cuando VBaseCampania se carga
+        /// </summary>
         private void VBaseCampania_Load(object sender, EventArgs e)
         {
             CargarDataGridCampanias(this.iControladorDominio.ObtenerTodasLasCampanias());

@@ -15,16 +15,21 @@ namespace UI.NuevasPantallas
     {
         protected ControladorDominio iControladorDominio;
 
+        //CONSTRUCTOR
         public VAbstractCrearModificarBanner()
         {
             InitializeComponent();
         }
 
+        //CONSTRUCTOR
         public VAbstractCrearModificarBanner(ref ControladorDominio pControladorDominio) : this()
         {
             this.iControladorDominio = pControladorDominio;
         }
 
+        /// <summary>
+        /// Craga el DataGridViewFuentes con la lista de fuentes
+        /// </summary>
         protected void CargarDataGridViewFuentes(List<Fuente> pListaFuentes)
         {
             this.dataGridViewMostrarFuentes.DataSource = pListaFuentes;
@@ -43,6 +48,9 @@ namespace UI.NuevasPantallas
             this.Close();
         }
 
+        /// <summary>
+        /// Evento que se invoca cuando se activa VAbstractCrearModificarBanner
+        /// </summary>
         private void VAbstractCrearModificarBanner_Activated(object sender, EventArgs e)
         {
             this.CargarDataGridViewFuentes(this.iControladorDominio.ObtenerTodasLasFuentes());
