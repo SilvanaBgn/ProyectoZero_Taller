@@ -9,6 +9,9 @@ using System.Windows.Forms;
 
 namespace UI.UserControls
 {
+    /// <summary>
+    /// Clase que contiene todos los métodos necesarios para la movilización por un TextBox de un banner
+    /// </summary>
     public class BannerDeslizante : TextBox
     {
     //VARIABLES       

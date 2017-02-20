@@ -51,6 +51,7 @@ namespace UI.UserControls
             }
         }
 
+        //CONSTRUCTOR
         public TextoFijo()
         {
             InitializeComponent();
@@ -118,7 +119,9 @@ namespace UI.UserControls
             }
         }
 
-
+        /// <summary>
+        /// Botón que permite visulizar una vista previa del banner
+        /// </summary>
         private void buttonVistaPrevia_Click(object sender, EventArgs e)
         {
             //Cambiamos la habilitacion del listview y demás botones:
@@ -144,12 +147,18 @@ namespace UI.UserControls
         #endregion
 
         #region Eventos (privados)
+        /// <summary>
+        /// Evento del comboBox que se invoca previo al presionar una tecla
+        /// </summary>
         private void comboBoxItems_PreviewKeyDown(object sender, PreviewKeyDownEventArgs e)
         {
             if (!string.IsNullOrEmpty(comboBoxItems.Text) && e.KeyCode == Keys.Delete)
                 this.comboBoxItems.Items.Remove(comboBoxItems.SelectedItem);
         }
 
+        /// <summary>
+        /// Evento del comboBox que se invoca cuando se presiona una tecla
+        /// </summary>
         private void comboBoxItems_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (!string.IsNullOrEmpty(comboBoxItems.Text) && e.KeyChar == (Char)Keys.Enter)
@@ -158,6 +167,9 @@ namespace UI.UserControls
         #endregion
 
         #region Otras funciones auxiliares
+        /// <summary>
+        /// Convierte los items del ComboBox a un String
+        /// </summary>
         private string ConvertirItemsATexto(ComboBox pComboBox)
         {
             string banner = "";

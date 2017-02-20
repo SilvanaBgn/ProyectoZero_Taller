@@ -10,6 +10,9 @@ using Dominio;
 
 namespace Persistencia
 {
+    /// <summary>
+    /// Clase que define el contexto
+    /// </summary>
     public class Contexto : DbContext
     {
         public DbSet<Campania> Campanias { get; }
@@ -24,6 +27,9 @@ namespace Persistencia
                 throw new Exception("Do not remove, ensures static reference to System.Data.Entity.SqlServer");
         }
 
+        /// <summary>
+        /// Especifica al Entity Framework como modelar la base de datos
+        /// </summary>
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);

@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 
 namespace Dominio
 {
+    /// <summary>
+    /// Clase que contiene la información del Item RSS
+    /// </summary>
     public class ItemRss
     {
         public int ItemRssId { get; set; }
@@ -30,6 +33,10 @@ namespace Dominio
         /// </summary>
         public DateTime? FechaDePublicacion { get; set; }
 
+        /// <summary>
+        /// Sobreescribe el método ToString del objeto ItemRSS
+        /// </summary>
+        /// <returns>devuelve el título más la descripción del ItemRSS</returns>
         public override string ToString()
         {
             return Titulo.ToUpper() + ": " + Descripcion; //+ FechaDePublicacion.ToString();

@@ -11,6 +11,9 @@ namespace Dominio
 {
     public class Fuente
     {
+        /// <summary>
+        /// Esta clase representa la información que tiene el objeto fuente del banner
+        /// </summary>
         public int FuenteId { get; set; }
 
         /// <summary>
@@ -49,7 +52,7 @@ namespace Dominio
                 }
                 else //(value == TipoFuente.TextoFijo)
                 {
-                    this.iLector =null; ; //Porque el texto fijo no tiene comportamiento adicional
+                    this.iLector = null; //Porque el texto fijo no tiene comportamiento adicional
                 }
                 this.iTipo = value;
             }
@@ -65,7 +68,7 @@ namespace Dominio
         { }
 
         /// <summary>
-        /// Constructor
+        /// Constructor de una fuente para el caso que tenga un origen de items
         /// </summary>
         public Fuente(string pDescripcion, string pOrigenItems,TipoFuente pTipo)
         {
@@ -76,11 +79,14 @@ namespace Dominio
             this.origenItems = pOrigenItems;
         }
 
+        /// <summary>
+        /// Sobreescribe el método ToString de fuente
+        /// </summary>
+        /// <returns>devuelve la descripción de la fuente</returns>
         public override string ToString()
         {
             return Descripcion;
         }
-
 
         /// <summary>
         /// Lee los datos y actualiza el atributo Items

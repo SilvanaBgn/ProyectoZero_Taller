@@ -19,6 +19,9 @@ namespace UI.NuevasPantallas
             base.CargarDataGridViewFuentes(this.iControladorDominio.ObtenerTodasLasFuentes());
         }
 
+        /// <summary>
+        /// Evento que se invoca cuando se hace click en el botón guardar, agregando un nuevo banner
+        /// </summary>
         private void ButtonGuardar_Click(object sender, EventArgs e)
         {
             Banner bannerAAgregar = new Banner();

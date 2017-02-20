@@ -13,6 +13,9 @@ using Helper;
 
 namespace UI.UserControls
 {
+    /// <summary>
+    /// Clase que contiene todos los métodos necesarios para la movilización por un PictureBox de una campania
+    /// </summary>
     public class CampaniaDeslizante : PictureBox
     {
     //VARIABLES
