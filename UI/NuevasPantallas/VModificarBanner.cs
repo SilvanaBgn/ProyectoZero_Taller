@@ -36,7 +36,7 @@ namespace UI.NuevasPantallas
 
             base.dataGridViewMostrarFuentes.Rows[0].Selected = false;
             base.dataGridViewMostrarFuentes.Rows[indiceFila].Selected = true;
-            base.dataGridViewMostrarFuentes.CurrentCell = dataGridViewMostrarFuentes.Rows[indiceFila].Cells[0];
+            base.dataGridViewMostrarFuentes.CurrentCell = dataGridViewMostrarFuentes.Rows[indiceFila].Cells[1];
             base.dataGridViewMostrarFuentes.Columns["FuenteId"].Visible = false;
         }
 

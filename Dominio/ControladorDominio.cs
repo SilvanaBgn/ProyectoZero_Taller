@@ -223,17 +223,17 @@ namespace Dominio
             int minutos;
             int hora = pHoraActual.Hours;
             if (pHoraActual.Minutes >= 0 && pHoraActual.Minutes < 15)
-                minutos = 15;
+                minutos = 14;
             else if (pHoraActual.Minutes >= 15 && pHoraActual.Minutes < 30)
-                minutos = 30;
+                minutos = 29;
             else if (pHoraActual.Minutes >= 30 && pHoraActual.Minutes < 45)
-                minutos = 45;
+                minutos = 44;
             else //(horaActual.Minutes >= 45 && horaActual.Minutes < 60)
             {
                 minutos = 0;
                 hora++;
             }
-            return Convert.ToInt32((new TimeSpan(hora, minutos, segundos)).Subtract(pHoraActual).TotalMilliseconds);
+            return Convert.ToInt32(Math.Truncate((new TimeSpan(hora, minutos, segundos)).Subtract(pHoraActual).TotalMilliseconds));
         }
 
         #region Lectura Banner
@@ -241,17 +241,15 @@ namespace Dominio
         /// Busca cuál es el próximo banner a pasar en el siguiente cuarto de hora
         /// </summary>
         /// <returns>Devuelve el banner a pasar en el siguiente cuarto de hora, sino devuelve null</returns>
-        public Banner ProximoBannerAPasar()
+        public Banner ProximoBannerAPasar(DateTime pFechaActual, TimeSpan pHoraActual)
         {
-            DateTime fechaActual = DateTime.Now;
-            TimeSpan horaActual = new TimeSpan(fechaActual.Hour, fechaActual.Minute, fechaActual.Second);
             //Buscamos el próximo banner a pasar:
-            // que fechaActual sea mayor o igual a FechaInicio y menor o igual a FechaFin --> FechaInicio<=fechaActual<=FechaFin
-            //HoraInicio <= horaActual < HoraFin
+            // que pFechaActual sea mayor o igual a FechaInicio y menor o igual a FechaFin --> FechaInicio<=pFechaActual<=FechaFin
+            //HoraInicio <= pHoraActual < HoraFin
             //Debería devolver un solo banner
             List<Banner> posiblesBanners = this.BuscarBannerPorAtributo
-                 (x => x.FechaInicio.CompareTo(fechaActual) <= 0 && x.FechaFin.CompareTo(fechaActual) >= 0
-                      && x.HoraInicio.CompareTo(horaActual) <= 0 && x.HoraFin.CompareTo(horaActual) > 0
+                 (x => x.FechaInicio.CompareTo(pFechaActual) <= 0 && x.FechaFin.CompareTo(pFechaActual) >= 0
+                      && x.HoraInicio.CompareTo(pHoraActual) <= 0 && x.HoraFin.CompareTo(pHoraActual) > 0
                  );
 
             if (posiblesBanners.Count > 0) //Si encontró algún banner para el próximo cuarto de hora
@@ -260,7 +258,7 @@ namespace Dominio
                 return null;
         }
 
-        public string FormatearTextoBanner(Banner pBanner)
+        private string FormatearTextoBanner(Banner pBanner)
         {
             string texto = "";
             Fuente fuenteDelBanner = this.BuscarFuentePorId(pBanner.Fuente.FuenteId);
@@ -280,46 +278,29 @@ namespace Dominio
         public void LeerBanner(Banner pBanner)
         {
             Fuente fuenteDelBanner = this.BuscarFuentePorId(pBanner.Fuente.FuenteId);
-            fuenteDelBanner.Leer(); //Actualiza los items de la fuente del 
+            fuenteDelBanner.Leer(); //Actualiza los items de la fuente del banner
             //Guardamos los cambios:
             this.ModificarFuente(this.BuscarFuentePorId(pBanner.Fuente.FuenteId));
             this.GuardarCambios();
         }
 
         /// <summary>
-        /// Averigua el texto y el intervalo de tiempo del banner indicado
+        /// Averigua el texto del banner indicado
         /// </summary>
-        /// <returns>Devuelve un array, donde el primer argumento es el texto y el segundo es el intervalo
-        /// Si no encuentra un banner para pasar en el próximo cuarto de hora, devuelve un texto vacío
-        /// y el intervalo con la cantidad de milisegundos hasta el próximo</returns>
-        public object[] InfoBanner(Banner pBanner)
+        /// <returns>Devuelve un string, con el texto del pBanner. Si el banner es null, devuelve un texto por defecto</returns>
+        public string InfoBanner(Banner pBanner)
         {
             string texto = "";
-            int intervalo = 0;
-            object[] array = new object[2];
-
-            DateTime fechaActual = DateTime.Now;
-            TimeSpan horaActual = new TimeSpan(fechaActual.Hour, fechaActual.Minute, fechaActual.Second);
-
             if (pBanner != null)
             {
-                //*texto* Lo leemos, de acuerdo a la fuente que corresponde al bannerAPasar:
-                texto = FormatearTextoBanner(pBanner);
-                if (texto=="")
-                    texto = " Obteniendo Items RSS";
-                //*intervalo* durante el que se va a pasar el nuevo banner:
-                intervalo = Convert.ToInt32(pBanner.HoraFin.Subtract(horaActual).TotalMilliseconds);
+                texto = FormatearTextoBanner(pBanner); //*texto* con el valor del pBanner
+                if (texto == "")   //porque la fuente del pBanner no tiene items todavia
+                    texto = "Obteniendo Items RSS"; //*texto* con valor por defecto
             }
-            else
-            {
-                // *texto con valor por defecto.
-                texto = " EASY NEWS. El lugar para su espacio publicitario. Publicite aquí.";
-                //*intervalo* al próximo cuarto de hora:
-                intervalo = Convert.ToInt32(this.IntervaloAlProxCuartoDeHora(horaActual));
-            }
-            array[0] = texto;
-            array[1] = intervalo;
-            return array;
+            else   //Ya sea porque pBanner==null o porque la fuente del pBanner no tiene items todavia
+                texto = "EASY NEWS. El lugar para su espacio publicitario. Publicite aquí."; //*texto* con valor por defecto
+
+            return texto;
         }
 
         #endregion
@@ -329,17 +310,15 @@ namespace Dominio
         /// Busca cuál es la próximo campania a pasar en el siguiente cuarto de hora
         /// </summary>
         /// <returns>Devuelve la campania a pasar en el siguiente cuarto de hora, sino devuelve null</returns>
-        public Campania ProximaCampaniaAPasar()
+        public Campania ProximaCampaniaAPasar(DateTime pFechaActual, TimeSpan pHoraActual)
         {
-            DateTime fechaActual = DateTime.Now;
-            TimeSpan horaActual = new TimeSpan(fechaActual.Hour, fechaActual.Minute, fechaActual.Second);
             //Buscamos la próximo campania a pasar:
-            // que fechaActual sea mayor o igual a FechaInicio y menor o igual a FechaFin --> FechaInicio<=fechaActual<=FechaFin
-            //HoraInicio <= horaActual < HoraFin
+            // que pFechaActual sea mayor o igual a FechaInicio y menor o igual a FechaFin --> FechaInicio<=pFechaActual<=FechaFin
+            //HoraInicio <= pHoraActual < HoraFin
             //Debería devolver una sola campania
             List<Campania> posiblesCampanias = this.BuscarCampaniaPorAtributo
-                 (x => x.FechaInicio.CompareTo(fechaActual) <= 0 && x.FechaFin.CompareTo(fechaActual) >= 0
-                      && x.HoraInicio.CompareTo(horaActual) <= 0 && x.HoraFin.CompareTo(horaActual) > 0
+                 (x => x.FechaInicio.CompareTo(pFechaActual) <= 0 && x.FechaFin.CompareTo(pFechaActual) >= 0
+                      && x.HoraInicio.CompareTo(pHoraActual) <= 0 && x.HoraFin.CompareTo(pHoraActual) > 0
                  );
 
             if (posiblesCampanias.Count > 0) //Si encontró alguna campania para el próximo cuarto de hora

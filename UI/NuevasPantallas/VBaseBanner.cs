@@ -71,8 +71,8 @@ namespace UI.NuevasPantallas
         /// </summary>
         private void buttonNuevo_Click(object sender, EventArgs e)
         {
-            var form2 = new VCrearBanner(ref iControladorDominio);
-            form2.Owner = this;
+            var form2 = new VCrearBanner(ref this.iControladorDominio);
+            //form2.Owner = this;
             //this.Hide();
             form2.ShowDialog();
         }
