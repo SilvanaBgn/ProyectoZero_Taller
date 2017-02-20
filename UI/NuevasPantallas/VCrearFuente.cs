@@ -15,6 +15,7 @@ namespace UI.NuevasPantallas
     {
         Fuente iFuenteAAgregar = new Fuente();
 
+        //CONSTRUCTOR
         public VCrearFuente(ref ControladorDominio pControladorDominio) : base(ref pControladorDominio)
         {
             InitializeComponent();
@@ -45,11 +46,17 @@ namespace UI.NuevasPantallas
                 this.bgwActualizarRssAlGuardar.RunWorkerAsync();
         }
 
+        /// <summary>
+        /// En este evento se define el trabajo que tiene que hacer el backgroundworker
+        /// </summary>
         private void BgwActualizarRssAlGuardar_DoWork(object sender, DoWorkEventArgs e)
         {
             this.iFuenteAAgregar.Leer();
         }
 
+        /// <summary>
+        /// Este evento se ejecuta una vez finalizado el DoWork
+        /// </summary>
         private void BgwActualizarRssAlGuardar_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
         {
             this.iControladorDominio.AgregarFuente(iFuenteAAgregar);

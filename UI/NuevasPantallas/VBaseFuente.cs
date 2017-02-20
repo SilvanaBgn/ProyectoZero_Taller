@@ -124,6 +124,9 @@ namespace UI.NuevasPantallas
             else this.comboBoxTipo.Enabled = false;
         }
 
+        /// <summary>
+        /// Evento que se invoca cuando se hace click en el botón salir, cerrando la ventana
+        /// </summary>
         private void buttonSalir_Click(object sender, EventArgs e)
         {
             this.Close();

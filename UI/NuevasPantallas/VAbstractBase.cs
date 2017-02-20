@@ -101,13 +101,13 @@ namespace UI.NuevasPantallas
                 {
                 e.Handled = true;
             }
-                }
+        }
 
         private void textBoxDescripcion_KeyPress(object sender, KeyPressEventArgs e)
         {
             this.InputValido(e);
             }
-
+            
         private void textBoxTitulo_KeyPress(object sender, KeyPressEventArgs e)
         {
             this.InputValido(e);

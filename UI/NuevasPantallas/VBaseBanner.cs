@@ -37,13 +37,13 @@ namespace UI.NuevasPantallas
             string filtroTitulo = null;
             string filtroDescripcion = null;
 
-            if (checkBoxRangoFechas.Checked)
+            if (this.checkBoxRangoFechas.Checked)
                 filtroFechas = new DateTime[] { this.rangoFecha.FechaInicio, this.rangoFecha.FechaFin };
-            if (checkBoxRangoHoras.Checked)
+            if (this.checkBoxRangoHoras.Checked)
                 filtroHoras = new TimeSpan[] { this.rangoHorario.HoraInicio, this.rangoHorario.HoraFin };
-            if (checkBoxTitulo.Checked)
+            if (this.checkBoxTitulo.Checked)
                 filtroTitulo = this.textBoxTitulo.Text;
-            if (checkBoxDescripcion.Checked)
+            if (this.checkBoxDescripcion.Checked)
                 filtroDescripcion = this.textBoxDescripcion.Text;
 
             List<Banner> listaFiltrada=this.iControladorDominio.FiltrarBanners(filtroFechas,filtroHoras,filtroTitulo,filtroDescripcion);

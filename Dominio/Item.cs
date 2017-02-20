@@ -43,7 +43,7 @@ namespace Dominio
         /// <returns>devuelve la descripción del item</returns>
         public override string ToString()
         {
-            return Descripcion;
+            return this.Descripcion;
         }
     }
 }

@@ -15,6 +15,7 @@ namespace UI.NuevasPantallas
     {
         private Banner iBannerAModificar;
 
+        //CONSTRUCTOR
         public VModificarBanner(ref ControladorDominio pControladorDominio, Banner pBannerAModificar) : base(ref pControladorDominio)
         {
             InitializeComponent();
@@ -23,6 +24,9 @@ namespace UI.NuevasPantallas
             base.CargarDataGridViewFuentes(this.iControladorDominio.ObtenerTodasLasFuentes());
         }
 
+        /// <summary>
+        /// Este método selecciona la fuente que le corresponda al banner
+        /// </summary>
         private void SeleccionarFuenteDelBanner()
         {
             int indiceFila = -1;
@@ -36,20 +40,28 @@ namespace UI.NuevasPantallas
 
             base.dataGridViewMostrarFuentes.Rows[0].Selected = false;
             base.dataGridViewMostrarFuentes.Rows[indiceFila].Selected = true;
-            base.dataGridViewMostrarFuentes.CurrentCell = dataGridViewMostrarFuentes.Rows[indiceFila].Cells[1];
+            base.dataGridViewMostrarFuentes.CurrentCell = this.dataGridViewMostrarFuentes.Rows[indiceFila].Cells[1];
             base.dataGridViewMostrarFuentes.Columns["FuenteId"].Visible = false;
         }
 
-        private void CargarBannerAModificar(Banner bannerAModificar)
+        /// <summary>
+        /// Craga en todos los componentes de la ventana VModificarBanner los valores de pBannerAModificar
+        /// </summary>
+        /// <param name="pBannerAModificar">banner a modificar</param>
+        private void CargarBannerAModificar(Banner pBannerAModificar)
         {
-            this.textBoxTitulo.Text = bannerAModificar.Titulo;
-            this.textBoxDescripcion.Text = bannerAModificar.Descripcion;
-            this.rangoFecha.FechaInicio = bannerAModificar.FechaInicio;
-            this.rangoFecha.FechaFin = bannerAModificar.FechaFin;
-            this.rangoHorario.HoraInicio = bannerAModificar.HoraInicio;
-            this.rangoHorario.HoraFin = bannerAModificar.HoraFin;
+            this.textBoxTitulo.Text = pBannerAModificar.Titulo;
+            this.textBoxDescripcion.Text = pBannerAModificar.Descripcion;
+            this.rangoFecha.FechaInicio = pBannerAModificar.FechaInicio;
+            this.rangoFecha.FechaFin = pBannerAModificar.FechaFin;
+            this.rangoHorario.HoraInicio = pBannerAModificar.HoraInicio;
+            this.rangoHorario.HoraFin = pBannerAModificar.HoraFin;
         }
 
+        /// <summary>
+        /// Evento que se invoca cuando se hace click en el botón guardar
+        /// Guarda todos los datos del banner
+        /// </summary>
         private void ButtonGuardar_Click(object sender, EventArgs e)
         {
             this.iBannerAModificar.Titulo = this.textBoxTitulo.Text;
@@ -72,6 +84,9 @@ namespace UI.NuevasPantallas
         //    this.SeleccionarFuenteDelBanner();
         //}
 
+        /// <summary>
+        /// Este evento se activa cuando VModificarBanner se encuentra activada
+        /// </summary>
         private void VModificarBanner_Activated(object sender, EventArgs e)
         {
             this.dataGridViewMostrarFuentes.ClearSelection();

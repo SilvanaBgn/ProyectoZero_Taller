@@ -88,7 +88,7 @@ namespace Dominio
         /// <returns>devuelve la descripción de la fuente</returns>
         public override string ToString()
         {
-            return Descripcion;
+            return this.Descripcion;
         }
 
         /// <summary>

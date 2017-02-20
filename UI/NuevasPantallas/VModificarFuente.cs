@@ -24,22 +24,26 @@ namespace UI.NuevasPantallas
         }
 
         private void CargarFuenteAModificar(object iFuenteAModificar)
+        /// <summary>
+        /// Este evento se activa cuando se hace click en el botón guardar
+        /// </summary>
+        private void ButtonGuardar_Click(object sender, EventArgs e)
         {
             this.comboBoxTipoFuente.Enabled = false;
 
             switch (this.iFuenteAModificar.Tipo.ToString())
-            {
-                case "Rss":
+                {
+                    case "Rss":
                     this.comboBoxTipoFuente.Text = "Rss";
-                    this.panelTextoFijo.Visible = false;
-                    this.panelRss.Visible = true;
+                        this.panelTextoFijo.Visible = false;
+                        this.panelRss.Visible = true;
                     this.textBoxFuenteRss.Text = this.iFuenteAModificar.origenItems;
                     this.textBoxDescripcionRss.Text = this.iFuenteAModificar.Descripcion;
-                    break;
+                        break;
                 case "TextoFijo":
                     this.comboBoxTipoFuente.Text = "Texto Fijo";
-                    this.panelRss.Visible = false;
-                    this.panelTextoFijo.Visible = true;
+                        this.panelRss.Visible = false;
+                        this.panelTextoFijo.Visible = true;
                     this.textoFijo.Descripcion = this.iFuenteAModificar.Descripcion;
                     this.textoFijo.ListaItems = (List<Item>)this.iFuenteAModificar.Items;
                     break;

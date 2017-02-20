@@ -43,7 +43,7 @@ namespace Dominio
         /// <returns>devuelve el título más la descripción del ItemRSS</returns>
         public override string ToString()
         {
-            return Titulo.ToUpper() + ": " + Descripcion; //+ FechaDePublicacion.ToString();
+            return this.Titulo.ToUpper() + ": " + this.Descripcion; //+ FechaDePublicacion.ToString();
         }
     }
 }
