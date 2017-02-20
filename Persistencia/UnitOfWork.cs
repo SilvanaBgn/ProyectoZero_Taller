@@ -15,9 +15,9 @@ namespace Persistencia
     public class UnitOfWork : IUnitOfWork
     {
         private Contexto iContexto = new Contexto();
-        private Repositorio<Campania> repoCampanias;
-        private Repositorio<Banner> repoBanners;
-        private Repositorio<Fuente> repoFuentes;
+        private Repositorio<Campania> iRepoCampanias;
+        private Repositorio<Banner> iRepoBanners;
+        private Repositorio<Fuente> iRepoFuentes;
 
         /// <summary>
         /// Si no existe el repositorio campania lo crea
@@ -26,11 +26,11 @@ namespace Persistencia
         {
             get
             {
-                if (repoCampanias == null)
+                if (this.iRepoCampanias == null)
                 {
-                    this.repoCampanias = new Repositorio<Campania>(iContexto);
+                    this.iRepoCampanias = new Repositorio<Campania>(this.iContexto);
                 }
-                return repoCampanias;
+                return this.iRepoCampanias;
             }
         }
 
@@ -41,11 +41,11 @@ namespace Persistencia
         {
             get
             {
-                if (repoBanners == null)
+                if (this.iRepoBanners == null)
                 {
-                    this.repoBanners = new Repositorio<Banner>(iContexto);
+                    this.iRepoBanners = new Repositorio<Banner>(this.iContexto);
                 }
-                return repoBanners;
+                return this.iRepoBanners;
             }
         }
 
@@ -56,11 +56,11 @@ namespace Persistencia
         {
             get
             {
-                if (repoFuentes == null)
+                if (this.iRepoFuentes == null)
                 {
-                    this.repoFuentes = new Repositorio<Fuente>(iContexto);
+                    this.iRepoFuentes = new Repositorio<Fuente>(this.iContexto);
                 }
-                return repoFuentes;
+                return this.iRepoFuentes;
             }
         }
 
@@ -69,7 +69,7 @@ namespace Persistencia
         /// </summary>
         public void GuardarCambios()
         {
-            iContexto.SaveChanges();
+            this.iContexto.SaveChanges();
         }
 
         /// <summary>
@@ -77,7 +77,7 @@ namespace Persistencia
         /// </summary>
         public void Rollback()
         {
-            iContexto.ChangeTracker.Entries()
+            this.iContexto.ChangeTracker.Entries()
               .ToList()
               .ForEach(entry => entry.State = EntityState.Unchanged);
         }

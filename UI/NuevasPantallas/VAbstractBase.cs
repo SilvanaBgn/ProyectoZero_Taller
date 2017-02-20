@@ -84,7 +84,7 @@ namespace UI.NuevasPantallas
             {
                 if (e.Button == MouseButtons.Left)
                 {
-                    dataGridViewMostrar.ClearSelection();
+                    this.dataGridViewMostrar.ClearSelection();
                 }
             }
         }

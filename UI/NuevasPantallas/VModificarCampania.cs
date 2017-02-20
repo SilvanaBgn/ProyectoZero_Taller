@@ -15,6 +15,7 @@ namespace UI.NuevasPantallas
     {
         private Campania iCampaniaAModificar;
 
+        //CONSTRUCTOR
         public VModificarCampania(ref ControladorDominio pControladorDominio, Campania pCampaniaAModificar) : base(ref pControladorDominio)
         {
             InitializeComponent();
@@ -22,17 +23,25 @@ namespace UI.NuevasPantallas
             this.CargarCampaniaAModificar(this.iCampaniaAModificar);
         }
 
-        private void CargarCampaniaAModificar(Campania campaniaAModificar)
+        /// <summary>
+        /// Craga en todos los componentes de la ventana VModificarCampania los valores de pCampaniaAModificar
+        /// </summary>
+        /// <param name="pCampaniaAModificar">campaña a modificar</param>
+        private void CargarCampaniaAModificar(Campania pCampaniaAModificar)
         {
-            this.textBoxTitulo.Text = campaniaAModificar.Titulo;
-            this.textBoxDescripcion.Text = campaniaAModificar.Descripcion;
-            this.rangoFecha.FechaInicio = campaniaAModificar.FechaInicio;
-            this.rangoFecha.FechaFin = campaniaAModificar.FechaFin;
-            this.rangoHorario.HoraInicio = campaniaAModificar.HoraInicio;
-            this.rangoHorario.HoraFin = campaniaAModificar.HoraFin;
-            this.galeria.ListaImagenes = (List<Imagen>)campaniaAModificar.Imagenes;
+            this.textBoxTitulo.Text = pCampaniaAModificar.Titulo;
+            this.textBoxDescripcion.Text = pCampaniaAModificar.Descripcion;
+            this.rangoFecha.FechaInicio = pCampaniaAModificar.FechaInicio;
+            this.rangoFecha.FechaFin = pCampaniaAModificar.FechaFin;
+            this.rangoHorario.HoraInicio = pCampaniaAModificar.HoraInicio;
+            this.rangoHorario.HoraFin = pCampaniaAModificar.HoraFin;
+            this.galeria.ListaImagenes = (List<Imagen>)pCampaniaAModificar.Imagenes;
         }
 
+        /// <summary>
+        /// Evento que se invoca cuando se hace click en el botón guardar
+        /// Guarda todos los datos de la campaña
+        /// </summary>
         private void ButtonGuardar_Click(object sender, EventArgs e)
         {
             this.iCampaniaAModificar.Titulo = this.textBoxTitulo.Text;

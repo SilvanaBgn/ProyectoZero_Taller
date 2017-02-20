@@ -13,11 +13,15 @@ namespace UI.NuevasPantallas
 {
     public partial class VModificarFuente : VAbstractCrearModificarFuente
     {
+        //CONSTRUCTOR   
         public VModificarFuente(ref ControladorDominio pControladorDominio)
         {
             InitializeComponent();
         }
 
+        /// <summary>
+        /// Este evento se activa cuando se hace click en el botón guardar
+        /// </summary>
         private void ButtonGuardar_Click(object sender, EventArgs e)
         {
             {
