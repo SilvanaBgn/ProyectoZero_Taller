@@ -53,7 +53,7 @@
             this.Name = "VBaseCampania";
             this.Text = "Configuración CAMPAÑAS";
             this.Activated += new System.EventHandler(this.VBaseCampania_Activated);
-            this.Load += new System.EventHandler(this.VBaseCampania_Load);
+            //this.Load += new System.EventHandler(this.VBaseCampania_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

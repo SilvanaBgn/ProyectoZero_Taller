@@ -19,13 +19,16 @@ namespace Dominio
         /// <summary>
         /// Denominación o explicación específica de la fuente
         /// </summary>
-        [DataType(DataType.Text),Required/*(ErrorMessage = "Debe completarse Descripción")*/]
+        //[DataType(DataType.Text),Required/*(ErrorMessage = "Debe completarse Descripción")*/]
+        [Required]
         public string Descripcion { get; set; }
 
         /// <summary>
         /// Información especifica de la Fuente en cuestión
         /// </summary>
-        [DataType(DataType.Text)]
+        //[DataType(DataType.Text)]
+        [StringLength(80)]
+        [Required]
         public string origenItems { get; set; }
 
         public virtual ICollection<Banner> Banners { get; set; }
@@ -85,7 +88,7 @@ namespace Dominio
         /// <returns>devuelve la descripción de la fuente</returns>
         public override string ToString()
         {
-            return Descripcion;
+            return this.Descripcion;
         }
 
         /// <summary>

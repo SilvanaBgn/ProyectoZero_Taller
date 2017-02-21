@@ -1,11 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-using System.ComponentModel;
 
 namespace Dominio
 {
@@ -21,12 +16,14 @@ namespace Dominio
         /// Título referente que se desea mostrar en la pantalla publicitaria
         /// </summary>
         [Required]
+        [StringLength(80)]
         public string Titulo { get; set; }
 
         /// <summary>
         /// Explicación del contenido del banner
         /// </summary>
         [Required]
+        [StringLength(80)]
         public string Descripcion { get; set; }
 
         /// <summary>

@@ -147,9 +147,12 @@
             // textBoxDescripcion
             // 
             this.textBoxDescripcion.Location = new System.Drawing.Point(12, 21);
+            this.textBoxDescripcion.MaxLength = 30;
             this.textBoxDescripcion.Name = "textBoxDescripcion";
+            this.textBoxDescripcion.ShortcutsEnabled = false;
             this.textBoxDescripcion.Size = new System.Drawing.Size(100, 20);
             this.textBoxDescripcion.TabIndex = 78;
+            this.textBoxDescripcion.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBoxValido_KeyPress);
             // 
             // TextoFijo
             // 

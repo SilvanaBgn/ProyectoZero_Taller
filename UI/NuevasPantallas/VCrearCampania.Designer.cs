@@ -34,6 +34,10 @@
             // 
             this.buttonGuardar.Click += new System.EventHandler(this.ButtonGuardar_Click);
             // 
+            // galeria
+            // 
+            this.galeria.Size = new System.Drawing.Size(488, 215);
+            // 
             // VCrearCampania
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);

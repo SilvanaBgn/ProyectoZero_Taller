@@ -20,11 +20,13 @@ namespace Dominio
         /// Título referente que se desea mostrar en la pantalla publicitaria
         /// </summary>
         [Required]
+        [StringLength(80)]
         public string Titulo { get; set; }
 
         /// <summary>
         /// Explicación del contenido de la campaña
         /// </summary>
+        [StringLength(80)]
         public string Descripcion { get; set; }
 
         /// <summary>

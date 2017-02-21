@@ -53,7 +53,7 @@
             this.Name = "VBaseBanner";
             this.Text = "Configuración BANNERS";
             this.Activated += new System.EventHandler(this.VBaseBanner_Activated);
-            this.Load += new System.EventHandler(this.VBaseBanner_Load);
+            //this.Load += new System.EventHandler(this.VBaseBanner_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

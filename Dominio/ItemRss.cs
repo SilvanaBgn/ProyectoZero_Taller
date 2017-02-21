@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -16,16 +17,19 @@ namespace Dominio
         /// <summary>
         /// Título del ítem.
         /// </summary>
+        [StringLength(80)]
         public string Titulo { get; set; }
 
         /// <summary>
         /// Descripción acerca del ítem.
         /// </summary>
+        [StringLength(80)]
         public string Descripcion { get; set; }
 
         /// <summary>
         /// URL del ítem.
         /// </summary>
+        [StringLength(80)]
         public string Url { get; set; }
 
         /// <summary>
@@ -39,7 +43,7 @@ namespace Dominio
         /// <returns>devuelve el título más la descripción del ItemRSS</returns>
         public override string ToString()
         {
-            return Titulo.ToUpper() + ": " + Descripcion; //+ FechaDePublicacion.ToString();
+            return this.Titulo.ToUpper() + ": " + this.Descripcion; //+ FechaDePublicacion.ToString();
         }
     }
 }

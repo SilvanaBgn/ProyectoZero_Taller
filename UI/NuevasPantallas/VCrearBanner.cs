@@ -1,13 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
 using Dominio;
+using Excepciones.ExcepcionesIntermedias;
+using System.Windows.Forms;
 
 namespace UI.NuevasPantallas
 {
@@ -17,6 +11,7 @@ namespace UI.NuevasPantallas
         {
             InitializeComponent();
             base.CargarDataGridViewFuentes(this.iControladorDominio.ObtenerTodasLasFuentes());
+            base.dataGridViewMostrarFuentes.Columns["FuenteId"].Visible = false;
         }
 
         /// <summary>
@@ -33,9 +28,18 @@ namespace UI.NuevasPantallas
             bannerAAgregar.HoraFin = this.rangoHorario.HoraFin;
             bannerAAgregar.Fuente = (Fuente)this.dataGridViewMostrarFuentes.CurrentRow.DataBoundItem;
 
-            this.iControladorDominio.AgregarBanner(bannerAAgregar);
-            this.iControladorDominio.GuardarCambios();
-            this.Close();
+            try
+            {
+                this.iControladorDominio.AgregarBanner(bannerAAgregar);
+                this.iControladorDominio.GuardarCambios();
+                this.Close();
+            }
+            catch (ExcepcionValidacionBBDD)
+            {
+                MessageBox.Show("La fuente ya existe", "Faltan campos", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
+
         }
     }
 }

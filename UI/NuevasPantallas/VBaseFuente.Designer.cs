@@ -81,14 +81,20 @@ namespace UI.NuevasPantallas
             // 
             this.dataGridViewMostrar.AllowUserToAddRows = false;
             this.dataGridViewMostrar.AllowUserToDeleteRows = false;
-            this.dataGridViewMostrar.MultiSelect = false;
-            this.dataGridViewMostrar.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridViewMostrar.AllowUserToResizeColumns = false;
+            this.dataGridViewMostrar.AllowUserToResizeRows = false;
+            this.dataGridViewMostrar.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
+            this.dataGridViewMostrar.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
+            this.dataGridViewMostrar.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.dataGridViewMostrar.Location = new System.Drawing.Point(211, 52);
+            this.dataGridViewMostrar.MultiSelect = false;
             this.dataGridViewMostrar.Name = "dataGridViewMostrar";
             this.dataGridViewMostrar.ReadOnly = true;
+            this.dataGridViewMostrar.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.dataGridViewMostrar.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridViewMostrar.Size = new System.Drawing.Size(509, 225);
             this.dataGridViewMostrar.TabIndex = 3;
+            this.dataGridViewMostrar.SelectionChanged += new System.EventHandler(this.dataGridViewMostrar_SelectionChanged);
             // 
             // buttonSalir
             // 
@@ -147,9 +153,12 @@ namespace UI.NuevasPantallas
             // textBoxDescripcion
             // 
             this.textBoxDescripcion.Location = new System.Drawing.Point(34, 198);
+            this.textBoxDescripcion.MaxLength = 30;
             this.textBoxDescripcion.Name = "textBoxDescripcion";
+            this.textBoxDescripcion.ShortcutsEnabled = false;
             this.textBoxDescripcion.Size = new System.Drawing.Size(152, 20);
             this.textBoxDescripcion.TabIndex = 9;
+            this.textBoxDescripcion.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBoxDescripcion_KeyPress);
             // 
             // checkBoxTipo
             // 
@@ -191,7 +200,6 @@ namespace UI.NuevasPantallas
             this.Name = "VBaseFuente";
             this.Text = "Configuración FUENTES";
             this.Activated += new System.EventHandler(this.VBaseFuente_Activated);
-            this.Load += new System.EventHandler(this.VBaseFuente_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewMostrar)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

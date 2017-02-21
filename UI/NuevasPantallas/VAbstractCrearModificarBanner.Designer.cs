@@ -1,4 +1,6 @@
-﻿namespace UI.NuevasPantallas
+﻿using System.Windows.Forms;
+
+namespace UI.NuevasPantallas
 {
     partial class VAbstractCrearModificarBanner
     {
@@ -56,9 +58,12 @@
             // textBoxTitulo
             // 
             this.textBoxTitulo.Location = new System.Drawing.Point(97, 13);
+            this.textBoxTitulo.MaxLength = 20;
             this.textBoxTitulo.Name = "textBoxTitulo";
+            this.textBoxTitulo.ShortcutsEnabled = false;
             this.textBoxTitulo.Size = new System.Drawing.Size(309, 20);
             this.textBoxTitulo.TabIndex = 1;
+            this.textBoxTitulo.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBoxValido_KeyPress);
             // 
             // labelDescripcion
             // 
@@ -72,21 +77,31 @@
             // textBoxDescripcion
             // 
             this.textBoxDescripcion.Location = new System.Drawing.Point(97, 43);
+            this.textBoxDescripcion.MaxLength = 30;
             this.textBoxDescripcion.Name = "textBoxDescripcion";
+            this.textBoxDescripcion.ShortcutsEnabled = false;
             this.textBoxDescripcion.Size = new System.Drawing.Size(309, 20);
             this.textBoxDescripcion.TabIndex = 9;
+            this.textBoxDescripcion.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBoxValido_KeyPress);
             // 
             // dataGridViewMostrarFuentes
             // 
             this.dataGridViewMostrarFuentes.AllowUserToAddRows = false;
             this.dataGridViewMostrarFuentes.AllowUserToDeleteRows = false;
-            this.dataGridViewMostrarFuentes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridViewMostrarFuentes.AllowUserToResizeColumns = false;
+            this.dataGridViewMostrarFuentes.AllowUserToResizeRows = false;
+            this.dataGridViewMostrarFuentes.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
+            this.dataGridViewMostrarFuentes.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
+            this.dataGridViewMostrarFuentes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.dataGridViewMostrarFuentes.Location = new System.Drawing.Point(6, 19);
+            this.dataGridViewMostrarFuentes.MultiSelect = false;
             this.dataGridViewMostrarFuentes.Name = "dataGridViewMostrarFuentes";
             this.dataGridViewMostrarFuentes.ReadOnly = true;
+            this.dataGridViewMostrarFuentes.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.dataGridViewMostrarFuentes.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridViewMostrarFuentes.Size = new System.Drawing.Size(377, 136);
             this.dataGridViewMostrarFuentes.TabIndex = 11;
+            this.dataGridViewMostrarFuentes.SelectionChanged += new System.EventHandler(this.dataGridViewMostrarFuentes_SelectionChanged);
             // 
             // buttonGuardar
             // 
@@ -141,8 +156,8 @@
             // 
             // rangoFecha
             // 
-            this.rangoFecha.FechaFin = new System.DateTime(2017, 2, 15, 0, 0, 0, 0);
-            this.rangoFecha.FechaInicio = new System.DateTime(2017, 2, 15, 0, 0, 0, 0);
+            this.rangoFecha.FechaFin = new System.DateTime(2017, 2, 18, 0, 0, 0, 0);
+            this.rangoFecha.FechaInicio = new System.DateTime(2017, 2, 18, 0, 0, 0, 0);
             this.rangoFecha.Location = new System.Drawing.Point(16, 89);
             this.rangoFecha.Name = "rangoFecha";
             this.rangoFecha.Size = new System.Drawing.Size(264, 96);

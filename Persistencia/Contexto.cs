@@ -6,7 +6,8 @@ using System.Threading.Tasks;
 using System.Data.Entity;
 using System.Data.Entity.ModelConfiguration.Conventions;
 using Dominio;
-
+using System.Data.Entity.Infrastructure.Annotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Persistencia
 {
@@ -21,7 +22,7 @@ namespace Persistencia
 
         public Contexto() : base("DataBase")
         {
-            //Database.SetInitializer<Contexto>(new DropCreateDatabaseIfModelChanges<Contexto>());
+            Database.SetInitializer<Contexto>(new DropCreateDatabaseIfModelChanges<Contexto>());
             var type = typeof(System.Data.Entity.SqlServer.SqlProviderServices);
             if (type == null)
                 throw new Exception("Do not remove, ensures static reference to System.Data.Entity.SqlServer");
@@ -52,8 +53,16 @@ namespace Persistencia
             .WithMany(i => i.Banners)
             .WillCascadeOnDelete(true);
 
-            //modelBuilder.Entity<Campania>().ToTable("Campania");
-            //modelBuilder.Entity<Imagen>().ToTable("Imagen");
+            pModelBuilder
+    .Entity<Fuente>()
+    .Property(t => t.origenItems)
+    .HasColumnAnnotation(
+        "Index",
+        new IndexAnnotation(new[]
+            {
+                new IndexAttribute("Index1"),
+                new IndexAttribute("Index2") { IsUnique = true }
+            }));
         }
     }
 }

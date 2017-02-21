@@ -48,26 +48,26 @@ namespace Helper
         /// <summary>
         /// Convierte la cadena de bytes (de una imagen) en un string
         /// </summary>
-        /// <param name="bytes">Cadena de bytes proveniente de una imagen</param>
-        public static string GetString(byte[] bytes)
+        /// <param name="pBytes">Cadena de bytes proveniente de una imagen</param>
+        public static string GetString(byte[] pBytes)
         {
-            bool even = (bytes.Length % 2 == 0);
-            char[] chars = new char[1 + bytes.Length / sizeof(char) + (even ? 0 : 1)];
+            bool even = (pBytes.Length % 2 == 0);
+            char[] chars = new char[1 + pBytes.Length / sizeof(char) + (even ? 0 : 1)];
             chars[0] = (even ? '0' : '1');
-            System.Buffer.BlockCopy(bytes, 0, chars, 2, bytes.Length);
+            System.Buffer.BlockCopy(pBytes, 0, chars, 2, pBytes.Length);
             return new string(chars);
         }
 
         /// <summary>
         /// Convierte el string (de una imagen) en una cadena de bytes
         /// </summary>
-        /// <param name="str">string que representa a una cadena de bytes de una imagen</param>
+        /// <param name="pStr">string que representa a una cadena de bytes de una imagen</param>
         /// <returns>Devuelve la cadena de bytes propiamente dicha</returns>
-        public static byte[] GetBytes(string str)
+        public static byte[] GetBytes(string pStr)
         {
-            bool even = str[0] == '0';
-            byte[] bytes = new byte[(str.Length - 1) * sizeof(char) + (even ? 0 : -1)];
-            char[] chars = str.ToCharArray();
+            bool even = pStr[0] == '0';
+            byte[] bytes = new byte[(pStr.Length - 1) * sizeof(char) + (even ? 0 : -1)];
+            char[] chars = pStr.ToCharArray();
             System.Buffer.BlockCopy(chars, 2, bytes, 0, bytes.Length);
             return bytes;
         }

@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Dominio;
+using Excepciones.ExcepcionesEspecíficas;
 
 namespace UI.NuevasPantallas
 {
@@ -31,10 +32,18 @@ namespace UI.NuevasPantallas
             campaniaAAgregar.HoraInicio = this.rangoHorario.HoraInicio;
             campaniaAAgregar.HoraFin = this.rangoHorario.HoraFin;
             campaniaAAgregar.Imagenes = this.galeria.ListaImagenes;
-
-            this.iControladorDominio.AgregarCampania(campaniaAAgregar);
-            this.iControladorDominio.GuardarCambios();
-            this.Close();
+            campaniaAAgregar.DuracionImagen = this.galeria.Segundos;
+            
+            try
+            {
+                this.iControladorDominio.AgregarCampania(campaniaAAgregar);
+                this.iControladorDominio.GuardarCambios();
+                this.Close();
+            }
+            catch(ExcepcionCamposSinCompletar ex)
+            {
+                MessageBox.Show(ex.Message,"Faltan campos", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
     }

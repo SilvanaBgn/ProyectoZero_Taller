@@ -13,28 +13,56 @@ namespace UI.NuevasPantallas
 {
     public partial class VModificarFuente : VAbstractCrearModificarFuente
     {
-        public VModificarFuente(ref ControladorDominio pControladorDominio)
+
+        private Fuente iFuenteAModificar;
+
+        public VModificarFuente(ref ControladorDominio pControladorDominio, Fuente pFuenteAModificar)
         {
             InitializeComponent();
+            this.iFuenteAModificar = pFuenteAModificar;
+            this.CargarFuenteAModificar(this.iFuenteAModificar);
+        }
+
+        private void CargarFuenteAModificar(object iFuenteAModificar)
+        {
+            this.comboBoxTipoFuente.Enabled = false;
+
+            switch (this.iFuenteAModificar.Tipo.ToString())
+            {
+                case "Rss":
+                    this.comboBoxTipoFuente.Text = "Rss";
+                    this.panelTextoFijo.Visible = false;
+                    this.panelRss.Visible = true;
+                    this.textBoxFuenteRss.Text = this.iFuenteAModificar.origenItems;
+                    this.textBoxDescripcionRss.Text = this.iFuenteAModificar.Descripcion;
+                    break;
+                case "TextoFijo":
+                    this.comboBoxTipoFuente.Text = "Texto Fijo";
+                    this.panelRss.Visible = false;
+                    this.panelTextoFijo.Visible = true;
+                    this.textoFijo.Descripcion = this.iFuenteAModificar.Descripcion;
+                    this.textoFijo.ListaItems = (List<Item>)this.iFuenteAModificar.Items;
+                    break;
+            }
         }
 
         private void ButtonGuardar_Click(object sender, EventArgs e)
         {
             {
-                if (!this.bgwActualizarRssAlGuardar.IsBusy)
-                    base.bgwActualizarRssAlGuardar.RunWorkerAsync();
-
                 switch (this.comboBoxTipoFuente.SelectedItem.ToString())
                 {
                     case "Rss":
-                        this.panelTextoFijo.Visible = false;
-                        this.panelRss.Visible = true;
+                        this.iFuenteAModificar.origenItems = this.textBoxFuenteRss.Text;
+                        this.iFuenteAModificar.Descripcion = this.textBoxDescripcionRss.Text;
                         break;
                     case "Texto Fijo":
-                        this.panelRss.Visible = false;
-                        this.panelTextoFijo.Visible = true;
+                        this.iFuenteAModificar.Descripcion = this.textoFijo.Descripcion;
+                        this.iFuenteAModificar.Items = this.textoFijo.ListaItems;
                         break;
                 }
+
+                if (!this.bgwActualizarRssAlGuardar.IsBusy)
+                    base.bgwActualizarRssAlGuardar.RunWorkerAsync();
             }
         }
 
