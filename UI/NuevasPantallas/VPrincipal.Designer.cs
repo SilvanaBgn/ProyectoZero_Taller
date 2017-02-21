@@ -57,18 +57,18 @@ namespace UI.NuevasPantallas
             // groupBoxCampania
             // 
             this.groupBoxCampania.Controls.Add(this.campaniaDeslizante1);
-            this.groupBoxCampania.Location = new System.Drawing.Point(27, 31);
+            this.groupBoxCampania.Location = new System.Drawing.Point(27, 30);
             this.groupBoxCampania.Name = "groupBoxCampania";
-            this.groupBoxCampania.Size = new System.Drawing.Size(587, 503);
+            this.groupBoxCampania.Size = new System.Drawing.Size(781, 503);
             this.groupBoxCampania.TabIndex = 1;
             this.groupBoxCampania.TabStop = false;
             // 
             // campaniaDeslizante1
             // 
             this.campaniaDeslizante1.Image = ((System.Drawing.Image)(resources.GetObject("campaniaDeslizante1.Image")));
-            this.campaniaDeslizante1.Location = new System.Drawing.Point(18, 78);
+            this.campaniaDeslizante1.Location = new System.Drawing.Point(22, 28);
             this.campaniaDeslizante1.Name = "campaniaDeslizante1";
-            this.campaniaDeslizante1.Size = new System.Drawing.Size(550, 332);
+            this.campaniaDeslizante1.Size = new System.Drawing.Size(735, 459);
             this.campaniaDeslizante1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.campaniaDeslizante1.TabIndex = 2;
             this.campaniaDeslizante1.TabStop = false;
@@ -76,21 +76,21 @@ namespace UI.NuevasPantallas
             // groupBoxBanner
             // 
             this.groupBoxBanner.Controls.Add(this.bannerDeslizante);
-            this.groupBoxBanner.Location = new System.Drawing.Point(27, 555);
+            this.groupBoxBanner.Location = new System.Drawing.Point(27, 535);
             this.groupBoxBanner.Name = "groupBoxBanner";
-            this.groupBoxBanner.Size = new System.Drawing.Size(587, 91);
+            this.groupBoxBanner.Size = new System.Drawing.Size(781, 91);
             this.groupBoxBanner.TabIndex = 2;
             this.groupBoxBanner.TabStop = false;
             // 
             // bannerDeslizante
             // 
-            this.bannerDeslizante.BackColor = System.Drawing.Color.Wheat;
+            this.bannerDeslizante.BackColor = System.Drawing.Color.Bisque;
             this.bannerDeslizante.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.bannerDeslizante.Enabled = false;
             this.bannerDeslizante.Font = new System.Drawing.Font("Microsoft Sans Serif", 30F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bannerDeslizante.Location = new System.Drawing.Point(18, 25);
+            this.bannerDeslizante.Location = new System.Drawing.Point(22, 25);
             this.bannerDeslizante.Name = "bannerDeslizante";
-            this.bannerDeslizante.Size = new System.Drawing.Size(550, 46);
+            this.bannerDeslizante.Size = new System.Drawing.Size(735, 46);
             this.bannerDeslizante.TabIndex = 0;
             // 
             // menuStrip1
@@ -103,7 +103,7 @@ namespace UI.NuevasPantallas
             this.salirToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(640, 28);
+            this.menuStrip1.Size = new System.Drawing.Size(835, 28);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -207,8 +207,8 @@ namespace UI.NuevasPantallas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.Wheat;
-            this.ClientSize = new System.Drawing.Size(640, 664);
+            this.BackColor = System.Drawing.Color.Bisque;
+            this.ClientSize = new System.Drawing.Size(851, 680);
             this.Controls.Add(this.buttonSalirPantallaCompleta);
             this.Controls.Add(this.groupBoxBanner);
             this.Controls.Add(this.groupBoxCampania);
@@ -219,6 +219,7 @@ namespace UI.NuevasPantallas
             this.Name = "VPrincipal";
             this.Text = "EASY News";
             this.Activated += new System.EventHandler(this.VPrincipal_Activated);
+            this.Load += new System.EventHandler(this.VPrincipal_Load);
             this.groupBoxCampania.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.campaniaDeslizante1)).EndInit();
             this.groupBoxBanner.ResumeLayout(false);

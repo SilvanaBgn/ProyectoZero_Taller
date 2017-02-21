@@ -133,6 +133,9 @@
   <data name="Abajo1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Abajo1.ico;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="Configuracion4" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Configuracion4.ico;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="Vista" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Vista.ico;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -145,8 +148,8 @@
   <data name="Eliminar2" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Eliminar2.ico;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="texto9" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\texto9.ico;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="Texto6" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Texto6.ico;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Texto4" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Texto4.ico;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -160,8 +163,8 @@
   <data name="Arriba1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Arriba1.ico;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Texto6" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Texto6.ico;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="texto9" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\texto9.ico;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="AgregarImagen1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\AgregarImagen1.ico;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -169,7 +172,7 @@
   <data name="Texto8" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Texto8.ico;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Configuracion4" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Configuracion4.ico;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="Publicityfueradefoco" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Publicityfueradefoco.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>
