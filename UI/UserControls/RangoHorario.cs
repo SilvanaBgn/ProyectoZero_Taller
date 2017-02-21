@@ -116,13 +116,13 @@ namespace UI.UserControls
             string resultado = "";
             resultado = "Un total de ";
             if (diferenciaHoras.Hours > 0) //Si las horas de la diferencia entre horas es distinto de 0
-                resultado += diferenciaHoras.Hours + " hs";
+                resultado += diferenciaHoras.Hours + " h";
 
             if (diferenciaHoras.Minutes > 0) //Si los minutos de la diferencia entre horas es distinto de 0
             {
                 if (diferenciaHoras.Hours > 0)
-                    resultado += " y ";
-                resultado += diferenciaHoras.Minutes + " min";
+                    resultado += ", ";
+                resultado += diferenciaHoras.Minutes + " m";
             }
             return resultado;
         }

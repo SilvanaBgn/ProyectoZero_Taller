@@ -30,7 +30,6 @@ namespace UI.NuevasPantallas
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(VAbstractCrearModificarBanner));
             this.labelTitulo = new System.Windows.Forms.Label();
             this.textBoxTitulo = new System.Windows.Forms.TextBox();
             this.labelDescripcion = new System.Windows.Forms.Label();
@@ -39,7 +38,6 @@ namespace UI.NuevasPantallas
             this.buttonGuardar = new System.Windows.Forms.Button();
             this.buttonCancelar = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.buttonNuevaFuente = new System.Windows.Forms.Button();
             this.rangoHorario = new UI.UserControls.RangoHorario();
             this.rangoFecha = new UI.UserControls.RangoFecha();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewMostrarFuentes)).BeginInit();
@@ -99,7 +97,7 @@ namespace UI.NuevasPantallas
             this.dataGridViewMostrarFuentes.ReadOnly = true;
             this.dataGridViewMostrarFuentes.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.dataGridViewMostrarFuentes.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridViewMostrarFuentes.Size = new System.Drawing.Size(377, 136);
+            this.dataGridViewMostrarFuentes.Size = new System.Drawing.Size(377, 194);
             this.dataGridViewMostrarFuentes.TabIndex = 11;
             this.dataGridViewMostrarFuentes.SelectionChanged += new System.EventHandler(this.dataGridViewMostrarFuentes_SelectionChanged);
             // 
@@ -124,26 +122,13 @@ namespace UI.NuevasPantallas
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.buttonNuevaFuente);
             this.groupBox1.Controls.Add(this.dataGridViewMostrarFuentes);
             this.groupBox1.Location = new System.Drawing.Point(17, 206);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(389, 208);
+            this.groupBox1.Size = new System.Drawing.Size(389, 219);
             this.groupBox1.TabIndex = 23;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Fuente";
-            // 
-            // buttonNuevaFuente
-            // 
-            this.buttonNuevaFuente.AutoSize = true;
-            this.buttonNuevaFuente.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("buttonNuevaFuente.BackgroundImage")));
-            this.buttonNuevaFuente.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.buttonNuevaFuente.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.buttonNuevaFuente.Location = new System.Drawing.Point(6, 161);
-            this.buttonNuevaFuente.Name = "buttonNuevaFuente";
-            this.buttonNuevaFuente.Size = new System.Drawing.Size(43, 41);
-            this.buttonNuevaFuente.TabIndex = 77;
-            this.buttonNuevaFuente.UseVisualStyleBackColor = true;
             // 
             // rangoHorario
             // 
@@ -182,7 +167,6 @@ namespace UI.NuevasPantallas
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.VAbstractCrearModificarBanner_FormClosing);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewMostrarFuentes)).EndInit();
             this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -200,6 +184,5 @@ namespace UI.NuevasPantallas
         protected UserControls.RangoFecha rangoFecha;
         protected UserControls.RangoHorario rangoHorario;
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.Button buttonNuevaFuente;
     }
 }

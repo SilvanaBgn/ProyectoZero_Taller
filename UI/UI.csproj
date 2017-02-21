@@ -347,13 +347,30 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Resources\Abajo1.ico" />
+    <None Include="Resources\signo_mas1.ico" />
+    <None Include="Resources\Agregar3.ico" />
     <Content Include="Resources\Agregar5.ico" />
+    <None Include="Resources\Agregar51.ico" />
+    <None Include="Resources\Agregar6.png" />
+    <None Include="Resources\Agregar7.png" />
+    <None Include="Resources\Agregar8.png" />
     <Content Include="Resources\AgregarImagen1.ico" />
     <Content Include="Resources\Arriba1.ico" />
+    <None Include="Resources\Editar3.ico" />
+    <None Include="Resources\Editar4.ico" />
+    <None Include="Resources\Buscar1.ico" />
+    <None Include="Resources\Buscar2.png" />
+    <None Include="Resources\Editar5.png" />
+    <None Include="Resources\Editar6.png" />
+    <None Include="Resources\Buscar4.png" />
     <Content Include="Resources\Eliminar2.ico" />
+    <None Include="Resources\Eliminar3.ico" />
     <Content Include="Resources\Eliminar4.ico" />
+    <None Include="Resources\Eliminar5.ico" />
+    <None Include="Resources\Eliminar7.png" />
     <Content Include="Resources\Pausa1.ico" />
     <Content Include="Resources\Play1.ico" />
+    <None Include="Resources\signo_mas.ico" />
     <None Include="Resources\Publicityfueradefoco.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
