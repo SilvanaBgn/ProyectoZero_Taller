@@ -97,6 +97,12 @@
     <Compile Include="NuevasPantallas\VBaseBanner.Designer.cs">
       <DependentUpon>VBaseBanner.cs</DependentUpon>
     </Compile>
+    <Compile Include="NuevasPantallas\VInicial.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="NuevasPantallas\VInicial.Designer.cs">
+      <DependentUpon>VInicial.cs</DependentUpon>
+    </Compile>
     <Compile Include="NuevasPantallas\VPrincipal.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -261,6 +267,9 @@
     <EmbeddedResource Include="NuevasPantallas\VCrearFuente.resx">
       <DependentUpon>VCrearFuente.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="NuevasPantallas\VInicial.resx">
+      <DependentUpon>VInicial.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="NuevasPantallas\VModificarBanner.resx">
       <DependentUpon>VModificarBanner.cs</DependentUpon>
     </EmbeddedResource>
@@ -345,6 +354,7 @@
     <Content Include="Resources\Eliminar4.ico" />
     <Content Include="Resources\Pausa1.ico" />
     <Content Include="Resources\Play1.ico" />
+    <None Include="Resources\Publicityfueradefoco.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

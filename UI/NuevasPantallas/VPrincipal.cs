@@ -18,9 +18,16 @@ namespace UI.NuevasPantallas
         private ControladorDominio iControladorDominio;
         private DateTime iFechaActual;
         private TimeSpan iHoraActual;
+
         private string iInfoBannerActual;
+
         private Banner iBannerAPasar;
         private Campania iCampaniaAPasar;
+
+        /// <summary>
+        /// Variable booleana que indica cuando la BD está lista para usarse
+        /// </summary>
+        public bool BDcreada=false;
 
         public VPrincipal()
         {
@@ -161,6 +168,7 @@ namespace UI.NuevasPantallas
                 }
                 else
                 {
+                    BDcreada = true;
                     //Actualiza el contenido de la campania deslizante
                     this.ActualizarCampaniaDeslizante();
 
@@ -264,6 +272,16 @@ namespace UI.NuevasPantallas
 
 
         #region Otros Ventana
+        private void VPrincipal_Load(object sender, EventArgs e)
+        {
+            VInicial ventanaInicial = new VInicial();
+            ventanaInicial.Owner = this;
+            this.VPrincipal_Activated(new object(), new EventArgs());
+            this.Hide();
+            ventanaInicial.ShowDialog();
+            
+        }
+
         private void VPrincipal_Activated(object sender, EventArgs e)
         {
             this.timerChequeoCambioCampania.Stop();
@@ -277,10 +295,10 @@ namespace UI.NuevasPantallas
         private void IniciarFormatoPantallaPrincipal(object sender, EventArgs e)
         {
             //Ventana:
-            this.Size = new System.Drawing.Size(656, 702);
+            this.Size = new System.Drawing.Size(851, 680);
             this.AutoSizeMode = AutoSizeMode.GrowAndShrink; //Que no permita redimensionar la ventana
             this.MaximizeBox = false; //Que no permita maximizar
-            this.FormBorderStyle = FormBorderStyle.Fixed3D; //Barra de estado
+            //this.FormBorderStyle = FormBorderStyle.Fixed3D; //Barra de estado
             this.WindowState = FormWindowState.Normal;
             this.StartPosition = FormStartPosition.CenterScreen;
 
@@ -290,13 +308,13 @@ namespace UI.NuevasPantallas
 
             //Ubicación y tamaño de objetos:
             this.groupBoxCampania.Location = new System.Drawing.Point(27, 31);
-            this.groupBoxCampania.Size = new System.Drawing.Size(587, 503);
-            this.groupBoxBanner.Location = new System.Drawing.Point(27, 555);
-            this.groupBoxBanner.Size = new System.Drawing.Size(587, 91);
-            this.bannerDeslizante.Location = new System.Drawing.Point(18, 25);
-            this.bannerDeslizante.Size = new System.Drawing.Size(550, 46);
-            this.campaniaDeslizante1.Location = new System.Drawing.Point(18, 68);
-            this.campaniaDeslizante1.Size = new System.Drawing.Size(550, 418);
+            this.groupBoxCampania.Size = new System.Drawing.Size(781, 503);
+            this.groupBoxBanner.Location = new System.Drawing.Point(27, 541);
+            this.groupBoxBanner.Size = new System.Drawing.Size(781, 91);
+            this.bannerDeslizante.Location = new System.Drawing.Point(22, 25);
+            this.bannerDeslizante.Size = new System.Drawing.Size(735, 46);
+            this.campaniaDeslizante1.Location = new System.Drawing.Point(22, 28);
+            this.campaniaDeslizante1.Size = new System.Drawing.Size(735, 459);
             this.bannerDeslizante.Font = new System.Drawing.Font("Microsoft Sans Serif", 30F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
         }
 
@@ -309,6 +327,7 @@ namespace UI.NuevasPantallas
 
         #endregion
 
+        
     }
 }
 
