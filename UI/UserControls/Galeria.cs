@@ -250,8 +250,6 @@ namespace UI.UserControls
             //Seleccionamos el primer elemento del ListView:
             this.listView.Focus();
             this.listView.Items[0].Selected = true;
-            //this.listView.Columns.RemoveAt(2);
-            //this.listView.Columns.RemoveAt(0);
         }
         #endregion
     }

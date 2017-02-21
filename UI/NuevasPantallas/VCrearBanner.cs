@@ -28,18 +28,9 @@ namespace UI.NuevasPantallas
             bannerAAgregar.HoraFin = this.rangoHorario.HoraFin;
             bannerAAgregar.Fuente = (Fuente)this.dataGridViewMostrarFuentes.CurrentRow.DataBoundItem;
 
-            try
-            {
                 this.iControladorDominio.AgregarBanner(bannerAAgregar);
                 this.iControladorDominio.GuardarCambios();
                 this.Close();
-            }
-            catch (ExcepcionValidacionBBDD)
-            {
-                MessageBox.Show("La fuente ya existe", "Faltan campos", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-
-
         }
     }
 }

@@ -8,6 +8,7 @@ using System.Threading.Tasks;
 using Dominio;
 using System.Data.Entity.Infrastructure;
 using Excepciones.ExcepcionesIntermedias;
+using System.Data.Entity.Validation;
 
 namespace Persistencia
 {
@@ -74,10 +75,15 @@ namespace Persistencia
             try
             {
                 iContexto.SaveChanges();
-        }
+            }
             catch (DbUpdateException)
             { throw new ExcepcionValidacionBBDD(); }
         }
+
+
+
+
+
 
         /// <summary>
         /// Vuelve a la base de datos a un estado previo

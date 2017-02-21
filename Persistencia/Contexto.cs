@@ -38,31 +38,31 @@ namespace Persistencia
 
             // modelBuilder.Entity<Fuente>().HasOptional(c => c.Items).WithOptionalDependent().WillCascadeOnDelete(true);
 
-            //pModelBuilder.Entity<Item>()
-            //.HasRequired<Fuente>(s => s.Fuente)
-            //.WithMany(i => i.Items)
-            //.WillCascadeOnDelete(true);
+            pModelBuilder.Entity<Item>()
+            .HasRequired<Fuente>(s => s.Fuente)
+            .WithMany(i => i.Items)
+            .WillCascadeOnDelete(true);
 
-            //pModelBuilder.Entity<Imagen>()
-            //.HasRequired<Campania>(s => s.Campania)
-            //.WithMany(i => i.Imagenes)
-            //.WillCascadeOnDelete(true);
+            pModelBuilder.Entity<Imagen>()
+            .HasRequired<Campania>(s => s.Campania)
+            .WithMany(i => i.Imagenes)
+            .WillCascadeOnDelete(true);
 
             pModelBuilder.Entity<Banner>()
             .HasRequired<Fuente>(s => s.Fuente)
             .WithMany(i => i.Banners)
             .WillCascadeOnDelete(true);
 
-            pModelBuilder
-    .Entity<Fuente>()
-    .Property(t => t.origenItems)
-    .HasColumnAnnotation(
-        "Index",
-        new IndexAnnotation(new[]
-            {
-                new IndexAttribute("Index1"),
-                new IndexAttribute("Index2") { IsUnique = true }
-            }));
+    //        pModelBuilder
+    //.Entity<Fuente>()
+    //.Property(t => t.origenItems)
+    //.HasColumnAnnotation(
+    //    "Index",
+    //    new IndexAnnotation(new[]
+    //        {
+    //            new IndexAttribute("Index1"),
+    //            new IndexAttribute("Index2") { IsUnique = true }
+    //        }));
         }
     }
 }

@@ -67,6 +67,7 @@ namespace UI.NuevasPantallas
         {
             this.dataGridViewMostrar.DataSource = pListaBanners;
             this.dataGridViewMostrar.Columns["BannerId"].Visible = false;
+            this.dataGridViewMostrar.Columns["FuenteId"].Visible = false;
         }
 
         /// <summary>
@@ -110,14 +111,6 @@ namespace UI.NuevasPantallas
         /// Evento que se invoca cuando VBaseBanner se activa
         /// </summary>
         private void VBaseBanner_Activated(object sender, EventArgs e)
-        {
-            CargarDataGridBanners(this.iControladorDominio.ObtenerTodosLosBanners());
-        }
-
-        /// <summary>
-        /// Evento que se invoca cuando VBaseBanner se carga
-        /// </summary>
-        private void VBaseBanner_Load(object sender, EventArgs e)
         {
             CargarDataGridBanners(this.iControladorDominio.ObtenerTodosLosBanners());
         }

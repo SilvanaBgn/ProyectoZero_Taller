@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Dominio;
+using Excepciones.ExcepcionesEspecíficas;
 
 namespace UI.NuevasPantallas
 {
@@ -28,22 +29,34 @@ namespace UI.NuevasPantallas
         /// </summary>
         private void ButtonGuardar_Click(object sender, EventArgs e)
         {
-            switch (this.comboBoxTipoFuente.SelectedItem.ToString())
+            //try {
+            if (this.comboBoxTipoFuente.SelectedItem == null)
+                MessageBox.Show("Se debe seleccionar un tipo de fuente", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            else
             {
-                case "Rss":
-                    this.iFuenteAAgregar.Tipo = TipoFuente.Rss;
-                    this.iFuenteAAgregar.origenItems = this.textBoxFuenteRss.Text;
-                    this.iFuenteAAgregar.Descripcion = this.textBoxDescripcionRss.Text;
-                    break;
-                case "Texto Fijo":
-                    this.iFuenteAAgregar.Tipo = TipoFuente.TextoFijo;
-                    this.iFuenteAAgregar.Descripcion = this.textoFijo.Descripcion;
-                    this.iFuenteAAgregar.Items = this.textoFijo.ListaItems;
-                    break;
+                switch (this.comboBoxTipoFuente.SelectedItem.ToString())
+                {
+                    case "Rss":
+                        this.iFuenteAAgregar.Tipo = TipoFuente.Rss;
+                        this.iFuenteAAgregar.origenItems = this.textBoxFuenteRss.Text;
+                        this.iFuenteAAgregar.Descripcion = this.textBoxDescripcionRss.Text;
+                        break;
+                    case "Texto Fijo":
+                        this.iFuenteAAgregar.Tipo = TipoFuente.TextoFijo;
+                        this.iFuenteAAgregar.Descripcion = this.textoFijo.Descripcion;
+                        this.iFuenteAAgregar.Items = this.textoFijo.ListaItems;
+                        break;
+                }
+                if (!this.bgwActualizarRssAlGuardar.IsBusy)
+                    this.bgwActualizarRssAlGuardar.RunWorkerAsync();
             }
+            //}
+            //catch (NullReferenceException)
+            //{
+            //    MessageBox.Show("Se debe seleccionar un tipo de fuente", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            //}
 
-            if (!this.bgwActualizarRssAlGuardar.IsBusy)
-                this.bgwActualizarRssAlGuardar.RunWorkerAsync();
+
         }
 
         /// <summary>
@@ -59,10 +72,20 @@ namespace UI.NuevasPantallas
         /// </summary>
         private void BgwActualizarRssAlGuardar_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
         {
-            this.iControladorDominio.AgregarFuente(iFuenteAAgregar);
-            this.iControladorDominio.GuardarCambios();
-
-            this.Close();
+            try
+            {
+                this.iControladorDominio.AgregarFuente(iFuenteAAgregar);
+                this.iControladorDominio.GuardarCambios();
+                this.Close();
+            }
+            catch (ExcepcionYaExisteFuente ex)
+            {
+                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            catch (ExcepcionCamposSinCompletar ex)
+            {
+                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
     }
 }

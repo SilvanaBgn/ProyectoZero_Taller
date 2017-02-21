@@ -1,10 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Linq.Expressions;
 using Excepciones.ExcepcionesEspecíficas;
+using Excepciones.ExcepcionesIntermedias;
 
 namespace Dominio
 {
@@ -22,7 +21,14 @@ namespace Dominio
 
         public void GuardarCambios()
         {
-            this.iUoW.GuardarCambios();
+            try
+            {
+                this.iUoW.GuardarCambios();
+            }
+            catch (ExcepcionValidacionBBDD)
+            {
+                throw new ExcepcionYaExisteFuente("La fuente ya existe");
+            }
         }
 
         public void CancelarCambios()
@@ -55,12 +61,12 @@ namespace Dominio
 
         public Banner BuscarBannerPorId(int pId)
         {
-            return this.iUoW.RepositorioBanners.ObtenerPorId(pId); 
+            return this.iUoW.RepositorioBanners.ObtenerPorId(pId);
         }
 
         public List<Banner> BuscarBannerPorAtributo(Expression<Func<Banner, bool>> filter = null)
         {
-            return this.iUoW.RepositorioBanners.Obtener(filter,null).ToList();
+            return this.iUoW.RepositorioBanners.Obtener(filter, null).ToList();
         }
 
         public List<Banner> FiltrarBanners(
@@ -71,31 +77,31 @@ namespace Dominio
             TimeSpan horaInicio;
             TimeSpan horaFin;
 
-            Expression<Func<Banner, bool>> filtroFechas=null;
-            Expression<Func<Banner, bool>> filtroHoras=null;
+            Expression<Func<Banner, bool>> filtroFechas = null;
+            Expression<Func<Banner, bool>> filtroHoras = null;
             Expression<Func<Banner, bool>> filtroTitulo = null;
-            Expression<Func<Banner, bool>> filtroDescripcion=null;
+            Expression<Func<Banner, bool>> filtroDescripcion = null;
 
-            if (pFiltroFechas!=null)
+            if (pFiltroFechas != null)
             {
                 fechaInicio = pFiltroFechas[0];
                 fechaFin = pFiltroFechas[1];
                 filtroFechas = x => x.FechaInicio.CompareTo(fechaInicio) >= 0 && x.FechaFin.CompareTo(fechaFin) <= 0;
             }
 
-            if (pFiltroHoras!=null)
+            if (pFiltroHoras != null)
             {
                 horaInicio = pFiltroHoras[0];
                 horaFin = pFiltroHoras[1];
                 filtroHoras = x => x.HoraInicio.CompareTo(horaInicio) >= 0 && x.HoraFin.CompareTo(horaFin) <= 0;
             }
 
-            if (pFiltroTitulo!=null)
+            if (pFiltroTitulo != null)
             {
                 filtroTitulo = x => x.Titulo.Contains(pFiltroTitulo);
             }
 
-            if (pFiltroDescripcion!=null)
+            if (pFiltroDescripcion != null)
             {
                 filtroDescripcion = x => x.Descripcion.Contains(pFiltroDescripcion);
             }
@@ -114,11 +120,11 @@ namespace Dominio
 
         public void AgregarCampania(Campania pCampania)
         {
-            if (pCampania.Imagenes.Count==0)
+            if (pCampania.Imagenes.Count == 0)
             {
                 throw new ExcepcionCamposSinCompletar("Se deben agregar imágenes a la campaña");
             }
-            if (pCampania.Titulo=="")
+            if (pCampania.Titulo == "")
             {
                 throw new ExcepcionCamposSinCompletar("Se debe agregar un título");
             }
@@ -217,6 +223,20 @@ namespace Dominio
         #region FuenteRss
         public void AgregarFuente(Fuente pFuente)
         {
+            if (pFuente.Tipo == TipoFuente.Rss && pFuente.origenItems=="")
+            {
+                throw new ExcepcionCamposSinCompletar("Se debe establecer el origen de la fuente");
+            }
+            if (pFuente.Tipo == TipoFuente.TextoFijo && pFuente.Items.Count==0)
+            {
+                throw new ExcepcionCamposSinCompletar("Se debe establecer el texto a mostrar");
+            }
+            if (pFuente.Descripcion == "")
+            {
+                throw new ExcepcionCamposSinCompletar("Se debe establecer una descripción de la fuente");
+            }
+
+
             this.iUoW.RepositorioFuentes.Agregar(pFuente);
         }
 
@@ -230,14 +250,14 @@ namespace Dominio
             this.iUoW.RepositorioFuentes.Borrar(pCodigo);
         }
 
-        public Fuente BuscarFuentePorId(int pId) 
+        public Fuente BuscarFuentePorId(int pId)
         {
             return this.iUoW.RepositorioFuentes.ObtenerPorId(pId);
         }
 
         public List<Fuente> BuscarFuentePorAtributo(Expression<Func<Fuente, bool>> filter = null)
         {
-            return this.iUoW.RepositorioFuentes.Obtener(filter,null).ToList();
+            return this.iUoW.RepositorioFuentes.Obtener(filter, null).ToList();
         }
 
         public List<Fuente> ObtenerTodasLasFuentes()
@@ -255,12 +275,12 @@ namespace Dominio
             {
                 tipoFuente = (TipoFuente)Enum.Parse(typeof(TipoFuente), pFiltroTipoFuente);
             }
-            
+
 
             Expression<Func<Fuente, bool>> filtroTipoFuente = null;
             Expression<Func<Fuente, bool>> filtroDescripcion = null;
 
-            if (pFiltroTipoFuente!=null)
+            if (pFiltroTipoFuente != null)
             {
                 filtroTipoFuente = x => x.Tipo == tipoFuente;
             }
@@ -289,11 +309,11 @@ namespace Dominio
             int minutos;
             int hora = pHoraActual.Hours;
             if (pHoraActual.Minutes >= 0 && pHoraActual.Minutes < 15)
-                minutos = 14;
+                minutos = 15;
             else if (pHoraActual.Minutes >= 15 && pHoraActual.Minutes < 30)
-                minutos = 29;
+                minutos = 30;
             else if (pHoraActual.Minutes >= 30 && pHoraActual.Minutes < 45)
-                minutos = 44;
+                minutos = 45;
             else //(horaActual.Minutes >= 45 && horaActual.Minutes < 60)
             {
                 minutos = 0;

@@ -69,6 +69,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ExcepcionesEspecíficas\ExcepcionCamposSinCompletar.cs" />
+    <Compile Include="ExcepcionesEspecíficas\ExcepcionYaExisteFuente.cs" />
     <Compile Include="ExcepcionesIntermedias\ExcepcionErrorEnLaBusqueda.cs" />
     <Compile Include="ExcepcionesIntermedias\ExcepcionErrorAlGuardar.cs" />
     <Compile Include="ExcepcionesEspecíficas\ExcepcionHoraInicioMayorAHoraFin.cs" />

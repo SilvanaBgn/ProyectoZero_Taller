@@ -37,6 +37,7 @@ namespace UI.NuevasPantallas
             this.rangoHorario.HoraInicio = pCampaniaAModificar.HoraInicio;
             this.rangoHorario.HoraFin = pCampaniaAModificar.HoraFin;
             this.galeria.ListaImagenes = (List<Imagen>)pCampaniaAModificar.Imagenes;
+            this.galeria.Segundos = pCampaniaAModificar.DuracionImagen;
         }
 
         /// <summary>
