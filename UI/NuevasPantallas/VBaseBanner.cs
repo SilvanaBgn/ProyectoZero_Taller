@@ -14,11 +14,9 @@ namespace UI.NuevasPantallas
 {
     public partial class VBaseBanner : VAbstractBase
     {
+        private VCrearBanner iVentanaNuevo;
+        private VModificarBanner iVentanaEditar;
 
-        /// <summary>
-        /// banner que se va a modificar (ver si sacar esto)
-        /// </summary>
-        private Banner banner = new Banner();
 
         public VBaseBanner(ref ControladorDominio pControladorDominio) : base(ref pControladorDominio)
         {
@@ -46,7 +44,7 @@ namespace UI.NuevasPantallas
             if (checkBoxDescripcion.Checked)
                 filtroDescripcion = this.textBoxDescripcion.Text;
 
-            List<Banner> listaFiltrada=this.iControladorDominio.FiltrarBanners(filtroFechas,filtroHoras,filtroTitulo,filtroDescripcion);
+            List<Banner> listaFiltrada = this.iControladorDominio.FiltrarBanners(filtroFechas, filtroHoras, filtroTitulo, filtroDescripcion);
             this.CargarDataGridBanners(listaFiltrada);
         }
 
@@ -65,9 +63,19 @@ namespace UI.NuevasPantallas
         /// </summary>
         public void CargarDataGridBanners(List<Banner> pListaBanners)
         {
+            //Cargamos el Datagrid:
             this.dataGridViewMostrar.DataSource = pListaBanners;
+
+            //Cambiamos el orden de las columnas:
             this.dataGridViewMostrar.Columns["BannerId"].Visible = false;
             this.dataGridViewMostrar.Columns["FuenteId"].Visible = false;
+            this.dataGridViewMostrar.Columns["Titulo"].DisplayIndex = 0;
+            this.dataGridViewMostrar.Columns["Fuente"].DisplayIndex = 1;
+            this.dataGridViewMostrar.Columns["FechaInicio"].DisplayIndex = 2;
+            this.dataGridViewMostrar.Columns["FechaFin"].DisplayIndex = 3;
+            this.dataGridViewMostrar.Columns["HoraInicio"].DisplayIndex = 4;
+            this.dataGridViewMostrar.Columns["HoraFin"].DisplayIndex = 5;
+            this.dataGridViewMostrar.Columns["Descripcion"].DisplayIndex = 6;
         }
 
         /// <summary>
@@ -75,10 +83,10 @@ namespace UI.NuevasPantallas
         /// </summary>
         private void buttonNuevo_Click(object sender, EventArgs e)
         {
-            var form2 = new VCrearBanner(ref this.iControladorDominio);
-            //form2.Owner = this;
-            //this.Hide();
-            form2.ShowDialog();
+            this.iVentanaNuevo = new VCrearBanner(ref this.iControladorDominio);
+            this.iVentanaNuevo.Owner = this;
+            this.iVentanaNuevo.ShowDialog();
+            this.iVentanaNuevo = null;
         }
 
         /// <summary>
@@ -87,11 +95,13 @@ namespace UI.NuevasPantallas
         private void buttonModificar_Click(object sender, EventArgs e)
         {
             if (this.bannerAModificar() == null)
-                MessageBox.Show("Seleccione una fuente");
+                MessageBox.Show("Seleccione un Banner");
             else
             {
-                VModificarBanner vBanner = new VModificarBanner(ref this.iControladorDominio, this.bannerAModificar());
-                vBanner.Show();
+                this.iVentanaEditar = new VModificarBanner(ref this.iControladorDominio, this.bannerAModificar());
+                this.iVentanaEditar.Owner = this;
+                this.iVentanaEditar.ShowDialog();
+                this.iVentanaEditar = null;
             }
         }
 
@@ -112,7 +122,14 @@ namespace UI.NuevasPantallas
         /// </summary>
         private void VBaseBanner_Activated(object sender, EventArgs e)
         {
-            CargarDataGridBanners(this.iControladorDominio.ObtenerTodosLosBanners());
+            //Preguntamos si las ventanas hijas son nulas, sino significa que están abiertas
+            //y les dejamos el foco 
+            if (this.iVentanaNuevo != null)
+                this.iVentanaNuevo.Activate();
+            else if (this.iVentanaEditar != null)
+                this.iVentanaEditar.Activate();
+            else
+                CargarDataGridBanners(this.iControladorDominio.ObtenerTodosLosBanners());
         }
     }
 }

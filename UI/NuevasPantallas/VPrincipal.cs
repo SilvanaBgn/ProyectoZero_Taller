@@ -15,13 +15,34 @@ namespace UI.NuevasPantallas
 {
     public partial class VPrincipal : Form
     {
+        private VBaseBanner iVentanaBanners;
+        private VBaseCampania iVentanaCampanias;
+        private VBaseFuente iVentanaFuentes;
+
         private ControladorDominio iControladorDominio;
+
+        /// <summary>
+        /// Guarda la fecha actual, para la actualización de los banners y las campanias
+        /// </summary>
         private DateTime iFechaActual;
+        /// <summary>
+        /// Guarda la hora actual, para la actualización de los banners y las campanias
+        /// </summary>
         private TimeSpan iHoraActual;
 
+        /// <summary>
+        /// Guarda el texto del banner actual, para evitar parar el funcionamiento del banner
+        /// deslizante innecesariamente
+        /// </summary>
         private string iInfoBannerActual;
 
+        /// <summary>
+        /// Contiene al banner a pasar en el banner deslizante
+        /// </summary>
         private Banner iBannerAPasar;
+        /// <summary>
+        /// Contiene a la campaña a pasar en la campania deslizante
+        /// </summary>
         private Campania iCampaniaAPasar;
 
         /// <summary>
@@ -219,26 +240,26 @@ namespace UI.NuevasPantallas
         #region ToolStripMenu
         private void bannerToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            VBaseBanner vBanner = new VBaseBanner(ref this.iControladorDominio);
-            //vBanner.Owner = this;
-            //this.Hide();
-            //vBanner.ShowDialog();
-            vBanner.Show();
+            this.iVentanaBanners = new VBaseBanner(ref this.iControladorDominio);
+            this.iVentanaBanners.Owner = this;
+            this.iVentanaBanners.ShowDialog();
+            this.iVentanaBanners = null;
         }
 
         private void campañaToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            VBaseCampania vCampania = new VBaseCampania(ref this.iControladorDominio);
-            //vCampania.Owner = this;
-            //this.Hide();
-            //vCampania.ShowDialog();
-            vCampania.Show();
+            this.iVentanaCampanias = new VBaseCampania(ref this.iControladorDominio);
+            this.iVentanaCampanias.Owner = this;
+            this.iVentanaCampanias.ShowDialog();
+            this.iVentanaCampanias = null;
         }
 
         private void fuenteToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            VBaseFuente vFuente = new VBaseFuente(ref this.iControladorDominio);
-            vFuente.Show();
+            this.iVentanaFuentes = new VBaseFuente(ref this.iControladorDominio);
+            this.iVentanaFuentes.Owner = this;
+            this.iVentanaFuentes.ShowDialog();
+            this.iVentanaFuentes = null;
         }
 
         private void verPantallaCompletaToolStripMenuItem_Click(object sender, EventArgs e)
@@ -284,12 +305,23 @@ namespace UI.NuevasPantallas
 
         private void VPrincipal_Activated(object sender, EventArgs e)
         {
-            this.timerChequeoCambioCampania.Stop();
-            this.timerChequeoCambioBanner.Stop();
+            //Preguntamos si las ventanas hijas son nulas, sino significa que están abiertas
+            //y les dejamos el foco 
+            if (this.iVentanaBanners != null)
+                this.iVentanaBanners.Activate();
+            else if (this.iVentanaCampanias != null)
+                this.iVentanaCampanias.Activate();
+            else if (this.iVentanaFuentes != null)
+                this.iVentanaFuentes.Activate();
+            else
+            {
+                this.timerChequeoCambioCampania.Stop();
+                this.timerChequeoCambioBanner.Stop();
 
-            this.timerChequeoCambioBanner.Interval = 1000;
-            //this.timerChequeoCambioCampania.Start();
-            this.timerChequeoCambioCampania_Tick(1000, new EventArgs());
+                this.timerChequeoCambioBanner.Interval = 1000;
+                //this.timerChequeoCambioCampania.Start();
+                this.timerChequeoCambioCampania_Tick(1000, new EventArgs());
+            }
         }
 
         private void IniciarFormatoPantallaPrincipal(object sender, EventArgs e)
@@ -298,7 +330,7 @@ namespace UI.NuevasPantallas
             this.Size = new System.Drawing.Size(851, 680);
             this.AutoSizeMode = AutoSizeMode.GrowAndShrink; //Que no permita redimensionar la ventana
             this.MaximizeBox = false; //Que no permita maximizar
-            //this.FormBorderStyle = FormBorderStyle.Fixed3D; //Barra de estado
+            this.FormBorderStyle = FormBorderStyle.Fixed3D; //Barra de estado
             this.WindowState = FormWindowState.Normal;
             this.StartPosition = FormStartPosition.CenterScreen;
 
@@ -323,11 +355,10 @@ namespace UI.NuevasPantallas
             this.IniciarFormatoPantallaPrincipal(sender, new EventArgs());
         }
 
-        #endregion
 
         #endregion
 
-        
+        #endregion
     }
 }
 

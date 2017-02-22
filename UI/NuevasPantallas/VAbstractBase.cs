@@ -20,6 +20,9 @@ namespace UI.NuevasPantallas
         public VAbstractBase()
         {
             InitializeComponent();
+
+            //Centramos la pantalla en el centro:
+            this.StartPosition = FormStartPosition.CenterScreen;
         }
 
         public VAbstractBase(ref ControladorDominio pControladorDominio) : this()
@@ -121,5 +124,11 @@ namespace UI.NuevasPantallas
             }
         }
 
+        private void VAbstractBase_Load(object sender, EventArgs e)
+        {
+            this.AutoSizeMode = AutoSizeMode.GrowAndShrink; //Que no permita redimensionar la ventana
+            this.MaximizeBox = false; //Que no permita maximizar
+            this.WindowState = FormWindowState.Normal;
+        }
     }
 }

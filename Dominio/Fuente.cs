@@ -65,6 +65,7 @@ namespace Dominio
    //     public Fuente(string pDescripcion) : this(pDescripcion, "", TipoFuente.TextoFijo) { }
 
         public Fuente():this("","",TipoFuente.TextoFijo)
+        public Fuente():this("","Sin fuente",TipoFuente.TextoFijo)
         { }
 
         /// <summary>

@@ -13,11 +13,9 @@ namespace UI.NuevasPantallas
 {
     public partial class VBaseCampania : VAbstractBase
     {
+        private VCrearCampania iVentanaNueva;
+        private VModificarCampania iVentanaEditar;
 
-        /// <summary>
-        /// banner que se va a modificar (ver si sacar esto)
-        /// </summary>
-        private Campania campania = new Campania();
 
         public VBaseCampania(ref ControladorDominio pControladorDominio) : base(ref pControladorDominio)
         {
@@ -62,10 +60,24 @@ namespace UI.NuevasPantallas
         /// </summary>
         public void CargarDataGridCampanias(List<Campania> pListaCampanias)
         {
+            //Cargamos el Datagrid:
             this.dataGridViewMostrar.DataSource = pListaCampanias;
+
+            //Dejamos invisibles las columnas que no deben verse:
             this.dataGridViewMostrar.Columns["CampaniaId"].Visible = false;
             this.dataGridViewMostrar.Columns["Imagenes"].Visible = false;
-            this.dataGridViewMostrar.Columns["DuracionImagen"].HeaderText = "Duración de imagenes";
+            
+            //Cambiamos el orden de las columnas:
+            this.dataGridViewMostrar.Columns["Titulo"].DisplayIndex = 0;
+            this.dataGridViewMostrar.Columns["FechaInicio"].DisplayIndex = 2;
+            this.dataGridViewMostrar.Columns["FechaFin"].DisplayIndex = 3;
+            this.dataGridViewMostrar.Columns["HoraInicio"].DisplayIndex = 4;
+            this.dataGridViewMostrar.Columns["HoraFin"].DisplayIndex = 5;
+            this.dataGridViewMostrar.Columns["DuracionImagen"].DisplayIndex = 1;
+            this.dataGridViewMostrar.Columns["Descripcion"].DisplayIndex = 6;
+
+            //Cambiamos el nombre de las columnas:
+            this.dataGridViewMostrar.Columns["DuracionImagen"].HeaderText = "Duración imágenes";
         }
 
         /// <summary>
@@ -73,9 +85,10 @@ namespace UI.NuevasPantallas
         /// </summary>
         private void buttonNuevo_Click(object sender, EventArgs e)
         {
-            this.Hide();
-            var form2 = new VCrearCampania(ref iControladorDominio);
-            form2.Show();
+            this.iVentanaNueva = new VCrearCampania(ref iControladorDominio);
+            this.iVentanaNueva.Owner = this;
+            this.iVentanaNueva.ShowDialog();
+            this.iVentanaNueva = null;
         }
 
         /// <summary>
@@ -84,11 +97,13 @@ namespace UI.NuevasPantallas
         private void buttonModificar_Click(object sender, EventArgs e)
         {
             if (this.campaniaAModificar() == null)
-                MessageBox.Show("Seleccione una fuente");
+                MessageBox.Show("Seleccione una Campaña");
             else
             {
-                VModificarCampania vCampania = new VModificarCampania(ref this.iControladorDominio, this.campaniaAModificar());
-                vCampania.Show();
+                this.iVentanaEditar = new VModificarCampania(ref this.iControladorDominio, this.campaniaAModificar());
+                this.iVentanaEditar.Owner = this;
+                this.iVentanaEditar.ShowDialog();
+                this.iVentanaEditar = null;
             }
         }
 
@@ -109,7 +124,14 @@ namespace UI.NuevasPantallas
         /// </summary>
         private void VBaseCampania_Activated(object sender, EventArgs e)
         {
-            CargarDataGridCampanias(this.iControladorDominio.ObtenerTodasLasCampanias());
+            //Preguntamos si las ventanas hijas son nulas, sino significa que están abiertas
+            //y les dejamos el foco 
+            if (this.iVentanaNueva != null)
+                this.iVentanaNueva.Activate();
+            else if (this.iVentanaEditar != null)
+                this.iVentanaEditar.Activate();
+            else
+                CargarDataGridCampanias(this.iControladorDominio.ObtenerTodasLasCampanias());
         }
     }
 }
