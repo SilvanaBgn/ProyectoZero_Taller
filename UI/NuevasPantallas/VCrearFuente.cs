@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Dominio;
 using Excepciones.ExcepcionesEspecíficas;
+using Excepciones.ExcepcionesIntermedias;
 
 namespace UI.NuevasPantallas
 {
@@ -50,13 +51,6 @@ namespace UI.NuevasPantallas
                 if (!this.bgwActualizarRssAlGuardar.IsBusy)
                     this.bgwActualizarRssAlGuardar.RunWorkerAsync();
             }
-            //}
-            //catch (NullReferenceException)
-            //{
-            //    MessageBox.Show("Se debe seleccionar un tipo de fuente", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            //}
-
-
         }
 
         /// <summary>
@@ -64,7 +58,12 @@ namespace UI.NuevasPantallas
         /// </summary>
         private void BgwActualizarRssAlGuardar_DoWork(object sender, DoWorkEventArgs e)
         {
-            this.iFuenteAAgregar.Leer();
+            //try
+            //{
+                this.iFuenteAAgregar.Leer();
+            //}
+            //catch (ExcepcionFormatoURLIncorrecto ex)
+            //{ MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error); }
         }
 
         /// <summary>
@@ -77,10 +76,6 @@ namespace UI.NuevasPantallas
                 this.iControladorDominio.AgregarFuente(iFuenteAAgregar);
                 this.iControladorDominio.GuardarCambios();
                 this.Close();
-            }
-            catch (ExcepcionYaExisteFuente ex)
-            {
-                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             catch (ExcepcionCamposSinCompletar ex)
             {

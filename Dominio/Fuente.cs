@@ -25,7 +25,7 @@ namespace Dominio
         /// </summary>
         //[DataType(DataType.Text)]
         [StringLength(80)]
-        [Required]
+        //[Required]
         public string origenItems { get; set; }
 
         public virtual ICollection<Banner> Banners { get; set; }
@@ -64,7 +64,7 @@ namespace Dominio
         /// </summary>
    //     public Fuente(string pDescripcion) : this(pDescripcion, "", TipoFuente.TextoFijo) { }
 
-        public Fuente():this("","Hola",TipoFuente.TextoFijo)
+        public Fuente():this("","",TipoFuente.TextoFijo)
         { }
 
         /// <summary>
@@ -93,17 +93,17 @@ namespace Dominio
         /// </summary>
         public void Leer()
         {
-            try
-            {
+            //try
+            //{
                 //Con la siguiente sentencia, lee y asigna los items:
                 if (this.iLector!=null)
                 {
                     this.Items = (List<Item>)this.iLector.Leer(this.origenItems);
                 }
-            }
-            catch(Exception) //excepcion cuando no hay internet u otra.. entendible para el usuario..=> No leyó
-            {
-            }
+            //}
+            //catch(Exception) //excepcion cuando no hay internet u otra.. entendible para el usuario..=> No leyó
+            //{
+            //}
         }
     }
 }

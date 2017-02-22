@@ -21,14 +21,14 @@ namespace Dominio
 
         public void GuardarCambios()
         {
-            try
-            {
+            //try
+            //{
                 this.iUoW.GuardarCambios();
-            }
-            catch (ExcepcionValidacionBBDD)
-            {
-                throw new ExcepcionYaExisteFuente("La fuente ya existe");
-            }
+            //}
+            //catch (ExcepcionValidacionBBDD)
+            //{
+            //    throw new ExcepcionYaExisteFuente("La fuente ya existe");
+            //}
         }
 
         public void CancelarCambios()
@@ -41,6 +41,15 @@ namespace Dominio
         #region Banner
         public void AgregarBanner(Banner pBanner)
         {
+            if (pBanner.Titulo == "")
+            {
+                throw new ExcepcionCamposSinCompletar("Se debe agregar un título");
+            }
+            if (pBanner.Fuente == null)
+            {
+                throw new ExcepcionCamposSinCompletar("Se debe seleccionar una fuente");
+            }
+
             this.iUoW.RepositorioBanners.Agregar(pBanner);
         }
 

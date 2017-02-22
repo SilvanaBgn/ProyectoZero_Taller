@@ -144,6 +144,7 @@ namespace UI.NuevasPantallas
             this.buttonNuevaFuente.Size = new System.Drawing.Size(43, 41);
             this.buttonNuevaFuente.TabIndex = 77;
             this.buttonNuevaFuente.UseVisualStyleBackColor = true;
+            this.buttonNuevaFuente.Click += new System.EventHandler(this.buttonNuevaFuente_Click);
             // 
             // rangoHorario
             // 
@@ -200,6 +201,6 @@ namespace UI.NuevasPantallas
         protected UserControls.RangoFecha rangoFecha;
         protected UserControls.RangoHorario rangoHorario;
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.Button buttonNuevaFuente;
+        protected System.Windows.Forms.Button buttonNuevaFuente;
     }
 }

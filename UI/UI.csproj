@@ -100,7 +100,7 @@
     <Compile Include="NuevasPantallas\VInicial.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="NuevasPantallas\VInicial.Designer.cs">
+    <Compile Include="NuevasPantallas\VInicial.designer.cs">
       <DependentUpon>VInicial.cs</DependentUpon>
     </Compile>
     <Compile Include="NuevasPantallas\VPrincipal.cs">
@@ -354,7 +354,6 @@
     <Content Include="Resources\Eliminar4.ico" />
     <Content Include="Resources\Pausa1.ico" />
     <Content Include="Resources\Play1.ico" />
-    <None Include="Resources\Publicityfueradefoco.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
