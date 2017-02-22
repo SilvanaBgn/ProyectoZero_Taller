@@ -48,6 +48,7 @@
             this.ClientSize = new System.Drawing.Size(470, 316);
             this.Name = "VCrearFuente";
             this.Text = "Nueva Fuente";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.VCrearFuente_FormClosing);
             this.panelRss.ResumeLayout(false);
             this.panelRss.PerformLayout();
             this.panelTextoFijo.ResumeLayout(false);

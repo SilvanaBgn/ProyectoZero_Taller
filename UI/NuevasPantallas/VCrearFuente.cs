@@ -14,7 +14,10 @@ namespace UI.NuevasPantallas
 {
     public partial class VCrearFuente : VAbstractCrearModificarFuente
     {
-        Fuente iFuenteAAgregar = new Fuente();
+        /// <summary>
+        /// Atributo que se utiliza para almacenar la fuente a agregar
+        /// </summary>
+        Fuente iFuenteAAgregar;
 
         //CONSTRUCTOR
         public VCrearFuente(ref ControladorDominio pControladorDominio) : base(ref pControladorDominio)
@@ -34,6 +37,10 @@ namespace UI.NuevasPantallas
                 MessageBox.Show("Se debe seleccionar un tipo de fuente", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             else
             {
+                //Creamos la fuente:
+                this.iFuenteAAgregar = new Fuente();
+
+                //Vemos el tipo, a partir de lo que completamos:
                 switch (this.comboBoxTipoFuente.SelectedItem.ToString())
                 {
                     case "Rss":
@@ -47,20 +54,30 @@ namespace UI.NuevasPantallas
                         this.iFuenteAAgregar.Items = this.textoFijo.ListaItems;
                         break;
                 }
-                if (!this.bgwActualizarRssAlGuardar.IsBusy)
-                    this.bgwActualizarRssAlGuardar.RunWorkerAsync();
+                try //Intentamos agregarla al repositorio y luego guardarla en base de datos:
+                {
+                    this.iControladorDominio.AgregarFuente(iFuenteAAgregar);
+                    this.iControladorDominio.GuardarCambios();
+                    this.Close();
+                }
+                catch (ExcepcionYaExisteFuente ex)
+                {
+                    MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                catch (ExcepcionCamposSinCompletar ex)
+                {
+                    MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
             //}
             //catch (NullReferenceException)
             //{
             //    MessageBox.Show("Se debe seleccionar un tipo de fuente", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             //}
-
-
         }
 
         /// <summary>
-        /// En este evento se define el trabajo que tiene que hacer el backgroundworker
+        /// En este evento el backgroundworker se hace el intento de leer la Fuente recién agregada
         /// </summary>
         private void BgwActualizarRssAlGuardar_DoWork(object sender, DoWorkEventArgs e)
         {
@@ -68,24 +85,25 @@ namespace UI.NuevasPantallas
         }
 
         /// <summary>
-        /// Este evento se ejecuta una vez finalizado el DoWork
+        /// Una vez leída la Fuente, se guardan los cambios
         /// </summary>
         private void BgwActualizarRssAlGuardar_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
         {
-            try
-            {
-                this.iControladorDominio.AgregarFuente(iFuenteAAgregar);
-                this.iControladorDominio.GuardarCambios();
-                this.Close();
-            }
-            catch (ExcepcionYaExisteFuente ex)
-            {
-                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-            catch (ExcepcionCamposSinCompletar ex)
-            {
-                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
+            this.iControladorDominio.ModificarFuente(iFuenteAAgregar);
+            this.iControladorDominio.GuardarCambios();
+        }
+
+        /// <summary>
+        /// Cuando el Form se esta cerrando, le pedimos
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void VCrearFuente_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            //this.iFuenteAAgregar es distinta de null cuando se apretó el botón Guardar
+            //Además, sólo ejecutamos el this.bgwActualizarRssAlGuardar si no está ocupado
+            if (this.iFuenteAAgregar!=null && !this.bgwActualizarRssAlGuardar.IsBusy)
+                this.bgwActualizarRssAlGuardar.RunWorkerAsync();
         }
     }
 }
