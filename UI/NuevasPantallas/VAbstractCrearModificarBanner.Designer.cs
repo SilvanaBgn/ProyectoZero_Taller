@@ -59,7 +59,7 @@ namespace UI.NuevasPantallas
             this.textBoxTitulo.MaxLength = 20;
             this.textBoxTitulo.Name = "textBoxTitulo";
             this.textBoxTitulo.ShortcutsEnabled = false;
-            this.textBoxTitulo.Size = new System.Drawing.Size(309, 20);
+            this.textBoxTitulo.Size = new System.Drawing.Size(362, 20);
             this.textBoxTitulo.TabIndex = 1;
             this.textBoxTitulo.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBoxValido_KeyPress);
             // 
@@ -78,7 +78,7 @@ namespace UI.NuevasPantallas
             this.textBoxDescripcion.MaxLength = 30;
             this.textBoxDescripcion.Name = "textBoxDescripcion";
             this.textBoxDescripcion.ShortcutsEnabled = false;
-            this.textBoxDescripcion.Size = new System.Drawing.Size(309, 20);
+            this.textBoxDescripcion.Size = new System.Drawing.Size(362, 20);
             this.textBoxDescripcion.TabIndex = 9;
             this.textBoxDescripcion.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBoxValido_KeyPress);
             // 
@@ -97,13 +97,13 @@ namespace UI.NuevasPantallas
             this.dataGridViewMostrarFuentes.ReadOnly = true;
             this.dataGridViewMostrarFuentes.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.dataGridViewMostrarFuentes.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridViewMostrarFuentes.Size = new System.Drawing.Size(377, 194);
+            this.dataGridViewMostrarFuentes.Size = new System.Drawing.Size(436, 194);
             this.dataGridViewMostrarFuentes.TabIndex = 11;
             this.dataGridViewMostrarFuentes.SelectionChanged += new System.EventHandler(this.dataGridViewMostrarFuentes_SelectionChanged);
             // 
             // buttonGuardar
             // 
-            this.buttonGuardar.Location = new System.Drawing.Point(250, 431);
+            this.buttonGuardar.Location = new System.Drawing.Point(309, 431);
             this.buttonGuardar.Name = "buttonGuardar";
             this.buttonGuardar.Size = new System.Drawing.Size(75, 23);
             this.buttonGuardar.TabIndex = 13;
@@ -112,7 +112,7 @@ namespace UI.NuevasPantallas
             // 
             // buttonCancelar
             // 
-            this.buttonCancelar.Location = new System.Drawing.Point(331, 431);
+            this.buttonCancelar.Location = new System.Drawing.Point(390, 431);
             this.buttonCancelar.Name = "buttonCancelar";
             this.buttonCancelar.Size = new System.Drawing.Size(75, 23);
             this.buttonCancelar.TabIndex = 14;
@@ -125,7 +125,7 @@ namespace UI.NuevasPantallas
             this.groupBox1.Controls.Add(this.dataGridViewMostrarFuentes);
             this.groupBox1.Location = new System.Drawing.Point(17, 206);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(389, 219);
+            this.groupBox1.Size = new System.Drawing.Size(448, 219);
             this.groupBox1.TabIndex = 23;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Fuente";
@@ -134,15 +134,15 @@ namespace UI.NuevasPantallas
             // 
             this.rangoHorario.HoraFin = System.TimeSpan.Parse("00:15:00");
             this.rangoHorario.HoraInicio = System.TimeSpan.Parse("00:00:00");
-            this.rangoHorario.Location = new System.Drawing.Point(286, 89);
+            this.rangoHorario.Location = new System.Drawing.Point(318, 89);
             this.rangoHorario.Name = "rangoHorario";
-            this.rangoHorario.Size = new System.Drawing.Size(120, 96);
+            this.rangoHorario.Size = new System.Drawing.Size(147, 96);
             this.rangoHorario.TabIndex = 16;
             // 
             // rangoFecha
             // 
-            this.rangoFecha.FechaFin = new System.DateTime(2017, 2, 18, 0, 0, 0, 0);
-            this.rangoFecha.FechaInicio = new System.DateTime(2017, 2, 18, 0, 0, 0, 0);
+            this.rangoFecha.FechaFin = new System.DateTime(2017, 2, 22, 0, 0, 0, 0);
+            this.rangoFecha.FechaInicio = new System.DateTime(2017, 2, 22, 0, 0, 0, 0);
             this.rangoFecha.Location = new System.Drawing.Point(16, 89);
             this.rangoFecha.Name = "rangoFecha";
             this.rangoFecha.Size = new System.Drawing.Size(264, 96);
@@ -152,7 +152,8 @@ namespace UI.NuevasPantallas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(432, 466);
+            this.BackColor = System.Drawing.Color.OldLace;
+            this.ClientSize = new System.Drawing.Size(485, 466);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.rangoHorario);
             this.Controls.Add(this.rangoFecha);

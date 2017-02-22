@@ -222,6 +222,12 @@
     <Compile Include="UserControls\Galeria.Designer.cs">
       <DependentUpon>Galeria.cs</DependentUpon>
     </Compile>
+    <Compile Include="UserControls\GroupBoxColor.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="UserControls\GroupBoxColor.Designer.cs">
+      <DependentUpon>GroupBoxColor.cs</DependentUpon>
+    </Compile>
     <Compile Include="UserControls\RangoFecha.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -253,6 +259,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="NuevasPantallas\VAbstractCrearModificarCampania.resx">
       <DependentUpon>VAbstractCrearModificarCampania.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="NuevasPantallas\VBaseBanner.resx">
+      <DependentUpon>VBaseBanner.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="NuevasPantallas\VBaseFuente.resx">
       <DependentUpon>VBaseFuente.cs</DependentUpon>
@@ -347,6 +356,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Resources\Abajo1.ico" />
+    <None Include="Resources\Publicityfueradefoco1.jpg" />
     <None Include="Resources\signo_mas1.ico" />
     <None Include="Resources\Agregar3.ico" />
     <Content Include="Resources\Agregar5.ico" />
@@ -368,6 +378,7 @@
     <Content Include="Resources\Eliminar4.ico" />
     <None Include="Resources\Eliminar5.ico" />
     <None Include="Resources\Eliminar7.png" />
+    <None Include="Resources\paper-1990111_640.jpg" />
     <Content Include="Resources\Pausa1.ico" />
     <Content Include="Resources\Play1.ico" />
     <None Include="Resources\signo_mas.ico" />

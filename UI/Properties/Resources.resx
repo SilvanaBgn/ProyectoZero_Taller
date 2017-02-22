@@ -127,9 +127,6 @@
   <data name="Texto6" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Texto6.ico;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="signo_mas" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\signo_mas.ico;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="Abajo1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Abajo1.ico;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -154,8 +151,8 @@
   <data name="Eliminar5" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Eliminar5.ico;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Eliminar7" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Eliminar7.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="Configuracion4" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Configuracion4.ico;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Editar5" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Editar5.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -175,8 +172,14 @@
   <data name="Buscar1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Buscar1.ico;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="salir3" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\salir3.ico;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="Eliminar7" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Eliminar7.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="paper-1990111_640" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\paper-1990111_640.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="signo_mas" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\signo_mas.ico;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Play1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Play1.ico;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -190,11 +193,14 @@
   <data name="texto9" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\texto9.ico;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="campania1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\campania1.ico;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="Eliminar3" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Eliminar3.ico;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="campania1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\campania1.ico;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="salir3" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\salir3.ico;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Vista" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Vista.ico;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -211,8 +217,8 @@
   <data name="Agregar5" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Agregar5.ico;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Configuracion4" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Configuracion4.ico;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="Buscar4" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Buscar4.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="NoImage" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\NoImage.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -223,7 +229,7 @@
   <data name="Texto4" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Texto4.ico;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Buscar4" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Buscar4.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="Publicityfueradefoco1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Publicityfueradefoco1.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

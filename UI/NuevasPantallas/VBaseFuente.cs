@@ -14,8 +14,11 @@ namespace UI.NuevasPantallas
 {
     public partial class VBaseFuente : Form
     {
+        private VCrearFuente iVentanaNueva;
+        private VModificarFuente iVentanaEditar;
 
         private ControladorDominio iControladorDominio;
+
 
         //CONSTRUCTOR
         public VBaseFuente(ref ControladorDominio pControladorDominio)
@@ -24,6 +27,9 @@ namespace UI.NuevasPantallas
             this.iControladorDominio = pControladorDominio;
             this.comboBoxTipo.Enabled = false;
             this.textBoxDescripcion.Enabled = false;
+
+            //Centramos la pantalla en el centro:
+            this.StartPosition = FormStartPosition.CenterScreen;
         }
 
         /// <summary>
@@ -31,8 +37,10 @@ namespace UI.NuevasPantallas
         /// </summary>
         private void buttonNuevo_Click(object sender, EventArgs e)
         {
-            VCrearFuente vFuente = new VCrearFuente(ref this.iControladorDominio);
-            vFuente.Show();
+            this.iVentanaNueva = new VCrearFuente(ref this.iControladorDominio);
+            this.iVentanaNueva.Owner = this;
+            this.iVentanaNueva.ShowDialog();
+            this.iVentanaNueva = null;
         }
 
         private Fuente fuenteAModificar()
@@ -44,9 +52,16 @@ namespace UI.NuevasPantallas
         /// Evento que se invoca cuando se hace click sobre el botón modificar, modificando una fuente
         /// </summary>
         private void buttonModificar_Click(object sender, EventArgs e)
-        {
-            VModificarFuente vFuente = new VModificarFuente(ref this.iControladorDominio, this.fuenteAModificar());
-            vFuente.Show();
+        {         
+            if (this.fuenteAModificar() == null)
+                MessageBox.Show("Seleccione una Fuente");
+            else
+            {
+                this.iVentanaEditar = new VModificarFuente(ref this.iControladorDominio, this.fuenteAModificar());
+                this.iVentanaEditar.Owner = this;
+                this.iVentanaEditar.ShowDialog();
+                this.iVentanaEditar = null;
+            }
         }
 
         /// <summary>
@@ -137,7 +152,14 @@ namespace UI.NuevasPantallas
         /// </summary>
         private void VBaseFuente_Activated(object sender, EventArgs e)
         {
-            this.CargarDataGridFuentes(this.iControladorDominio.ObtenerTodasLasFuentes());
+            //Preguntamos si las ventanas hijas son nulas, sino significa que están abiertas
+            //y les dejamos el foco 
+            if (this.iVentanaNueva != null)
+                this.iVentanaNueva.Activate();
+            else if (this.iVentanaEditar != null)
+                this.iVentanaEditar.Activate();
+            else
+                this.CargarDataGridFuentes(this.iControladorDominio.ObtenerTodasLasFuentes());
         }
 
         /// <summary>
@@ -166,6 +188,13 @@ namespace UI.NuevasPantallas
         private void textBoxDescripcion_KeyPress(object sender, KeyPressEventArgs e)
         {
             this.InputValido(e);
+        }
+
+        private void VBaseFuente_Load(object sender, EventArgs e)
+        {
+            this.AutoSizeMode = AutoSizeMode.GrowAndShrink; //Que no permita redimensionar la ventana
+            this.MaximizeBox = false; //Que no permita maximizar
+            this.WindowState = FormWindowState.Normal;
         }
     }
 }

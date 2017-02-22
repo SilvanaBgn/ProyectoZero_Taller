@@ -20,12 +20,18 @@ namespace UI.NuevasPantallas
         public VAbstractCrearModificarBanner()
         {
             InitializeComponent();
+
+            //Centramos la pantalla en el centro:
+            this.StartPosition = FormStartPosition.CenterParent;
         }
 
         //CONSTRUCTOR
         public VAbstractCrearModificarBanner(ref ControladorDominio pControladorDominio) : this()
         {
             this.iControladorDominio = pControladorDominio;
+
+            //Centramos la pantalla en el centro:
+            this.StartPosition = FormStartPosition.CenterScreen;
         }
 
         /// <summary>

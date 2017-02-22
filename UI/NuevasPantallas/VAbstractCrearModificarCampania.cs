@@ -25,6 +25,9 @@ namespace UI.NuevasPantallas
         public VAbstractCrearModificarCampania(ref ControladorDominio pControladorDominio) : this()
         {
             this.iControladorDominio = pControladorDominio;
+
+            //Centramos la pantalla en el centro:
+            this.StartPosition = FormStartPosition.CenterScreen;
         }
 
         private void InputValido(KeyPressEventArgs e)
@@ -39,6 +42,11 @@ namespace UI.NuevasPantallas
         private void textBoxValido_KeyPress(object sender, KeyPressEventArgs e)
         {
             this.InputValido(e);
+        }
+
+        private void buttonCancelar_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

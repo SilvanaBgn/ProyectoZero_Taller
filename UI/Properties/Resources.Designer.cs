@@ -303,6 +303,16 @@ namespace UI.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap paper_1990111_640 {
+            get {
+                object obj = ResourceManager.GetObject("paper-1990111_640", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Pausa1 {
             get {
                 object obj = ResourceManager.GetObject("Pausa1", resourceCulture);
@@ -326,6 +336,16 @@ namespace UI.Properties {
         internal static System.Drawing.Bitmap Publicityfueradefoco {
             get {
                 object obj = ResourceManager.GetObject("Publicityfueradefoco", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Publicityfueradefoco1 {
+            get {
+                object obj = ResourceManager.GetObject("Publicityfueradefoco1", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

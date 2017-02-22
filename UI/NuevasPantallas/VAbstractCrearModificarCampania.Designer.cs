@@ -63,7 +63,7 @@
             this.textBoxTitulo.MaxLength = 20;
             this.textBoxTitulo.Name = "textBoxTitulo";
             this.textBoxTitulo.ShortcutsEnabled = false;
-            this.textBoxTitulo.Size = new System.Drawing.Size(407, 20);
+            this.textBoxTitulo.Size = new System.Drawing.Size(385, 20);
             this.textBoxTitulo.TabIndex = 2;
             this.textBoxTitulo.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBoxValido_KeyPress);
             // 
@@ -73,7 +73,7 @@
             this.textBoxDescripcion.MaxLength = 30;
             this.textBoxDescripcion.Name = "textBoxDescripcion";
             this.textBoxDescripcion.ShortcutsEnabled = false;
-            this.textBoxDescripcion.Size = new System.Drawing.Size(407, 20);
+            this.textBoxDescripcion.Size = new System.Drawing.Size(385, 20);
             this.textBoxDescripcion.TabIndex = 3;
             this.textBoxDescripcion.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBoxValido_KeyPress);
             // 
@@ -94,6 +94,7 @@
             this.buttonCancelar.TabIndex = 7;
             this.buttonCancelar.Text = "Cancelar";
             this.buttonCancelar.UseVisualStyleBackColor = false;
+            this.buttonCancelar.Click += new System.EventHandler(this.buttonCancelar_Click);
             // 
             // rangoFecha
             // 
@@ -108,9 +109,9 @@
             // 
             this.rangoHorario.HoraFin = System.TimeSpan.Parse("00:15:00");
             this.rangoHorario.HoraInicio = System.TimeSpan.Parse("00:00:00");
-            this.rangoHorario.Location = new System.Drawing.Point(333, 89);
+            this.rangoHorario.Location = new System.Drawing.Point(318, 89);
             this.rangoHorario.Name = "rangoHorario";
-            this.rangoHorario.Size = new System.Drawing.Size(120, 96);
+            this.rangoHorario.Size = new System.Drawing.Size(147, 96);
             this.rangoHorario.TabIndex = 9;
             // 
             // galeria
