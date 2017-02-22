@@ -56,7 +56,7 @@ namespace UI.NuevasPantallas
                 }
                 try //Intentamos agregarla al repositorio y luego guardarla en base de datos:
                 {
-                    this.iControladorDominio.AgregarFuente(iFuenteAAgregar);
+                    this.iControladorDominio.AgregarFuente(this.iFuenteAAgregar);
                     this.iControladorDominio.GuardarCambios();
                     this.Close();
                 }
@@ -89,7 +89,7 @@ namespace UI.NuevasPantallas
         /// </summary>
         private void BgwActualizarRssAlGuardar_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
         {
-            this.iControladorDominio.ModificarFuente(iFuenteAAgregar);
+            this.iControladorDominio.ModificarFuente(this.iFuenteAAgregar);
             this.iControladorDominio.GuardarCambios();
         }
 
@@ -101,7 +101,7 @@ namespace UI.NuevasPantallas
         private void VCrearFuente_FormClosing(object sender, FormClosingEventArgs e)
         {
             //this.iFuenteAAgregar es distinta de null cuando se apretó el botón Guardar
-            //Además, sólo ejecutamos el this.bgwActualizarRssAlGuardar si no está ocupado
+            //Además, sólo ejecutamos el 
             if (this.iFuenteAAgregar!=null && !this.bgwActualizarRssAlGuardar.IsBusy)
                 this.bgwActualizarRssAlGuardar.RunWorkerAsync();
         }
