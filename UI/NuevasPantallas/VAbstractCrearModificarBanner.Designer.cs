@@ -185,5 +185,6 @@ namespace UI.NuevasPantallas
         protected UserControls.RangoFecha rangoFecha;
         protected UserControls.RangoHorario rangoHorario;
         private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.Button buttonNuevaFuente;
     }
 }

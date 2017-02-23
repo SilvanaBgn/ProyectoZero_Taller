@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -35,11 +36,12 @@ namespace Dominio
         /// <summary>
         /// ID de la Campaña 
         /// </summary>
+        //[Required]
         public int CampaniaId { get; set; }
 
         /// <summary>
         /// Objeto campaña
         /// </summary>
-        public virtual Campania Campania { get; set; }
+        //public virtual Campania Campania { get; set; }
     }
 }

@@ -29,14 +29,14 @@ namespace Dominio
         /// <summary>
         /// ID de la fuente del banner
         /// </summary>
-        [Required]
+        //[Required]
         public int FuenteId { get; set; }
 
         /// <summary>
         /// Fuente del banner
         /// </summary>
-        [Required]
-        public virtual Fuente Fuente { get; set; }
+        //[Required]
+        //public virtual Fuente Fuente { get; set; }
 
         //Rango fecha
         /// <summary>

@@ -71,13 +71,13 @@ namespace UI.NuevasPantallas
         public void CargarDataGridFuentes(List<Fuente> pListaFuentes)
         {
             this.dataGridViewMostrar.DataSource = pListaFuentes;
-            this.dataGridViewMostrar.Columns["Tipo"].DisplayIndex = 0;
-            this.dataGridViewMostrar.Columns["Descripcion"].DisplayIndex = 1;
-            this.dataGridViewMostrar.Columns["origenItems"].DisplayIndex = 2;
-            this.dataGridViewMostrar.Columns["origenItems"].HeaderText = "Fuente";
-            this.dataGridViewMostrar.Columns["Banners"].Visible = false;
-            this.dataGridViewMostrar.Columns["Items"].Visible = false;
-            this.dataGridViewMostrar.Columns["FuenteId"].Visible = false;
+            //this.dataGridViewMostrar.Columns["Tipo"].DisplayIndex = 0;
+            //this.dataGridViewMostrar.Columns["Descripcion"].DisplayIndex = 1;
+            //this.dataGridViewMostrar.Columns["origenItems"].DisplayIndex = 2;
+            //this.dataGridViewMostrar.Columns["origenItems"].HeaderText = "Fuente";
+            //this.dataGridViewMostrar.Columns["Banners"].Visible = false;
+            //this.dataGridViewMostrar.Columns["Items"].Visible = false;
+            //this.dataGridViewMostrar.Columns["FuenteId"].Visible = false;
         }
 
         /// <summary>
@@ -152,14 +152,13 @@ namespace UI.NuevasPantallas
         /// </summary>
         private void VBaseFuente_Activated(object sender, EventArgs e)
         {
+            this.CargarDataGridFuentes(this.iControladorDominio.ObtenerTodasLasFuentes());
             //Preguntamos si las ventanas hijas son nulas, sino significa que están abiertas
             //y les dejamos el foco 
             if (this.iVentanaNueva != null)
                 this.iVentanaNueva.Activate();
             else if (this.iVentanaEditar != null)
-                this.iVentanaEditar.Activate();
-            else
-                this.CargarDataGridFuentes(this.iControladorDominio.ObtenerTodasLasFuentes());
+                this.iVentanaEditar.Activate();                
         }
 
         /// <summary>
@@ -195,6 +194,11 @@ namespace UI.NuevasPantallas
             this.AutoSizeMode = AutoSizeMode.GrowAndShrink; //Que no permita redimensionar la ventana
             this.MaximizeBox = false; //Que no permita maximizar
             this.WindowState = FormWindowState.Normal;
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

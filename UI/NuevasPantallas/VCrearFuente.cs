@@ -33,8 +33,9 @@ namespace UI.NuevasPantallas
         /// </summary>
         private void ButtonGuardar_Click(object sender, EventArgs e)
         {
-            //try {
-            if (this.comboBoxTipoFuente.SelectedItem == null)
+            try
+            {
+                if (this.comboBoxTipoFuente.SelectedItem == null)
                 MessageBox.Show("Se debe seleccionar un tipo de fuente", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             else
             {
@@ -70,25 +71,25 @@ namespace UI.NuevasPantallas
                     MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
-            //}
-            //catch (NullReferenceException)
-            //{
-            //    MessageBox.Show("Se debe seleccionar un tipo de fuente", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            //}
         }
+            catch (NullReferenceException)
+            {
+                MessageBox.Show("Se debe seleccionar un tipo de fuente", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+}
 
         /// <summary>
         /// En este evento el backgroundworker se hace el intento de leer la Fuente recién agregada
         /// </summary>
         private void BgwActualizarRssAlGuardar_DoWork(object sender, DoWorkEventArgs e)
         {
-            //try
-            //{
-            this.iFuenteAAgregar.Leer();
-            //}
-            //catch (ExcepcionFormatoURLIncorrecto ex)
-            //{ MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error); }
+            try
+            {
+                this.iFuenteAAgregar.Leer();
         }
+            catch (ExcepcionFormatoURLIncorrecto ex)
+            { MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error); }
+}
 
         /// <summary>
         /// Una vez leída la Fuente, se guardan los cambios

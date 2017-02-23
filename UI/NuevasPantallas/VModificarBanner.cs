@@ -33,7 +33,7 @@ namespace UI.NuevasPantallas
 
             DataGridViewRow row = this.dataGridViewMostrarFuentes.Rows
                 .Cast<DataGridViewRow>()
-                .Where(r => r.Cells["FuenteId"].Value.ToString().Equals(this.iBannerAModificar.Fuente.FuenteId.ToString()))
+                .Where(r => r.Cells["FuenteId"].Value.ToString().Equals(this.iBannerAModificar.FuenteId.ToString()))
                 .First();
 
             indiceFila = row.Index;
@@ -70,12 +70,28 @@ namespace UI.NuevasPantallas
             this.iBannerAModificar.FechaFin = this.rangoFecha.FechaFin;
             this.iBannerAModificar.HoraInicio = this.rangoHorario.HoraInicio;
             this.iBannerAModificar.HoraFin = this.rangoHorario.HoraFin;
-            this.iBannerAModificar.Fuente = (Fuente)this.dataGridViewMostrarFuentes.CurrentRow.DataBoundItem;
 
             this.iControladorDominio.ModificarBanner(this.iBannerAModificar);
             this.iControladorDominio.GuardarCambios();
 
             this.Close();
+
+            if (this.dataGridViewMostrarFuentes.SelectedRows.Count == 0)
+            {
+                MessageBox.Show("Se debe seleccionar una fuente", "Faltan campos", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            else
+            {
+                this.iBannerAModificar.FuenteId = ((Fuente)this.dataGridViewMostrarFuentes.CurrentRow.DataBoundItem).FuenteId;
+                this.iControladorDominio.ModificarBanner(this.iBannerAModificar);
+                this.iControladorDominio.GuardarCambios();
+                this.Close();
+            }
+
+
+
+
+
         }
 
         //private void VModificarBanner_Shown(object sender, EventArgs e)
