@@ -53,16 +53,16 @@ namespace Persistencia
             .WithMany(i => i.Banners)
             .WillCascadeOnDelete(true);
 
-    //        pModelBuilder
-    //.Entity<Fuente>()
-    //.Property(t => t.origenItems)
-    //.HasColumnAnnotation(
-    //    "Index",
-    //    new IndexAnnotation(new[]
-    //        {
-    //            new IndexAttribute("Index1"),
-    //            new IndexAttribute("Index2") { IsUnique = true }
-    //        }));
+            //        pModelBuilder
+            //.Entity<Fuente>()
+            //.Property(t => t.origenItems)
+            //.HasColumnAnnotation(
+            //    "Index",
+            //    new IndexAnnotation(new[]
+            //        {
+            //            new IndexAttribute("Index1"),
+            //            new IndexAttribute("Index2") { IsUnique = true }
+            //        }));
         }
     }
 }

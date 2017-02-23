@@ -71,6 +71,7 @@ namespace UI.UserControls
                 this.iIndice++;
                 if (this.iIndice <= this.iListaImagenesOrdenada.Count - 1)
                 {
+                    this.Image.Dispose();
                     this.Image = ConversorImagen.ByteToImage(this.iListaImagenesOrdenada[this.iIndice].Bytes);
                     this.iCount = 0;
                 }
@@ -86,6 +87,7 @@ namespace UI.UserControls
         /// <param name="pImagen">Imagen en formato Bitmap, que se desea mostrar</param>
         public void Start(byte[] pImagen)
         {
+            this.Image.Dispose();
             this.Image = ConversorImagen.ByteToImage(pImagen);
         }
         /// <summary>
@@ -103,6 +105,7 @@ namespace UI.UserControls
                     this.iTimerImagenes.Interval = 1000/2; //1 segundo
 
                 //Ordenamos la lista de imágenes según el orden que tienen guardado:
+
                 this.iListaImagenesOrdenada = pLista.OrderBy(x => x.Orden).ToList();
 
                 this.iTimerImagenes.Start();//Se da comienzo al deslizamiento de la campaña

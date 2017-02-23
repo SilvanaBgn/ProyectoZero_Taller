@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Dominio;
 using Excepciones.ExcepcionesEspecíficas;
+using Excepciones.ExcepcionesIntermedias;
 
 namespace UI.NuevasPantallas
 {
@@ -59,7 +60,7 @@ namespace UI.NuevasPantallas
                     this.iControladorDominio.AgregarFuente(this.iFuenteAAgregar);
                     this.iControladorDominio.GuardarCambios();
                     this.Close();
-                }
+            }
                 catch (ExcepcionYaExisteFuente ex)
                 {
                     MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -81,7 +82,12 @@ namespace UI.NuevasPantallas
         /// </summary>
         private void BgwActualizarRssAlGuardar_DoWork(object sender, DoWorkEventArgs e)
         {
+            //try
+            //{
             this.iFuenteAAgregar.Leer();
+            //}
+            //catch (ExcepcionFormatoURLIncorrecto ex)
+            //{ MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error); }
         }
 
         /// <summary>
@@ -90,7 +96,7 @@ namespace UI.NuevasPantallas
         private void BgwActualizarRssAlGuardar_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
         {
             this.iControladorDominio.ModificarFuente(this.iFuenteAAgregar);
-            this.iControladorDominio.GuardarCambios();
+                this.iControladorDominio.GuardarCambios();
         }
 
         /// <summary>
@@ -99,7 +105,7 @@ namespace UI.NuevasPantallas
         /// <param name="sender"></param>
         /// <param name="e"></param>
         private void VCrearFuente_FormClosing(object sender, FormClosingEventArgs e)
-        {
+            {
             //this.iFuenteAAgregar es distinta de null cuando se apretó el botón Guardar
             //Además, sólo ejecutamos el 
             if (this.iFuenteAAgregar!=null && !this.bgwActualizarRssAlGuardar.IsBusy)

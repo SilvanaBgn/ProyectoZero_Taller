@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using Dominio;
 using System.Xml;
+using Excepciones.ExcepcionesIntermedias;
 
 namespace Dominio.Lecturas
 {
@@ -20,25 +21,18 @@ namespace Dominio.Lecturas
             IEnumerable<Item> items = new List<Item>();
             try
             {
-                if (String.IsNullOrWhiteSpace(pUrl)) //Comprobarlo con una expresión regular
-                    if (String.IsNullOrWhiteSpace(pUrl))
-                    {
-                        throw new ArgumentNullException("Debe ingresar una URL");
-                    }
-
                 Uri urlCorrecta;
 
                 if (!Uri.TryCreate(pUrl.Trim(), UriKind.Absolute, out urlCorrecta))
                 {
-                    throw new UriFormatException("La URL ingresada no es válida.");
+                    throw new UriFormatException("La URL ingresada no es válida");
                 }
 
                 items = this.ItemRss_a_Item(this.Leer(urlCorrecta));
         }
-            catch (ArgumentNullException) { } //Si pUrl es un string nulo
-            catch (UriFormatException) { } //Si pUrl no cumple con l formato de una URL
-            catch (Exception) { }
-            //Si todo salió bien:
+
+            catch (UriFormatException) { throw new ExcepcionFormatoURLIncorrecto("La URL tiene un formato incorrecto"); } //Si pUrl no cumple con el formato de una URL
+
             return items;
         }
 
