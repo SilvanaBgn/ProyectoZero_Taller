@@ -60,10 +60,6 @@ namespace UI.NuevasPantallas
                     this.iControladorDominio.AgregarFuente(this.iFuenteAAgregar);
                     this.iControladorDominio.GuardarCambios();
                     this.Close();
-            }
-                catch (ExcepcionYaExisteFuente ex)
-                {
-                    MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
                 catch (ExcepcionCamposSinCompletar ex)
                 {
@@ -77,6 +73,21 @@ namespace UI.NuevasPantallas
             //}
         }
 
+
+        /// <summary>
+        /// Cuando el Form se esta cerrando, le pedimos
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void VCrearFuente_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            //this.iFuenteAAgregar es distinta de null cuando se apretó el botón Guardar
+            //Además, sólo ejecutamos el 
+            if (this.iFuenteAAgregar != null && !this.bgwActualizarRssAlGuardar.IsBusy)
+                this.bgwActualizarRssAlGuardar.RunWorkerAsync();
+        }
+
+
         /// <summary>
         /// En este evento el backgroundworker se hace el intento de leer la Fuente recién agregada
         /// </summary>
@@ -85,31 +96,13 @@ namespace UI.NuevasPantallas
             //try
             //{
             this.iFuenteAAgregar.Leer();
+
+            // Una vez leída la Fuente, se guardan los cambios:
+            this.iControladorDominio.ModificarFuente(this.iFuenteAAgregar);
+            this.iControladorDominio.GuardarCambios();
             //}
             //catch (ExcepcionFormatoURLIncorrecto ex)
             //{ MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error); }
-        }
-
-        /// <summary>
-        /// Una vez leída la Fuente, se guardan los cambios
-        /// </summary>
-        private void BgwActualizarRssAlGuardar_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
-        {
-            this.iControladorDominio.ModificarFuente(this.iFuenteAAgregar);
-                this.iControladorDominio.GuardarCambios();
-        }
-
-        /// <summary>
-        /// Cuando el Form se esta cerrando, le pedimos
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void VCrearFuente_FormClosing(object sender, FormClosingEventArgs e)
-            {
-            //this.iFuenteAAgregar es distinta de null cuando se apretó el botón Guardar
-            //Además, sólo ejecutamos el 
-            if (this.iFuenteAAgregar!=null && !this.bgwActualizarRssAlGuardar.IsBusy)
-                this.bgwActualizarRssAlGuardar.RunWorkerAsync();
         }
     }
 }

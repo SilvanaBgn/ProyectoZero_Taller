@@ -93,8 +93,8 @@ namespace Persistencia
             //    }
             //    throw raise;
             //}
-            catch (DbUpdateException)
-            { throw new ExcepcionValidacionBBDD(); }
+            catch (DbUpdateException e)
+            { throw new ExcepcionValidacionBBDD(e.Message,e); }
         }
 
 

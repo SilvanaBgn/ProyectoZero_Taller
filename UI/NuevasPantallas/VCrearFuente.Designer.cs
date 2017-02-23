@@ -39,7 +39,6 @@
             // bgwActualizarRssAlGuardar
             // 
             this.bgwActualizarRssAlGuardar.DoWork += new System.ComponentModel.DoWorkEventHandler(this.BgwActualizarRssAlGuardar_DoWork);
-            this.bgwActualizarRssAlGuardar.RunWorkerCompleted += new System.ComponentModel.RunWorkerCompletedEventHandler(this.BgwActualizarRssAlGuardar_RunWorkerCompleted);
             // 
             // VCrearFuente
             // 

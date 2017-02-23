@@ -57,7 +57,8 @@ namespace UI.NuevasPantallas
                 MessageBox.Show("Seleccione una Fuente");
             else
             {
-                this.iVentanaEditar = new VModificarFuente(ref this.iControladorDominio, this.fuenteAModificar());
+                Fuente fuente = this.fuenteAModificar();
+                this.iVentanaEditar = new VModificarFuente(ref this.iControladorDominio, ref fuente);
                 this.iVentanaEditar.Owner = this;
                 this.iVentanaEditar.ShowDialog();
                 this.iVentanaEditar = null;
@@ -71,13 +72,13 @@ namespace UI.NuevasPantallas
         public void CargarDataGridFuentes(List<Fuente> pListaFuentes)
         {
             this.dataGridViewMostrar.DataSource = pListaFuentes;
-            this.dataGridViewMostrar.Columns["Tipo"].DisplayIndex = 0;
-            this.dataGridViewMostrar.Columns["Descripcion"].DisplayIndex = 1;
-            this.dataGridViewMostrar.Columns["origenItems"].DisplayIndex = 2;
-            this.dataGridViewMostrar.Columns["origenItems"].HeaderText = "Fuente";
-            this.dataGridViewMostrar.Columns["Banners"].Visible = false;
-            this.dataGridViewMostrar.Columns["Items"].Visible = false;
-            this.dataGridViewMostrar.Columns["FuenteId"].Visible = false;
+            //this.dataGridViewMostrar.Columns["Tipo"].DisplayIndex = 0;
+            //this.dataGridViewMostrar.Columns["Descripcion"].DisplayIndex = 1;
+            //this.dataGridViewMostrar.Columns["origenItems"].DisplayIndex = 2;
+            //this.dataGridViewMostrar.Columns["origenItems"].HeaderText = "Fuente";
+            //this.dataGridViewMostrar.Columns["Banners"].Visible = false;
+            //this.dataGridViewMostrar.Columns["Items"].Visible = false;
+            //this.dataGridViewMostrar.Columns["FuenteId"].Visible = false;
         }
 
         /// <summary>
@@ -152,14 +153,15 @@ namespace UI.NuevasPantallas
         /// </summary>
         private void VBaseFuente_Activated(object sender, EventArgs e)
         {
+            //Actualizamos el contenido del Datagrid:
+            this.CargarDataGridFuentes(this.iControladorDominio.ObtenerTodasLasFuentes());
+
             //Preguntamos si las ventanas hijas son nulas, sino significa que están abiertas
             //y les dejamos el foco 
             if (this.iVentanaNueva != null)
                 this.iVentanaNueva.Activate();
             else if (this.iVentanaEditar != null)
                 this.iVentanaEditar.Activate();
-            else
-                this.CargarDataGridFuentes(this.iControladorDominio.ObtenerTodasLasFuentes());
         }
 
         /// <summary>
