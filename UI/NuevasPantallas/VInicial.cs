@@ -10,6 +10,8 @@ using System.Windows.Forms;
 using Dominio;
 using Contenedor;
 using System.Threading;
+using System.IO;
+using Helper;
 
 namespace UI.NuevasPantallas
 {
@@ -31,6 +33,21 @@ namespace UI.NuevasPantallas
             // Start the BackgroundWorker.
             bgwCargarBD.RunWorkerAsync();
             //Se lanzarían backgroundWorker de cada uno de los elementos a cargar de la DB
+
+            List<Imagen> listaImagenes = new List<Imagen>();
+           // ImageConverter imagenConv = new ImageConverter();
+
+            listaImagenes.AddRange(new List<Imagen>
+            {
+                new Imagen() { Bytes = ConversorImagen.ImageToByte(Properties.Resources.arboles)},
+                new Imagen() { Bytes = ConversorImagen.ImageToByte(Properties.Resources.peces)},
+                new Imagen() { Bytes = ConversorImagen.ImageToByte(Properties.Resources.frutos_rojos)},
+                new Imagen() { Bytes = ConversorImagen.ImageToByte(Properties.Resources.ave)},
+                new Imagen() { Bytes = ConversorImagen.ImageToByte(Properties.Resources.flores)},
+                new Imagen() { Bytes = ConversorImagen.ImageToByte(Properties.Resources.monumento)},
+                new Imagen() { Bytes = ConversorImagen.ImageToByte(Properties.Resources.melones)}
+            });
+            this.campaniaDeslizante1.Start(listaImagenes,1);
         }
         
         /// <summary>
