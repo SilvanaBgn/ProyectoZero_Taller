@@ -41,9 +41,9 @@ namespace Persistencia
 
             //Campania-imagen
             pModelBuilder.Entity<Campania>()
-    .HasMany(o => o.Imagenes)
-    .WithOptional()
-    .HasForeignKey(oi => oi.CampaniaId);
+            .HasMany(o => o.Imagenes)
+            .WithOptional()
+            .HasForeignKey(oi => oi.CampaniaId);
 
             pModelBuilder.Entity<Imagen>()
             .HasKey(oi => new { oi.ImagenId, oi.CampaniaId })
@@ -70,9 +70,9 @@ namespace Persistencia
             .HasForeignKey(oi => oi.FuenteId);
 
             pModelBuilder.Entity<Item>()
-    .HasKey(oi => new { oi.ItemId, oi.FuenteId })
-    .Property(oi => oi.ItemId)
-    .HasDatabaseGeneratedOption(DatabaseGeneratedOption.Identity);
+            .HasKey(oi => new { oi.ItemId, oi.FuenteId })
+            .Property(oi => oi.ItemId)
+            .HasDatabaseGeneratedOption(DatabaseGeneratedOption.Identity);
 
 
 

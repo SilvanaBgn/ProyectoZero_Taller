@@ -22,6 +22,7 @@ namespace UI.NuevasPantallas
             this.iBannerAModificar = pBannerAModificar;
             this.CargarBannerAModificar(this.iBannerAModificar);
             base.CargarDataGridViewFuentes(this.iControladorDominio.ObtenerTodasLasFuentes());
+            this.dataGridViewMostrarFuentes.Size= new System.Drawing.Size(436, this.dataGridViewMostrarFuentes.Rows[0].Height*2);
         }
 
         /// <summary>
@@ -75,38 +76,22 @@ namespace UI.NuevasPantallas
             this.iControladorDominio.GuardarCambios();
 
             this.Close();
-
-            if (this.dataGridViewMostrarFuentes.SelectedRows.Count == 0)
-            {
-                MessageBox.Show("Se debe seleccionar una fuente", "Faltan campos", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-            else
-            {
-                this.iBannerAModificar.FuenteId = ((Fuente)this.dataGridViewMostrarFuentes.CurrentRow.DataBoundItem).FuenteId;
-                this.iControladorDominio.ModificarBanner(this.iBannerAModificar);
-                this.iControladorDominio.GuardarCambios();
-                this.Close();
-            }
-
-
-
-
-
         }
 
-        //private void VModificarBanner_Shown(object sender, EventArgs e)
-        //{
-        //    //this.dataGridViewMostrarFuentes.ClearSelection();
-        //    this.SeleccionarFuenteDelBanner();
-        //}
 
-        /// <summary>
-        /// Este evento se activa cuando VModificarBanner se encuentra activada
-        /// </summary>
-        private void VModificarBanner_Activated(object sender, EventArgs e)
-        {
-            this.dataGridViewMostrarFuentes.ClearSelection();
-            this.SeleccionarFuenteDelBanner();
-        }
+    //private void VModificarBanner_Shown(object sender, EventArgs e)
+    //{
+    //    //this.dataGridViewMostrarFuentes.ClearSelection();
+    //    this.SeleccionarFuenteDelBanner();
+    //}
+
+    /// <summary>
+    /// Este evento se activa cuando VModificarBanner se encuentra activada
+    /// </summary>
+    private void VModificarBanner_Activated(object sender, EventArgs e)
+    {
+        this.dataGridViewMostrarFuentes.ClearSelection();
+        this.SeleccionarFuenteDelBanner();
     }
+}
 }

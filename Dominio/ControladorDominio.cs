@@ -38,10 +38,10 @@ namespace Dominio
             {
                 throw new ExcepcionCamposSinCompletar("Se debe agregar un título");
             }
-            if (pBanner.FuenteId == 0)
-            {
-                throw new ExcepcionCamposSinCompletar("Se debe seleccionar una fuente");
-            }
+            //if (pBanner.FuenteId == 0)
+            //{
+                //throw new ExcepcionCamposSinCompletar("Se debe seleccionar una fuente");
+            //}
 
             this.iUoW.RepositorioBanners.Agregar(pBanner);
         }
