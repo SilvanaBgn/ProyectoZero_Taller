@@ -25,8 +25,11 @@ namespace Dominio
         /// </summary>
         //[DataType(DataType.Text)]
         [StringLength(80)]
-        //[Required]
+        //[RegularExpression(@"^http(s)?://([\w-]+.)+[\w-]+(/[\w- ./?%&=])?$", ErrorMessage = "You can not have that")]
+        [Required]
         public string origenItems { get; set; }
+
+
 
         public virtual ICollection<Banner> Banners { get; set; }
 
@@ -40,12 +43,13 @@ namespace Dominio
 
         private TipoFuente iTipo;
 
-        public TipoFuente Tipo {
+        public TipoFuente Tipo
+        {
             get { return this.iTipo; }
 
             set
             {
-                
+
                 if (value == TipoFuente.Rss)
                 {
                     this.iLector = new LectorRss();
@@ -57,21 +61,20 @@ namespace Dominio
                 this.iTipo = value;
             }
         }
-        
+
 
         /// <summary>
         /// Constructor para el caso del texto fijo, donde no hay origen de items
         /// </summary>
-   //     public Fuente(string pDescripcion) : this(pDescripcion, "", TipoFuente.TextoFijo) { }
+        //     public Fuente(string pDescripcion) : this(pDescripcion, "", TipoFuente.TextoFijo) { }
 
-        public Fuente():this("","",TipoFuente.TextoFijo)
-        public Fuente():this("","Sin fuente",TipoFuente.TextoFijo)
+        public Fuente() : this("", "Sin fuente", TipoFuente.TextoFijo)
         { }
 
         /// <summary>
         /// Constructor de una fuente para el caso que tenga un origen de items
         /// </summary>
-        public Fuente(string pDescripcion, string pOrigenItems,TipoFuente pTipo)
+        public Fuente(string pDescripcion, string pOrigenItems, TipoFuente pTipo)
         {
             this.Banners = new List<Banner>();
             this.Items = new List<Item>();
@@ -96,11 +99,14 @@ namespace Dominio
         {
             //try
             //{
-                //Con la siguiente sentencia, lee y asigna los items:
-                if (this.iLector!=null)
-                {
-                    this.Items = (List<Item>)this.iLector.Leer(this.origenItems);
-                }
+            //Con la siguiente sentencia, lee y asigna los items:
+            if (this.iLector != null)
+            {
+                List<Item> listaLeida = new List<Item>();
+                listaLeida = (List<Item>)this.iLector.Leer(this.origenItems);
+                if (listaLeida.Count > 0)
+                    this.Items = listaLeida;
+            }
             //}
             //catch(Exception) //excepcion cuando no hay internet u otra.. entendible para el usuario..=> No leyó
             //{

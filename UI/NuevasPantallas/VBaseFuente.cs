@@ -57,8 +57,7 @@ namespace UI.NuevasPantallas
                 MessageBox.Show("Seleccione una Fuente");
             else
             {
-                Fuente fuente = this.fuenteAModificar();
-                this.iVentanaEditar = new VModificarFuente(ref this.iControladorDominio, ref fuente);
+                this.iVentanaEditar = new VModificarFuente(ref this.iControladorDominio, this.fuenteAModificar());
                 this.iVentanaEditar.Owner = this;
                 this.iVentanaEditar.ShowDialog();
                 this.iVentanaEditar = null;
@@ -197,6 +196,11 @@ namespace UI.NuevasPantallas
             this.AutoSizeMode = AutoSizeMode.GrowAndShrink; //Que no permita redimensionar la ventana
             this.MaximizeBox = false; //Que no permita maximizar
             this.WindowState = FormWindowState.Normal;
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

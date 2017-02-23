@@ -25,7 +25,7 @@ namespace UI.NuevasPantallas
         }
 
         /// <summary>
-        /// Craga en todos los componentes de la ventana VModificarCampania los valores de pCampaniaAModificar
+        /// Carga en todos los componentes de la ventana VModificarCampania los valores de pCampaniaAModificar
         /// </summary>
         /// <param name="pCampaniaAModificar">campaña a modificar</param>
         private void CargarCampaniaAModificar(Campania pCampaniaAModificar)
@@ -46,6 +46,8 @@ namespace UI.NuevasPantallas
         /// </summary>
         private void ButtonGuardar_Click(object sender, EventArgs e)
         {
+            List<Imagen> imagenesViejas = (List<Imagen>)this.iCampaniaAModificar.Imagenes;
+
             this.iCampaniaAModificar.Titulo = this.textBoxTitulo.Text;
             this.iCampaniaAModificar.Descripcion = this.textBoxDescripcion.Text;
             this.iCampaniaAModificar.FechaInicio = this.rangoFecha.FechaInicio;
@@ -54,6 +56,22 @@ namespace UI.NuevasPantallas
             this.iCampaniaAModificar.HoraFin = this.rangoHorario.HoraFin;
             this.iCampaniaAModificar.Imagenes = this.galeria.ListaImagenes;
             this.iCampaniaAModificar.DuracionImagen = this.galeria.Segundos;
+
+            //var imagenesABorrar = (from img in imagenesViejas
+            //                      let item = iCampaniaAModificar.Imagenes.FirstOrDefault(i => i.ImagenId == img.ImagenId)
+            //                      where item == null
+            //                      select img).ToList();
+            //if (imagenesABorrar.Any())
+            //{
+            //    foreach (var img in imagenesABorrar)
+            //    {
+            //        imagenesABorrar = null;
+            //    }
+            //}
+
+
+
+
 
             try
             {

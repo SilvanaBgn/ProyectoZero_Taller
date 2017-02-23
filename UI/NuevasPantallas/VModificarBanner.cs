@@ -22,6 +22,7 @@ namespace UI.NuevasPantallas
             this.iBannerAModificar = pBannerAModificar;
             this.CargarBannerAModificar(this.iBannerAModificar);
             base.CargarDataGridViewFuentes(this.iControladorDominio.ObtenerTodasLasFuentes());
+            this.dataGridViewMostrarFuentes.Size= new System.Drawing.Size(436, this.dataGridViewMostrarFuentes.Rows[0].Height*2);
         }
 
         /// <summary>
@@ -33,7 +34,7 @@ namespace UI.NuevasPantallas
 
             DataGridViewRow row = this.dataGridViewMostrarFuentes.Rows
                 .Cast<DataGridViewRow>()
-                .Where(r => r.Cells["FuenteId"].Value.ToString().Equals(this.iBannerAModificar.Fuente.FuenteId.ToString()))
+                .Where(r => r.Cells["FuenteId"].Value.ToString().Equals(this.iBannerAModificar.FuenteId.ToString()))
                 .First();
 
             indiceFila = row.Index;
@@ -70,7 +71,6 @@ namespace UI.NuevasPantallas
             this.iBannerAModificar.FechaFin = this.rangoFecha.FechaFin;
             this.iBannerAModificar.HoraInicio = this.rangoHorario.HoraInicio;
             this.iBannerAModificar.HoraFin = this.rangoHorario.HoraFin;
-            this.iBannerAModificar.Fuente = (Fuente)this.dataGridViewMostrarFuentes.CurrentRow.DataBoundItem;
 
             this.iControladorDominio.ModificarBanner(this.iBannerAModificar);
             this.iControladorDominio.GuardarCambios();
@@ -78,19 +78,20 @@ namespace UI.NuevasPantallas
             this.Close();
         }
 
-        //private void VModificarBanner_Shown(object sender, EventArgs e)
-        //{
-        //    //this.dataGridViewMostrarFuentes.ClearSelection();
-        //    this.SeleccionarFuenteDelBanner();
-        //}
 
-        /// <summary>
-        /// Este evento se activa cuando VModificarBanner se encuentra activada
-        /// </summary>
-        private void VModificarBanner_Activated(object sender, EventArgs e)
-        {
-            this.dataGridViewMostrarFuentes.ClearSelection();
-            this.SeleccionarFuenteDelBanner();
-        }
+    //private void VModificarBanner_Shown(object sender, EventArgs e)
+    //{
+    //    //this.dataGridViewMostrarFuentes.ClearSelection();
+    //    this.SeleccionarFuenteDelBanner();
+    //}
+
+    /// <summary>
+    /// Este evento se activa cuando VModificarBanner se encuentra activada
+    /// </summary>
+    private void VModificarBanner_Activated(object sender, EventArgs e)
+    {
+        this.dataGridViewMostrarFuentes.ClearSelection();
+        this.SeleccionarFuenteDelBanner();
     }
+}
 }

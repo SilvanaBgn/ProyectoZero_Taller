@@ -293,8 +293,8 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="PruebaGaleria.resx">
       <DependentUpon>PruebaGaleria.cs</DependentUpon>
@@ -356,6 +356,15 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Resources\Abajo1.ico" />
+    <None Include="Resources\Image1.bmp" />
+    <None Include="Resources\ave.jpg" />
+    <None Include="Resources\flores.jpg" />
+    <None Include="Resources\frutos rojos.jpg" />
+    <None Include="Resources\Imagenes-de-Peces-en-el-fondo-de-mar-y-arrecifes-de-coral.jpg" />
+    <None Include="Resources\melones.jpg" />
+    <None Include="Resources\monumento.jpg" />
+    <None Include="Resources\peces.jpg" />
+    <Content Include="Resources\playa.jpg" />
     <None Include="Resources\Publicityfueradefoco1.jpg" />
     <None Include="Resources\signo_mas1.ico" />
     <None Include="Resources\Agregar3.ico" />
@@ -365,6 +374,7 @@
     <None Include="Resources\Agregar7.png" />
     <None Include="Resources\Agregar8.png" />
     <Content Include="Resources\AgregarImagen1.ico" />
+    <Content Include="Resources\arboles.jpg" />
     <Content Include="Resources\Arriba1.ico" />
     <None Include="Resources\Editar3.ico" />
     <None Include="Resources\Editar4.ico" />
@@ -373,14 +383,16 @@
     <None Include="Resources\Editar5.png" />
     <None Include="Resources\Editar6.png" />
     <None Include="Resources\Buscar4.png" />
+    <Content Include="Resources\cueva.jpg" />
     <Content Include="Resources\Eliminar2.ico" />
     <None Include="Resources\Eliminar3.ico" />
     <Content Include="Resources\Eliminar4.ico" />
     <None Include="Resources\Eliminar5.ico" />
     <None Include="Resources\Eliminar7.png" />
     <None Include="Resources\paper-1990111_640.jpg" />
-    <None Include="Resources\NoImage.png" />
+    <Content Include="Resources\lago.jpg" />
     <Content Include="Resources\Pausa1.ico" />
+    <Content Include="Resources\peses.jpg" />
     <Content Include="Resources\Play1.ico" />
     <None Include="Resources\signo_mas.ico" />
     <None Include="Resources\Publicityfueradefoco.jpg" />

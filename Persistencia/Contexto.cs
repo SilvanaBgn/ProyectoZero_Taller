@@ -38,20 +38,64 @@ namespace Persistencia
 
             // modelBuilder.Entity<Fuente>().HasOptional(c => c.Items).WithOptionalDependent().WillCascadeOnDelete(true);
 
-            pModelBuilder.Entity<Item>()
-            .HasRequired<Fuente>(s => s.Fuente)
-            .WithMany(i => i.Items)
-            .WillCascadeOnDelete(true);
+
+            //Campania-imagen
+            pModelBuilder.Entity<Campania>()
+            .HasMany(o => o.Imagenes)
+            .WithOptional()
+            .HasForeignKey(oi => oi.CampaniaId);
 
             pModelBuilder.Entity<Imagen>()
-            .HasRequired<Campania>(s => s.Campania)
-            .WithMany(i => i.Imagenes)
-            .WillCascadeOnDelete(true);
+            .HasKey(oi => new { oi.ImagenId, oi.CampaniaId })
+            .Property(oi => oi.ImagenId)
+            .HasDatabaseGeneratedOption(DatabaseGeneratedOption.Identity);
+
+
+            //Fuente-Banner
+            pModelBuilder.Entity<Fuente>()
+            .HasMany(o => o.Banners)
+            .WithRequired()
+            .HasForeignKey(oi => oi.FuenteId);
 
             pModelBuilder.Entity<Banner>()
-            .HasRequired<Fuente>(s => s.Fuente)
-            .WithMany(i => i.Banners)
-            .WillCascadeOnDelete(true);
+            .HasKey(oi => new { oi.BannerId, oi.FuenteId })
+            .Property(oi => oi.BannerId)
+            .HasDatabaseGeneratedOption(DatabaseGeneratedOption.Identity);
+
+
+            //Fuente-Item
+            pModelBuilder.Entity<Fuente>()
+            .HasMany(o => o.Items)
+            .WithOptional()
+            .HasForeignKey(oi => oi.FuenteId);
+
+            pModelBuilder.Entity<Item>()
+            .HasKey(oi => new { oi.ItemId, oi.FuenteId })
+            .Property(oi => oi.ItemId)
+            .HasDatabaseGeneratedOption(DatabaseGeneratedOption.Identity);
+
+
+
+
+
+
+
+
+
+            //pModelBuilder.Entity<Item>()
+            //.HasRequired<Fuente>(s => s.Fuente)
+            //.WithMany(i => i.Items)
+            //.WillCascadeOnDelete(true);
+
+            //pModelBuilder.Entity<Imagen>()
+            //.HasRequired<Campania>(s => s.Campania)
+            //.WithMany(i => i.Imagenes)
+            //.WillCascadeOnDelete(true);
+
+            //pModelBuilder.Entity<Banner>()
+            //.HasRequired<Fuente>(s => s.Fuente)
+            //.WithMany(i => i.Banners)
+            //.WillCascadeOnDelete(true);
 
             //        pModelBuilder
             //.Entity<Fuente>()

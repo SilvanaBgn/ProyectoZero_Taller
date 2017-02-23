@@ -26,11 +26,18 @@ namespace UI.NuevasPantallas
             bannerAAgregar.FechaFin = this.rangoFecha.FechaFin;
             bannerAAgregar.HoraInicio = this.rangoHorario.HoraInicio;
             bannerAAgregar.HoraFin = this.rangoHorario.HoraFin;
-            bannerAAgregar.Fuente = (Fuente)this.dataGridViewMostrarFuentes.CurrentRow.DataBoundItem;
 
+            if (this.dataGridViewMostrarFuentes.SelectedRows.Count == 0)
+            {
+                MessageBox.Show("Se debe seleccionar una fuente", "Faltan campos", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            else
+            {
+                bannerAAgregar.FuenteId = ((Fuente)this.dataGridViewMostrarFuentes.CurrentRow.DataBoundItem).FuenteId;
                 this.iControladorDominio.AgregarBanner(bannerAAgregar);
                 this.iControladorDominio.GuardarCambios();
                 this.Close();
+            }
         }
     }
 }
