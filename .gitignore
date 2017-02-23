@@ -246,3 +246,4 @@ ModelManifest.xml
 /UI/UserControls/ItemGaleria.resx
 /UI/UserControls/ItemGaleria.Designer.cs
 /UI/UserControls/ItemGaleria.cs
+/Persistencia/Migrations

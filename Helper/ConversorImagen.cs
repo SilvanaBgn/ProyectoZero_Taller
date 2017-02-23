@@ -31,6 +31,17 @@ namespace Helper
         }
 
         /// <summary>
+        /// Convierte una imagen de tipo BitMap en una cadena de bytes
+        /// </summary>
+        /// <param name="pBitMap">imagen de tipo BitMap a convertir</param>
+        /// <returns>Devuelve la cadena de bytes que representa a esa imagen</returns>
+        public static byte[] ImageToByte(Bitmap pBitMap)
+        {
+            ImageConverter imagenConv = new ImageConverter();
+            return (byte[])imagenConv.ConvertTo(pBitMap, typeof(byte[]));
+        }
+
+        /// <summary>
         /// Convierte la cadena de bytes de una imagen en un Bitmap, para mostrar en un Picturebox
         /// </summary>
         /// <param name="pBytes">Array de bytes de la imagen</param>
@@ -71,5 +82,6 @@ namespace Helper
             System.Buffer.BlockCopy(chars, 2, bytes, 0, bytes.Length);
             return bytes;
         }
+
     }
 }
