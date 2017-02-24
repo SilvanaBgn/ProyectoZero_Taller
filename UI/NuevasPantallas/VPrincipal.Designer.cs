@@ -83,7 +83,7 @@ namespace UI.NuevasPantallas
             this.pantallaCompletaToolStripMenuItem.ForeColor = System.Drawing.SystemColors.ControlText;
             this.pantallaCompletaToolStripMenuItem.Image = global::UI.Properties.Resources.Vista;
             this.pantallaCompletaToolStripMenuItem.Name = "pantallaCompletaToolStripMenuItem";
-            this.pantallaCompletaToolStripMenuItem.Size = new System.Drawing.Size(158, 24);
+            this.pantallaCompletaToolStripMenuItem.Size = new System.Drawing.Size(159, 24);
             this.pantallaCompletaToolStripMenuItem.Text = "&Pantalla Completa";
             this.pantallaCompletaToolStripMenuItem.Click += new System.EventHandler(this.verPantallaCompletaToolStripMenuItem_Click);
             // 
@@ -199,6 +199,8 @@ namespace UI.NuevasPantallas
             // campaniaDeslizante1
             // 
             this.campaniaDeslizante1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("campaniaDeslizante1.BackgroundImage")));
+            this.campaniaDeslizante1.Image = ((System.Drawing.Image)(resources.GetObject("campaniaDeslizante1.Image")));
+            this.campaniaDeslizante1.ImagenPorDefecto = ((System.Drawing.Image)(resources.GetObject("campaniaDeslizante1.ImagenPorDefecto")));
             this.campaniaDeslizante1.Location = new System.Drawing.Point(22, 28);
             this.campaniaDeslizante1.Name = "campaniaDeslizante1";
             this.campaniaDeslizante1.Size = new System.Drawing.Size(735, 459);

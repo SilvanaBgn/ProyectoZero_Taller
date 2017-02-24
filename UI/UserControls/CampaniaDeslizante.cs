@@ -28,7 +28,10 @@ namespace UI.UserControls
         /// </summary>
         private int iIndice, iCount;
 
-        private Image iSinImagen;
+        /// <summary>
+        /// Imagen que se muestra cuando la campania Deslizante no está funcionado
+        /// </summary>
+        public Image ImagenPorDefecto { get; set; }
 
         /// <summary>
         /// Indica si la campaña deslizante está actualmente en funcionamiento
@@ -56,7 +59,7 @@ namespace UI.UserControls
             this.iListaImagenesOrdenada = new List<Imagen>();
             this.iFuncionando = false;
 
-            this.Image = this.iSinImagen = global::UI.Properties.Resources.NoImage;
+            this.Image = this.ImagenPorDefecto = global::UI.Properties.Resources.NoImage;
         }
 
         /// <summary>
@@ -122,7 +125,7 @@ namespace UI.UserControls
             {
                 this.iTimerImagenes.Stop(); //Se da fin al deslizamiento de la campaña
                 this.iFuncionando = false;
-                this.Image = this.iSinImagen;
+                this.Image = this.ImagenPorDefecto;
             }
         }
     }

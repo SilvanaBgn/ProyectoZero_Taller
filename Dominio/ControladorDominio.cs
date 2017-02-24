@@ -448,27 +448,11 @@ namespace Dominio
                 // *imágenes* es una lista vacío.
                 //*intervalo*:
                 intervalo = Convert.ToInt32(this.IntervaloAlProxCuartoDeHora(horaActual));
-                listaImagenes = ImagenesParaCampaniaNula();
-                duracion = 5;
             }
             array[0] = listaImagenes;
             array[1] = duracion;
             array[2] = intervalo;
             return array;
-        }
-
-        public List<Imagen> ImagenesParaCampaniaNula()
-        {
-            List<Imagen> listaImagenes = new List<Imagen>();
-            listaImagenes.AddRange(new List<Imagen>
-                {
-                    new Imagen() { Bytes = ConversorImagen.ImageToByte(Properties.Resources._1)},
-                    new Imagen() { Bytes = ConversorImagen.ImageToByte(Properties.Resources._2)},
-                    new Imagen() { Bytes = ConversorImagen.ImageToByte(Properties.Resources._3)},
-                    new Imagen() { Bytes = ConversorImagen.ImageToByte(Properties.Resources._4)},
-                    new Imagen() { Bytes = ConversorImagen.ImageToByte(Properties.Resources._5)},
-                });
-            return listaImagenes;
         }
         #endregion
         #endregion

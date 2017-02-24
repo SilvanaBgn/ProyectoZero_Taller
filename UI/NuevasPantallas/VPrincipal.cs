@@ -37,12 +37,6 @@ namespace UI.NuevasPantallas
         private string iInfoBannerActual;
 
         /// <summary>
-        /// Guarda la informacion de la campania actual, para evitar parar el funcionamiento de la campania
-        /// deslizante innecesariamente
-        /// </summary>
-        private object[] iInfoCampaniaActual;
-
-        /// <summary>
         /// Contiene al banner a pasar en el banner deslizante
         /// </summary>
         private Banner iBannerAPasar;
@@ -54,8 +48,11 @@ namespace UI.NuevasPantallas
         /// <summary>
         /// Variable booleana que indica cuando la BD está lista para usarse
         /// </summary>
-        public bool BDcreada=false;
+        public bool BDcreada = false;
 
+
+
+        //CONSTRUCTOR
         public VPrincipal()
         {
             InitializeComponent();
@@ -63,7 +60,7 @@ namespace UI.NuevasPantallas
             this.iCampaniaAPasar = new Campania();
 
             //Y ejecutamos el próximo método que da formato a la pantalla principal
-            this.IniciarFormatoPantallaPrincipal(new object(),new EventArgs());
+            this.IniciarFormatoPantallaPrincipal(new object(), new EventArgs());
         }
 
 
@@ -79,7 +76,7 @@ namespace UI.NuevasPantallas
             string infoBannerNuevo = this.iControladorDominio.InfoBanner(this.iBannerAPasar);
 
             if (this.iInfoBannerActual != infoBannerNuevo)//En el caso de una Lectura Externa, serían distintos
-                                                          //Entonces, preguntamos para que en el caso, el bannerDesl no se recargue
+                //Entonces, preguntamos para que en el caso, el bannerDesl no se recargue:
             {
                 this.iInfoBannerActual = infoBannerNuevo;
                 this.bannerDeslizante.Stop();
@@ -94,14 +91,10 @@ namespace UI.NuevasPantallas
         private void ActualizarCampaniaDeslizante()
         {
             object[] infoCampaniaNueva = this.iControladorDominio.InfoCampania(this.iCampaniaAPasar);
-            if (this.iInfoCampaniaActual != infoCampaniaNueva) 
-            {
-                this.iInfoCampaniaActual = infoCampaniaNueva;
-                this.campaniaDeslizante1.Stop();
-                //Asignamos el valor de y el intervalo en el que debe reproducirlo
-                this.campaniaDeslizante1.Start((List<Imagen>)(infoCampaniaNueva)[0], (int)(infoCampaniaNueva)[1]);
-                this.timerChequeoCambioCampania.Interval = (int)(infoCampaniaNueva)[2]; // arrayInformacion[1]=intervalo
-            }
+            this.campaniaDeslizante1.Stop();
+            //Asignamos el valor de y el intervalo en el que debe reproducirlo
+            this.campaniaDeslizante1.Start((List<Imagen>)(infoCampaniaNueva)[0], (int)(infoCampaniaNueva)[1]);
+            this.timerChequeoCambioCampania.Interval = (int)(infoCampaniaNueva)[2]; // arrayInformacion[1]=intervalo
         }
 
 
@@ -185,7 +178,7 @@ namespace UI.NuevasPantallas
             this.iFechaActual = DateTime.Now;
             this.iHoraActual = new TimeSpan(this.iFechaActual.Hour, this.iFechaActual.Minute, this.iFechaActual.Second);
             //Buscamos el banner a pasar ahora
-            this.iBannerAPasar = this.iControladorDominio.ProximoBannerAPasar(this.iFechaActual,this.iHoraActual);
+            this.iBannerAPasar = this.iControladorDominio.ProximoBannerAPasar(this.iFechaActual, this.iHoraActual);
             this.timerChequeoCambioBanner.Interval = this.iControladorDominio.IntervaloAlProxCuartoDeHora(this.iHoraActual);
         }
 
@@ -214,7 +207,7 @@ namespace UI.NuevasPantallas
                         this.timerChequeoCambioCampania.Start();
                 }
             }
-            catch(Exception ex)
+            catch (Exception ex)
             { }
         }
 
@@ -284,7 +277,7 @@ namespace UI.NuevasPantallas
             this.buttonSalirPantallaCompleta.Visible = true;
 
             //Ubicación y tamaño de objetos:
-            
+
             this.groupBoxCampania.Location = new System.Drawing.Point(312, 5);
             this.groupBoxCampania.Size = new System.Drawing.Size(734, 650);
             this.groupBoxBanner.Location = new System.Drawing.Point(29, 660);
@@ -314,11 +307,12 @@ namespace UI.NuevasPantallas
             this.ActualizarPantalla();
             this.Hide();
             ventanaInicial.ShowDialog();
-            
+
         }
 
         private void VPrincipal_Activated(object sender, EventArgs e)
         {
+            //Ponemos a correr los timers para que se muestren las campanias y banners deslizantes:
             this.ActualizarPantalla();
 
             //Preguntamos si las ventanas hijas son nulas, sino significa que están abiertas
