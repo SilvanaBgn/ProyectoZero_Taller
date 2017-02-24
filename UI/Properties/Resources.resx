@@ -121,11 +121,11 @@
   <data name="Eliminar4" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Eliminar4.ico;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Agregar3" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Agregar3.ico;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="Texto6" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Texto6.ico;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="signo_mas" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\signo_mas.ico;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Abajo1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Abajo1.ico;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -136,8 +136,14 @@
   <data name="AgregarImagen1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\AgregarImagen1.ico;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="monumento" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\monumento.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="Agregar6" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Agregar6.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Configuracion4" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Configuracion4.ico;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Texto8" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Texto8.ico;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -151,8 +157,8 @@
   <data name="Eliminar5" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Eliminar5.ico;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Configuracion4" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Configuracion4.ico;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="Eliminar7" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Eliminar7.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Editar5" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Editar5.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -169,23 +175,32 @@
   <data name="Eliminar2" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Eliminar2.ico;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="arboles" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\arboles.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="Buscar1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Buscar1.ico;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Eliminar7" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Eliminar7.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="Publicityfueradefoco1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Publicityfueradefoco1.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="paper-1990111_640" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\paper-1990111_640.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="1487665587_Gnome-Emblem-Photos-64" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\1487665587_Gnome-Emblem-Photos-64.ico;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="signo_mas" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\signo_mas.ico;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="Eliminar3" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Eliminar3.ico;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="melones" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\melones.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Play1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Play1.ico;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Arriba1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Arriba1.ico;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="frutos_rojos" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\frutos rojos.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Agregar3" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Agregar3.ico;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Editar6" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Editar6.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -193,17 +208,17 @@
   <data name="texto9" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\texto9.ico;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="flores" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\flores.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="campania1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\campania1.ico;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Eliminar3" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Eliminar3.ico;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="salir3" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\salir3.ico;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="Vista" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Vista.ico;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Arriba1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Arriba1.ico;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Editar4" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Editar4.ico;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -217,11 +232,20 @@
   <data name="Agregar5" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Agregar5.ico;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="salir3" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\salir3.ico;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="Buscar4" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Buscar4.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="paper-1990111_640" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\paper-1990111_640.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="NoImage" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\NoImage.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="peces" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\peces.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Texto1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Texto1.ico;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -229,28 +253,10 @@
   <data name="Texto4" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Texto4.ico;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Publicityfueradefoco1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Publicityfueradefoco1.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="ave" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\ave.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="flores" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\flores.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="frutos_rojos" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\frutos rojos.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="melones" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\melones.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="monumento" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\monumento.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="peces" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\peces.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="arboles" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\arboles.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="ico22" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\ico22.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>
