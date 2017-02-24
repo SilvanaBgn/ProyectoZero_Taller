@@ -52,8 +52,11 @@ namespace UI.NuevasPantallas
         /// <returns>Devuelve la campania encontrada, null si no se selecciona ninguna</returns>
         private Campania campaniaAModificar()
         {
+            if (this.dataGridViewMostrar.SelectedRows.Count == 0)
+                return null;
+            else
                 return (Campania)this.dataGridViewMostrar.SelectedRows[0].DataBoundItem;
-            }
+        }
 
         /// <summary>
         /// Muestra en el datagrid los banners que se encuentran en la base de datos
@@ -66,7 +69,7 @@ namespace UI.NuevasPantallas
             //Dejamos invisibles las columnas que no deben verse:
             this.dataGridViewMostrar.Columns["CampaniaId"].Visible = false;
             this.dataGridViewMostrar.Columns["Imagenes"].Visible = false;
-            
+
             //Cambiamos el orden de las columnas:
             this.dataGridViewMostrar.Columns["Titulo"].DisplayIndex = 0;
             this.dataGridViewMostrar.Columns["FechaInicio"].DisplayIndex = 2;
@@ -97,7 +100,7 @@ namespace UI.NuevasPantallas
         private void buttonModificar_Click(object sender, EventArgs e)
         {
             if (this.campaniaAModificar() == null)
-                MessageBox.Show("Seleccione una Campaña");
+                MessageBox.Show("Se debe seleccionar una campaña", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             else
             {
                 this.iVentanaEditar = new VModificarCampania(ref this.iControladorDominio, this.campaniaAModificar());
@@ -113,10 +116,15 @@ namespace UI.NuevasPantallas
         /// </summary>
         private void buttonEliminar_Click(object sender, EventArgs e)
         {
-            int codigo = Convert.ToInt32(this.dataGridViewMostrar.SelectedRows[0].Cells[0].Value.ToString());
-            this.iControladorDominio.BorrarCampania(codigo);
-            this.iControladorDominio.GuardarCambios();
-            this.CargarDataGridCampanias(this.iControladorDominio.ObtenerTodasLasCampanias());
+            if (this.dataGridViewMostrar.SelectedRows.Count == 0)
+            { MessageBox.Show("Se debe seleccionar una campaña", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error); }
+            else
+            {
+                int codigo = Convert.ToInt32(this.dataGridViewMostrar.SelectedRows[0].Cells[0].Value.ToString());
+                this.iControladorDominio.BorrarCampania(codigo);
+                this.iControladorDominio.GuardarCambios();
+                this.CargarDataGridCampanias(this.iControladorDominio.ObtenerTodasLasCampanias());
+            }
         }
 
         /// <summary>

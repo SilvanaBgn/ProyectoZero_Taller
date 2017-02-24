@@ -7,7 +7,6 @@ using System.Text;
 using System.Threading.Tasks;
 using Dominio;
 using System.Data.Entity.Infrastructure;
-using Excepciones.ExcepcionesIntermedias;
 using System.Data.Entity.Validation;
 
 namespace Persistencia

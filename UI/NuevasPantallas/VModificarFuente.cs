@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Dominio;
-using Excepciones.ExcepcionesEspecíficas;
+using Excepciones.ExcepcionesPantalla;
 
 namespace UI.NuevasPantallas
 {
@@ -33,7 +33,7 @@ namespace UI.NuevasPantallas
                     this.comboBoxTipoFuente.Text = "Rss";
                     this.panelTextoFijo.Visible = false;
                     this.panelRss.Visible = true;
-                    this.textBoxFuenteRss.Text = this.iFuenteAModificar.origenItems;
+                    this.textBoxFuenteRss.Text = this.iFuenteAModificar.OrigenItems;
                     this.textBoxDescripcionRss.Text = this.iFuenteAModificar.Descripcion;
                     break;
                 case "TextoFijo":
@@ -51,7 +51,7 @@ namespace UI.NuevasPantallas
             switch (this.comboBoxTipoFuente.SelectedItem.ToString())
             {
                 case "Rss":
-                    this.iFuenteAModificar.origenItems = this.textBoxFuenteRss.Text;
+                    this.iFuenteAModificar.OrigenItems = this.textBoxFuenteRss.Text;
                     this.iFuenteAModificar.Descripcion = this.textBoxDescripcionRss.Text;
                     break;
                 case "Texto Fijo":

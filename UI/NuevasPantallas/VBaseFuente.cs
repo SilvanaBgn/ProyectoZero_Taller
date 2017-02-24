@@ -45,7 +45,10 @@ namespace UI.NuevasPantallas
 
         private Fuente fuenteAModificar()
         {
-            return (Fuente)this.dataGridViewMostrar.SelectedRows[0].DataBoundItem;
+            if (this.dataGridViewMostrar.SelectedRows.Count == 0)
+                return null;
+            else return (Fuente)this.dataGridViewMostrar.SelectedRows[0].DataBoundItem;
+
         }
 
         /// <summary>
@@ -54,7 +57,7 @@ namespace UI.NuevasPantallas
         private void buttonModificar_Click(object sender, EventArgs e)
         {         
             if (this.fuenteAModificar() == null)
-                MessageBox.Show("Seleccione una Fuente");
+                MessageBox.Show("Se debe seleccionar una fuente", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             else
             {
                 this.iVentanaEditar = new VModificarFuente(ref this.iControladorDominio, this.fuenteAModificar());
@@ -86,10 +89,15 @@ namespace UI.NuevasPantallas
         /// </summary>
         private void buttonEliminar_Click(object sender, EventArgs e)
         {
-            int codigo = Convert.ToInt32(this.dataGridViewMostrar.SelectedRows[0].Cells[0].Value.ToString());
-            this.iControladorDominio.BorrarFuente(codigo);
-            this.iControladorDominio.GuardarCambios();
-            this.CargarDataGridFuentes(this.iControladorDominio.ObtenerTodasLasFuentes());
+            if (this.dataGridViewMostrar.SelectedRows.Count == 0)
+            { MessageBox.Show("Se debe seleccionar una fuente", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error); }
+            else
+            {
+                int codigo = Convert.ToInt32(this.dataGridViewMostrar.SelectedRows[0].Cells[0].Value.ToString());
+                this.iControladorDominio.BorrarFuente(codigo);
+                this.iControladorDominio.GuardarCambios();
+                this.CargarDataGridFuentes(this.iControladorDominio.ObtenerTodasLasFuentes());
+            }
         }
 
         /// <summary>

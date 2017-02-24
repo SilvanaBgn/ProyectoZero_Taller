@@ -68,17 +68,17 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ExcepcionesEspecíficas\ExcepcionCamposSinCompletar.cs" />
-    <Compile Include="ExcepcionesEspecíficas\ExcepcionYaExisteFuente.cs" />
-    <Compile Include="ExcepcionesIntermedias\ExcepcionErrorEnLaBusqueda.cs" />
-    <Compile Include="ExcepcionesIntermedias\ExcepcionErrorAlGuardar.cs" />
-    <Compile Include="ExcepcionesEspecíficas\ExcepcionHoraInicioMayorAHoraFin.cs" />
-    <Compile Include="ExcepcionesEspecíficas\ExcepcionFechaFinMenorAFechaInicio.cs" />
-    <Compile Include="ExcepcionesEspecíficas\ExcepcionFechaFinMayorAFechaInicio.cs" />
-    <Compile Include="ExcepcionesGenericas\ExcepcionGeneral.cs" />
-    <Compile Include="ExcepcionesEspecíficas\ExcepcionAlCargarPantalla.cs" />
-    <Compile Include="ExcepcionesIntermedias\ExcepcionFormatoURLIncorrecto.cs" />
-    <Compile Include="ExcepcionesIntermedias\ExcepcionValidacionBBDD.cs" />
+    <Compile Include="ExcepcionesPantalla\ExcepcionCampoIncorrecto.cs" />
+    <Compile Include="ExcepcionesPantalla\ExcepcionCamposSinCompletar.cs" />
+    <Compile Include="ExcepcionesDominio\ExcepcionErrorEnLaBusqueda.cs" />
+    <Compile Include="ExcepcionesDominio\ExcepcionErrorAlGuardar.cs" />
+    <Compile Include="ExcepcionesPantalla\ExcepcionHoraInicioMayorAHoraFin.cs" />
+    <Compile Include="ExcepcionesPantalla\ExcepcionFechaFinMenorAFechaInicio.cs" />
+    <Compile Include="ExcepcionesPantalla\ExcepcionFechaFinMayorAFechaInicio.cs" />
+    <Compile Include="ExcepcionesPantalla\ExcepcionAlCargarPantalla.cs" />
+    <Compile Include="ExcepcionesDominio\ExcepcionFormatoURLIncorrecto.cs" />
+    <Compile Include="ExcepcionesDominio\ExcepcionValidacionBBDD.cs" />
+    <Compile Include="ExcepcionesPersistencia\ExcepcionGeneral.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

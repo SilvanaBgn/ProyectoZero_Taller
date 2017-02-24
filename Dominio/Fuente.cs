@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using Dominio.Lecturas;
 using System.ComponentModel.DataAnnotations.Schema;
+using Excepciones.ExcepcionesDominio;
 
 namespace Dominio
 {
@@ -20,6 +21,9 @@ namespace Dominio
         [Required]
         public string Descripcion { get; set; }
 
+
+        private string iOrigenItems;
+
         /// <summary>
         /// Información especifica de la Fuente en cuestión
         /// </summary>
@@ -27,7 +31,31 @@ namespace Dominio
         [StringLength(80)]
         //[RegularExpression(@"^http(s)?://([\w-]+.)+[\w-]+(/[\w- ./?%&=])?$", ErrorMessage = "You can not have that")]
         [Required]
-        public string origenItems { get; set; }
+        public string OrigenItems
+        {
+            get { return this.iOrigenItems; }
+            set
+            {
+                try
+                {
+                    if (this.iTipo == TipoFuente.Rss)
+                    {
+                        Uri urlCorrecta;
+
+                        if (!Uri.TryCreate(value.Trim(), UriKind.Absolute, out urlCorrecta))
+                        {
+                            throw new UriFormatException();
+                        }
+                        else
+                            this.iOrigenItems = value.Trim();
+                    }
+                }
+                catch (UriFormatException)
+                { throw new ExcepcionFormatoURLIncorrecto("La URL ingresada no es válida. El formato correcto es http://www.ejemplo.com/"); }
+
+
+            }
+        }
 
 
 
@@ -80,7 +108,7 @@ namespace Dominio
             this.Items = new List<Item>();
             this.Tipo = pTipo;
             this.Descripcion = pDescripcion;
-            this.origenItems = pOrigenItems;
+            this.iOrigenItems = pOrigenItems;
         }
 
         /// <summary>
@@ -97,20 +125,20 @@ namespace Dominio
         /// </summary>
         public void Leer()
         {
-            //try
-            //{
-            //Con la siguiente sentencia, lee y asigna los items:
-            if (this.iLector != null)
+            try
             {
-                List<Item> listaLeida = new List<Item>();
-                listaLeida = (List<Item>)this.iLector.Leer(this.origenItems);
-                if (listaLeida.Count > 0)
-                    this.Items = listaLeida;
+                //Con la siguiente sentencia, lee y asigna los items:
+                if (this.iLector != null)
+                {
+                    List<Item> listaLeida = new List<Item>();
+                    listaLeida = (List<Item>)this.iLector.Leer(this.iOrigenItems);
+                    if (listaLeida.Count > 0)
+                        this.Items = listaLeida;
+                }
             }
-            //}
-            //catch(Exception) //excepcion cuando no hay internet u otra.. entendible para el usuario..=> No leyó
-            //{
-            //}
+            catch (Exception) //excepcion cuando no hay internet u otra.. entendible para el usuario..=> No leyó
+            {
+            }
         }
     }
 }

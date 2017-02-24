@@ -1,6 +1,5 @@
 ﻿using System;
 using Dominio;
-using Excepciones.ExcepcionesIntermedias;
 using System.Windows.Forms;
 
 namespace UI.NuevasPantallas

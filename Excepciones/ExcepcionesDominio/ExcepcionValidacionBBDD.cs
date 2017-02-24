@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Excepciones.ExcepcionesIntermedias
+namespace Excepciones.ExcepcionesDominio
 {
     public class ExcepcionValidacionBBDD : Exception
     {

@@ -121,6 +121,7 @@ namespace UI.UserControls
         {
             //Abrimos la ventana de diálogo para cargar las imágenes
             OpenFileDialog op = new OpenFileDialog();
+            op.Filter = "Archivos de imagen (.jpg) | *.jpg";
             op.Multiselect = true;
             DialogResult result = op.ShowDialog(this);
             if (result == DialogResult.OK)
@@ -130,9 +131,6 @@ namespace UI.UserControls
                 {
                     ListViewItem fila = new ListViewItem((this.listView.Items.Count + 1).ToString());
                     fila.SubItems.Add(Path.GetFileName(url[i]));
-                    //ConversorImagen.ImageToByte(this.listView1.Items[i].SubItems[2].Text)
-                    //byte[] imgFullByte = ConversorImagen.ImageToByte(url[i]);
-                    //byte[] imgCropByte = ConversorImagen.Resize2Max50Kbytes(imgFullByte);
                     fila.SubItems.Add(ConversorImagen.GetString(ConversorImagen.ImageToByte(url[i])));
                     this.listView.Items.Add(fila);
                 }
