@@ -305,6 +305,13 @@ namespace UI.NuevasPantallas
 
         private void VPrincipal_Activated(object sender, EventArgs e)
         {
+            this.timerChequeoCambioCampania.Stop();
+            this.timerChequeoCambioBanner.Stop();
+
+            this.timerChequeoCambioBanner.Interval = 1000;
+            //this.timerChequeoCambioCampania.Start();
+            this.timerChequeoCambioCampania_Tick(1000, new EventArgs());
+
             //Preguntamos si las ventanas hijas son nulas, sino significa que están abiertas
             //y les dejamos el foco 
             if (this.iVentanaBanners != null)
@@ -313,15 +320,6 @@ namespace UI.NuevasPantallas
                 this.iVentanaCampanias.Activate();
             else if (this.iVentanaFuentes != null)
                 this.iVentanaFuentes.Activate();
-            else
-            {
-                this.timerChequeoCambioCampania.Stop();
-                this.timerChequeoCambioBanner.Stop();
-
-                this.timerChequeoCambioBanner.Interval = 1000;
-                //this.timerChequeoCambioCampania.Start();
-                this.timerChequeoCambioCampania_Tick(1000, new EventArgs());
-            }
         }
 
         private void IniciarFormatoPantallaPrincipal(object sender, EventArgs e)

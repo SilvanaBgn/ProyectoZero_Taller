@@ -43,18 +43,18 @@ namespace UI.NuevasPantallas
             this.buttonFiltrar = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.dataGridViewMostrar = new System.Windows.Forms.DataGridView();
-            this.buttonBorrar = new System.Windows.Forms.Button();
-            this.buttonEditar = new System.Windows.Forms.Button();
-            this.buttonNuevo = new System.Windows.Forms.Button();
-            this.pictureBox3 = new System.Windows.Forms.PictureBox();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.ColumnTipo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColumnDescripcion = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColumnorigenItems = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColumnBanners = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColumnItems = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColumnFuenteId = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.buttonBorrar = new System.Windows.Forms.Button();
+            this.buttonEditar = new System.Windows.Forms.Button();
+            this.buttonNuevo = new System.Windows.Forms.Button();
+            this.pictureBox3 = new System.Windows.Forms.PictureBox();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewMostrar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
@@ -161,6 +161,7 @@ namespace UI.NuevasPantallas
             this.button2.TabIndex = 25;
             this.button2.Text = "&Salir";
             this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // dataGridViewMostrar
             // 
@@ -187,6 +188,57 @@ namespace UI.NuevasPantallas
             this.dataGridViewMostrar.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridViewMostrar.Size = new System.Drawing.Size(556, 245);
             this.dataGridViewMostrar.TabIndex = 24;
+            // 
+            // ColumnTipo
+            // 
+            this.ColumnTipo.DataPropertyName = "Tipo";
+            this.ColumnTipo.HeaderText = "Tipo";
+            this.ColumnTipo.Name = "ColumnTipo";
+            this.ColumnTipo.ReadOnly = true;
+            this.ColumnTipo.Width = 90;
+            // 
+            // ColumnDescripcion
+            // 
+            this.ColumnDescripcion.DataPropertyName = "Descripcion";
+            this.ColumnDescripcion.HeaderText = "Descripción";
+            this.ColumnDescripcion.Name = "ColumnDescripcion";
+            this.ColumnDescripcion.ReadOnly = true;
+            this.ColumnDescripcion.Width = 170;
+            // 
+            // ColumnorigenItems
+            // 
+            this.ColumnorigenItems.DataPropertyName = "origenItems";
+            this.ColumnorigenItems.HeaderText = "Fuente (origen de datos)";
+            this.ColumnorigenItems.Name = "ColumnorigenItems";
+            this.ColumnorigenItems.ReadOnly = true;
+            this.ColumnorigenItems.Width = 250;
+            // 
+            // ColumnBanners
+            // 
+            this.ColumnBanners.DataPropertyName = "Banners";
+            this.ColumnBanners.HeaderText = "ColumnBanners";
+            this.ColumnBanners.Name = "ColumnBanners";
+            this.ColumnBanners.ReadOnly = true;
+            this.ColumnBanners.Visible = false;
+            this.ColumnBanners.Width = 106;
+            // 
+            // ColumnItems
+            // 
+            this.ColumnItems.DataPropertyName = "Items";
+            this.ColumnItems.HeaderText = "Items";
+            this.ColumnItems.Name = "ColumnItems";
+            this.ColumnItems.ReadOnly = true;
+            this.ColumnItems.Visible = false;
+            this.ColumnItems.Width = 57;
+            // 
+            // ColumnFuenteId
+            // 
+            this.ColumnFuenteId.DataPropertyName = "FuenteId";
+            this.ColumnFuenteId.HeaderText = "FuenteId";
+            this.ColumnFuenteId.Name = "ColumnFuenteId";
+            this.ColumnFuenteId.ReadOnly = true;
+            this.ColumnFuenteId.Visible = false;
+            this.ColumnFuenteId.Width = 74;
             // 
             // buttonBorrar
             // 
@@ -254,57 +306,6 @@ namespace UI.NuevasPantallas
             this.pictureBox1.Size = new System.Drawing.Size(620, 4);
             this.pictureBox1.TabIndex = 33;
             this.pictureBox1.TabStop = false;
-            // 
-            // ColumnTipo
-            // 
-            this.ColumnTipo.DataPropertyName = "Tipo";
-            this.ColumnTipo.HeaderText = "Tipo";
-            this.ColumnTipo.Name = "ColumnTipo";
-            this.ColumnTipo.ReadOnly = true;
-            this.ColumnTipo.Width = 90;
-            // 
-            // ColumnDescripcion
-            // 
-            this.ColumnDescripcion.DataPropertyName = "Descripcion";
-            this.ColumnDescripcion.HeaderText = "Descripción";
-            this.ColumnDescripcion.Name = "ColumnDescripcion";
-            this.ColumnDescripcion.ReadOnly = true;
-            this.ColumnDescripcion.Width = 170;
-            // 
-            // ColumnorigenItems
-            // 
-            this.ColumnorigenItems.DataPropertyName = "origenItems";
-            this.ColumnorigenItems.HeaderText = "Fuente (origen de datos)";
-            this.ColumnorigenItems.Name = "ColumnorigenItems";
-            this.ColumnorigenItems.ReadOnly = true;
-            this.ColumnorigenItems.Width = 250;
-            // 
-            // ColumnBanners
-            // 
-            this.ColumnBanners.DataPropertyName = "Banners";
-            this.ColumnBanners.HeaderText = "ColumnBanners";
-            this.ColumnBanners.Name = "ColumnBanners";
-            this.ColumnBanners.ReadOnly = true;
-            this.ColumnBanners.Visible = false;
-            this.ColumnBanners.Width = 106;
-            // 
-            // ColumnItems
-            // 
-            this.ColumnItems.DataPropertyName = "Items";
-            this.ColumnItems.HeaderText = "Items";
-            this.ColumnItems.Name = "ColumnItems";
-            this.ColumnItems.ReadOnly = true;
-            this.ColumnItems.Visible = false;
-            this.ColumnItems.Width = 57;
-            // 
-            // ColumnFuenteId
-            // 
-            this.ColumnFuenteId.DataPropertyName = "FuenteId";
-            this.ColumnFuenteId.HeaderText = "FuenteId";
-            this.ColumnFuenteId.Name = "ColumnFuenteId";
-            this.ColumnFuenteId.ReadOnly = true;
-            this.ColumnFuenteId.Visible = false;
-            this.ColumnFuenteId.Width = 74;
             // 
             // VBaseFuente
             // 

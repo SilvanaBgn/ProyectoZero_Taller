@@ -21,14 +21,7 @@ namespace Dominio
 
         public void GuardarCambios()
         {
-            //try
-            //{
                 this.iUoW.GuardarCambios();
-            //}
-            //catch (ExcepcionValidacionBBDD)
-            //{
-            //    throw new ExcepcionYaExisteFuente("La fuente ya existe");
-            //}
         }
 
         public void CancelarCambios()
@@ -45,10 +38,10 @@ namespace Dominio
             {
                 throw new ExcepcionCamposSinCompletar("Se debe agregar un título");
             }
-            if (pBanner.Fuente == null)
-            {
-                throw new ExcepcionCamposSinCompletar("Se debe seleccionar una fuente");
-            }
+            //if (pBanner.FuenteId == 0)
+            //{
+                //throw new ExcepcionCamposSinCompletar("Se debe seleccionar una fuente");
+            //}
 
             this.iUoW.RepositorioBanners.Agregar(pBanner);
         }
@@ -356,7 +349,7 @@ namespace Dominio
         private string FormatearTextoBanner(Banner pBanner)
         {
             string texto = "";
-            Fuente fuenteDelBanner = this.BuscarFuentePorId(pBanner.Fuente.FuenteId);
+            Fuente fuenteDelBanner = this.BuscarFuentePorId(pBanner.FuenteId);
             //Asignamos su contenido a la variable texto:
             IList<Item> listaItems = (List<Item>)fuenteDelBanner.Items;
             for (int i = 0; i < listaItems.Count; i++)
@@ -372,10 +365,10 @@ namespace Dominio
         /// <param name="pBanner">Banner a leer</param>
         public void LeerBanner(Banner pBanner)
         {
-            Fuente fuenteDelBanner = this.BuscarFuentePorId(pBanner.Fuente.FuenteId);
+            Fuente fuenteDelBanner = this.BuscarFuentePorId(pBanner.FuenteId);
             fuenteDelBanner.Leer(); //Actualiza los items de la fuente del banner
             //Guardamos los cambios:
-            this.ModificarFuente(this.BuscarFuentePorId(pBanner.Fuente.FuenteId));
+            this.ModificarFuente(this.BuscarFuentePorId(pBanner.FuenteId));
             this.GuardarCambios();
         }
 

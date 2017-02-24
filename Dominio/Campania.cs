@@ -36,6 +36,8 @@ namespace Dominio
         [Required]
         public int DuracionImagen { get; set; }
 
+
+
         /// <summary>
         /// Lista de imágenes pertenecientes a la campaña
         /// </summary>

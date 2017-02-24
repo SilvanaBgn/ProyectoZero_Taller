@@ -26,13 +26,13 @@ namespace Dominio
         /// <summary>
         /// ID de la fuente del item
         /// </summary>
-        [Required]
+        //[Required]
         public int FuenteId { get; set; }
 
         /// <summary>
         /// Atributo fuente del item
         /// </summary>
-        public virtual Fuente Fuente { get; set; }
+        //public virtual Fuente Fuente { get; set; }
 
         /// <summary>
         /// Constructores

@@ -122,14 +122,15 @@ namespace UI.NuevasPantallas
         /// </summary>
         private void VBaseBanner_Activated(object sender, EventArgs e)
         {
+            //Actualizamos el contenido del Datagrid:
+            this.CargarDataGridBanners(this.iControladorDominio.ObtenerTodosLosBanners());
+
             //Preguntamos si las ventanas hijas son nulas, sino significa que están abiertas
             //y les dejamos el foco 
             if (this.iVentanaNuevo != null)
                 this.iVentanaNuevo.Activate();
             else if (this.iVentanaEditar != null)
                 this.iVentanaEditar.Activate();
-            else
-                CargarDataGridBanners(this.iControladorDominio.ObtenerTodosLosBanners());
         }
     }
 }

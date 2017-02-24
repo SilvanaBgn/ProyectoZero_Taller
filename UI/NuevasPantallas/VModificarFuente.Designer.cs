@@ -36,6 +36,10 @@
             // 
             this.buttonGuardar.Click += new System.EventHandler(this.ButtonGuardar_Click);
             // 
+            // bgwActualizarRssAlGuardar
+            // 
+            this.bgwActualizarRssAlGuardar.DoWork += new System.ComponentModel.DoWorkEventHandler(this.BgwActualizarRssAlGuardar_DoWork);
+            // 
             // VModificarFuente
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -43,6 +47,7 @@
             this.ClientSize = new System.Drawing.Size(472, 313);
             this.Name = "VModificarFuente";
             this.Text = "VModificarFuente";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.VModificarFuente_FormClosing);
             this.panelRss.ResumeLayout(false);
             this.panelRss.PerformLayout();
             this.panelTextoFijo.ResumeLayout(false);

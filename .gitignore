@@ -246,4 +246,6 @@ ModelManifest.xml
 /UI/UserControls/ItemGaleria.resx
 /UI/UserControls/ItemGaleria.Designer.cs
 /UI/UserControls/ItemGaleria.cs
-/Persistencia/Migrations
+/UI/UserControls/RangoHoraSil.cs
+/UI/UserControls/RangoHoraSil.designer.cs
+/UI/UserControls/RangoHoraSil.resx

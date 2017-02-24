@@ -60,10 +60,6 @@ namespace UI.NuevasPantallas
                     this.iControladorDominio.AgregarFuente(this.iFuenteAAgregar);
                     this.iControladorDominio.GuardarCambios();
                     this.Close();
-            }
-                catch (ExcepcionYaExisteFuente ex)
-                {
-                    MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
                 catch (ExcepcionCamposSinCompletar ex)
                 {
@@ -82,13 +78,13 @@ namespace UI.NuevasPantallas
         /// </summary>
         private void BgwActualizarRssAlGuardar_DoWork(object sender, DoWorkEventArgs e)
         {
-            //try
-            //{
-            this.iFuenteAAgregar.Leer();
-            //}
-            //catch (ExcepcionFormatoURLIncorrecto ex)
-            //{ MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error); }
+            try
+            {
+                this.iFuenteAAgregar.Leer();
         }
+            catch (ExcepcionFormatoURLIncorrecto ex)
+            { MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error); }
+}
 
         /// <summary>
         /// Una vez leída la Fuente, se guardan los cambios
