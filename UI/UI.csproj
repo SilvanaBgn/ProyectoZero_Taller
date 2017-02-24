@@ -355,6 +355,11 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\1.PNG" />
+    <None Include="Resources\2.jpg" />
+    <None Include="Resources\3.png" />
+    <None Include="Resources\4.png" />
+    <None Include="Resources\5.png" />
     <Content Include="Resources\Abajo1.ico" />
     <None Include="Resources\Image1.bmp" />
     <None Include="Resources\ave.jpg" />

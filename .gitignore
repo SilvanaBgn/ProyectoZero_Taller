@@ -249,3 +249,5 @@ ModelManifest.xml
 /UI/UserControls/RangoHoraSil.cs
 /UI/UserControls/RangoHoraSil.designer.cs
 /UI/UserControls/RangoHoraSil.resx
+/Contenedor/Properties
+/Persistencia/Migrations

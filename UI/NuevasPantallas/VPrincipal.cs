@@ -37,6 +37,12 @@ namespace UI.NuevasPantallas
         private string iInfoBannerActual;
 
         /// <summary>
+        /// Guarda la informacion de la campania actual, para evitar parar el funcionamiento de la campania
+        /// deslizante innecesariamente
+        /// </summary>
+        private object[] iInfoCampaniaActual;
+
+        /// <summary>
         /// Contiene al banner a pasar en el banner deslizante
         /// </summary>
         private Banner iBannerAPasar;
@@ -88,10 +94,14 @@ namespace UI.NuevasPantallas
         private void ActualizarCampaniaDeslizante()
         {
             object[] infoCampaniaNueva = this.iControladorDominio.InfoCampania(this.iCampaniaAPasar);
-            this.campaniaDeslizante1.Stop();
-            //Asignamos el valor de y el intervalo en el que debe reproducirlo
-            this.campaniaDeslizante1.Start((List<Imagen>)(infoCampaniaNueva)[0], (int)(infoCampaniaNueva)[1]);
-            this.timerChequeoCambioCampania.Interval = (int)(infoCampaniaNueva)[2]; // arrayInformacion[1]=intervalo
+            if (this.iInfoCampaniaActual != infoCampaniaNueva) 
+            {
+                this.iInfoCampaniaActual = infoCampaniaNueva;
+                this.campaniaDeslizante1.Stop();
+                //Asignamos el valor de y el intervalo en el que debe reproducirlo
+                this.campaniaDeslizante1.Start((List<Imagen>)(infoCampaniaNueva)[0], (int)(infoCampaniaNueva)[1]);
+                this.timerChequeoCambioCampania.Interval = (int)(infoCampaniaNueva)[2]; // arrayInformacion[1]=intervalo
+            }
         }
 
 
