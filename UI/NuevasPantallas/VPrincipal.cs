@@ -305,9 +305,13 @@ namespace UI.NuevasPantallas
         #region Otros Ventana
         private void VPrincipal_Load(object sender, EventArgs e)
         {
+            //VPresentacion ventanaPresentacion = new VPresentacion();
+            //ventanaPresentacion.Owner = this;
+            //this.Hide();
+            //ventanaPresentacion.ShowDialog();
             VInicial ventanaInicial = new VInicial();
             ventanaInicial.Owner = this;
-            this.VPrincipal_Activated(new object(), new EventArgs());
+            this.ActualizarPantalla();
             this.Hide();
             ventanaInicial.ShowDialog();
             
@@ -315,12 +319,7 @@ namespace UI.NuevasPantallas
 
         private void VPrincipal_Activated(object sender, EventArgs e)
         {
-            this.timerChequeoCambioCampania.Stop();
-            this.timerChequeoCambioBanner.Stop();
-
-            this.timerChequeoCambioBanner.Interval = 1000;
-            //this.timerChequeoCambioCampania.Start();
-            this.timerChequeoCambioCampania_Tick(1000, new EventArgs());
+            this.ActualizarPantalla();
 
             //Preguntamos si las ventanas hijas son nulas, sino significa que están abiertas
             //y les dejamos el foco 
@@ -330,6 +329,19 @@ namespace UI.NuevasPantallas
                 this.iVentanaCampanias.Activate();
             else if (this.iVentanaFuentes != null)
                 this.iVentanaFuentes.Activate();
+        }
+
+        /// <summary>
+        /// Pone a correr los timers para que se actualicen el banner y la campania deslizantes
+        /// </summary>
+        private void ActualizarPantalla()
+        {
+            this.timerChequeoCambioCampania.Stop();
+            this.timerChequeoCambioBanner.Stop();
+
+            this.timerChequeoCambioBanner.Interval = 1000;
+            //this.timerChequeoCambioCampania.Start();
+            this.timerChequeoCambioCampania_Tick(1000, new EventArgs());
         }
 
         private void IniciarFormatoPantallaPrincipal(object sender, EventArgs e)

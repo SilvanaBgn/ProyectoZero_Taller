@@ -16,19 +16,25 @@ namespace UI.UserControls
         public RangoFecha()
         {
             InitializeComponent();
+            this.FechaFin = this.FechaInicio = DateTime.Today;
         }
 
         public DateTime FechaInicio
         {
-            get { return new DateTime(this.dateTimePickerInicio.Value.Year,this.dateTimePickerInicio.Value.Month,
-                this.dateTimePickerInicio.Value.Day); }
+            get
+            {
+                return new DateTime(this.dateTimePickerInicio.Value.Year, this.dateTimePickerInicio.Value.Month,
+              this.dateTimePickerInicio.Value.Day);
+            }
             set { dateTimePickerInicio.Value = value; }
         }
 
         public DateTime FechaFin
         {
-            get {return new DateTime(this.dateTimePickerFin.Value.Year, this.dateTimePickerFin.Value.Month,
-              this.dateTimePickerFin.Value.Day);
+            get
+            {
+                return new DateTime(this.dateTimePickerFin.Value.Year, this.dateTimePickerFin.Value.Month,
+             this.dateTimePickerFin.Value.Day);
             }
             set { dateTimePickerFin.Value = value; }
         }
@@ -39,9 +45,8 @@ namespace UI.UserControls
         /// </summary>
         private void dateTimePickerInicio_ValueChanged(object sender, EventArgs e)
         {
-            this.dateTimePickerFin.MinDate= this.dateTimePickerInicio.Value;
-            this.labelCantDias.Text = "Un total de "+
-                            this.DiferenciaFechas(this.dateTimePickerFin.Value, this.dateTimePickerInicio.Value);
+            this.dateTimePickerFin.MinDate = this.dateTimePickerInicio.Value;
+            this.labelCantDias.Text = this.DiferenciaFechas(this.dateTimePickerFin.Value, this.dateTimePickerInicio.Value);
         }
 
         /// <summary>
@@ -51,87 +56,89 @@ namespace UI.UserControls
         private void dateTimePickerFin_ValueChanged(object sender, EventArgs e)
         {
             //this.dateTimePickerInicio.MaxDate = this.dateTimePickerFin.Value;
-            this.labelCantDias.Text = "Un total de " +
-                            this.DiferenciaFechas(this.dateTimePickerFin.Value, this.dateTimePickerInicio.Value);
+            this.labelCantDias.Text = this.DiferenciaFechas(this.dateTimePickerFin.Value, this.dateTimePickerInicio.Value);
         }
 
         /// <summary>
         /// Calcula la diferencia de tiempo entre dos fechas
         /// </summary>
-        private string DiferenciaFechas(DateTime pFechaNueva, DateTime pFechaVieja)
+        private string DiferenciaFechas(DateTime pFechaFin, DateTime pFechaInicio)
         {
             int anos;
             int meses;
             int dias;
-            string str = "";
+            string resultado = "Un total de ";
 
-            anos = (pFechaNueva.Year - pFechaVieja.Year);
-            meses = (pFechaNueva.Month - pFechaVieja.Month);
-            dias = (pFechaNueva.Day - pFechaVieja.Day);
-
-            if (meses < 0)
+            anos = (pFechaFin.Year - pFechaInicio.Year);
+            meses = (pFechaFin.Month - pFechaInicio.Month);
+            dias = (pFechaFin.Day - pFechaInicio.Day);
+            if (anos == 0 && meses == 0 && dias == 0) //pFechaNueva==pFechaInicio:
+                resultado += "0 días";
+            else //pFechaNueva != pFechaInicio:
             {
-                anos -= 1;
-                meses += 12;
-            }
-
-            if (dias < 0)
-            {
-                meses -= 1;
-                int DiasAno = pFechaNueva.Year;
-                int DiasMes = pFechaNueva.Month;
-
-                if ((pFechaNueva.Month - 1) == 0)
+                if (meses < 0)
                 {
-                    DiasAno = DiasAno - 1;
-                    DiasMes = 12;
-                }
-                else
-                {
-                    DiasMes = DiasMes - 1;
+                    anos -= 1;
+                    meses += 12;
                 }
 
-                dias += DateTime.DaysInMonth(DiasAno, DiasMes);
-            }
-
-            if (anos < 0)
-            {
-                return "La fecha inicial es mayor a la fecha final";
-            }
-
-            if (anos > 0)
-            {
-                if (anos == 1)
-                    str = str + anos.ToString() + " año";
-                else
-                    str = str + anos.ToString() + " años";
-            }
-
-            if (meses > 0)
-            {
-                if (anos>0)
+                if (dias < 0)
                 {
-                    str = str + ", ";
-                }
-                if (meses == 1)
-                    str = str + meses.ToString() + " mes";
-                else
-                    str = str + meses.ToString() + " meses";
-            }
+                    meses -= 1;
+                    int DiasAno = pFechaFin.Year;
+                    int DiasMes = pFechaFin.Month;
 
-            if (dias > 0)
-            {
+                    if ((pFechaFin.Month - 1) == 0)
+                    {
+                        DiasAno = DiasAno - 1;
+                        DiasMes = 12;
+                    }
+                    else
+                    {
+                        DiasMes = DiasMes - 1;
+                    }
+
+                    dias += DateTime.DaysInMonth(DiasAno, DiasMes);
+                }
+
+                if (anos < 0)
+                {
+                    return "La fecha inicial es mayor a la fecha final";
+                }
+
+                if (anos > 0)
+                {
+                    if (anos == 1)
+                        resultado += anos.ToString() + " año";
+                    else
+                        resultado += anos.ToString() + " años";
+                }
+
                 if (meses > 0)
                 {
-                    str = str + ", ";
+                    if (anos > 0)
+                    {
+                        resultado += ", ";
+                    }
+                    if (meses == 1)
+                        resultado += meses.ToString() + " mes";
+                    else
+                        resultado += meses.ToString() + " meses";
                 }
-                if (dias == 1)
-                    str = str + dias.ToString() + " día ";
-                else
-                    str = str + dias.ToString() + " días ";
-            }
 
-            return str;
+                if (dias > 0)
+                {
+                    if (meses > 0)
+                    {
+                        resultado += ", ";
+                    }
+                    if (dias == 1)
+                        resultado += dias.ToString() + " día ";
+                    else
+                        resultado += dias.ToString() + " días ";
+                }
+            }
+            return resultado;
         }
     }
 }

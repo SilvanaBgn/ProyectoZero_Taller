@@ -70,15 +70,6 @@
   <ItemGroup>
     <Compile Include="Contexto.cs" />
     <Compile Include="DateConvention.cs" />
-    <Compile Include="Migrations\201702220031276_InitialMigration.cs" />
-    <Compile Include="Migrations\201702220031276_InitialMigration.Designer.cs">
-      <DependentUpon>201702220031276_InitialMigration.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201702221955439_InitialMigration1.cs" />
-    <Compile Include="Migrations\201702221955439_InitialMigration1.Designer.cs">
-      <DependentUpon>201702221955439_InitialMigration1.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="UnitOfWork.cs" />
     <Compile Include="Repositorio.cs" />
@@ -101,14 +92,6 @@
   </ItemGroup>
   <ItemGroup>
     <WCFMetadata Include="Service References\" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Migrations\201702220031276_InitialMigration.resx">
-      <DependentUpon>201702220031276_InitialMigration.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201702221955439_InitialMigration1.resx">
-      <DependentUpon>201702221955439_InitialMigration1.cs</DependentUpon>
-    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
