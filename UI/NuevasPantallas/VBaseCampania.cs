@@ -121,8 +121,8 @@ namespace UI.NuevasPantallas
             else
             {
                 string titulo = this.dataGridViewMostrar.SelectedRows[0].Cells[1].Value.ToString();
-                DialogResult resultado = MessageBox.Show(string.Format("¿Está seguro que desea eliminar \"{0}\"?",titulo), "Eliminar Campaña", MessageBoxButtons.OKCancel,MessageBoxIcon.Question);
-                if (resultado == DialogResult.OK) 
+                DialogResult resultado = MessageBox.Show(string.Format("¿Está seguro que desea eliminar la campaña \"{0}\"?",titulo), "Eliminar Campaña", MessageBoxButtons.YesNo,MessageBoxIcon.Question);
+                if (resultado == DialogResult.Yes) 
                 {
                     int codigo = Convert.ToInt32(this.dataGridViewMostrar.SelectedRows[0].Cells[0].Value.ToString());
                     this.iControladorDominio.BorrarCampania(codigo);

@@ -86,10 +86,15 @@ namespace UI.NuevasPantallas
             { MessageBox.Show("Se debe seleccionar una fuente", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error); }
             else
             {
-                int codigo = this.fuenteSeleccionada().FuenteId;
-                this.iControladorDominio.BorrarFuente(codigo);
-                this.iControladorDominio.GuardarCambios();
-                this.CargarDataGridFuentes(this.iControladorDominio.ObtenerTodasLasFuentes());
+                DialogResult dialogResult = MessageBox.Show("¿Está seguro que desea eliminar la fuente seleccionada?", "Eliminar Fuente", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                if (dialogResult == DialogResult.Yes)
+                {
+                    int codigo = this.fuenteSeleccionada().FuenteId;
+                    this.iControladorDominio.BorrarFuente(codigo);
+                    this.iControladorDominio.GuardarCambios();
+                    this.CargarDataGridFuentes(this.iControladorDominio.ObtenerTodasLasFuentes());
+
+                }
             }
         }
 

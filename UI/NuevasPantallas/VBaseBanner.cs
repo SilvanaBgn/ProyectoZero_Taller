@@ -116,7 +116,8 @@ namespace UI.NuevasPantallas
                 MessageBox.Show("Se debe seleccionar un banner", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             else
             {
-                DialogResult dialogResult = MessageBox.Show("¿Está seguro de borrar el banner seleccionado?", "Advertencia", MessageBoxButtons.YesNo);
+                string titulo = this.dataGridViewMostrar.SelectedRows[0].Cells[1].Value.ToString();
+                DialogResult dialogResult = MessageBox.Show(string.Format("¿Está seguro que desea eliminar el banner \"{0}\"?", titulo), "Eliminar Banner", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                 if (dialogResult == DialogResult.Yes)
                 {
                     int codigo = Convert.ToInt32(this.dataGridViewMostrar.SelectedRows[0].Cells[0].Value.ToString());
