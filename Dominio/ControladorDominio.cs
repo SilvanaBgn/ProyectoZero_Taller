@@ -2,10 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
-using Excepciones.ExcepcionesEspecíficas;
-using Excepciones.ExcepcionesIntermedias;
-using Helper;
-using System.Drawing;
+using Excepciones.ExcepcionesPantalla;
 
 namespace Dominio
 {
@@ -23,7 +20,7 @@ namespace Dominio
 
         public void GuardarCambios()
         {
-                this.iUoW.GuardarCambios();
+            this.iUoW.GuardarCambios();
         }
 
         public void CancelarCambios()
@@ -42,7 +39,7 @@ namespace Dominio
             }
             //if (pBanner.FuenteId == 0)
             //{
-                //throw new ExcepcionCamposSinCompletar("Se debe seleccionar una fuente");
+            //throw new ExcepcionCamposSinCompletar("Se debe seleccionar una fuente");
             //}
 
             this.iUoW.RepositorioBanners.Agregar(pBanner);
@@ -227,11 +224,11 @@ namespace Dominio
         #region FuenteRss
         public void AgregarFuente(Fuente pFuente)
         {
-            if (pFuente.Tipo == TipoFuente.Rss && pFuente.origenItems=="")
+            if (pFuente.Tipo == TipoFuente.Rss && pFuente.OrigenItems == "")
             {
                 throw new ExcepcionCamposSinCompletar("Se debe establecer el origen de la fuente");
             }
-            if (pFuente.Tipo == TipoFuente.TextoFijo && pFuente.Items.Count==0)
+            if (pFuente.Tipo == TipoFuente.TextoFijo && pFuente.Items.Count == 0)
             {
                 throw new ExcepcionCamposSinCompletar("Se debe establecer el texto a mostrar");
             }
@@ -240,8 +237,8 @@ namespace Dominio
                 throw new ExcepcionCamposSinCompletar("Se debe establecer una descripción de la fuente");
             }
 
-
             this.iUoW.RepositorioFuentes.Agregar(pFuente);
+
         }
 
         public void ModificarFuente(Fuente pFuente)
@@ -426,7 +423,7 @@ namespace Dominio
         /// milisegundos hasta el próximo</returns>
         public object[] InfoCampania(Campania pCampaniaAPasar)
         {
-            List<Imagen> listaImagenes = new List<Imagen>();
+            IList<Imagen> listaImagenes = new List<Imagen>();
             int duracion = 0;
             int intervalo = 0;
             object[] array = new object[3];
@@ -437,7 +434,7 @@ namespace Dominio
             if (pCampaniaAPasar != null)
             {
                 //*imágenes* Lo leemos, de acuerdo a la fuente que corresponde al bannerAPasar:
-                listaImagenes = (List<Imagen>)pCampaniaAPasar.Imagenes;
+                listaImagenes = (IList<Imagen>)pCampaniaAPasar.Imagenes;
                 duracion = pCampaniaAPasar.DuracionImagen;
                 //*intervalo*:
                 //Cambia el intervalo al tiempo del nuevo banner a pasar:

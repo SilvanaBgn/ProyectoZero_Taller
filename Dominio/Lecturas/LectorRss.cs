@@ -2,14 +2,13 @@
 using System.Collections.Generic;
 using Dominio;
 using System.Xml;
-using Excepciones.ExcepcionesIntermedias;
 
 namespace Dominio.Lecturas
 {
     /// <summary>
     /// Lector de RSS, que procesa directamente el XML en bruto de la fuente.
     /// </summary>
-    public class LectorRss:ILector
+    public class LectorRss : ILector
     {
         /// <summary>
         /// Lee una URL válida 
@@ -19,19 +18,10 @@ namespace Dominio.Lecturas
         public IEnumerable<Item> Leer(String pUrl)
         {
             IEnumerable<Item> items = new List<Item>();
-            try
-            {
-                Uri urlCorrecta;
 
-                if (!Uri.TryCreate(pUrl.Trim(), UriKind.Absolute, out urlCorrecta))
-                {
-                    throw new UriFormatException("La URL ingresada no es válida");
-                }
-
+            Uri urlCorrecta;
+                Uri.TryCreate(pUrl.Trim(), UriKind.Absolute, out urlCorrecta);
                 items = this.ItemRss_a_Item(this.Leer(urlCorrecta));
-        }
-
-            catch (UriFormatException) { throw new ExcepcionFormatoURLIncorrecto("La URL tiene un formato incorrecto"); } //Si pUrl no cumple con el formato de una URL
 
             return items;
         }
@@ -43,7 +33,7 @@ namespace Dominio.Lecturas
         /// <returns>devuelve una colección de items con la descripción del Item RSS</returns>
         private IEnumerable<Item> ItemRss_a_Item(IEnumerable<ItemRss> pItemsRss)
         {
-            IList<Item> listaItems= new List<Item>();
+            IList<Item> listaItems = new List<Item>();
             foreach (var itemRss in pItemsRss)
             {
                 Item item = new Item(itemRss.ToString());
@@ -57,7 +47,7 @@ namespace Dominio.Lecturas
         /// </summary>
         /// <param name="pUrl">URL a leer</param>
         /// <returns>devuelve una colección de los elementos que contiene la URL</returns>
-        private IEnumerable<ItemRss> Leer(Uri pUrl) 
+        private IEnumerable<ItemRss> Leer(Uri pUrl)
         {
             // Se recupera el XML desde la URL, y se parsea el mismo para obtener los diferentes ítems. El modelo de XML
             // utilizado es el siguiente (http://www.w3schools.com/xml/xml_rss.asp):
@@ -84,17 +74,17 @@ namespace Dominio.Lecturas
             IList<ItemRss> items = new List<ItemRss>();
             //try
             //{
-                xmlDocument.Load(xmlReader);
+            xmlDocument.Load(xmlReader);
 
-                foreach (XmlNode itemXml in xmlDocument.SelectNodes("//channel/item"))
+            foreach (XmlNode itemXml in xmlDocument.SelectNodes("//channel/item"))
+            {
+                items.Add(new ItemRss
                 {
-                    items.Add(new ItemRss
-                    {
-                        Titulo = LectorRss.GetXmlNodeValue<string>(itemXml, "title"),
-                        Descripcion = LectorRss.GetXmlNodeValue<string>(itemXml, "description"),
-                        Url = new Uri(LectorRss.GetXmlNodeValue<string>(itemXml, "link")).ToString(),
-                        FechaDePublicacion = LectorRss.GetXmlNodeValue<DateTime?>(itemXml, "pubDate")
-                    });
+                    Titulo = LectorRss.GetXmlNodeValue<string>(itemXml, "title"),
+                    Descripcion = LectorRss.GetXmlNodeValue<string>(itemXml, "description"),
+                    Url = new Uri(LectorRss.GetXmlNodeValue<string>(itemXml, "link")).ToString(),
+                    FechaDePublicacion = LectorRss.GetXmlNodeValue<DateTime?>(itemXml, "pubDate")
+                });
                 //}
             }
             //catch (Exception) //Averiguar cómo se llama la excepcion cuando no hay internet

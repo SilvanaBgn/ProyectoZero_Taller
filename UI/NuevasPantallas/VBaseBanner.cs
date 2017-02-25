@@ -97,7 +97,7 @@ namespace UI.NuevasPantallas
         private void buttonModificar_Click(object sender, EventArgs e)
         {
             if (this.bannerAModificar() == null)
-                MessageBox.Show("Seleccione un Banner");
+                MessageBox.Show("Se debe seleccionar un banner", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             else
             {
                 this.iVentanaEditar = new VModificarBanner(ref this.iControladorDominio, this.bannerAModificar());
@@ -113,10 +113,15 @@ namespace UI.NuevasPantallas
         /// </summary>
         private void buttonEliminar_Click(object sender, EventArgs e)
         {
-            int codigo = Convert.ToInt32(this.dataGridViewMostrar.SelectedRows[0].Cells[0].Value.ToString());
-            this.iControladorDominio.BorrarBanner(codigo);
-            this.iControladorDominio.GuardarCambios();
-            this.CargarDataGridBanners(this.iControladorDominio.ObtenerTodosLosBanners());
+            if (this.bannerAModificar() == null)
+                MessageBox.Show("Se debe seleccionar un banner", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            else
+            {
+                int codigo = Convert.ToInt32(this.dataGridViewMostrar.SelectedRows[0].Cells[0].Value.ToString());
+                this.iControladorDominio.BorrarBanner(codigo);
+                this.iControladorDominio.GuardarCambios();
+                this.CargarDataGridBanners(this.iControladorDominio.ObtenerTodosLosBanners());
+            }
         }
 
         /// <summary>

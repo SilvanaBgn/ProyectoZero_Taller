@@ -22,7 +22,6 @@ namespace Dominio
         /// <summary>
         /// Explicación del contenido del banner
         /// </summary>
-        [Required]
         [StringLength(80)]
         public string Descripcion { get; set; }
 

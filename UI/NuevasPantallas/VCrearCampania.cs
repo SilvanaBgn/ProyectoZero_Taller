@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Dominio;
-using Excepciones.ExcepcionesEspecíficas;
+using Excepciones.ExcepcionesPantalla;
 
 namespace UI.NuevasPantallas
 {

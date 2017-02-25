@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Excepciones.ExcepcionesEspecíficas
+namespace Excepciones.ExcepcionesPantalla
 {
     public class ExcepcionCamposSinCompletar : Exception
     {
