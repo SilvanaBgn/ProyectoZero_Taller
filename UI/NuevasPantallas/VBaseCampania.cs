@@ -120,10 +120,15 @@ namespace UI.NuevasPantallas
             { MessageBox.Show("Se debe seleccionar una campaña", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error); }
             else
             {
-                int codigo = Convert.ToInt32(this.dataGridViewMostrar.SelectedRows[0].Cells[0].Value.ToString());
-                this.iControladorDominio.BorrarCampania(codigo);
-                this.iControladorDominio.GuardarCambios();
-                this.CargarDataGridCampanias(this.iControladorDominio.ObtenerTodasLasCampanias());
+                string titulo = this.dataGridViewMostrar.SelectedRows[0].Cells[1].Value.ToString();
+                DialogResult resultado = MessageBox.Show(string.Format("¿Está seguro que desea eliminar \"{0}\"?",titulo), "Eliminar Campaña", MessageBoxButtons.OKCancel,MessageBoxIcon.Question);
+                if (resultado == DialogResult.OK) 
+                {
+                    int codigo = Convert.ToInt32(this.dataGridViewMostrar.SelectedRows[0].Cells[0].Value.ToString());
+                    this.iControladorDominio.BorrarCampania(codigo);
+                    this.iControladorDominio.GuardarCambios();
+                    this.CargarDataGridCampanias(this.iControladorDominio.ObtenerTodasLasCampanias());
+                }
             }
         }
 
