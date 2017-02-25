@@ -28,6 +28,8 @@ namespace UI.NuevasPantallas
 
             //Centramos la pantalla en el centro:
             this.StartPosition = FormStartPosition.CenterScreen;
+
+            this.rangoFecha.FechaInicio = this.rangoFecha.FechaFin = DateTime.Today;
         }
 
         private void InputValido(KeyPressEventArgs e)

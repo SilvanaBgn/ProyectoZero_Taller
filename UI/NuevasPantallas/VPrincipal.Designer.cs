@@ -203,6 +203,7 @@ namespace UI.NuevasPantallas
             // 
             this.campaniaDeslizante1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("campaniaDeslizante1.BackgroundImage")));
             this.campaniaDeslizante1.ErrorImage = null;
+            this.campaniaDeslizante1.Image = global::UI.Properties.Resources.NoImage2;
             this.campaniaDeslizante1.InitialImage = null;
             this.campaniaDeslizante1.Location = new System.Drawing.Point(22, 28);
             this.campaniaDeslizante1.Name = "campaniaDeslizante1";

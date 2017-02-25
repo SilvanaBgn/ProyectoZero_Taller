@@ -59,7 +59,7 @@ namespace UI.UserControls
             this.iListaImagenesOrdenada = new List<Imagen>();
             this.iFuncionando = false;
 
-            this.Image=this.iImagenPorDefecto = global::UI.Properties.Resources.NoImage1;
+            this.Image=this.iImagenPorDefecto = global::UI.Properties.Resources.NoImage2;
         }
 
         /// <summary>
