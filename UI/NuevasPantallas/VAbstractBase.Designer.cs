@@ -120,6 +120,7 @@ namespace UI.NuevasPantallas
             this.checkBoxRangoHoras.TabIndex = 5;
             this.checkBoxRangoHoras.Text = "       .";
             this.checkBoxRangoHoras.UseVisualStyleBackColor = true;
+            this.checkBoxRangoHoras.CheckedChanged += new System.EventHandler(this.checkBoxRangoHoras_CheckedChanged);
             // 
             // buttonEliminar
             // 
@@ -176,6 +177,7 @@ namespace UI.NuevasPantallas
             this.checkBoxTitulo.TabIndex = 7;
             this.checkBoxTitulo.Text = "   Título";
             this.checkBoxTitulo.UseVisualStyleBackColor = true;
+            this.checkBoxTitulo.CheckedChanged += new System.EventHandler(this.checkBoxTitulo_CheckedChanged);
             // 
             // textBoxDescripcion
             // 
@@ -198,6 +200,7 @@ namespace UI.NuevasPantallas
             this.checkBoxDescripcion.TabIndex = 6;
             this.checkBoxDescripcion.Text = "   Descripción";
             this.checkBoxDescripcion.UseVisualStyleBackColor = true;
+            this.checkBoxDescripcion.CheckedChanged += new System.EventHandler(this.checkBoxDescripcion_CheckedChanged);
             // 
             // checkBoxRangoFechas
             // 
@@ -208,6 +211,7 @@ namespace UI.NuevasPantallas
             this.checkBoxRangoFechas.TabIndex = 4;
             this.checkBoxRangoFechas.Text = "     .";
             this.checkBoxRangoFechas.UseVisualStyleBackColor = true;
+            this.checkBoxRangoFechas.CheckedChanged += new System.EventHandler(this.checkBoxRangoFechas_CheckedChanged);
             // 
             // pictureBox1
             // 
