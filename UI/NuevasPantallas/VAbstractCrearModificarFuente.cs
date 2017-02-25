@@ -16,6 +16,19 @@ namespace UI.NuevasPantallas
     {
         protected ControladorDominio iControladorDominio;
 
+        /// <summary>
+        /// Atributo que se utiliza para almacenar la fuente
+        /// </summary>
+        protected Fuente iFuente;
+
+        /// <summary>
+        /// Variable booleana que se actualiza a true cuando se ha podido Guardar la Nueva fuente. Su finalidad 
+        /// es controlar que la Lectura de items con el BackgroundWorker sólo se realice cuando se haya guardado
+        /// correctamente una nueva fuente
+        /// </summary>
+        protected bool iGuardadoCorrecto = false;
+
+
         //CONSTRUCTOR
         public VAbstractCrearModificarFuente()
         {
@@ -69,5 +82,29 @@ namespace UI.NuevasPantallas
             this.InputValido(e);
         }
 
+        /// <summary>
+        /// /// En este evento el backgroundworker se hace el intento de leer la Fuente recién agregada
+        /// </summary>
+        private void bgwActualizarItemsAlGuardar_DoWork(object sender, DoWorkEventArgs e)
+        {
+            //Realizamos la lectura de items:
+            this.iFuente.Leer();
+
+            //Una vez leída la Fuente, modificamos y guardamos los cambios:
+            this.iControladorDominio.ModificarFuente(this.iFuente);
+            this.iControladorDominio.GuardarCambios();
+        }
+
+        /// <summary>
+        /// Evento que se ejecuta cuando el Form se esta cerrando
+        /// </summary>
+        private void VAbstractCrearModificarFuente_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            //Le pedimos que haga la Lectura de Items en segundo plano:
+
+            //this.iFuenteAAgregar es distinta de null cuando se apretó el botón Guardar
+            if (/*this.iFuenteAAgregar != null &&*/ !this.bgwActualizarItemsAlGuardar.IsBusy && this.iGuardadoCorrecto)
+                this.bgwActualizarItemsAlGuardar.RunWorkerAsync();
+        }
     }
 }
