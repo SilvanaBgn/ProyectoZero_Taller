@@ -110,7 +110,7 @@ namespace UI.NuevasPantallas
             this.InputValido(e);
         }
 
-        private void buttonNuevaFuente_Click(object sender, EventArgs e)
+        private void buttonNuevo_Click(object sender, EventArgs e)
         {
             VCrearFuente vFuente = new VCrearFuente(ref this.iControladorDominio);
             vFuente.Show();
