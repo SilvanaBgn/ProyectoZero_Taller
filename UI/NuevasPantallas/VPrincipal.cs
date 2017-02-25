@@ -126,8 +126,9 @@ namespace UI.NuevasPantallas
 
         private void bgwObtenerCampania_DoWork(object sender, DoWorkEventArgs e)
         {
-            this.iFechaActual = DateTime.Now;
-            this.iHoraActual = new TimeSpan(this.iFechaActual.Hour, this.iFechaActual.Minute, this.iFechaActual.Second);
+            DateTime fechaHora = DateTime.Now;
+            this.iFechaActual = DateTime.Today;
+            this.iHoraActual = new TimeSpan(fechaHora.Hour, fechaHora.Minute, fechaHora.Second);
 
             this.iCampaniaAPasar = this.iControladorDominio.ProximaCampaniaAPasar(this.iFechaActual, this.iHoraActual);
         }
@@ -175,8 +176,9 @@ namespace UI.NuevasPantallas
 
         private void bgwObtenerBanner_DoWork(object sender, DoWorkEventArgs e)
         {
-            this.iFechaActual = DateTime.Now;
-            this.iHoraActual = new TimeSpan(this.iFechaActual.Hour, this.iFechaActual.Minute, this.iFechaActual.Second);
+            DateTime fechaHora = DateTime.Now;
+            this.iFechaActual = DateTime.Today;
+            this.iHoraActual = new TimeSpan(fechaHora.Hour, fechaHora.Minute, fechaHora.Second);
             //Buscamos el banner a pasar ahora
             this.iBannerAPasar = this.iControladorDominio.ProximoBannerAPasar(this.iFechaActual, this.iHoraActual);
             this.timerChequeoCambioBanner.Interval = this.iControladorDominio.IntervaloAlProxCuartoDeHora(this.iHoraActual);
@@ -255,6 +257,7 @@ namespace UI.NuevasPantallas
             this.iVentanaCampanias.Owner = this;
             this.iVentanaCampanias.ShowDialog();
             this.iVentanaCampanias = null;
+            this.ActualizarPantalla();
         }
 
         private void fuenteToolStripMenuItem_Click(object sender, EventArgs e)
@@ -263,6 +266,7 @@ namespace UI.NuevasPantallas
             this.iVentanaFuentes.Owner = this;
             this.iVentanaFuentes.ShowDialog();
             this.iVentanaFuentes = null;
+            this.ActualizarPantalla();
         }
 
         private void verPantallaCompletaToolStripMenuItem_Click(object sender, EventArgs e)
@@ -279,11 +283,11 @@ namespace UI.NuevasPantallas
             //Ubicación y tamaño de objetos:
 
             this.groupBoxCampania.Location = new System.Drawing.Point(312, 5);
-            this.groupBoxCampania.Size = new System.Drawing.Size(734, 650);
+            //this.groupBoxCampania.Size = new System.Drawing.Size(734, 650);
             this.groupBoxBanner.Location = new System.Drawing.Point(29, 660);
             this.groupBoxBanner.Size = new System.Drawing.Size(1300, 100);
             this.bannerDeslizante.Size = new System.Drawing.Size(1263, 55);
-            this.campaniaDeslizante1.Size = new System.Drawing.Size(700, 568);
+            //this.campaniaDeslizante1.Size = new System.Drawing.Size(700, 568);
             this.bannerDeslizante.Font = new System.Drawing.Font("Microsoft Sans Serif", 37F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonSalirPantallaCompleta.Focus();
         }
@@ -353,13 +357,11 @@ namespace UI.NuevasPantallas
             this.buttonSalirPantallaCompleta.Visible = false; //Botón salir de pantalla completa
 
             //Ubicación y tamaño de objetos:
-            this.groupBoxCampania.Location = new System.Drawing.Point(27, 31);
+            this.groupBoxCampania.Location = new System.Drawing.Point(27, 37);
             this.groupBoxCampania.Size = new System.Drawing.Size(781, 503);
-            this.groupBoxBanner.Location = new System.Drawing.Point(27, 541);
+            this.groupBoxBanner.Location = new System.Drawing.Point(27, 547);
             this.groupBoxBanner.Size = new System.Drawing.Size(781, 91);
-            this.bannerDeslizante.Location = new System.Drawing.Point(22, 25);
             this.bannerDeslizante.Size = new System.Drawing.Size(735, 46);
-            this.campaniaDeslizante1.Location = new System.Drawing.Point(22, 28);
             this.campaniaDeslizante1.Size = new System.Drawing.Size(735, 459);
             this.bannerDeslizante.Font = new System.Drawing.Font("Microsoft Sans Serif", 30F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
         }

@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 using Dominio;
 using System.Data.Entity.Infrastructure;
 using System.Data.Entity.Validation;
-using Excepciones.ExcepcionesDominio;
+using Excepciones.ExcepcionesPersistencia;
 
 namespace Persistencia
 {

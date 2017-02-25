@@ -30,7 +30,6 @@ namespace UI.NuevasPantallas
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(VBaseFuente));
             this.buttonSalir = new System.Windows.Forms.Button();
             this.comboBoxTipo = new System.Windows.Forms.ComboBox();
             this.Banners = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -109,6 +108,7 @@ namespace UI.NuevasPantallas
             // 
             // textBoxDescripcion
             // 
+            this.textBoxDescripcion.BackColor = System.Drawing.Color.White;
             this.textBoxDescripcion.Location = new System.Drawing.Point(396, 417);
             this.textBoxDescripcion.MaxLength = 30;
             this.textBoxDescripcion.Name = "textBoxDescripcion";
@@ -170,8 +170,7 @@ namespace UI.NuevasPantallas
             this.dataGridViewMostrar.AllowUserToResizeColumns = false;
             this.dataGridViewMostrar.AllowUserToResizeRows = false;
             this.dataGridViewMostrar.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
-            this.dataGridViewMostrar.BackgroundColor = System.Drawing.Color.OldLace;
-            this.dataGridViewMostrar.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.dataGridViewMostrar.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(219)))), ((int)(((byte)(188)))));
             this.dataGridViewMostrar.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.dataGridViewMostrar.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.ColumnTipo,
@@ -281,7 +280,7 @@ namespace UI.NuevasPantallas
             // 
             // pictureBox3
             // 
-            this.pictureBox3.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox3.BackgroundImage")));
+            this.pictureBox3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(159)))), ((int)(((byte)(70)))));
             this.pictureBox3.Location = new System.Drawing.Point(-1, 0);
             this.pictureBox3.Name = "pictureBox3";
             this.pictureBox3.Size = new System.Drawing.Size(620, 7);
@@ -290,8 +289,7 @@ namespace UI.NuevasPantallas
             // 
             // pictureBox2
             // 
-            this.pictureBox2.BackColor = System.Drawing.Color.LightSalmon;
-            this.pictureBox2.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox2.BackgroundImage")));
+            this.pictureBox2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(159)))), ((int)(((byte)(70)))));
             this.pictureBox2.Location = new System.Drawing.Point(-1, -6);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(3, 525);
@@ -300,7 +298,7 @@ namespace UI.NuevasPantallas
             // 
             // pictureBox1
             // 
-            this.pictureBox1.BackColor = System.Drawing.Color.LightSalmon;
+            this.pictureBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(251)))), ((int)(((byte)(210)))), ((int)(((byte)(59)))));
             this.pictureBox1.Location = new System.Drawing.Point(-1, 8);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(620, 4);
@@ -311,7 +309,7 @@ namespace UI.NuevasPantallas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.Wheat;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(228)))), ((int)(((byte)(175)))));
             this.ClientSize = new System.Drawing.Size(597, 520);
             this.Controls.Add(this.comboBoxTipo);
             this.Controls.Add(this.pictureBox3);

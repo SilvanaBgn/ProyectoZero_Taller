@@ -369,7 +369,6 @@
   <ItemGroup>
     <None Include="Resources\1487665587_Gnome-Emblem-Photos-64.ico" />
     <Content Include="Resources\Abajo1.ico" />
-    <None Include="Resources\Image1.bmp" />
     <None Include="Resources\ave.jpg" />
     <None Include="Resources\flores.jpg" />
     <None Include="Resources\frutos rojos.jpg" />
@@ -401,6 +400,9 @@
     <None Include="Resources\Eliminar5.ico" />
     <None Include="Resources\Eliminar7.png" />
     <None Include="Resources\paper-1990111_640.jpg" />
+    <None Include="Resources\NoImage.png" />
+    <None Include="Resources\NoImage2.png" />
+    <None Include="Resources\NoImage1.png" />
     <Content Include="Resources\Pausa1.ico" />
     <Content Include="Resources\Play1.ico" />
     <None Include="Resources\signo_mas.ico" />

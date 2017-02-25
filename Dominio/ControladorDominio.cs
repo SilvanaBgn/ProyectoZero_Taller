@@ -382,7 +382,7 @@ namespace Dominio
             {
                 texto = FormatearTextoBanner(pBanner); //*texto* con el valor del pBanner
                 if (texto == "")   //porque la fuente del pBanner no tiene items todavia
-                    texto = "Obteniendo Items RSS"; //*texto* con valor por defecto
+                    texto = "EASY NEWS. El lugar para su espacio publicitario. Publicite aquí. Obteniendo Items RSS"; //*texto* con valor por defecto
             }
             else   //Ya sea porque pBanner==null o porque la fuente del pBanner no tiene items todavia
                 texto = "EASY NEWS. El lugar para su espacio publicitario. Publicite aquí."; //*texto* con valor por defecto

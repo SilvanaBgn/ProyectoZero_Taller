@@ -55,6 +55,7 @@ namespace UI.NuevasPantallas
             // 
             // textBoxTitulo
             // 
+            this.textBoxTitulo.BackColor = System.Drawing.Color.White;
             this.textBoxTitulo.Location = new System.Drawing.Point(97, 13);
             this.textBoxTitulo.MaxLength = 20;
             this.textBoxTitulo.Name = "textBoxTitulo";
@@ -90,6 +91,7 @@ namespace UI.NuevasPantallas
             this.dataGridViewMostrarFuentes.AllowUserToResizeRows = false;
             this.dataGridViewMostrarFuentes.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.dataGridViewMostrarFuentes.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
+            this.dataGridViewMostrarFuentes.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(219)))), ((int)(((byte)(188)))));
             this.dataGridViewMostrarFuentes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.dataGridViewMostrarFuentes.Location = new System.Drawing.Point(6, 19);
             this.dataGridViewMostrarFuentes.MultiSelect = false;
@@ -152,7 +154,7 @@ namespace UI.NuevasPantallas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.OldLace;
+            this.BackColor = System.Drawing.Color.Beige;
             this.ClientSize = new System.Drawing.Size(485, 466);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.rangoHorario);

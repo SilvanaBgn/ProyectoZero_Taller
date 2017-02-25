@@ -74,13 +74,6 @@ namespace UI.NuevasPantallas
         public void CargarDataGridFuentes(List<Fuente> pListaFuentes)
         {
             this.dataGridViewMostrar.DataSource = pListaFuentes;
-            //this.dataGridViewMostrar.Columns["Tipo"].DisplayIndex = 0;
-            //this.dataGridViewMostrar.Columns["Descripcion"].DisplayIndex = 1;
-            //this.dataGridViewMostrar.Columns["origenItems"].DisplayIndex = 2;
-            //this.dataGridViewMostrar.Columns["origenItems"].HeaderText = "Fuente";
-            //this.dataGridViewMostrar.Columns["Banners"].Visible = false;
-            //this.dataGridViewMostrar.Columns["Items"].Visible = false;
-            //this.dataGridViewMostrar.Columns["FuenteId"].Visible = false;
         }
 
         /// <summary>

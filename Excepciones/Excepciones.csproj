@@ -78,6 +78,7 @@
     <Compile Include="ExcepcionesPantalla\ExcepcionAlCargarPantalla.cs" />
     <Compile Include="ExcepcionesDominio\ExcepcionFormatoURLIncorrecto.cs" />
     <Compile Include="ExcepcionesDominio\ExcepcionValidacionBBDD.cs" />
+    <Compile Include="ExcepcionesPersistencia\ExcepcionValidacionBBDD.cs" />
     <Compile Include="ExcepcionesPersistencia\ExcepcionGeneral.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Properties\Resources.resx">
