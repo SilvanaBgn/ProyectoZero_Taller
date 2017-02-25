@@ -98,6 +98,8 @@
             // 
             // rangoFecha
             // 
+            this.rangoFecha.FechaFin = new System.DateTime(2017, 2, 24, 0, 0, 0, 0);
+            this.rangoFecha.FechaInicio = new System.DateTime(2017, 2, 24, 0, 0, 0, 0);
             this.rangoFecha.Location = new System.Drawing.Point(16, 89);
             this.rangoFecha.Name = "rangoFecha";
             this.rangoFecha.Size = new System.Drawing.Size(264, 96);
@@ -105,6 +107,8 @@
             // 
             // rangoHorario
             // 
+            this.rangoHorario.HoraFin = System.TimeSpan.Parse("23:59:59");
+            this.rangoHorario.HoraInicio = System.TimeSpan.Parse("00:00:00");
             this.rangoHorario.Location = new System.Drawing.Point(318, 89);
             this.rangoHorario.Name = "rangoHorario";
             this.rangoHorario.Size = new System.Drawing.Size(147, 96);
@@ -122,6 +126,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.Beige;
             this.ClientSize = new System.Drawing.Size(520, 466);
             this.Controls.Add(this.galeria);
             this.Controls.Add(this.rangoHorario);

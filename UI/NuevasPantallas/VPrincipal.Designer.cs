@@ -56,9 +56,9 @@ namespace UI.NuevasPantallas
             // 
             // groupBoxBanner
             // 
-            this.groupBoxBanner.BackColor = System.Drawing.Color.Moccasin;
+            this.groupBoxBanner.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(180)))), ((int)(((byte)(92)))));
             this.groupBoxBanner.Controls.Add(this.bannerDeslizante);
-            this.groupBoxBanner.Location = new System.Drawing.Point(27, 535);
+            this.groupBoxBanner.Location = new System.Drawing.Point(27, 540);
             this.groupBoxBanner.Name = "groupBoxBanner";
             this.groupBoxBanner.Size = new System.Drawing.Size(781, 91);
             this.groupBoxBanner.TabIndex = 2;
@@ -66,7 +66,7 @@ namespace UI.NuevasPantallas
             // 
             // menuStrip1
             // 
-            this.menuStrip1.BackColor = System.Drawing.Color.LightSalmon;
+            this.menuStrip1.BackColor = System.Drawing.Color.Gray;
             this.menuStrip1.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.pantallaCompletaToolStripMenuItem,
@@ -74,16 +74,17 @@ namespace UI.NuevasPantallas
             this.salirToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(840, 28);
+            this.menuStrip1.Size = new System.Drawing.Size(840, 33);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip";
             // 
             // pantallaCompletaToolStripMenuItem
             // 
+            this.pantallaCompletaToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI Semibold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.pantallaCompletaToolStripMenuItem.ForeColor = System.Drawing.SystemColors.ControlText;
             this.pantallaCompletaToolStripMenuItem.Image = global::UI.Properties.Resources.Vista;
             this.pantallaCompletaToolStripMenuItem.Name = "pantallaCompletaToolStripMenuItem";
-            this.pantallaCompletaToolStripMenuItem.Size = new System.Drawing.Size(159, 24);
+            this.pantallaCompletaToolStripMenuItem.Size = new System.Drawing.Size(197, 29);
             this.pantallaCompletaToolStripMenuItem.Text = "&Pantalla Completa";
             this.pantallaCompletaToolStripMenuItem.Click += new System.EventHandler(this.verPantallaCompletaToolStripMenuItem_Click);
             // 
@@ -93,16 +94,17 @@ namespace UI.NuevasPantallas
             this.campañasToolStripMenuItem,
             this.bannersToolStripMenuItem,
             this.fuentesToolStripMenuItem});
+            this.configuracionToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI Semibold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.configuracionToolStripMenuItem.Image = global::UI.Properties.Resources.Configuracion4;
             this.configuracionToolStripMenuItem.Name = "configuracionToolStripMenuItem";
-            this.configuracionToolStripMenuItem.Size = new System.Drawing.Size(130, 24);
+            this.configuracionToolStripMenuItem.Size = new System.Drawing.Size(161, 29);
             this.configuracionToolStripMenuItem.Text = "&Configuración";
             // 
             // campañasToolStripMenuItem
             // 
             this.campañasToolStripMenuItem.Image = global::UI.Properties.Resources.AgregarImagen1;
             this.campañasToolStripMenuItem.Name = "campañasToolStripMenuItem";
-            this.campañasToolStripMenuItem.Size = new System.Drawing.Size(147, 24);
+            this.campañasToolStripMenuItem.Size = new System.Drawing.Size(173, 30);
             this.campañasToolStripMenuItem.Text = "&Campañas";
             this.campañasToolStripMenuItem.Click += new System.EventHandler(this.campañaToolStripMenuItem_Click);
             // 
@@ -110,7 +112,7 @@ namespace UI.NuevasPantallas
             // 
             this.bannersToolStripMenuItem.Image = global::UI.Properties.Resources.texto9;
             this.bannersToolStripMenuItem.Name = "bannersToolStripMenuItem";
-            this.bannersToolStripMenuItem.Size = new System.Drawing.Size(147, 24);
+            this.bannersToolStripMenuItem.Size = new System.Drawing.Size(173, 30);
             this.bannersToolStripMenuItem.Text = "&Banners";
             this.bannersToolStripMenuItem.Click += new System.EventHandler(this.bannerToolStripMenuItem_Click);
             // 
@@ -118,15 +120,16 @@ namespace UI.NuevasPantallas
             // 
             this.fuentesToolStripMenuItem.Image = global::UI.Properties.Resources.Texto6;
             this.fuentesToolStripMenuItem.Name = "fuentesToolStripMenuItem";
-            this.fuentesToolStripMenuItem.Size = new System.Drawing.Size(147, 24);
+            this.fuentesToolStripMenuItem.Size = new System.Drawing.Size(173, 30);
             this.fuentesToolStripMenuItem.Text = "&Fuentes";
             this.fuentesToolStripMenuItem.Click += new System.EventHandler(this.fuenteToolStripMenuItem_Click);
             // 
             // salirToolStripMenuItem
             // 
+            this.salirToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI Semibold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.salirToolStripMenuItem.Image = global::UI.Properties.Resources.salir3;
             this.salirToolStripMenuItem.Name = "salirToolStripMenuItem";
-            this.salirToolStripMenuItem.Size = new System.Drawing.Size(66, 24);
+            this.salirToolStripMenuItem.Size = new System.Drawing.Size(77, 29);
             this.salirToolStripMenuItem.Text = "&Salir";
             this.salirToolStripMenuItem.Click += new System.EventHandler(this.salirToolStripMenuItem_Click);
             // 
@@ -176,9 +179,9 @@ namespace UI.NuevasPantallas
             // 
             // groupBoxCampania
             // 
-            this.groupBoxCampania.BackColor = System.Drawing.Color.Moccasin;
+            this.groupBoxCampania.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(180)))), ((int)(((byte)(92)))));
             this.groupBoxCampania.Controls.Add(this.campaniaDeslizante1);
-            this.groupBoxCampania.Location = new System.Drawing.Point(27, 30);
+            this.groupBoxCampania.Location = new System.Drawing.Point(27, 33);
             this.groupBoxCampania.Name = "groupBoxCampania";
             this.groupBoxCampania.Size = new System.Drawing.Size(781, 503);
             this.groupBoxCampania.TabIndex = 1;
@@ -186,7 +189,7 @@ namespace UI.NuevasPantallas
             // 
             // bannerDeslizante
             // 
-            this.bannerDeslizante.BackColor = System.Drawing.Color.Moccasin;
+            this.bannerDeslizante.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(180)))), ((int)(((byte)(92)))));
             this.bannerDeslizante.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.bannerDeslizante.Enabled = false;
             this.bannerDeslizante.Font = new System.Drawing.Font("Microsoft Sans Serif", 30F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -199,8 +202,8 @@ namespace UI.NuevasPantallas
             // campaniaDeslizante1
             // 
             this.campaniaDeslizante1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("campaniaDeslizante1.BackgroundImage")));
-            this.campaniaDeslizante1.Image = ((System.Drawing.Image)(resources.GetObject("campaniaDeslizante1.Image")));
-            this.campaniaDeslizante1.ImagenPorDefecto = ((System.Drawing.Image)(resources.GetObject("campaniaDeslizante1.ImagenPorDefecto")));
+            this.campaniaDeslizante1.ErrorImage = null;
+            this.campaniaDeslizante1.InitialImage = null;
             this.campaniaDeslizante1.Location = new System.Drawing.Point(22, 28);
             this.campaniaDeslizante1.Name = "campaniaDeslizante1";
             this.campaniaDeslizante1.Size = new System.Drawing.Size(735, 459);

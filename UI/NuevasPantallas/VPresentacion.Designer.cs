@@ -41,9 +41,9 @@
             this.pictureBox.ErrorImage = null;
             this.pictureBox.Image = global::UI.Properties.Resources.ico22;
             this.pictureBox.InitialImage = null;
-            this.pictureBox.Location = new System.Drawing.Point(1, 18);
+            this.pictureBox.Location = new System.Drawing.Point(12, 12);
             this.pictureBox.Name = "pictureBox";
-            this.pictureBox.Size = new System.Drawing.Size(189, 173);
+            this.pictureBox.Size = new System.Drawing.Size(141, 144);
             this.pictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox.TabIndex = 0;
             this.pictureBox.TabStop = false;
@@ -52,11 +52,11 @@
             // 
             this.label2.AutoSize = true;
             this.label2.BackColor = System.Drawing.Color.Transparent;
-            this.label2.Font = new System.Drawing.Font("Swis721 BlkOul BT", 68.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Font = new System.Drawing.Font("Swis721 BlkOul BT", 50.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label2.Location = new System.Drawing.Point(172, -2);
+            this.label2.Location = new System.Drawing.Point(172, 8);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(309, 109);
+            this.label2.Size = new System.Drawing.Size(228, 81);
             this.label2.TabIndex = 2;
             this.label2.Text = "EASY";
             // 
@@ -64,11 +64,11 @@
             // 
             this.label1.AutoSize = true;
             this.label1.BackColor = System.Drawing.Color.Transparent;
-            this.label1.Font = new System.Drawing.Font("Swis721 BlkOul BT", 66F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Font = new System.Drawing.Font("Swis721 BlkOul BT", 50.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.DarkOrange;
-            this.label1.Location = new System.Drawing.Point(172, 96);
+            this.label1.Location = new System.Drawing.Point(160, 78);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(328, 106);
+            this.label1.Size = new System.Drawing.Size(251, 81);
             this.label1.TabIndex = 3;
             this.label1.Text = "NEWS";
             // 
@@ -82,7 +82,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Khaki;
-            this.ClientSize = new System.Drawing.Size(493, 214);
+            this.ClientSize = new System.Drawing.Size(404, 169);
             this.Controls.Add(this.pictureBox);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);

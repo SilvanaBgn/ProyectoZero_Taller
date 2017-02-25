@@ -22,7 +22,7 @@ namespace Persistencia
 
         public Contexto() : base("DataBase")
         {
-            Database.SetInitializer<Contexto>(new DropCreateDatabaseIfModelChanges<Contexto>());
+            //Database.SetInitializer<Contexto>(new DropCreateDatabaseIfModelChanges<Contexto>());
             var type = typeof(System.Data.Entity.SqlServer.SqlProviderServices);
             if (type == null)
                 throw new Exception("Do not remove, ensures static reference to System.Data.Entity.SqlServer");
@@ -57,10 +57,10 @@ namespace Persistencia
             .WithRequired()
             .HasForeignKey(oi => oi.FuenteId);
 
-            pModelBuilder.Entity<Banner>()
-            .HasKey(oi => new { oi.BannerId, oi.FuenteId })
-            .Property(oi => oi.BannerId)
-            .HasDatabaseGeneratedOption(DatabaseGeneratedOption.Identity);
+            //pModelBuilder.Entity<Banner>()
+            //.HasKey(oi => new { oi.BannerId, oi.FuenteId })
+            //.Property(oi => oi.BannerId)
+            //.HasDatabaseGeneratedOption(DatabaseGeneratedOption.Identity);
 
 
             //Fuente-Item

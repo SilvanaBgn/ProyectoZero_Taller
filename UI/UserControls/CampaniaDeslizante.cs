@@ -31,7 +31,7 @@ namespace UI.UserControls
         /// <summary>
         /// Imagen que se muestra cuando la campania Deslizante no está funcionado
         /// </summary>
-        public Image ImagenPorDefecto { get; set; }
+        private Image iImagenPorDefecto;
 
         /// <summary>
         /// Indica si la campaña deslizante está actualmente en funcionamiento
@@ -59,7 +59,7 @@ namespace UI.UserControls
             this.iListaImagenesOrdenada = new List<Imagen>();
             this.iFuncionando = false;
 
-            this.Image = this.ImagenPorDefecto = global::UI.Properties.Resources.NoImage;
+            this.Image=this.iImagenPorDefecto = global::UI.Properties.Resources.NoImage1;
         }
 
         /// <summary>
@@ -74,7 +74,7 @@ namespace UI.UserControls
                 this.iIndice++;
                 if (this.iIndice <= this.iListaImagenesOrdenada.Count - 1)
                 {
-                    this.Image.Dispose();
+                    //this.Image.Dispose();
                     this.Image = ConversorImagen.ByteToImage(this.iListaImagenesOrdenada[this.iIndice].Bytes);
                     this.iCount = 0;
                 }
@@ -90,7 +90,7 @@ namespace UI.UserControls
         /// <param name="pImagen">Imagen en formato Bitmap, que se desea mostrar</param>
         public void Start(byte[] pImagen)
         {
-            this.Image.Dispose();
+            //this.Image.Dispose();
             this.Image = ConversorImagen.ByteToImage(pImagen);
         }
         /// <summary>
@@ -125,7 +125,7 @@ namespace UI.UserControls
             {
                 this.iTimerImagenes.Stop(); //Se da fin al deslizamiento de la campaña
                 this.iFuncionando = false;
-                this.Image = this.ImagenPorDefecto;
+                this.Image = this.iImagenPorDefecto;
             }
         }
     }

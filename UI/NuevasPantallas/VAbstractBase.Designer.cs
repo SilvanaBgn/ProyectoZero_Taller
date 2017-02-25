@@ -46,15 +46,15 @@ namespace UI.NuevasPantallas
             this.checkBoxDescripcion = new System.Windows.Forms.CheckBox();
             this.checkBoxRangoFechas = new System.Windows.Forms.CheckBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.rangoHorario = new UI.UserControls.RangoHorario();
             this.rangoFecha = new UI.UserControls.RangoFecha();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewMostrar)).BeginInit();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.SuspendLayout();
             // 
             // dataGridViewMostrar
@@ -65,8 +65,7 @@ namespace UI.NuevasPantallas
             this.dataGridViewMostrar.AllowUserToResizeRows = false;
             this.dataGridViewMostrar.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.dataGridViewMostrar.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
-            this.dataGridViewMostrar.BackgroundColor = System.Drawing.Color.OldLace;
-            this.dataGridViewMostrar.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.dataGridViewMostrar.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(219)))), ((int)(((byte)(188)))));
             this.dataGridViewMostrar.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.dataGridViewMostrar.Location = new System.Drawing.Point(22, 71);
             this.dataGridViewMostrar.MultiSelect = false;
@@ -160,7 +159,7 @@ namespace UI.NuevasPantallas
             // 
             // textBoxTitulo
             // 
-            this.textBoxTitulo.BackColor = System.Drawing.Color.OldLace;
+            this.textBoxTitulo.BackColor = System.Drawing.Color.White;
             this.textBoxTitulo.Enabled = false;
             this.textBoxTitulo.Location = new System.Drawing.Point(425, 442);
             this.textBoxTitulo.MaxLength = 20;
@@ -181,7 +180,7 @@ namespace UI.NuevasPantallas
             // textBoxDescripcion
             // 
             this.textBoxDescripcion.AcceptsTab = true;
-            this.textBoxDescripcion.BackColor = System.Drawing.Color.OldLace;
+            this.textBoxDescripcion.BackColor = System.Drawing.Color.White;
             this.textBoxDescripcion.Enabled = false;
             this.textBoxDescripcion.Location = new System.Drawing.Point(87, 443);
             this.textBoxDescripcion.MaxLength = 30;
@@ -212,26 +211,16 @@ namespace UI.NuevasPantallas
             // 
             // pictureBox1
             // 
-            this.pictureBox1.BackColor = System.Drawing.Color.LightSalmon;
+            this.pictureBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(251)))), ((int)(((byte)(210)))), ((int)(((byte)(59)))));
             this.pictureBox1.Location = new System.Drawing.Point(0, 8);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(620, 4);
             this.pictureBox1.TabIndex = 30;
             this.pictureBox1.TabStop = false;
             // 
-            // pictureBox2
-            // 
-            this.pictureBox2.BackColor = System.Drawing.Color.LightSalmon;
-            this.pictureBox2.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox2.BackgroundImage")));
-            this.pictureBox2.Location = new System.Drawing.Point(0, -6);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(3, 525);
-            this.pictureBox2.TabIndex = 31;
-            this.pictureBox2.TabStop = false;
-            // 
             // pictureBox3
             // 
-            this.pictureBox3.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox3.BackgroundImage")));
+            this.pictureBox3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(159)))), ((int)(((byte)(70)))));
             this.pictureBox3.Location = new System.Drawing.Point(0, 0);
             this.pictureBox3.Name = "pictureBox3";
             this.pictureBox3.Size = new System.Drawing.Size(620, 7);
@@ -258,11 +247,20 @@ namespace UI.NuevasPantallas
             this.rangoFecha.Size = new System.Drawing.Size(242, 96);
             this.rangoFecha.TabIndex = 4;
             // 
+            // pictureBox2
+            // 
+            this.pictureBox2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(159)))), ((int)(((byte)(70)))));
+            this.pictureBox2.Location = new System.Drawing.Point(0, -6);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(3, 525);
+            this.pictureBox2.TabIndex = 31;
+            this.pictureBox2.TabStop = false;
+            // 
             // VAbstractBase
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.Wheat;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(228)))), ((int)(((byte)(175)))));
             this.ClientSize = new System.Drawing.Size(619, 520);
             this.Controls.Add(this.pictureBox3);
             this.Controls.Add(this.pictureBox2);
@@ -288,8 +286,8 @@ namespace UI.NuevasPantallas
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -312,8 +310,8 @@ namespace UI.NuevasPantallas
         protected CheckBox checkBoxRangoHoras;
         protected CheckBox checkBoxRangoFechas;
         private PictureBox pictureBox1;
-        private PictureBox pictureBox2;
         private PictureBox pictureBox3;
         protected Button buttonFiltrar;
+        private PictureBox pictureBox2;
     }
 }

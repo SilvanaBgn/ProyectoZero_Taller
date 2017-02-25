@@ -29,7 +29,7 @@ namespace Dominio
         /// <summary>
         /// ID de la fuente del banner
         /// </summary>
-        //[Required]
+        [Required]
         public int FuenteId { get; set; }
 
         /// <summary>

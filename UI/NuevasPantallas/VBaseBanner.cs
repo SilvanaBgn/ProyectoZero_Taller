@@ -54,7 +54,9 @@ namespace UI.NuevasPantallas
         /// <returns>Banner a modificar</returns>
         private Banner bannerAModificar()
         {
-            return (Banner)this.dataGridViewMostrar.SelectedRows[0].DataBoundItem;
+            if (this.dataGridViewMostrar.SelectedRows.Count == 0)
+                return null;
+            else return (Banner)this.dataGridViewMostrar.SelectedRows[0].DataBoundItem;
         }
 
 
@@ -70,7 +72,7 @@ namespace UI.NuevasPantallas
             this.dataGridViewMostrar.Columns["BannerId"].Visible = false;
             this.dataGridViewMostrar.Columns["FuenteId"].Visible = false;
             this.dataGridViewMostrar.Columns["Titulo"].DisplayIndex = 0;
-            this.dataGridViewMostrar.Columns["Fuente"].DisplayIndex = 1;
+            //this.dataGridViewMostrar.Columns["Fuente"].DisplayIndex = 1;
             this.dataGridViewMostrar.Columns["FechaInicio"].DisplayIndex = 2;
             this.dataGridViewMostrar.Columns["FechaFin"].DisplayIndex = 3;
             this.dataGridViewMostrar.Columns["HoraInicio"].DisplayIndex = 4;

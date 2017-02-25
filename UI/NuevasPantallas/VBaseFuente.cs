@@ -54,7 +54,7 @@ namespace UI.NuevasPantallas
         private void buttonModificar_Click(object sender, EventArgs e)
         {         
             if (this.fuenteAModificar() == null)
-                MessageBox.Show("Seleccione una Fuente");
+                MessageBox.Show("Seleccione una Fuente para Modificar");
             else
             {
                 this.iVentanaEditar = new VModificarFuente(ref this.iControladorDominio, this.fuenteAModificar());
@@ -71,13 +71,6 @@ namespace UI.NuevasPantallas
         public void CargarDataGridFuentes(List<Fuente> pListaFuentes)
         {
             this.dataGridViewMostrar.DataSource = pListaFuentes;
-            //this.dataGridViewMostrar.Columns["Tipo"].DisplayIndex = 0;
-            //this.dataGridViewMostrar.Columns["Descripcion"].DisplayIndex = 1;
-            //this.dataGridViewMostrar.Columns["origenItems"].DisplayIndex = 2;
-            //this.dataGridViewMostrar.Columns["origenItems"].HeaderText = "Fuente";
-            //this.dataGridViewMostrar.Columns["Banners"].Visible = false;
-            //this.dataGridViewMostrar.Columns["Items"].Visible = false;
-            //this.dataGridViewMostrar.Columns["FuenteId"].Visible = false;
         }
 
         /// <summary>
@@ -86,10 +79,15 @@ namespace UI.NuevasPantallas
         /// </summary>
         private void buttonEliminar_Click(object sender, EventArgs e)
         {
-            int codigo = Convert.ToInt32(this.dataGridViewMostrar.SelectedRows[0].Cells[0].Value.ToString());
-            this.iControladorDominio.BorrarFuente(codigo);
-            this.iControladorDominio.GuardarCambios();
-            this.CargarDataGridFuentes(this.iControladorDominio.ObtenerTodasLasFuentes());
+            if (this.fuenteAModificar() == null)
+                MessageBox.Show("Seleccione una Fuente para Borrar");
+            else
+            {
+                int codigo = this.fuenteAModificar().FuenteId;
+                this.iControladorDominio.BorrarFuente(codigo);
+                this.iControladorDominio.GuardarCambios();
+                this.CargarDataGridFuentes(this.iControladorDominio.ObtenerTodasLasFuentes());
+            }
         }
 
         /// <summary>

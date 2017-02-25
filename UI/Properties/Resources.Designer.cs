@@ -73,16 +73,6 @@ namespace UI.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap _1 {
-            get {
-                object obj = ResourceManager.GetObject("_1", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
-        /// </summary>
         internal static System.Drawing.Bitmap Abajo1 {
             get {
                 object obj = ResourceManager.GetObject("Abajo1", resourceCulture);
@@ -383,9 +373,9 @@ namespace UI.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap NoImage {
+        internal static System.Drawing.Bitmap NoImage1 {
             get {
-                object obj = ResourceManager.GetObject("NoImage", resourceCulture);
+                object obj = ResourceManager.GetObject("NoImage1", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -393,9 +383,9 @@ namespace UI.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap paper_1990111_640 {
+        internal static System.Drawing.Bitmap NoImage2 {
             get {
-                object obj = ResourceManager.GetObject("paper-1990111_640", resourceCulture);
+                object obj = ResourceManager.GetObject("NoImage2", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
