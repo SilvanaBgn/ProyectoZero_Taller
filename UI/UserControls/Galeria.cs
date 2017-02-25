@@ -121,7 +121,8 @@ namespace UI.UserControls
         {
             //Abrimos la ventana de diálogo para cargar las imágenes
             OpenFileDialog op = new OpenFileDialog();
-            op.Filter = "Archivos de imagen (.jpg) | *.jpg";
+            op.Filter = "Archivos de imagen (*.jpg, *.png) | *.jpg; *.png";
+            //op.Filter = "Extension .jpg (.jpg)| *.jpg|Extension .png (.png) | *.png" ;
             op.Multiselect = true;
             DialogResult result = op.ShowDialog(this);
             if (result == DialogResult.OK)

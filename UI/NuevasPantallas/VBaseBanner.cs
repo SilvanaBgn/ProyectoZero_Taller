@@ -72,12 +72,11 @@ namespace UI.NuevasPantallas
             this.dataGridViewMostrar.Columns["BannerId"].Visible = false;
             this.dataGridViewMostrar.Columns["FuenteId"].Visible = false;
             this.dataGridViewMostrar.Columns["Titulo"].DisplayIndex = 0;
-            this.dataGridViewMostrar.Columns["Fuente"].DisplayIndex = 1;
-            this.dataGridViewMostrar.Columns["FechaInicio"].DisplayIndex = 2;
-            this.dataGridViewMostrar.Columns["FechaFin"].DisplayIndex = 3;
-            this.dataGridViewMostrar.Columns["HoraInicio"].DisplayIndex = 4;
-            this.dataGridViewMostrar.Columns["HoraFin"].DisplayIndex = 5;
-            this.dataGridViewMostrar.Columns["Descripcion"].DisplayIndex = 6;
+            this.dataGridViewMostrar.Columns["FechaInicio"].DisplayIndex = 1;
+            this.dataGridViewMostrar.Columns["FechaFin"].DisplayIndex = 2;
+            this.dataGridViewMostrar.Columns["HoraInicio"].DisplayIndex = 3;
+            this.dataGridViewMostrar.Columns["HoraFin"].DisplayIndex = 4;
+            this.dataGridViewMostrar.Columns["Descripcion"].DisplayIndex = 5;
         }
 
         /// <summary>
@@ -117,10 +116,16 @@ namespace UI.NuevasPantallas
                 MessageBox.Show("Se debe seleccionar un banner", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             else
             {
-                int codigo = Convert.ToInt32(this.dataGridViewMostrar.SelectedRows[0].Cells[0].Value.ToString());
-                this.iControladorDominio.BorrarBanner(codigo);
-                this.iControladorDominio.GuardarCambios();
-                this.CargarDataGridBanners(this.iControladorDominio.ObtenerTodosLosBanners());
+                DialogResult dialogResult = MessageBox.Show("¿Está seguro de borrar el banner seleccionado?", "Advertencia", MessageBoxButtons.YesNo);
+                if (dialogResult == DialogResult.Yes)
+                {
+                    int codigo = Convert.ToInt32(this.dataGridViewMostrar.SelectedRows[0].Cells[0].Value.ToString());
+                    this.iControladorDominio.BorrarBanner(codigo);
+                    this.iControladorDominio.GuardarCambios();
+                    this.CargarDataGridBanners(this.iControladorDominio.ObtenerTodosLosBanners());
+                }
+                else if (dialogResult == DialogResult.No)
+                { }
             }
         }
 
