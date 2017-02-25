@@ -72,10 +72,10 @@ namespace Persistencia
         /// </summary>
         public void GuardarCambios()
         {
-            try
-            {
+            //try
+            //{
                 iContexto.SaveChanges();
-            }
+            //}
             //catch (System.Data.Entity.Validation.DbEntityValidationException dbEx)
             //{
             //    Exception raise = dbEx;
@@ -93,8 +93,8 @@ namespace Persistencia
             //    }
             //    throw raise;
             //}
-            catch (DbUpdateException e)
-            { throw new ExcepcionValidacionBBDD(e.Message,e); }
+            //catch (DbUpdateException e)
+            //{ throw new ExcepcionValidacionBBDD(e.Message,e); }
         }
 
 
