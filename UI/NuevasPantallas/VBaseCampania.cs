@@ -116,13 +116,14 @@ namespace UI.NuevasPantallas
         /// </summary>
         private void buttonEliminar_Click(object sender, EventArgs e)
         {
-            if (this.dataGridViewMostrar.SelectedRows.Count == 0)
+            if (this.campaniaAModificar()==null)
+
             { MessageBox.Show("Se debe seleccionar una campaña", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error); }
             else
             {
                 string titulo = this.dataGridViewMostrar.SelectedRows[0].Cells[1].Value.ToString();
-                DialogResult resultado = MessageBox.Show(string.Format("¿Está seguro que desea eliminar la campaña \"{0}\"?",titulo), "Eliminar Campaña", MessageBoxButtons.YesNo,MessageBoxIcon.Question);
-                if (resultado == DialogResult.Yes) 
+                DialogResult resultado = MessageBox.Show(string.Format("¿Está seguro que desea eliminar \"{0}\"?",titulo), "Eliminar Campaña", MessageBoxButtons.OKCancel,MessageBoxIcon.Question);
+                if (resultado == DialogResult.OK) 
                 {
                     int codigo = Convert.ToInt32(this.dataGridViewMostrar.SelectedRows[0].Cells[0].Value.ToString());
                     this.iControladorDominio.BorrarCampania(codigo);
