@@ -75,7 +75,7 @@ namespace UI.NuevasPantallas
             this.dataGridViewMostrar.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.dataGridViewMostrar.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridViewMostrar.Size = new System.Drawing.Size(571, 165);
-            this.dataGridViewMostrar.TabIndex = 7;
+            this.dataGridViewMostrar.TabIndex = 3;
             this.dataGridViewMostrar.SelectionChanged += new System.EventHandler(this.dataGridViewMostrar_SelectionChanged);
             // 
             // buttonSalir
@@ -83,7 +83,7 @@ namespace UI.NuevasPantallas
             this.buttonSalir.Location = new System.Drawing.Point(532, 489);
             this.buttonSalir.Name = "buttonSalir";
             this.buttonSalir.Size = new System.Drawing.Size(75, 23);
-            this.buttonSalir.TabIndex = 11;
+            this.buttonSalir.TabIndex = 9;
             this.buttonSalir.Text = "&Salir";
             this.buttonSalir.UseVisualStyleBackColor = true;
             this.buttonSalir.Click += new System.EventHandler(this.buttonSalir_Click);
@@ -107,7 +107,7 @@ namespace UI.NuevasPantallas
             this.buttonFiltrar.Location = new System.Drawing.Point(8, 23);
             this.buttonFiltrar.Name = "buttonFiltrar";
             this.buttonFiltrar.Size = new System.Drawing.Size(87, 35);
-            this.buttonFiltrar.TabIndex = 30;
+            this.buttonFiltrar.TabIndex = 8;
             this.buttonFiltrar.Text = "&Filtrar";
             this.buttonFiltrar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.buttonFiltrar.UseVisualStyleBackColor = true;
@@ -115,10 +115,11 @@ namespace UI.NuevasPantallas
             // checkBoxRangoHoras
             // 
             this.checkBoxRangoHoras.AutoSize = true;
-            this.checkBoxRangoHoras.Location = new System.Drawing.Point(382, 72);
+            this.checkBoxRangoHoras.Location = new System.Drawing.Point(383, 72);
             this.checkBoxRangoHoras.Name = "checkBoxRangoHoras";
-            this.checkBoxRangoHoras.Size = new System.Drawing.Size(15, 14);
-            this.checkBoxRangoHoras.TabIndex = 22;
+            this.checkBoxRangoHoras.Size = new System.Drawing.Size(51, 20);
+            this.checkBoxRangoHoras.TabIndex = 5;
+            this.checkBoxRangoHoras.Text = "       .";
             this.checkBoxRangoHoras.UseVisualStyleBackColor = true;
             // 
             // buttonEliminar
@@ -165,7 +166,7 @@ namespace UI.NuevasPantallas
             this.textBoxTitulo.MaxLength = 20;
             this.textBoxTitulo.Name = "textBoxTitulo";
             this.textBoxTitulo.Size = new System.Drawing.Size(139, 20);
-            this.textBoxTitulo.TabIndex = 26;
+            this.textBoxTitulo.TabIndex = 7;
             // 
             // checkBoxTitulo
             // 
@@ -173,7 +174,7 @@ namespace UI.NuevasPantallas
             this.checkBoxTitulo.Location = new System.Drawing.Point(397, 426);
             this.checkBoxTitulo.Name = "checkBoxTitulo";
             this.checkBoxTitulo.Size = new System.Drawing.Size(63, 17);
-            this.checkBoxTitulo.TabIndex = 25;
+            this.checkBoxTitulo.TabIndex = 7;
             this.checkBoxTitulo.Text = "   Título";
             this.checkBoxTitulo.UseVisualStyleBackColor = true;
             // 
@@ -187,7 +188,7 @@ namespace UI.NuevasPantallas
             this.textBoxDescripcion.Name = "textBoxDescripcion";
             this.textBoxDescripcion.ShortcutsEnabled = false;
             this.textBoxDescripcion.Size = new System.Drawing.Size(227, 20);
-            this.textBoxDescripcion.TabIndex = 24;
+            this.textBoxDescripcion.TabIndex = 6;
             // 
             // checkBoxDescripcion
             // 
@@ -195,7 +196,7 @@ namespace UI.NuevasPantallas
             this.checkBoxDescripcion.Location = new System.Drawing.Point(59, 427);
             this.checkBoxDescripcion.Name = "checkBoxDescripcion";
             this.checkBoxDescripcion.Size = new System.Drawing.Size(91, 17);
-            this.checkBoxDescripcion.TabIndex = 23;
+            this.checkBoxDescripcion.TabIndex = 6;
             this.checkBoxDescripcion.Text = "   Descripción";
             this.checkBoxDescripcion.UseVisualStyleBackColor = true;
             // 
@@ -204,8 +205,9 @@ namespace UI.NuevasPantallas
             this.checkBoxRangoFechas.AutoSize = true;
             this.checkBoxRangoFechas.Location = new System.Drawing.Point(59, 316);
             this.checkBoxRangoFechas.Name = "checkBoxRangoFechas";
-            this.checkBoxRangoFechas.Size = new System.Drawing.Size(15, 14);
-            this.checkBoxRangoFechas.TabIndex = 21;
+            this.checkBoxRangoFechas.Size = new System.Drawing.Size(44, 17);
+            this.checkBoxRangoFechas.TabIndex = 4;
+            this.checkBoxRangoFechas.Text = "     .";
             this.checkBoxRangoFechas.UseVisualStyleBackColor = true;
             // 
             // pictureBox1
@@ -239,22 +241,22 @@ namespace UI.NuevasPantallas
             // rangoHorario
             // 
             this.rangoHorario.Enabled = false;
-            this.rangoHorario.HoraFin = System.TimeSpan.Parse("00:15:00");
+            this.rangoHorario.HoraFin = System.TimeSpan.Parse("23:59:59");
             this.rangoHorario.HoraInicio = System.TimeSpan.Parse("00:00:00");
             this.rangoHorario.Location = new System.Drawing.Point(417, 314);
             this.rangoHorario.Name = "rangoHorario";
             this.rangoHorario.Size = new System.Drawing.Size(147, 94);
-            this.rangoHorario.TabIndex = 28;
+            this.rangoHorario.TabIndex = 5;
             // 
             // rangoFecha
             // 
             this.rangoFecha.Enabled = false;
-            this.rangoFecha.FechaFin = new System.DateTime(2017, 2, 14, 0, 0, 0, 0);
-            this.rangoFecha.FechaInicio = new System.DateTime(2017, 2, 14, 0, 0, 0, 0);
+            this.rangoFecha.FechaFin = new System.DateTime(2017, 2, 24, 0, 0, 0, 0);
+            this.rangoFecha.FechaInicio = new System.DateTime(2017, 2, 24, 0, 0, 0, 0);
             this.rangoFecha.Location = new System.Drawing.Point(81, 316);
             this.rangoFecha.Name = "rangoFecha";
             this.rangoFecha.Size = new System.Drawing.Size(242, 96);
-            this.rangoFecha.TabIndex = 27;
+            this.rangoFecha.TabIndex = 4;
             // 
             // VAbstractBase
             // 

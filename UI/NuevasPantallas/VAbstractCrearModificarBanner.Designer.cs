@@ -132,17 +132,17 @@ namespace UI.NuevasPantallas
             // 
             // rangoHorario
             // 
-            this.rangoHorario.HoraFin = System.TimeSpan.Parse("00:15:00");
+            this.rangoHorario.HoraFin = System.TimeSpan.Parse("23:59:59");
             this.rangoHorario.HoraInicio = System.TimeSpan.Parse("00:00:00");
-            this.rangoHorario.Location = new System.Drawing.Point(318, 89);
+            this.rangoHorario.Location = new System.Drawing.Point(318, 88);
             this.rangoHorario.Name = "rangoHorario";
             this.rangoHorario.Size = new System.Drawing.Size(147, 96);
             this.rangoHorario.TabIndex = 16;
             // 
             // rangoFecha
             // 
-            this.rangoFecha.FechaFin = new System.DateTime(2017, 2, 22, 0, 0, 0, 0);
-            this.rangoFecha.FechaInicio = new System.DateTime(2017, 2, 22, 0, 0, 0, 0);
+            this.rangoFecha.FechaFin = new System.DateTime(2017, 2, 24, 0, 0, 0, 0);
+            this.rangoFecha.FechaInicio = new System.DateTime(2017, 2, 24, 0, 0, 0, 0);
             this.rangoFecha.Location = new System.Drawing.Point(16, 89);
             this.rangoFecha.Name = "rangoFecha";
             this.rangoFecha.Size = new System.Drawing.Size(264, 96);
@@ -185,6 +185,5 @@ namespace UI.NuevasPantallas
         protected UserControls.RangoFecha rangoFecha;
         protected UserControls.RangoHorario rangoHorario;
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.Button buttonNuevaFuente;
     }
 }

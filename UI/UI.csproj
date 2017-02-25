@@ -97,6 +97,12 @@
     <Compile Include="NuevasPantallas\VBaseBanner.Designer.cs">
       <DependentUpon>VBaseBanner.cs</DependentUpon>
     </Compile>
+    <Compile Include="NuevasPantallas\VPresentacion.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="NuevasPantallas\VPresentacion.Designer.cs">
+      <DependentUpon>VPresentacion.cs</DependentUpon>
+    </Compile>
     <Compile Include="NuevasPantallas\VInicial.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -276,11 +282,17 @@
     <EmbeddedResource Include="NuevasPantallas\VCrearFuente.resx">
       <DependentUpon>VCrearFuente.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="NuevasPantallas\VPresentacion.resx">
+      <DependentUpon>VPresentacion.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="NuevasPantallas\VInicial.resx">
       <DependentUpon>VInicial.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="NuevasPantallas\VModificarBanner.resx">
       <DependentUpon>VModificarBanner.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="NuevasPantallas\VModificarCampania.resx">
+      <DependentUpon>VModificarCampania.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="NuevasPantallas\VModificarFuente.resx">
       <DependentUpon>VModificarFuente.cs</DependentUpon>
@@ -355,16 +367,16 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\1487665587_Gnome-Emblem-Photos-64.ico" />
     <Content Include="Resources\Abajo1.ico" />
     <None Include="Resources\Image1.bmp" />
     <None Include="Resources\ave.jpg" />
     <None Include="Resources\flores.jpg" />
     <None Include="Resources\frutos rojos.jpg" />
-    <None Include="Resources\Imagenes-de-Peces-en-el-fondo-de-mar-y-arrecifes-de-coral.jpg" />
     <None Include="Resources\melones.jpg" />
     <None Include="Resources\monumento.jpg" />
     <None Include="Resources\peces.jpg" />
-    <Content Include="Resources\playa.jpg" />
+    <None Include="Resources\ico22.png" />
     <None Include="Resources\Publicityfueradefoco1.jpg" />
     <None Include="Resources\signo_mas1.ico" />
     <None Include="Resources\Agregar3.ico" />
@@ -383,16 +395,13 @@
     <None Include="Resources\Editar5.png" />
     <None Include="Resources\Editar6.png" />
     <None Include="Resources\Buscar4.png" />
-    <Content Include="Resources\cueva.jpg" />
     <Content Include="Resources\Eliminar2.ico" />
     <None Include="Resources\Eliminar3.ico" />
     <Content Include="Resources\Eliminar4.ico" />
     <None Include="Resources\Eliminar5.ico" />
     <None Include="Resources\Eliminar7.png" />
     <None Include="Resources\paper-1990111_640.jpg" />
-    <Content Include="Resources\lago.jpg" />
     <Content Include="Resources\Pausa1.ico" />
-    <Content Include="Resources\peses.jpg" />
     <Content Include="Resources\Play1.ico" />
     <None Include="Resources\signo_mas.ico" />
     <None Include="Resources\Publicityfueradefoco.jpg" />

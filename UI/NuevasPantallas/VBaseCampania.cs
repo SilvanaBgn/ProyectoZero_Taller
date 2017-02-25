@@ -132,7 +132,9 @@ namespace UI.NuevasPantallas
         /// </summary>
         private void VBaseCampania_Activated(object sender, EventArgs e)
         {
-            CargarDataGridCampanias(this.iControladorDominio.ObtenerTodasLasCampanias());
+            //Actualizamos el contenido del Datagrid:
+            this.CargarDataGridCampanias(this.iControladorDominio.ObtenerTodasLasCampanias());
+
             //Preguntamos si las ventanas hijas son nulas, sino significa que están abiertas
             //y les dejamos el foco 
             if (this.iVentanaNueva != null)

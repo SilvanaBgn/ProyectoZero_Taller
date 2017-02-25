@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(VCrearFuente));
             this.panelRss.SuspendLayout();
             this.panelTextoFijo.SuspendLayout();
             this.SuspendLayout();
@@ -39,13 +40,13 @@
             // bgwActualizarRssAlGuardar
             // 
             this.bgwActualizarRssAlGuardar.DoWork += new System.ComponentModel.DoWorkEventHandler(this.BgwActualizarRssAlGuardar_DoWork);
-            this.bgwActualizarRssAlGuardar.RunWorkerCompleted += new System.ComponentModel.RunWorkerCompletedEventHandler(this.BgwActualizarRssAlGuardar_RunWorkerCompleted);
             // 
             // VCrearFuente
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(470, 316);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "VCrearFuente";
             this.Text = "Nueva Fuente";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.VCrearFuente_FormClosing);

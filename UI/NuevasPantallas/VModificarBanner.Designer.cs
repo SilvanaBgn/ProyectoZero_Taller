@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(VModificarBanner));
             this.SuspendLayout();
             // 
             // buttonGuardar
@@ -38,8 +39,10 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.ClientSize = new System.Drawing.Size(485, 466);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "VModificarBanner";
-            this.Text = "Modificar Banner";
+            this.Text = "Editar Banner";
             this.Activated += new System.EventHandler(this.VModificarBanner_Activated);
             this.ResumeLayout(false);
             this.PerformLayout();

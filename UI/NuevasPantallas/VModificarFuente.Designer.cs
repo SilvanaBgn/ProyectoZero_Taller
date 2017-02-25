@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(VModificarFuente));
             this.panelRss.SuspendLayout();
             this.panelTextoFijo.SuspendLayout();
             this.SuspendLayout();
@@ -45,8 +46,9 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(472, 313);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "VModificarFuente";
-            this.Text = "VModificarFuente";
+            this.Text = "Editar Fuente";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.VModificarFuente_FormClosing);
             this.panelRss.ResumeLayout(false);
             this.panelRss.PerformLayout();
