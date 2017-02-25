@@ -16,7 +16,8 @@ namespace UI.UserControls
         public RangoFecha()
         {
             InitializeComponent();
-            this.FechaFin = this.FechaInicio = DateTime.Today;
+            //this.FechaFin = DateTime.Today;
+            //this.FechaInicio = DateTime.Today;
         }
 
         public DateTime FechaInicio

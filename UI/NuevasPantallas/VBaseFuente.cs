@@ -43,7 +43,7 @@ namespace UI.NuevasPantallas
             this.iVentanaNueva = null;
         }
 
-        private Fuente fuenteAModificar()
+        private Fuente fuenteSeleccionada()
         {
             if (this.dataGridViewMostrar.SelectedRows.Count == 0)
                 return null;
@@ -55,12 +55,12 @@ namespace UI.NuevasPantallas
         /// Evento que se invoca cuando se hace click sobre el botón modificar, modificando una fuente
         /// </summary>
         private void buttonModificar_Click(object sender, EventArgs e)
-        {         
-            if (this.fuenteAModificar() == null)
+        {
+            if (this.fuenteSeleccionada() == null)
                 MessageBox.Show("Se debe seleccionar una fuente", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             else
             {
-                this.iVentanaEditar = new VModificarFuente(ref this.iControladorDominio, this.fuenteAModificar());
+                this.iVentanaEditar = new VModificarFuente(ref this.iControladorDominio, this.fuenteSeleccionada());
                 this.iVentanaEditar.Owner = this;
                 this.iVentanaEditar.ShowDialog();
                 this.iVentanaEditar = null;
@@ -82,11 +82,11 @@ namespace UI.NuevasPantallas
         /// </summary>
         private void buttonEliminar_Click(object sender, EventArgs e)
         {
-            if (this.dataGridViewMostrar.SelectedRows.Count == 0)
+            if (this.fuenteSeleccionada() == null)
             { MessageBox.Show("Se debe seleccionar una fuente", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error); }
             else
             {
-                int codigo = Convert.ToInt32(this.dataGridViewMostrar.SelectedRows[0].Cells[0].Value.ToString());
+                int codigo = this.fuenteSeleccionada().FuenteId;
                 this.iControladorDominio.BorrarFuente(codigo);
                 this.iControladorDominio.GuardarCambios();
                 this.CargarDataGridFuentes(this.iControladorDominio.ObtenerTodasLasFuentes());

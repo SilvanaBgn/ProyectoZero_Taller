@@ -36,13 +36,13 @@ namespace UI.UserControls
         {
             TimeSpan diferenciaHoras = new TimeSpan();
             diferenciaHoras = pHoraFin.Subtract(pHoraInicio);
-            string resultado;
+            string resultado = "Un total de ";
             //pHoraInicio==pHoraFin (excepto en el caso de Inicio=00:00 y Fin=00:00):
             if (diferenciaHoras.TotalMinutes == 0) 
-                resultado = "";
+                resultado += "0 m";
             else //pHoraInicio!=pHoraFin (o Inicio=00:00 y Fin=00:00):
             {
-                resultado = "Un total de "; //pHoraInicio != pHoraFin
+                 //pHoraInicio != pHoraFin
                 if (diferenciaHoras.Hours > 0) //Si las horas de la diferencia entre horas es distinto de 0
                     resultado += diferenciaHoras.Hours + " h";
 

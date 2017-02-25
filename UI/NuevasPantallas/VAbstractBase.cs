@@ -21,13 +21,16 @@ namespace UI.NuevasPantallas
         {
             InitializeComponent();
 
-            //Centramos la pantalla en el centro:
-            this.StartPosition = FormStartPosition.CenterScreen;
         }
 
         public VAbstractBase(ref ControladorDominio pControladorDominio) : this()
         {
             this.iControladorDominio = pControladorDominio;
+
+            //Centramos la pantalla en el centro:
+            this.StartPosition = FormStartPosition.CenterScreen;
+
+            this.rangoFecha.FechaInicio = this.rangoFecha.FechaFin = DateTime.Today;
         }
 
         /// <summary>
