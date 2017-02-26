@@ -14,34 +14,32 @@ namespace UI.NuevasPantallas
 {
     public partial class VModificarFuente : VAbstractCrearModificarFuente
     {
-        private Fuente iFuenteAModificar;
-
         public VModificarFuente(ref ControladorDominio pControladorDominio, Fuente pFuenteAModificar) : base(ref pControladorDominio)
         {
             InitializeComponent();
-            this.iFuenteAModificar = pFuenteAModificar;
-            this.CargarFuenteAModificar(this.iFuenteAModificar);
+            this.iFuente = pFuenteAModificar;
+            this.CargarFuenteAModificar();
         }
 
-        private void CargarFuenteAModificar(object iFuenteAModificar)
+        private void CargarFuenteAModificar()
         {
             this.comboBoxTipoFuente.Enabled = false;
 
-            switch (this.iFuenteAModificar.Tipo.ToString())
+            switch (this.iFuente.Tipo.ToString())
             {
                 case "Rss":
                     this.comboBoxTipoFuente.Text = "Rss";
                     this.panelTextoFijo.Visible = false;
                     this.panelRss.Visible = true;
-                    this.textBoxFuenteRss.Text = this.iFuenteAModificar.OrigenItems;
-                    this.textBoxDescripcionRss.Text = this.iFuenteAModificar.Descripcion;
+                    this.textBoxFuenteRss.Text = this.iFuente.OrigenItems;
+                    this.textBoxDescripcionRss.Text = this.iFuente.Descripcion;
                     break;
                 case "TextoFijo":
                     this.comboBoxTipoFuente.Text = "Texto Fijo";
                     this.panelRss.Visible = false;
                     this.panelTextoFijo.Visible = true;
-                    this.textoFijo.Descripcion = this.iFuenteAModificar.Descripcion;
-                    this.textoFijo.ListaItems = (List<Item>)this.iFuenteAModificar.Items;
+                    this.textoFijo.Descripcion = this.iFuente.Descripcion;
+                    this.textoFijo.ListaItems = (List<Item>)this.iFuente.Items;
                     break;
             }
         }
@@ -51,47 +49,29 @@ namespace UI.NuevasPantallas
             switch (this.comboBoxTipoFuente.SelectedItem.ToString())
             {
                 case "Rss":
-                    this.iFuenteAModificar.OrigenItems = this.textBoxFuenteRss.Text;
-                    this.iFuenteAModificar.Descripcion = this.textBoxDescripcionRss.Text;
+                    this.iFuente.OrigenItems = this.textBoxFuenteRss.Text;
+                    this.iFuente.Descripcion = this.textBoxDescripcionRss.Text;
                     break;
                 case "Texto Fijo":
-                    this.iFuenteAModificar.Descripcion = this.textoFijo.Descripcion;
-                    this.iFuenteAModificar.Items = this.textoFijo.ListaItems;
+                    this.iFuente.Descripcion = this.textoFijo.Descripcion;
+                    this.iFuente.Items = this.textoFijo.ListaItems;
                     break;
             }
             try //Intentamos agregarla al repositorio y luego guardarla en base de datos:
             {
-                this.iControladorDominio.ModificarFuente(this.iFuenteAModificar);
+                //Modificamos la fuente y guardamos los cambios:
+                this.iControladorDominio.ModificarFuente(this.iFuente);
                 this.iControladorDominio.GuardarCambios();
+
+                //Luego de guardar, activamos la variable booleana que indica que se guardó correctamente:
+                this.iGuardadoCorrecto = true;
+
                 this.Close();
             }
             catch (ExcepcionCamposSinCompletar ex)
             {
                 MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-        }
-
-        /// <summary>
-        /// En este evento el backgroundworker se hace el intento de leer la Fuente recién agregada
-        /// </summary>
-        private void BgwActualizarRssAlGuardar_DoWork(object sender, DoWorkEventArgs e)
-        {
-            //try
-            //{
-            this.iFuenteAModificar.Leer();
-
-            // Una vez leída la Fuente, se guardan los cambios:
-            this.iControladorDominio.ModificarFuente(this.iFuenteAModificar);
-            this.iControladorDominio.GuardarCambios();
-            //}
-            //catch (ExcepcionFormatoURLIncorrecto ex)
-            //{ MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error); }
-        }
-
-        private void VModificarFuente_FormClosing(object sender, FormClosingEventArgs e)
-        {
-            if (!this.bgwActualizarRssAlGuardar.IsBusy)
-                this.bgwActualizarRssAlGuardar.RunWorkerAsync();
         }
     }
 }
