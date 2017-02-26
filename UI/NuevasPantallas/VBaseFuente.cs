@@ -43,7 +43,7 @@ namespace UI.NuevasPantallas
             this.iVentanaNueva = null;
         }
 
-        private Fuente fuenteSeleccionada()
+        private Fuente FuenteSeleccionada()
         {
             if (this.dataGridViewMostrar.SelectedRows.Count == 0)
                 return null;
@@ -56,11 +56,12 @@ namespace UI.NuevasPantallas
         /// </summary>
         private void buttonModificar_Click(object sender, EventArgs e)
         {
-            if (this.fuenteSeleccionada() == null)
+            Fuente fuenteSeleccionada = this.FuenteSeleccionada();
+            if (fuenteSeleccionada == null)
                 MessageBox.Show("Se debe seleccionar una fuente", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             else
             {
-                this.iVentanaEditar = new VModificarFuente(ref this.iControladorDominio, this.fuenteSeleccionada());
+                this.iVentanaEditar = new VModificarFuente(ref this.iControladorDominio, fuenteSeleccionada);
                 this.iVentanaEditar.Owner = this;
                 this.iVentanaEditar.ShowDialog();
                 this.iVentanaEditar = null;
@@ -82,14 +83,16 @@ namespace UI.NuevasPantallas
         /// </summary>
         private void buttonEliminar_Click(object sender, EventArgs e)
         {
-            if (this.fuenteSeleccionada() == null)
-            { MessageBox.Show("Se debe seleccionar una fuente", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error); }
+            Fuente fuenteSeleccionada = this.FuenteSeleccionada();
+            if (fuenteSeleccionada == null)
+            {    MessageBox.Show("Se debe seleccionar una fuente", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error); }
             else
             {
-                DialogResult dialogResult = MessageBox.Show("¿Está seguro que desea eliminar la fuente seleccionada?", "Eliminar Fuente", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                string descripcion = fuenteSeleccionada.Descripcion;
+                DialogResult dialogResult = MessageBox.Show(string.Format("¿Está seguro que desea eliminar la fuente \"{0}\"?", descripcion), "Eliminar Fuente", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                 if (dialogResult == DialogResult.Yes)
                 {
-                    int codigo = this.fuenteSeleccionada().FuenteId;
+                    int codigo = fuenteSeleccionada.FuenteId;
                     this.iControladorDominio.BorrarFuente(codigo);
                     this.iControladorDominio.GuardarCambios();
                     this.CargarDataGridFuentes(this.iControladorDominio.ObtenerTodasLasFuentes());

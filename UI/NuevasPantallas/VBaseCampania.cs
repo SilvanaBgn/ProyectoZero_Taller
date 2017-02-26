@@ -50,7 +50,7 @@ namespace UI.NuevasPantallas
         /// Busca la campania que se va a modificar
         /// </summary>
         /// <returns>Devuelve la campania encontrada, null si no se selecciona ninguna</returns>
-        private Campania campaniaAModificar()
+        private Campania CampaniaSeleccionada()
         {
             if (this.dataGridViewMostrar.SelectedRows.Count == 0)
                 return null;
@@ -67,20 +67,21 @@ namespace UI.NuevasPantallas
             this.dataGridViewMostrar.DataSource = pListaCampanias;
 
             //Dejamos invisibles las columnas que no deben verse:
-            this.dataGridViewMostrar.Columns["CampaniaId"].Visible = false;
             this.dataGridViewMostrar.Columns["Imagenes"].Visible = false;
 
             //Cambiamos el orden de las columnas:
-            this.dataGridViewMostrar.Columns["Titulo"].DisplayIndex = 0;
+            this.dataGridViewMostrar.Columns["CampaniaId"].DisplayIndex = 0;
+            this.dataGridViewMostrar.Columns["Titulo"].DisplayIndex = 1;
             this.dataGridViewMostrar.Columns["FechaInicio"].DisplayIndex = 2;
             this.dataGridViewMostrar.Columns["FechaFin"].DisplayIndex = 3;
             this.dataGridViewMostrar.Columns["HoraInicio"].DisplayIndex = 4;
             this.dataGridViewMostrar.Columns["HoraFin"].DisplayIndex = 5;
-            this.dataGridViewMostrar.Columns["DuracionImagen"].DisplayIndex = 1;
-            this.dataGridViewMostrar.Columns["Descripcion"].DisplayIndex = 6;
+            this.dataGridViewMostrar.Columns["DuracionImagen"].DisplayIndex = 6;
+            this.dataGridViewMostrar.Columns["Descripcion"].DisplayIndex = 7;
 
             //Cambiamos el nombre de las columnas:
             this.dataGridViewMostrar.Columns["DuracionImagen"].HeaderText = "Duración imágenes";
+            this.dataGridViewMostrar.Columns["CampaniaId"].HeaderText = "Cod";
         }
 
         /// <summary>
@@ -99,11 +100,11 @@ namespace UI.NuevasPantallas
         /// </summary>
         private void buttonModificar_Click(object sender, EventArgs e)
         {
-            if (this.campaniaAModificar() == null)
+            if (this.CampaniaSeleccionada() == null)
                 MessageBox.Show("Se debe seleccionar una campaña", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             else
             {
-                this.iVentanaEditar = new VModificarCampania(ref this.iControladorDominio, this.campaniaAModificar());
+                this.iVentanaEditar = new VModificarCampania(ref this.iControladorDominio, this.CampaniaSeleccionada());
                 this.iVentanaEditar.Owner = this;
                 this.iVentanaEditar.ShowDialog();
                 this.iVentanaEditar = null;
@@ -116,15 +117,16 @@ namespace UI.NuevasPantallas
         /// </summary>
         private void buttonEliminar_Click(object sender, EventArgs e)
         {
-            if (this.dataGridViewMostrar.SelectedRows.Count == 0)
+            Campania campaniaSeleccionada = this.CampaniaSeleccionada();
+            if (campaniaSeleccionada == null)
             { MessageBox.Show("Se debe seleccionar una campaña", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error); }
             else
             {
-                string titulo = this.dataGridViewMostrar.SelectedRows[0].Cells[1].Value.ToString();
-                DialogResult resultado = MessageBox.Show(string.Format("¿Está seguro que desea eliminar la campaña \"{0}\"?",titulo), "Eliminar Campaña", MessageBoxButtons.YesNo,MessageBoxIcon.Question);
+                string titulo = campaniaSeleccionada.Titulo;
+                DialogResult resultado = MessageBox.Show(string.Format("¿Está seguro que desea eliminar la Campaña \"{0}\"?",titulo), "Eliminar Campaña", MessageBoxButtons.YesNo,MessageBoxIcon.Question);
                 if (resultado == DialogResult.Yes) 
                 {
-                    int codigo = Convert.ToInt32(this.dataGridViewMostrar.SelectedRows[0].Cells[0].Value.ToString());
+                    int codigo = campaniaSeleccionada.CampaniaId;
                     this.iControladorDominio.BorrarCampania(codigo);
                     this.iControladorDominio.GuardarCambios();
                     this.CargarDataGridCampanias(this.iControladorDominio.ObtenerTodasLasCampanias());

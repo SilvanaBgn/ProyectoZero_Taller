@@ -46,7 +46,7 @@ namespace UI.UserControls
         /// </summary>
         private void dateTimePickerInicio_ValueChanged(object sender, EventArgs e)
         {
-            //this.dateTimePickerFin.MinDate = this.dateTimePickerInicio.Value;
+            this.dateTimePickerFin.MinDate = this.dateTimePickerInicio.Value;
             this.labelCantDias.Text = this.DiferenciaFechas(this.dateTimePickerFin.Value, this.dateTimePickerInicio.Value);
         }
 

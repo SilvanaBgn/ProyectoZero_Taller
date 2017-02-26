@@ -269,6 +269,9 @@
     <EmbeddedResource Include="NuevasPantallas\VBaseBanner.resx">
       <DependentUpon>VBaseBanner.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="NuevasPantallas\VBaseCampania.resx">
+      <DependentUpon>VBaseCampania.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="NuevasPantallas\VBaseFuente.resx">
       <DependentUpon>VBaseFuente.cs</DependentUpon>
       <SubType>Designer</SubType>

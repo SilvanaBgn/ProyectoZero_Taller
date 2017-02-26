@@ -32,14 +32,17 @@
             // 
             // buttonNuevo
             // 
+            this.buttonNuevo.Text = "Nuevo";
             this.buttonNuevo.Click += new System.EventHandler(this.buttonNuevo_Click);
             // 
             // buttonModificar
             // 
+            this.buttonModificar.Text = "Editar";
             this.buttonModificar.Click += new System.EventHandler(this.buttonModificar_Click);
             // 
             // buttonEliminar
             // 
+            this.buttonEliminar.Text = "Borrar";
             this.buttonEliminar.Click += new System.EventHandler(this.buttonEliminar_Click);
             // 
             // buttonFiltrar
@@ -50,10 +53,12 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.ClientSize = new System.Drawing.Size(619, 520);
+            this.MaximizeBox = false;
             this.Name = "VBaseCampania";
             this.Text = "Configuración CAMPAÑAS";
             this.Activated += new System.EventHandler(this.VBaseCampania_Activated);
-            //this.Load += new System.EventHandler(this.VBaseCampania_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

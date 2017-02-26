@@ -52,7 +52,7 @@ namespace UI.NuevasPantallas
         /// Devuelve el banner seleccionado en el datagrid
         /// </summary>
         /// <returns>Banner a modificar</returns>
-        private Banner bannerAModificar()
+        private Banner BannerSeleccionado()
         {
             if (this.dataGridViewMostrar.SelectedRows.Count == 0)
                 return null;
@@ -69,14 +69,18 @@ namespace UI.NuevasPantallas
             this.dataGridViewMostrar.DataSource = pListaBanners;
 
             //Cambiamos el orden de las columnas:
-            this.dataGridViewMostrar.Columns["BannerId"].Visible = false;
             this.dataGridViewMostrar.Columns["FuenteId"].Visible = false;
-            this.dataGridViewMostrar.Columns["Titulo"].DisplayIndex = 0;
-            this.dataGridViewMostrar.Columns["FechaInicio"].DisplayIndex = 1;
-            this.dataGridViewMostrar.Columns["FechaFin"].DisplayIndex = 2;
-            this.dataGridViewMostrar.Columns["HoraInicio"].DisplayIndex = 3;
-            this.dataGridViewMostrar.Columns["HoraFin"].DisplayIndex = 4;
-            this.dataGridViewMostrar.Columns["Descripcion"].DisplayIndex = 5;
+
+            this.dataGridViewMostrar.Columns["BannerId"].DisplayIndex = 0;
+            this.dataGridViewMostrar.Columns["Titulo"].DisplayIndex = 1;
+            this.dataGridViewMostrar.Columns["FechaInicio"].DisplayIndex = 2;
+            this.dataGridViewMostrar.Columns["FechaFin"].DisplayIndex = 3;
+            this.dataGridViewMostrar.Columns["HoraInicio"].DisplayIndex = 4;
+            this.dataGridViewMostrar.Columns["HoraFin"].DisplayIndex = 5;
+            this.dataGridViewMostrar.Columns["Descripcion"].DisplayIndex = 6;
+
+            this.dataGridViewMostrar.Columns["BannerId"].HeaderText = "Cod";
+
         }
 
         /// <summary>
@@ -95,11 +99,11 @@ namespace UI.NuevasPantallas
         /// </summary>
         private void buttonModificar_Click(object sender, EventArgs e)
         {
-            if (this.bannerAModificar() == null)
+            if (this.BannerSeleccionado() == null)
                 MessageBox.Show("Se debe seleccionar un banner", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             else
             {
-                this.iVentanaEditar = new VModificarBanner(ref this.iControladorDominio, this.bannerAModificar());
+                this.iVentanaEditar = new VModificarBanner(ref this.iControladorDominio, this.BannerSeleccionado());
                 this.iVentanaEditar.Owner = this;
                 this.iVentanaEditar.ShowDialog();
                 this.iVentanaEditar = null;
@@ -112,21 +116,20 @@ namespace UI.NuevasPantallas
         /// </summary>
         private void buttonEliminar_Click(object sender, EventArgs e)
         {
-            if (this.bannerAModificar() == null)
+            Banner bannerSeleccionado = this.BannerSeleccionado();
+            if ( bannerSeleccionado == null)
                 MessageBox.Show("Se debe seleccionar un banner", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             else
             {
-                string titulo = this.dataGridViewMostrar.SelectedRows[0].Cells[1].Value.ToString();
+                string titulo = bannerSeleccionado.Titulo;
                 DialogResult dialogResult = MessageBox.Show(string.Format("¿Está seguro que desea eliminar el banner \"{0}\"?", titulo), "Eliminar Banner", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                 if (dialogResult == DialogResult.Yes)
                 {
-                    int codigo = Convert.ToInt32(this.dataGridViewMostrar.SelectedRows[0].Cells[0].Value.ToString());
+                    int codigo = bannerSeleccionado.BannerId;
                     this.iControladorDominio.BorrarBanner(codigo);
                     this.iControladorDominio.GuardarCambios();
                     this.CargarDataGridBanners(this.iControladorDominio.ObtenerTodosLosBanners());
                 }
-                else if (dialogResult == DialogResult.No)
-                { }
             }
         }
 

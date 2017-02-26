@@ -83,7 +83,7 @@ namespace UI.NuevasPantallas
             this.buttonSalir.Name = "buttonSalir";
             this.buttonSalir.Size = new System.Drawing.Size(75, 23);
             this.buttonSalir.TabIndex = 9;
-            this.buttonSalir.Text = "&Salir";
+            this.buttonSalir.Text = "Salir";
             this.buttonSalir.UseVisualStyleBackColor = true;
             this.buttonSalir.Click += new System.EventHandler(this.buttonSalir_Click);
             // 
@@ -107,7 +107,7 @@ namespace UI.NuevasPantallas
             this.buttonFiltrar.Name = "buttonFiltrar";
             this.buttonFiltrar.Size = new System.Drawing.Size(87, 35);
             this.buttonFiltrar.TabIndex = 8;
-            this.buttonFiltrar.Text = "&Filtrar";
+            this.buttonFiltrar.Text = "Filtrar";
             this.buttonFiltrar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.buttonFiltrar.UseVisualStyleBackColor = true;
             // 
@@ -130,7 +130,7 @@ namespace UI.NuevasPantallas
             this.buttonEliminar.Name = "buttonEliminar";
             this.buttonEliminar.Size = new System.Drawing.Size(88, 40);
             this.buttonEliminar.TabIndex = 2;
-            this.buttonEliminar.Text = "&Borrar";
+            this.buttonEliminar.Text = "Borrar";
             this.buttonEliminar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.buttonEliminar.UseVisualStyleBackColor = true;
             // 
@@ -142,7 +142,7 @@ namespace UI.NuevasPantallas
             this.buttonModificar.Name = "buttonModificar";
             this.buttonModificar.Size = new System.Drawing.Size(88, 40);
             this.buttonModificar.TabIndex = 1;
-            this.buttonModificar.Text = "&Editar";
+            this.buttonModificar.Text = "Editar";
             this.buttonModificar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.buttonModificar.UseVisualStyleBackColor = true;
             // 
@@ -154,7 +154,7 @@ namespace UI.NuevasPantallas
             this.buttonNuevo.Name = "buttonNuevo";
             this.buttonNuevo.Size = new System.Drawing.Size(88, 40);
             this.buttonNuevo.TabIndex = 0;
-            this.buttonNuevo.Text = "&Nuevo";
+            this.buttonNuevo.Text = "Nuevo";
             this.buttonNuevo.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.buttonNuevo.UseVisualStyleBackColor = true;
             // 

@@ -22,46 +22,12 @@ namespace Dominio
         public string Descripcion { get; set; }
 
 
-        private string iOrigenItems;
-
-        /// <summary>
-        /// Información especifica de la Fuente en cuestión
-        /// </summary>
-        //[DataType(DataType.Text)]
-        [StringLength(80)]
-        //[RegularExpression(@"^http(s)?://([\w-]+.)+[\w-]+(/[\w- ./?%&=])?$", ErrorMessage = "You can not have that")]
-        [Required]
-        public string OrigenItems
-        {
-            get { return this.iOrigenItems; }
-            set
-            {
-                try
-                {
-                    if (this.iTipo == TipoFuente.Rss)
-                    {
-                        Uri urlCorrecta;
-
-                        if (!Uri.TryCreate(value.Trim(), UriKind.Absolute, out urlCorrecta))
-                        {
-                            throw new UriFormatException();
-                        }
-                        else
-                            this.iOrigenItems = value.Trim();
-                    }
-                }
-                catch (UriFormatException)
-                { throw new ExcepcionFormatoURLIncorrecto("La URL ingresada no es válida. El formato correcto es http://www.ejemplo.com/"); }
-
-
-            }
-        }
-
-
 
         public virtual ICollection<Banner> Banners { get; set; }
 
         public virtual ICollection<Item> Items { get; set; }
+
+
 
         /// <summary>
         /// Indica el método de lectura de esta fuente, según su Tipo
@@ -91,11 +57,44 @@ namespace Dominio
         }
 
 
+        private string iOrigenItems;
+
+        /// <summary>
+        /// Información especifica de la Fuente en cuestión
+        /// </summary>
+        //[RegularExpression(@"^http(s)?://([\w-]+.)+[\w-]+(/[\w- ./?%&=])?$", ErrorMessage = "You can not have that")]
+        [StringLength(80)]
+        [Required]
+        public string OrigenItems //{ get; set; }
+        {
+            get { return this.iOrigenItems; }
+            set
+            {
+                try
+                {
+                    if (this.iTipo == TipoFuente.Rss)
+                    {
+                        Uri urlCorrecta;
+
+                        if (!Uri.TryCreate(value.Trim(), UriKind.Absolute, out urlCorrecta))
+                        {
+                            throw new UriFormatException();
+                        }
+                        else
+                            this.iOrigenItems = value;
+                    }
+                    else // this.iTipo == TipoFuente.TextoFijo
+                        this.iOrigenItems = "Sin fuente";
+                }
+                catch (UriFormatException)
+                { throw new ExcepcionFormatoURLIncorrecto("La URL ingresada no es válida. El formato correcto es http://www.ejemplo.com/"); }
+            }
+        }
+
+
         /// <summary>
         /// Constructor para el caso del texto fijo, donde no hay origen de items
         /// </summary>
-        //     public Fuente(string pDescripcion) : this(pDescripcion, "", TipoFuente.TextoFijo) { }
-
         public Fuente() : this("", "Sin fuente", TipoFuente.TextoFijo)
         { }
 
@@ -106,7 +105,7 @@ namespace Dominio
         {
             this.Banners = new List<Banner>();
             this.Items = new List<Item>();
-            this.Tipo = pTipo;
+            this.iTipo = pTipo;
             this.Descripcion = pDescripcion;
             this.iOrigenItems = pOrigenItems;
         }

@@ -33,16 +33,23 @@ namespace UI.NuevasPantallas
             campaniaAAgregar.HoraFin = this.rangoHorario.HoraFin;
             campaniaAAgregar.Imagenes = this.galeria.ListaImagenes;
             campaniaAAgregar.DuracionImagen = this.galeria.Segundos;
-            
+
             try
             {
-                this.iControladorDominio.AgregarCampania(campaniaAAgregar);
-                this.iControladorDominio.GuardarCambios();
-                this.Close();
+                if (!this.rangoHorario.HorarioValido())
+                {
+                    MessageBox.Show("La hora de fin debe ser posterior a la hora de inicio", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                else
+                {
+                    this.iControladorDominio.AgregarCampania(campaniaAAgregar);
+                    this.iControladorDominio.GuardarCambios();
+                    this.Close();
+                }
             }
-            catch(ExcepcionCamposSinCompletar ex)
+            catch (ExcepcionCamposSinCompletar ex)
             {
-                MessageBox.Show(ex.Message,"Faltan campos", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(ex.Message, "Faltan campos", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 

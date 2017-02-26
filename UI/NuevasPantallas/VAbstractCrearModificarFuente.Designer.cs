@@ -44,7 +44,7 @@ namespace UI.NuevasPantallas
             this.label5 = new System.Windows.Forms.Label();
             this.buttonGuardar = new System.Windows.Forms.Button();
             this.buttonCancelar = new System.Windows.Forms.Button();
-            this.bgwActualizarRssAlGuardar = new System.ComponentModel.BackgroundWorker();
+            this.bgwActualizarItemsAlGuardar = new System.ComponentModel.BackgroundWorker();
             this.panelTextoFijo = new System.Windows.Forms.Panel();
             this.textoFijo = new UI.UserControls.TextoFijo();
             this.panelRss.SuspendLayout();
@@ -184,6 +184,10 @@ namespace UI.NuevasPantallas
             this.buttonCancelar.UseVisualStyleBackColor = true;
             this.buttonCancelar.Click += new System.EventHandler(this.buttonCancelar_Click);
             // 
+            // bgwActualizarItemsAlGuardar
+            // 
+            this.bgwActualizarItemsAlGuardar.DoWork += new System.ComponentModel.DoWorkEventHandler(this.bgwActualizarItemsAlGuardar_DoWork);
+            // 
             // panelTextoFijo
             // 
             this.panelTextoFijo.Controls.Add(this.textoFijo);
@@ -214,6 +218,7 @@ namespace UI.NuevasPantallas
             this.Controls.Add(this.panelRss);
             this.Name = "VAbstractCrearModificarFuente";
             this.Text = "VAbstractCrearModificarFuente";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.VAbstractCrearModificarFuente_FormClosing);
             this.panelRss.ResumeLayout(false);
             this.panelRss.PerformLayout();
             this.panelTextoFijo.ResumeLayout(false);
@@ -238,7 +243,7 @@ namespace UI.NuevasPantallas
         protected System.Windows.Forms.TextBox textBoxAgregarPasoBanner;
         protected System.Windows.Forms.TextBox textBoxDescripcionTextoFijo;
         protected System.Windows.Forms.ListBox listBoxPasosBanner;
-        protected System.ComponentModel.BackgroundWorker bgwActualizarRssAlGuardar;
+        protected System.ComponentModel.BackgroundWorker bgwActualizarItemsAlGuardar;
         protected System.Windows.Forms.Panel panelTextoFijo;
         protected UserControls.TextoFijo textoFijo;
     }
