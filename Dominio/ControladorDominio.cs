@@ -67,11 +67,7 @@ namespace Dominio
 
         public List<Banner> BuscarBannerPorAtributo(Expression<Func<Banner, bool>> filter = null)
         {
-            try {
                 return this.iUoW.RepositorioBanners.Obtener(filter, null).ToList();
-            }
-            catch(Exception)
-            { return null; }
         }
 
         public List<Banner> FiltrarBanners(
@@ -221,11 +217,7 @@ namespace Dominio
 
         public List<Campania> BuscarCampaniaPorAtributo(Expression<Func<Campania, bool>> filter = null)
         {
-            try {
                 return this.iUoW.RepositorioCampanias.Obtener(filter, null).ToList();
-            }
-            catch(Exception)
-            { return null; }
         }
         #endregion
 
@@ -266,11 +258,7 @@ namespace Dominio
 
         public List<Fuente> BuscarFuentePorAtributo(Expression<Func<Fuente, bool>> filter = null)
         {
-            try {
                 return this.iUoW.RepositorioFuentes.Obtener(filter, null).ToList();
-            }
-            catch(Exception)
-            { return null; }
         }
 
         public List<Fuente> ObtenerTodasLasFuentes()
