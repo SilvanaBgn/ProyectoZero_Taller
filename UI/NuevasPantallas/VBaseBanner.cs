@@ -70,13 +70,17 @@ namespace UI.NuevasPantallas
 
             //Cambiamos el orden de las columnas:
             this.dataGridViewMostrar.Columns["FuenteId"].Visible = false;
-            this.dataGridViewMostrar.Columns["Titulo"].DisplayIndex = 0;
-            this.dataGridViewMostrar.Columns["FechaInicio"].DisplayIndex = 1;
-            this.dataGridViewMostrar.Columns["FechaFin"].DisplayIndex = 2;
-            this.dataGridViewMostrar.Columns["HoraInicio"].DisplayIndex = 3;
-            this.dataGridViewMostrar.Columns["HoraFin"].DisplayIndex = 4;
-            this.dataGridViewMostrar.Columns["Descripcion"].DisplayIndex = 5;
-            this.dataGridViewMostrar.Columns["BannerId"].DisplayIndex = 6;
+
+            this.dataGridViewMostrar.Columns["BannerId"].DisplayIndex = 0;
+            this.dataGridViewMostrar.Columns["Titulo"].DisplayIndex = 1;
+            this.dataGridViewMostrar.Columns["FechaInicio"].DisplayIndex = 2;
+            this.dataGridViewMostrar.Columns["FechaFin"].DisplayIndex = 3;
+            this.dataGridViewMostrar.Columns["HoraInicio"].DisplayIndex = 4;
+            this.dataGridViewMostrar.Columns["HoraFin"].DisplayIndex = 5;
+            this.dataGridViewMostrar.Columns["Descripcion"].DisplayIndex = 6;
+
+            this.dataGridViewMostrar.Columns["BannerId"].HeaderText = "Cod";
+
         }
 
         /// <summary>
