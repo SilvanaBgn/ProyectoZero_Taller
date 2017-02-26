@@ -57,27 +57,18 @@ namespace UI.NuevasPantallas
             this.iCampaniaAModificar.Imagenes = this.galeria.ListaImagenes;
             this.iCampaniaAModificar.DuracionImagen = this.galeria.Segundos;
 
-            //var imagenesABorrar = (from img in imagenesViejas
-            //                      let item = iCampaniaAModificar.Imagenes.FirstOrDefault(i => i.ImagenId == img.ImagenId)
-            //                      where item == null
-            //                      select img).ToList();
-            //if (imagenesABorrar.Any())
-            //{
-            //    foreach (var img in imagenesABorrar)
-            //    {
-            //        imagenesABorrar = null;
-            //    }
-            //}
-
-
-
-
-
             try
             {
-            this.iControladorDominio.ModificarCampania(this.iCampaniaAModificar);
-            this.iControladorDominio.GuardarCambios();
-            this.Close();
+                if (!this.rangoHorario.HorarioValido())
+                {
+                    MessageBox.Show("La hora de fin debe ser posterior a la hora de inicio", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                else
+                {
+                    this.iControladorDominio.ModificarCampania(this.iCampaniaAModificar);
+                    this.iControladorDominio.GuardarCambios();
+                    this.Close();
+                }
         }
             catch (ExcepcionCamposSinCompletar ex)
             {
