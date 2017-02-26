@@ -114,5 +114,17 @@ namespace UI.UserControls
                 this.labelDiferenciaEntreInicioFin.Text = this.DiferenciaEntreHoras(this.HoraInicio, this.HoraFin);
             }
         }
+
+
+        public bool HorarioValido()
+        {
+            bool validez;
+            if ((Convert.ToInt32(this.comboBoxH2.SelectedItem) >= Convert.ToInt32(this.comboBoxH1.SelectedItem)) && (Convert.ToInt32(this.comboBoxM2.SelectedItem) > Convert.ToInt32(this.comboBoxM1.SelectedItem)))
+                validez = true;
+            else validez = false;
+
+            return validez;
+        }
+
     }
 }

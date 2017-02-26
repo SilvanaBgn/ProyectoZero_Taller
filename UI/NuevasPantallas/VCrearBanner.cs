@@ -30,6 +30,10 @@ namespace UI.NuevasPantallas
             {
                 MessageBox.Show("Se debe seleccionar una fuente", "Faltan campos", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+            else if (!this.rangoHorario.HorarioValido())
+            {
+                MessageBox.Show("La hora de fin debe ser posterior a la hora de inicio", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
             else
             {
                 bannerAAgregar.FuenteId = ((Fuente)this.dataGridViewMostrarFuentes.CurrentRow.DataBoundItem).FuenteId;

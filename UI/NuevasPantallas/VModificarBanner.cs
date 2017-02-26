@@ -73,10 +73,17 @@ namespace UI.NuevasPantallas
             this.iBannerAModificar.HoraInicio = this.rangoHorario.HoraInicio;
             this.iBannerAModificar.HoraFin = this.rangoHorario.HoraFin;
 
-            this.iControladorDominio.ModificarBanner(this.iBannerAModificar);
-            this.iControladorDominio.GuardarCambios();
+            if (!this.rangoHorario.HorarioValido())
+            {
+                MessageBox.Show("La hora de fin debe ser posterior a la hora de inicio", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            else
+            {
+                this.iControladorDominio.ModificarBanner(this.iBannerAModificar);
+                this.iControladorDominio.GuardarCambios();
 
-            this.Close();
+                this.Close();
+            }
         }
 
         /// <summary>

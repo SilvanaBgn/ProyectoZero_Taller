@@ -33,14 +33,17 @@ namespace Persistencia
         public virtual IEnumerable<T> Obtener(Expression<Func<T, bool>> pFilter = null, Func<IQueryable<T>, IOrderedQueryable<T>> pOrderBy = null)
         {
             IQueryable<T> query = this.iDbSet;
+            try {
+                if (pFilter != null)
+                    query = query.Where(pFilter);
 
-            if (pFilter != null)
-                query = query.Where(pFilter);
-
-            if (pOrderBy != null)
-                return pOrderBy(query).ToList();
-            else
-                return query.ToList();
+                if (pOrderBy != null)
+                    return pOrderBy(query).ToList();
+                else
+                    return query.ToList();
+            }
+            catch(Exception)
+            { return query; }
         }
 
         /// <summary>
