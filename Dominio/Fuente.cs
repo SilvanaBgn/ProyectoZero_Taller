@@ -23,12 +23,11 @@ namespace Dominio
 
 
 
-
-
-
         public virtual ICollection<Banner> Banners { get; set; }
 
         public virtual ICollection<Item> Items { get; set; }
+
+
 
         /// <summary>
         /// Indica el método de lectura de esta fuente, según su Tipo
@@ -56,6 +55,7 @@ namespace Dominio
                 this.iTipo = value;
             }
         }
+
 
         private string iOrigenItems;
 
