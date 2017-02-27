@@ -67,6 +67,7 @@ namespace UI.NuevasPantallas
         /// </summary>
         private void ButtonGuardar_Click(object sender, EventArgs e)
         {
+            this.buttonGuardar.Enabled = false;
             //Completamos el this.iBanner con los datos modificados:
             this.iBanner.Titulo = this.textBoxTitulo.Text;
             this.iBanner.Descripcion = this.textBoxDescripcion.Text;

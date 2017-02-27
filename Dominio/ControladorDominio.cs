@@ -102,7 +102,7 @@ namespace Dominio
         {
             try
             {
-                return this.iUoW.RepositorioBanners.Obtener(filter, null).ToList();
+                return this.iUoW.RepositorioBanners.Obtener(pFilter, null).ToList();
         }
             catch (ExcepcionGeneral)
             { throw new ExcepcionAlObtenerBanners("Ocurrió un error al buscar los banners"); }
@@ -311,7 +311,7 @@ namespace Dominio
         {
             try
             {
-                return this.iUoW.RepositorioCampanias.Obtener(filter, null).ToList();
+                return this.iUoW.RepositorioCampanias.Obtener(pFilter, null).ToList();
         }
             catch (ExcepcionGeneral)
             {
@@ -381,7 +381,7 @@ namespace Dominio
         {
             try
             {
-                return this.iUoW.RepositorioFuentes.Obtener(filter, null).ToList();
+                return this.iUoW.RepositorioFuentes.Obtener(pFilter, null).ToList();
         }
             catch (ExcepcionGeneral)
             {
