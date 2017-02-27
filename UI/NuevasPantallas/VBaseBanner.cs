@@ -17,12 +17,12 @@ namespace UI.NuevasPantallas
         /// <summary>
         /// Atributo que almacena la Ventana de "Nuevo Banner"
         /// </summary>
-        private VCrearBanner iVentanaNuevo;
+        private VNuevoBanner iVentanaNuevo;
 
         /// <summary>
         /// Atributo que almacena la Ventana de "Editar Banner"
         /// </summary>
-        private VModificarBanner iVentanaEditar;
+        private VEditarBanner iVentanaEditar;
 
 
         //CONSTRUCTOR
@@ -75,7 +75,7 @@ namespace UI.NuevasPantallas
         /// </summary>
         private void buttonNuevo_Click(object sender, EventArgs e)
         {
-            this.iVentanaNuevo = new VCrearBanner(ref this.iControladorDominio);
+            this.iVentanaNuevo = new VNuevoBanner(ref this.iControladorDominio);
             this.iVentanaNuevo.Owner = this;
             this.iVentanaNuevo.ShowDialog();
             this.iVentanaNuevo = null;
@@ -90,7 +90,7 @@ namespace UI.NuevasPantallas
                 MessageBox.Show("Se debe seleccionar un banner", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             else
             {
-                this.iVentanaEditar = new VModificarBanner(ref this.iControladorDominio, this.BannerSeleccionado());
+                this.iVentanaEditar = new VEditarBanner(ref this.iControladorDominio, this.BannerSeleccionado());
                 this.iVentanaEditar.Owner = this;
                 this.iVentanaEditar.ShowDialog();
                 this.iVentanaEditar = null;

@@ -23,12 +23,12 @@ namespace UI.NuevasPantallas
         /// <summary>
         /// Atributo que almacena la Ventana de "Nueva Fuente"
         /// </summary>
-        private VCrearFuente iVentanaNueva;
+        private VNuevaFuente iVentanaNueva;
 
         /// <summary>
         /// Atributo que almacena la Ventana de "Editar Fuente"
         /// </summary>
-        private VModificarFuente iVentanaEditar;
+        private VEditarFuente iVentanaEditar;
 
 
 
@@ -65,7 +65,7 @@ namespace UI.NuevasPantallas
         /// </summary>
         private void buttonNuevo_Click(object sender, EventArgs e)
         {
-            this.iVentanaNueva = new VCrearFuente(ref this.iControladorDominio);
+            this.iVentanaNueva = new VNuevaFuente(ref this.iControladorDominio);
             this.iVentanaNueva.Owner = this;
             this.iVentanaNueva.ShowDialog();
             this.iVentanaNueva = null;
@@ -81,7 +81,7 @@ namespace UI.NuevasPantallas
                 MessageBox.Show("Se debe seleccionar una fuente", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             else
             {
-                this.iVentanaEditar = new VModificarFuente(ref this.iControladorDominio, fuenteSeleccionada);
+                this.iVentanaEditar = new VEditarFuente(ref this.iControladorDominio, fuenteSeleccionada);
                 this.iVentanaEditar.Owner = this;
                 this.iVentanaEditar.ShowDialog();
                 this.iVentanaEditar = null;

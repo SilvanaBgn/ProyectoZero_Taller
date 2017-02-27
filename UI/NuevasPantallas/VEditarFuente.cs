@@ -12,10 +12,10 @@ using Excepciones.ExcepcionesPantalla;
 
 namespace UI.NuevasPantallas
 {
-    public partial class VModificarFuente : VAbstractCrearModificarFuente
+    public partial class VEditarFuente : VAbstractCrearModificarFuente
     {
         //CONSTRUCTOR
-        public VModificarFuente(ref ControladorDominio pControladorDominio, Fuente pFuenteAModificar) : base(ref pControladorDominio)
+        public VEditarFuente(ref ControladorDominio pControladorDominio, Fuente pFuenteAModificar) : base(ref pControladorDominio)
         {
             InitializeComponent();
             this.iFuente = pFuenteAModificar;

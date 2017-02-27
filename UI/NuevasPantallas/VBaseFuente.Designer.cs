@@ -237,7 +237,7 @@ namespace UI.NuevasPantallas
             this.buttonBorrar.Name = "buttonBorrar";
             this.buttonBorrar.Size = new System.Drawing.Size(88, 40);
             this.buttonBorrar.TabIndex = 23;
-            this.buttonBorrar.Text = "&Borrar";
+            this.buttonBorrar.Text = "Borrar";
             this.buttonBorrar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.buttonBorrar.UseVisualStyleBackColor = true;
             this.buttonBorrar.Click += new System.EventHandler(this.buttonEliminar_Click);
@@ -250,7 +250,7 @@ namespace UI.NuevasPantallas
             this.buttonEditar.Name = "buttonEditar";
             this.buttonEditar.Size = new System.Drawing.Size(88, 40);
             this.buttonEditar.TabIndex = 22;
-            this.buttonEditar.Text = "&Editar";
+            this.buttonEditar.Text = "Editar";
             this.buttonEditar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.buttonEditar.UseVisualStyleBackColor = true;
             this.buttonEditar.Click += new System.EventHandler(this.buttonModificar_Click);
@@ -263,7 +263,7 @@ namespace UI.NuevasPantallas
             this.buttonNuevo.Name = "buttonNuevo";
             this.buttonNuevo.Size = new System.Drawing.Size(88, 40);
             this.buttonNuevo.TabIndex = 21;
-            this.buttonNuevo.Text = "&Nuevo";
+            this.buttonNuevo.Text = "Nuevo";
             this.buttonNuevo.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.buttonNuevo.UseVisualStyleBackColor = true;
             this.buttonNuevo.Click += new System.EventHandler(this.buttonNuevo_Click);

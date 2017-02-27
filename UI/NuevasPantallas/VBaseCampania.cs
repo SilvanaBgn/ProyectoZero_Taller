@@ -16,12 +16,12 @@ namespace UI.NuevasPantallas
         /// <summary>
         /// Atributo que almacena la Ventana de "Nueva Campania"
         /// </summary>
-        private VCrearCampania iVentanaNueva;
+        private VNuevaCampania iVentanaNueva;
 
         /// <summary>
         /// Atributo que almacena la Ventana de "Editar Campania"
         /// </summary>
-        private VModificarCampania iVentanaEditar;
+        private VEditarCampania iVentanaEditar;
 
 
 
@@ -78,7 +78,7 @@ namespace UI.NuevasPantallas
         /// </summary>
         private void buttonNuevo_Click(object sender, EventArgs e)
         {
-            this.iVentanaNueva = new VCrearCampania(ref iControladorDominio);
+            this.iVentanaNueva = new VNuevaCampania(ref iControladorDominio);
             this.iVentanaNueva.Owner = this;
             this.iVentanaNueva.ShowDialog();
             this.iVentanaNueva = null;
@@ -93,7 +93,7 @@ namespace UI.NuevasPantallas
                 MessageBox.Show("Se debe seleccionar una campaña", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             else
             {
-                this.iVentanaEditar = new VModificarCampania(ref this.iControladorDominio, this.CampaniaSeleccionada());
+                this.iVentanaEditar = new VEditarCampania(ref this.iControladorDominio, this.CampaniaSeleccionada());
                 this.iVentanaEditar.Owner = this;
                 this.iVentanaEditar.ShowDialog();
                 this.iVentanaEditar = null;

@@ -1,6 +1,6 @@
 ﻿namespace UI.NuevasPantallas
 {
-    partial class VModificarFuente
+    partial class VNuevaCampania
     {
         /// <summary>
         /// Required designer variable.
@@ -28,27 +28,21 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(VModificarFuente));
-            this.panelRss.SuspendLayout();
-            this.panelTextoFijo.SuspendLayout();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(VNuevaCampania));
             this.SuspendLayout();
             // 
             // buttonGuardar
             // 
             this.buttonGuardar.Click += new System.EventHandler(this.ButtonGuardar_Click);
             // 
-            // VModificarFuente
+            // VCrearCampania
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(461, 309);
+            this.ClientSize = new System.Drawing.Size(520, 466);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Name = "VModificarFuente";
-            this.Text = "Editar Fuente";
-            this.Load += new System.EventHandler(this.VModificarFuente_Load);
-            this.panelRss.ResumeLayout(false);
-            this.panelRss.PerformLayout();
-            this.panelTextoFijo.ResumeLayout(false);
+            this.Name = "VCrearCampania";
+            this.Text = "Nueva Campaña";
             this.ResumeLayout(false);
             this.PerformLayout();
 

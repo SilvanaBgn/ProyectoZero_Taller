@@ -11,10 +11,10 @@ using Dominio;
 
 namespace UI.NuevasPantallas
 {
-    public partial class VModificarBanner : VAbstractCrearModificarBanner
+    public partial class VEditarBanner : VAbstractCrearModificarBanner
     {
         //CONSTRUCTOR
-        public VModificarBanner(ref ControladorDominio pControladorDominio, Banner pBannerAModificar) : base(ref pControladorDominio)
+        public VEditarBanner(ref ControladorDominio pControladorDominio, Banner pBannerAModificar) : base(ref pControladorDominio)
         {
             InitializeComponent();
             //Asignamos el banner que se desea modificar:

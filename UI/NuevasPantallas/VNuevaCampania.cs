@@ -12,10 +12,10 @@ using Excepciones.ExcepcionesPantalla;
 
 namespace UI.NuevasPantallas
 {
-    public partial class VCrearCampania : VAbstractCrearModificarCampania
+    public partial class VNuevaCampania : VAbstractCrearModificarCampania
     {
         //CONSTRUCTOR
-        public VCrearCampania(ref ControladorDominio pControladorDominio) : base(ref pControladorDominio)
+        public VNuevaCampania(ref ControladorDominio pControladorDominio) : base(ref pControladorDominio)
         {
             InitializeComponent();
         }

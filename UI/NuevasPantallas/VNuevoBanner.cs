@@ -4,9 +4,9 @@ using System.Windows.Forms;
 
 namespace UI.NuevasPantallas
 {
-    public partial class VCrearBanner : VAbstractCrearModificarBanner
+    public partial class VNuevoBanner : VAbstractCrearModificarBanner
     {
-        public VCrearBanner(ref ControladorDominio pControladorDominio) : base(ref pControladorDominio)
+        public VNuevoBanner(ref ControladorDominio pControladorDominio) : base(ref pControladorDominio)
         {
             InitializeComponent();
         }
@@ -66,7 +66,7 @@ namespace UI.NuevasPantallas
         /// </summary>
         private void buttonNuevaFuente_Click(object sender, EventArgs e)
         {
-            VCrearFuente vFuente = new VCrearFuente(ref this.iControladorDominio);
+            VNuevaFuente vFuente = new VNuevaFuente(ref this.iControladorDominio);
             vFuente.Show();
         }
         #endregion

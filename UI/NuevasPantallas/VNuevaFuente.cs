@@ -13,10 +13,10 @@ using Excepciones.ExcepcionesDominio;
 
 namespace UI.NuevasPantallas
 {
-    public partial class VCrearFuente : VAbstractCrearModificarFuente
+    public partial class VNuevaFuente : VAbstractCrearModificarFuente
     {
         //CONSTRUCTOR
-        public VCrearFuente(ref ControladorDominio pControladorDominio) : base(ref pControladorDominio)
+        public VNuevaFuente(ref ControladorDominio pControladorDominio) : base(ref pControladorDominio)
         {
             InitializeComponent();
         }
