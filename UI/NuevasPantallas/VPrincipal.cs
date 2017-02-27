@@ -10,6 +10,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Contenedor;
 using System.Threading;
+using Excepciones.ExcepcionesPantalla;
 
 namespace UI.NuevasPantallas
 {
@@ -76,7 +77,7 @@ namespace UI.NuevasPantallas
             string infoBannerNuevo = this.iControladorDominio.InfoBanner(this.iBannerAPasar);
 
             if (this.iInfoBannerActual != infoBannerNuevo)//En el caso de una Lectura Externa, serían distintos
-                //Entonces, preguntamos para que en el caso, el bannerDesl no se recargue:
+                                                          //Entonces, preguntamos para que en el caso, el bannerDesl no se recargue:
             {
                 this.iInfoBannerActual = infoBannerNuevo;
                 this.bannerDeslizante.Stop();
@@ -130,7 +131,13 @@ namespace UI.NuevasPantallas
             this.iFechaActual = DateTime.Today;
             this.iHoraActual = new TimeSpan(fechaHora.Hour, fechaHora.Minute, fechaHora.Second);
 
-            this.iCampaniaAPasar = this.iControladorDominio.ProximaCampaniaAPasar(this.iFechaActual, this.iHoraActual);
+            try {
+                this.iCampaniaAPasar = this.iControladorDominio.ProximaCampaniaAPasar(this.iFechaActual, this.iHoraActual);
+            }
+            catch(ExcepcionAlObtenerCampanias ex)
+            {
+                { MessageBox.Show(ex.Message, "Error al intentar obtener campaña", MessageBoxButtons.OK, MessageBoxIcon.Error); }
+            }
         }
 
         private void bgwObtenerCampania_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
@@ -180,7 +187,12 @@ namespace UI.NuevasPantallas
             this.iFechaActual = DateTime.Today;
             this.iHoraActual = new TimeSpan(fechaHora.Hour, fechaHora.Minute, fechaHora.Second);
             //Buscamos el banner a pasar ahora
-            this.iBannerAPasar = this.iControladorDominio.ProximoBannerAPasar(this.iFechaActual, this.iHoraActual);
+            try
+            {
+                this.iBannerAPasar = this.iControladorDominio.ProximoBannerAPasar(this.iFechaActual, this.iHoraActual);
+            }
+            catch(ExcepcionAlObtenerBanners ex)
+            { MessageBox.Show(ex.Message, "Error al intentar obtener banner", MessageBoxButtons.OK, MessageBoxIcon.Error); }
             this.timerChequeoCambioBanner.Interval = this.iControladorDominio.IntervaloAlProxCuartoDeHora(this.iHoraActual);
         }
 

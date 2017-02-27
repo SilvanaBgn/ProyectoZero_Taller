@@ -6,6 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Linq.Expressions;
 using Dominio;
+using Excepciones.ExcepcionesDominio;
 
 namespace Persistencia
 {
@@ -33,6 +34,7 @@ namespace Persistencia
         public virtual IEnumerable<T> Obtener(Expression<Func<T, bool>> pFilter = null, Func<IQueryable<T>, IOrderedQueryable<T>> pOrderBy = null)
         {
             IQueryable<T> query = this.iDbSet;
+            try {
                 if (pFilter != null)
                     query = query.Where(pFilter);
 
@@ -40,6 +42,9 @@ namespace Persistencia
                     return pOrderBy(query).ToList();
                 else
                     return query.ToList();
+            }
+            catch(Exception)
+            { throw new ExcepcionGeneral("Ocurrió un error al obtener entidades"); }
         }
 
         /// <summary>

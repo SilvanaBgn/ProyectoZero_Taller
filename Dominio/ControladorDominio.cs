@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
 using Excepciones.ExcepcionesPantalla;
+using Excepciones.ExcepcionesDominio;
 
 namespace Dominio
 {
@@ -20,7 +21,7 @@ namespace Dominio
 
         public void GuardarCambios()
         {
-            this.iUoW.GuardarCambios();
+                this.iUoW.GuardarCambios();
         }
 
         public void CancelarCambios()
@@ -67,7 +68,12 @@ namespace Dominio
 
         public List<Banner> BuscarBannerPorAtributo(Expression<Func<Banner, bool>> filter = null)
         {
+            try
+            {
                 return this.iUoW.RepositorioBanners.Obtener(filter, null).ToList();
+            }
+            catch (ExcepcionGeneral)
+            { throw new ExcepcionAlObtenerBanners("Ocurrió un error al buscar los banners"); }
         }
 
         public List<Banner> FiltrarBanners(
@@ -217,7 +223,14 @@ namespace Dominio
 
         public List<Campania> BuscarCampaniaPorAtributo(Expression<Func<Campania, bool>> filter = null)
         {
+            try
+            {
                 return this.iUoW.RepositorioCampanias.Obtener(filter, null).ToList();
+            }
+            catch (ExcepcionGeneral)
+            {
+                throw new ExcepcionAlObtenerCampanias("Ocurrió un error al buscar las campañas");
+            }
         }
         #endregion
 
@@ -258,7 +271,14 @@ namespace Dominio
 
         public List<Fuente> BuscarFuentePorAtributo(Expression<Func<Fuente, bool>> filter = null)
         {
+            try
+            {
                 return this.iUoW.RepositorioFuentes.Obtener(filter, null).ToList();
+            }
+            catch (ExcepcionGeneral)
+            {
+                throw new ExcepcionAlObtenerFuentes("Ocurrió un error al obtener las fuentes");
+            }
         }
 
         public List<Fuente> ObtenerTodasLasFuentes()
@@ -334,15 +354,18 @@ namespace Dominio
             // que pFechaActual sea mayor o igual a FechaInicio y menor o igual a FechaFin --> FechaInicio<=pFechaActual<=FechaFin
             //HoraInicio <= pHoraActual < HoraFin
             //Debería devolver un solo banner
-            List<Banner> posiblesBanners = this.BuscarBannerPorAtributo
-                 (x => x.FechaInicio.CompareTo(pFechaActual) <= 0 && x.FechaFin.CompareTo(pFechaActual) >= 0
-                      && x.HoraInicio.CompareTo(pHoraActual) <= 0 && x.HoraFin.CompareTo(pHoraActual) > 0
-                 );
+            try {
+                List<Banner> posiblesBanners = this.BuscarBannerPorAtributo
+                     (x => x.FechaInicio.CompareTo(pFechaActual) <= 0 && x.FechaFin.CompareTo(pFechaActual) >= 0
+                          && x.HoraInicio.CompareTo(pHoraActual) <= 0 && x.HoraFin.CompareTo(pHoraActual) > 0
+                     );
 
-            if (posiblesBanners.Count > 0) //Si encontró algún banner para el próximo cuarto de hora
-                return posiblesBanners[0]; //Tomamos el primer banner que encontró
-            else
-                return null;
+                if (posiblesBanners.Count > 0) //Si encontró algún banner para el próximo cuarto de hora
+                    return posiblesBanners[0]; //Tomamos el primer banner que encontró
+                else
+                    return null; }
+            catch (ExcepcionGeneral ex)
+            { throw new ExcepcionAlObtenerBanners(ex.Message); }
         }
 
         private string FormatearTextoBanner(Banner pBanner)
@@ -403,15 +426,20 @@ namespace Dominio
             // que pFechaActual sea mayor o igual a FechaInicio y menor o igual a FechaFin --> FechaInicio<=pFechaActual<=FechaFin
             //HoraInicio <= pHoraActual < HoraFin
             //Debería devolver una sola campania
-            List<Campania> posiblesCampanias = this.BuscarCampaniaPorAtributo
-                 (x => x.FechaInicio.CompareTo(pFechaActual) <= 0 && x.FechaFin.CompareTo(pFechaActual) >= 0
-                      && x.HoraInicio.CompareTo(pHoraActual) <= 0 && x.HoraFin.CompareTo(pHoraActual) > 0
-                 );
+            try
+            {
+                List<Campania> posiblesCampanias = this.BuscarCampaniaPorAtributo
+                     (x => x.FechaInicio.CompareTo(pFechaActual) <= 0 && x.FechaFin.CompareTo(pFechaActual) >= 0
+                          && x.HoraInicio.CompareTo(pHoraActual) <= 0 && x.HoraFin.CompareTo(pHoraActual) > 0
+                     );
 
-            if (posiblesCampanias.Count > 0) //Si encontró alguna campania para el próximo cuarto de hora
-                return posiblesCampanias[0]; //Tomamos la primera campania que encontró
-            else
-                return null;
+                if (posiblesCampanias.Count > 0) //Si encontró alguna campania para el próximo cuarto de hora
+                    return posiblesCampanias[0]; //Tomamos la primera campania que encontró
+                else
+                    return null;
+            }
+            catch(ExcepcionGeneral ex)
+            { throw new ExcepcionAlObtenerCampanias(ex.Message);}
         }
 
         /// <summary>

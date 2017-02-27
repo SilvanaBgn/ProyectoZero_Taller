@@ -68,6 +68,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ExcepcionesPantalla\ExcepcionAlObtenerBanners.cs" />
+    <Compile Include="ExcepcionesPantalla\ExcepcionAlObtenerCampanias.cs" />
+    <Compile Include="ExcepcionesPantalla\ExcepcionAlObtenerFuentes.cs" />
     <Compile Include="ExcepcionesPantalla\ExcepcionCampoIncorrecto.cs" />
     <Compile Include="ExcepcionesPantalla\ExcepcionCamposSinCompletar.cs" />
     <Compile Include="ExcepcionesDominio\ExcepcionErrorEnLaBusqueda.cs" />
@@ -78,7 +81,7 @@
     <Compile Include="ExcepcionesPantalla\ExcepcionAlCargarPantalla.cs" />
     <Compile Include="ExcepcionesDominio\ExcepcionFormatoURLIncorrecto.cs" />
     <Compile Include="ExcepcionesPersistencia\ExcepcionValidacionBBDD.cs" />
-    <Compile Include="ExcepcionesPersistencia\ExcepcionGeneral.cs" />
+    <Compile Include="ExcepcionesDominio\ExcepcionGeneral.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
