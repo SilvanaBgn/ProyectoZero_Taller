@@ -13,17 +13,23 @@ namespace Dominio
 
 
         #region Generales
-
+        // CONSTRUCTOR
         public ControladorDominio(IUnitOfWork pUoW)
         {
             this.iUoW = pUoW;
         }
 
+        /// <summary>
+        /// Guarda los cambios en la base de datos
+        /// </summary>
         public void GuardarCambios()
         {
-                this.iUoW.GuardarCambios();
+            this.iUoW.GuardarCambios();
         }
 
+        /// <summary>
+        /// Cancela los cambios del respositorio
+        /// </summary>
         public void CancelarCambios()
         {
             this.iUoW.Rollback();
@@ -32,6 +38,10 @@ namespace Dominio
 
 
         #region Banner
+        /// <summary>
+        /// Agrega un nuevo banner al respositorio
+        /// </summary>
+        /// <param name="pBanner">banner a agregar</param>
         public void AgregarBanner(Banner pBanner)
         {
             if (pBanner.Titulo == "")
@@ -46,36 +56,66 @@ namespace Dominio
             this.iUoW.RepositorioBanners.Agregar(pBanner);
         }
 
+        /// <summary>
+        /// Modifica un banner del respositorio
+        /// </summary>
+        /// <param name="pBanner">banner a modificar</param>
         public void ModificarBanner(Banner pBanner)
         {
             this.iUoW.RepositorioBanners.Modificar(pBanner);
         }
 
+        /// <summary>
+        /// Borra un banner del respositorio
+        /// </summary>
+        /// <param name="pBanner">banner a borrar</param>
         public void BorrarBanner(Banner pBanner)
         {
             this.iUoW.RepositorioBanners.Borrar(pBanner);
         }
 
+        /// <summary>
+        /// Borra un banner del respositorio
+        /// </summary>
+        /// <param name="pCodigo">código del banner a borrar</param>
         public void BorrarBanner(int pCodigo)
         {
             this.iUoW.RepositorioBanners.Borrar(pCodigo);
         }
 
+        /// <summary>
+        /// Busca un banner por ID del banner
+        /// </summary>
+        /// <param name="pId">ID del banner a buscar</param>
+        /// <returns>devuelve un banner de tipo banner</returns>
         public Banner BuscarBannerPorId(int pId)
         {
             return this.iUoW.RepositorioBanners.ObtenerPorId(pId);
         }
 
-        public List<Banner> BuscarBannerPorAtributo(Expression<Func<Banner, bool>> filter = null)
+        /// <summary>
+        /// Busca un banner por un atributo
+        /// </summary>
+        /// <param name="pFilter">filtro de busqueda</param>
+        /// <returns>devuelve una lista de banner</returns>
+        public List<Banner> BuscarBannerPorAtributo(Expression<Func<Banner, bool>> pFilter = null)
         {
             try
             {
                 return this.iUoW.RepositorioBanners.Obtener(filter, null).ToList();
-            }
+        }
             catch (ExcepcionGeneral)
             { throw new ExcepcionAlObtenerBanners("Ocurrió un error al buscar los banners"); }
         }
 
+        /// <summary>
+        /// Obtiene una lista de banner según los filtros que se le pasen como parámetros
+        /// </summary>
+        /// <param name="pFiltroFechas">filtro de fechas</param>
+        /// <param name="pFiltroHoras">filtro de horas</param>
+        /// <param name="pFiltroTitulo">filtro por título</param>
+        /// <param name="pFiltroDescripcion">filtro por descripción</param>
+        /// <returns>devuelve lista de banners filtrados</returns>
         public List<Banner> FiltrarBanners(
             DateTime[] pFiltroFechas, TimeSpan[] pFiltroHoras, string pFiltroTitulo, string pFiltroDescripcion)
         {
@@ -89,6 +129,7 @@ namespace Dominio
             Expression<Func<Banner, bool>> filtroTitulo = null;
             Expression<Func<Banner, bool>> filtroDescripcion = null;
 
+            //filtra por fechas
             if (pFiltroFechas != null)
             {
                 fechaInicio = pFiltroFechas[0];
@@ -96,6 +137,7 @@ namespace Dominio
                 filtroFechas = x => x.FechaInicio.CompareTo(fechaInicio) >= 0 && x.FechaFin.CompareTo(fechaFin) <= 0;
             }
 
+            //filtra por horas
             if (pFiltroHoras != null)
             {
                 horaInicio = pFiltroHoras[0];
@@ -103,20 +145,24 @@ namespace Dominio
                 filtroHoras = x => x.HoraInicio.CompareTo(horaInicio) >= 0 && x.HoraFin.CompareTo(horaFin) <= 0;
             }
 
+            //filtra por título
             if (pFiltroTitulo != null)
             {
                 filtroTitulo = x => x.Titulo.Contains(pFiltroTitulo);
             }
 
+            //filtra por descripción
             if (pFiltroDescripcion != null)
             {
                 filtroDescripcion = x => x.Descripcion.Contains(pFiltroDescripcion);
             }
-
-
             return this.iUoW.RepositorioBanners.Filtrar(filtroFechas, filtroHoras, filtroTitulo, filtroDescripcion).ToList();
         }
 
+        /// <summary>
+        /// Obtiene del repositorio banner todos los banners
+        /// </summary>
+        /// <returns>devuelve la lista de banners</returns>
         public List<Banner> ObtenerTodosLosBanners()
         {
             return this.iUoW.RepositorioBanners.Obtener(null, null).ToList();
@@ -125,6 +171,10 @@ namespace Dominio
 
         #region Campania
 
+        /// <summary>
+        /// Agrega una nueva campaña al repositorio
+        /// </summary>
+        /// <param name="pCampania">campaña a agregar</param>
         public void AgregarCampania(Campania pCampania)
         {
             if (pCampania.Imagenes.Count == 0)
@@ -143,6 +193,10 @@ namespace Dominio
             this.iUoW.RepositorioCampanias.Agregar(pCampania);
         }
 
+        /// <summary>
+        /// Modifica una campaña del repositorio
+        /// </summary>
+        /// <param name="pCampania">campaña a modificar</param>
         public void ModificarCampania(Campania pCampania)
         {
             if (pCampania.Imagenes.Count == 0)
@@ -161,26 +215,51 @@ namespace Dominio
             this.iUoW.RepositorioCampanias.Modificar(pCampania);
         }
 
+        /// <summary>
+        /// Borra una campaña del repositorio pasándole como parámetro una campaña
+        /// </summary>
+        /// <param name="pCampania">campaña a borrar</param>
         public void BorrarCampania(Campania pCampania)
         {
             this.iUoW.RepositorioCampanias.Borrar(pCampania);
         }
 
+        /// <summary>
+        /// Borra una campaña del repositorio pasándole como parámetro el código de una campaña
+        /// </summary>
+        /// <param name="pCodigo">identificador de la campaña a borrar</param>
         public void BorrarCampania(int pCodigo)
         {
             this.iUoW.RepositorioCampanias.Borrar(pCodigo);
         }
 
+        /// <summary>
+        /// Obtiene todas las campañas del repositorio campañas
+        /// </summary>
+        /// <returns>devuelve una lista de campañas</returns>
         public List<Campania> ObtenerTodasLasCampanias()
         {
             return iUoW.RepositorioCampanias.Obtener(null, null).ToList();
         }
 
+        /// <summary>
+        /// Busca una campaña pasandole como parámetro el ID de la campaña
+        /// </summary>
+        /// <param name="pId">ID de la campaña a buscar</param>
+        /// <returns>devuelve la campaña buscada</returns>
         public Campania BuscarCampaniaPorId(int pId)
         {
             return this.iUoW.RepositorioCampanias.ObtenerPorId(pId);
         }
 
+        /// <summary>
+        /// Obtiene una lista de campañas según los filtros que se le pasen como parámetros
+        /// </summary>
+        /// <param name="pFiltroFechas">filtro de fechas</param>
+        /// <param name="pFiltroHoras">filtro de horas</param>
+        /// <param name="pFiltroTitulo">filtro por título</param>
+        /// <param name="pFiltroDescripcion">filtro por descripción</param>
+        /// <returns>devuelve lista de campañas filtradas</returns>
         public List<Campania> FiltrarCampanias(DateTime[] pFiltroFechas, TimeSpan[] pFiltroHoras, string pFiltroTitulo, string pFiltroDescripcion)
         {
             DateTime fechaInicio;
@@ -193,6 +272,7 @@ namespace Dominio
             Expression<Func<Campania, bool>> filtroTitulo = null;
             Expression<Func<Campania, bool>> filtroDescripcion = null;
 
+            //filtra por fechas
             if (pFiltroFechas != null)
             {
                 fechaInicio = pFiltroFechas[0];
@@ -200,6 +280,7 @@ namespace Dominio
                 filtroFechas = x => x.FechaInicio.CompareTo(fechaInicio) >= 0 && x.FechaFin.CompareTo(fechaFin) <= 0;
             }
 
+            //filtra por horas
             if (pFiltroHoras != null)
             {
                 horaInicio = pFiltroHoras[0];
@@ -207,26 +288,31 @@ namespace Dominio
                 filtroHoras = x => x.HoraInicio.CompareTo(horaInicio) >= 0 && x.HoraFin.CompareTo(horaFin) <= 0;
             }
 
+            //filtra por titulo
             if (pFiltroTitulo != null)
             {
                 filtroTitulo = x => x.Titulo.Contains(pFiltroTitulo);
             }
 
+            //filtra por descripcion
             if (pFiltroDescripcion != null)
             {
                 filtroDescripcion = x => x.Descripcion.Contains(pFiltroDescripcion);
             }
-
-
             return this.iUoW.RepositorioCampanias.Filtrar(filtroFechas, filtroHoras, filtroTitulo, filtroDescripcion).ToList();
         }
 
-        public List<Campania> BuscarCampaniaPorAtributo(Expression<Func<Campania, bool>> filter = null)
+        /// <summary>
+        /// Busca las campañas según el atributo pasado como parámetro
+        /// </summary>
+        /// <param name="pFilter">filtro de busqueda para una campaña</param>
+        /// <returns>devuelve la lista de campañas buscadas</returns>
+        public List<Campania> BuscarCampaniaPorAtributo(Expression<Func<Campania, bool>> pFilter = null)
         {
             try
             {
                 return this.iUoW.RepositorioCampanias.Obtener(filter, null).ToList();
-            }
+        }
             catch (ExcepcionGeneral)
             {
                 throw new ExcepcionAlObtenerCampanias("Ocurrió un error al buscar las campañas");
@@ -235,6 +321,10 @@ namespace Dominio
         #endregion
 
         #region FuenteRss
+        /// <summary>
+        /// Agrega una nueva fuente al repositorio
+        /// </summary>
+        /// <param name="pFuente">fuente a agregar</param>
         public void AgregarFuente(Fuente pFuente)
         {
             if (pFuente.Tipo == TipoFuente.Rss && pFuente.OrigenItems == "")
@@ -254,38 +344,66 @@ namespace Dominio
 
         }
 
+        /// <summary>
+        /// Modifica una fuente del repositorio
+        /// </summary>
+        /// <param name="pFuente">fuente a agregar</param>
         public void ModificarFuente(Fuente pFuente)
         {
             this.iUoW.RepositorioFuentes.Modificar(pFuente);
         }
 
+        /// <summary>
+        /// Borra una fuente del repositorio pasándole como parámetro su código
+        /// </summary>
+        /// <param name="pCodigo">identificador de la fuente a borrar</param>
         public void BorrarFuente(int pCodigo)
         {
             this.iUoW.RepositorioFuentes.Borrar(pCodigo);
         }
 
+        /// <summary>
+        /// Busca una fuente por el ID de la fuente
+        /// </summary>
+        /// <param name="pId">ID de la fuente a buscar</param>
+        /// <returns>devuelve la fuente buscada</returns>
         public Fuente BuscarFuentePorId(int pId)
         {
             return this.iUoW.RepositorioFuentes.ObtenerPorId(pId);
         }
 
-        public List<Fuente> BuscarFuentePorAtributo(Expression<Func<Fuente, bool>> filter = null)
+        /// <summary>
+        /// Busca una fuente según el atributo pasado como parámetro 
+        /// </summary>
+        /// <param name="pFilter">filtro de búsqueda para una fuente</param>
+        /// <returns>devuelve el listado de fuentes buscadas</returns>
+        public List<Fuente> BuscarFuentePorAtributo(Expression<Func<Fuente, bool>> pFilter = null)
         {
             try
             {
                 return this.iUoW.RepositorioFuentes.Obtener(filter, null).ToList();
-            }
+        }
             catch (ExcepcionGeneral)
             {
                 throw new ExcepcionAlObtenerFuentes("Ocurrió un error al obtener las fuentes");
             }
         }
 
+        /// <summary>
+        /// Obtiene todas las fuentes del repositorio fuentes
+        /// </summary>
+        /// <returns>devuelve la lista de las fuentes existentes</returns>
         public List<Fuente> ObtenerTodasLasFuentes()
         {
             return iUoW.RepositorioFuentes.Obtener().ToList();
         }
 
+        /// <summary>
+        /// Filtra las fuentes según el tipo de fuente y descripción
+        /// </summary>
+        /// <param name="pFiltroTipoFuente">tipo de fuente</param>
+        /// <param name="pFiltroDescripcion">descripción de la fuente</param>
+        /// <returns>devuelve una lista de fuentes filtradas</returns>
         public List<Fuente> FiltrarFuentes(string pFiltroTipoFuente, string pFiltroDescripcion)
         {
 
@@ -301,17 +419,17 @@ namespace Dominio
             Expression<Func<Fuente, bool>> filtroTipoFuente = null;
             Expression<Func<Fuente, bool>> filtroDescripcion = null;
 
+            //filtra por tipo de fuente
             if (pFiltroTipoFuente != null)
             {
                 filtroTipoFuente = x => x.Tipo == tipoFuente;
             }
 
+            //filtra por descripcion
             if (pFiltroDescripcion != null)
             {
                 filtroDescripcion = x => x.Descripcion.Contains(pFiltroDescripcion);
             }
-
-
             return this.iUoW.RepositorioFuentes.Filtrar(filtroTipoFuente, filtroDescripcion).ToList();
         }
 
@@ -355,19 +473,24 @@ namespace Dominio
             //HoraInicio <= pHoraActual < HoraFin
             //Debería devolver un solo banner
             try {
-                List<Banner> posiblesBanners = this.BuscarBannerPorAtributo
-                     (x => x.FechaInicio.CompareTo(pFechaActual) <= 0 && x.FechaFin.CompareTo(pFechaActual) >= 0
-                          && x.HoraInicio.CompareTo(pHoraActual) <= 0 && x.HoraFin.CompareTo(pHoraActual) > 0
-                     );
+            List<Banner> posiblesBanners = this.BuscarBannerPorAtributo
+                 (x => x.FechaInicio.CompareTo(pFechaActual) <= 0 && x.FechaFin.CompareTo(pFechaActual) >= 0
+                      && x.HoraInicio.CompareTo(pHoraActual) <= 0 && x.HoraFin.CompareTo(pHoraActual) > 0
+                 );
 
-                if (posiblesBanners.Count > 0) //Si encontró algún banner para el próximo cuarto de hora
-                    return posiblesBanners[0]; //Tomamos el primer banner que encontró
-                else
+            if (posiblesBanners.Count > 0) //Si encontró algún banner para el próximo cuarto de hora
+                return posiblesBanners[0]; //Tomamos el primer banner que encontró
+            else
                     return null; }
             catch (ExcepcionGeneral ex)
             { throw new ExcepcionAlObtenerBanners(ex.Message); }
         }
 
+        /// <summary>
+        /// Concatena todos los items de un banner en un string seprando cada uno por un punto
+        /// </summary>
+        /// <param name="pBanner">banner a dar formato</param>
+        /// <returns>devuelve un string con los items del banner concatenados</returns>
         private string FormatearTextoBanner(Banner pBanner)
         {
             string texto = "";
@@ -428,16 +551,16 @@ namespace Dominio
             //Debería devolver una sola campania
             try
             {
-                List<Campania> posiblesCampanias = this.BuscarCampaniaPorAtributo
-                     (x => x.FechaInicio.CompareTo(pFechaActual) <= 0 && x.FechaFin.CompareTo(pFechaActual) >= 0
-                          && x.HoraInicio.CompareTo(pHoraActual) <= 0 && x.HoraFin.CompareTo(pHoraActual) > 0
-                     );
+            List<Campania> posiblesCampanias = this.BuscarCampaniaPorAtributo
+                 (x => x.FechaInicio.CompareTo(pFechaActual) <= 0 && x.FechaFin.CompareTo(pFechaActual) >= 0
+                      && x.HoraInicio.CompareTo(pHoraActual) <= 0 && x.HoraFin.CompareTo(pHoraActual) > 0
+                 );
 
-                if (posiblesCampanias.Count > 0) //Si encontró alguna campania para el próximo cuarto de hora
-                    return posiblesCampanias[0]; //Tomamos la primera campania que encontró
-                else
-                    return null;
-            }
+            if (posiblesCampanias.Count > 0) //Si encontró alguna campania para el próximo cuarto de hora
+                return posiblesCampanias[0]; //Tomamos la primera campania que encontró
+            else
+                return null;
+        }
             catch(ExcepcionGeneral ex)
             { throw new ExcepcionAlObtenerCampanias(ex.Message);}
         }

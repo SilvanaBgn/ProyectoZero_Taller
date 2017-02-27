@@ -10,7 +10,7 @@ using System.Windows.Forms;
 namespace UI.UserControls
 {
     /// <summary>
-    /// Clase que contiene todos los métodos necesarios para la movilización por un TextBox de un banner
+    /// Componente que contiene todos los métodos necesarios para deslizar un banner por un TextBox 
     /// </summary>
     public class BannerDeslizante : TextBox
     {
@@ -53,7 +53,7 @@ namespace UI.UserControls
         }
 
 
-#region FUNCIONES PRIVADAS
+#region Funciones Privadas
         /// <summary>
         /// Evento Tick del this.iTimerTexto, que indica qué hacer cada un tick
         /// </summary>
@@ -102,7 +102,7 @@ namespace UI.UserControls
         }
         #endregion
 
-#region FUNCIONES PÚBLICAS
+#region Funciones Públicas
         /// <summary>
         /// Da comienzo al banner deslizante
         /// </summary>

@@ -16,10 +16,22 @@ namespace UI.NuevasPantallas
 {
     public partial class VPrincipal : Form
     {
+        /// <summary>
+        /// Atributo que almacena la Ventana de "Configuración BANNERS"
+        /// </summary>
         private VBaseBanner iVentanaBanners;
+        /// <summary>
+        /// Atributo que almacena la Ventana de "Configuración CAMPAÑAS"
+        /// </summary>
         private VBaseCampania iVentanaCampanias;
+        /// <summary>
+        /// Atributo que almacena la Ventana de "Configuración FUENTES"
+        /// </summary>
         private VBaseFuente iVentanaFuentes;
 
+        /// <summary>
+        /// Atributo que almacena el Controlador de Dominio
+        /// </summary>
         private ControladorDominio iControladorDominio;
 
         /// <summary>
@@ -58,15 +70,11 @@ namespace UI.NuevasPantallas
         {
             InitializeComponent();
             this.iControladorDominio = new ControladorDominio(Resolucionador<IUnitOfWork>.Resolver());
-            this.iCampaniaAPasar = new Campania();
-
-            //Y ejecutamos el próximo método que da formato a la pantalla principal
-            this.IniciarFormatoPantallaPrincipal(new object(), new EventArgs());
+            
         }
 
 
 
-        #region EVENTOS
         #region BackgroundWorkers y Timers
 
         /// <summary>
@@ -103,7 +111,10 @@ namespace UI.NuevasPantallas
 
 
 
-
+        /// <summary>
+        /// Evento tick del this.timerChequeoCambioCampania, con el cual da la orden de actualizar 
+        /// la campania deslizante
+        /// </summary>
         private void timerChequeoCambioCampania_Tick(object sender, EventArgs e)
         {
             this.timerChequeoCambioCampania.Stop();
@@ -124,7 +135,9 @@ namespace UI.NuevasPantallas
             }
         }
 
-
+        /// <summary>
+        /// Evento Do_Work del this.bgwObtenerCampania, que obtiene la próxima campania a pasar
+        /// </summary>
         private void bgwObtenerCampania_DoWork(object sender, DoWorkEventArgs e)
         {
             DateTime fechaHora = DateTime.Now;
@@ -140,6 +153,10 @@ namespace UI.NuevasPantallas
             }
         }
 
+        /// <summary>
+        /// Evento RunWorkerCompleted del this.bgwObtenerCampania, con el que se activa a que empiece a correr 
+        /// el timer this.timerChequeoCambioBanner
+        /// </summary>
         private void bgwObtenerCampania_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
         {
             try
@@ -159,7 +176,10 @@ namespace UI.NuevasPantallas
 
 
 
-
+        /// <summary>
+        /// Evento tick del this.timerChequeoCambioBanner, con el cual da la orden de actualizar 
+        /// el banner deslizante
+        /// </summary>
         private void timerChequeoCambioBanner_Tick(object sender, EventArgs e)
         {
             this.timerChequeoCambioBanner.Stop();
@@ -181,6 +201,9 @@ namespace UI.NuevasPantallas
             }
         }
 
+        /// <summary>
+        /// Evento Do_Work del this.bgwObtenerBanner, que obtiene el próximo banner a pasar
+        /// </summary>
         private void bgwObtenerBanner_DoWork(object sender, DoWorkEventArgs e)
         {
             DateTime fechaHora = DateTime.Now;
@@ -196,6 +219,11 @@ namespace UI.NuevasPantallas
             this.timerChequeoCambioBanner.Interval = this.iControladorDominio.IntervaloAlProxCuartoDeHora(this.iHoraActual);
         }
 
+        /// <summary>
+        /// Evento RunWorkerCompleted del this.bgwObtenerBanner, con el que se actualiza la pantalla y fianlmente
+        /// se activa a que lea los items del banner en segundo plano, o sino que empiece a correr el timer 
+        /// this.timerChequeoCambioCampania
+        /// </summary>
         private void bgwObtenerBanner_ActualizarPantalla_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
         {
             try
@@ -225,13 +253,19 @@ namespace UI.NuevasPantallas
             { }
         }
 
-
+        /// <summary>
+        /// Evento Do_Work del this.bgwLeerBanner, que realiza la lectura de items en segundo plano del 
+        /// this.iBanner 
+        /// </summary>
         private void bgwLeerBanner_DoWork(object sender, DoWorkEventArgs e)
         {
             this.iControladorDominio.LeerBanner(this.iBannerAPasar);
         }
 
-
+        /// <summary>
+        /// Evento RunWorkerCompleted del this.bgwLeerBanner, con el que se actualiza la pantalla y finalmente
+        /// pone a correr el timer this.timerChequeoCambioCampania
+        /// </summary>
         private void bgwLeerBanner_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
         {
             try
@@ -254,7 +288,10 @@ namespace UI.NuevasPantallas
         #endregion
 
 
-        #region ToolStripMenu
+        #region Eventos Botones (ToolStripMenu)
+        /// <summary>
+        /// Evento que se activa con el botón toolStripMenu "Banners"
+        /// </summary>
         private void bannerToolStripMenuItem_Click(object sender, EventArgs e)
         {
             this.iVentanaBanners = new VBaseBanner(ref this.iControladorDominio);
@@ -263,6 +300,9 @@ namespace UI.NuevasPantallas
             this.iVentanaBanners = null;
         }
 
+        /// <summary>
+        /// Evento que se activa con el botón toolStripMenu "Campañas"
+        /// </summary>
         private void campañaToolStripMenuItem_Click(object sender, EventArgs e)
         {
             this.iVentanaCampanias = new VBaseCampania(ref this.iControladorDominio);
@@ -272,6 +312,9 @@ namespace UI.NuevasPantallas
             this.ActualizarPantalla();
         }
 
+        /// <summary>
+        /// Evento que se activa con el botón toolStripMenu "Fuentes"
+        /// </summary>
         private void fuenteToolStripMenuItem_Click(object sender, EventArgs e)
         {
             this.iVentanaFuentes = new VBaseFuente(ref this.iControladorDominio);
@@ -281,6 +324,9 @@ namespace UI.NuevasPantallas
             this.ActualizarPantalla();
         }
 
+        /// <summary>
+        /// Evento que se activa con el botón toolStripMenu "Pantalla Completa"
+        /// </summary>
         private void verPantallaCompletaToolStripMenuItem_Click(object sender, EventArgs e)
         {
             //Ventana:
@@ -304,6 +350,9 @@ namespace UI.NuevasPantallas
             this.buttonSalirPantallaCompleta.Focus();
         }
 
+        /// <summary>
+        /// Evento que se activa con el botón toolStripMenu "Salir"
+        /// </summary>
         private void salirToolStripMenuItem_Click(object sender, EventArgs e)
         {
             this.Close();
@@ -312,20 +361,33 @@ namespace UI.NuevasPantallas
 
 
         #region Otros Ventana
+        /// <summary>
+        /// Evento que se activa despúes de la inicialización, cuando el form se está cargando
+        /// </summary>
         private void VPrincipal_Load(object sender, EventArgs e)
         {
-            //VPresentacion ventanaPresentacion = new VPresentacion();
-            //ventanaPresentacion.Owner = this;
-            //this.Hide();
-            //ventanaPresentacion.ShowDialog();
+            //Pantallas de Presentación y de Pre-Carga:
+            VPresentacion ventanaPresentacion = new VPresentacion();
+            ventanaPresentacion.Owner = this;
+            this.Hide();
+            ventanaPresentacion.ShowDialog();
             VInicial ventanaInicial = new VInicial();
             ventanaInicial.Owner = this;
             this.ActualizarPantalla();
             this.Hide();
             ventanaInicial.ShowDialog();
 
+            this.iCampaniaAPasar = new Campania();
+
+            //Damos formato a la pantalla principal:
+            this.IniciarFormatoPantallaPrincipal(new object(), new EventArgs());
+
         }
 
+        /// <summary>
+        /// Evento que se ejecuta cuando la ventana se activa
+        /// Pone a correr los timers para que se actualice el pasaje de banner y campania deslizantes:
+        /// </summary>
         private void VPrincipal_Activated(object sender, EventArgs e)
         {
             //Ponemos a correr los timers para que se muestren las campanias y banners deslizantes:
@@ -354,6 +416,9 @@ namespace UI.NuevasPantallas
             this.timerChequeoCambioCampania_Tick(1000, new EventArgs());
         }
 
+        /// <summary>
+        /// Evento que formatea la VPantallaPrincipal a su forma "normal"
+        /// </summary>
         private void IniciarFormatoPantallaPrincipal(object sender, EventArgs e)
         {
             //Ventana:
@@ -378,13 +443,14 @@ namespace UI.NuevasPantallas
             this.bannerDeslizante.Font = new System.Drawing.Font("Microsoft Sans Serif", 30F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
         }
 
+        /// <summary>
+        /// Evento que se activa al salir de la vista de Pantalla Completa
+        /// </summary>
         private void buttonSalirPantallaCompleta_KeyPress(object sender, KeyPressEventArgs e)
         {
             this.IniciarFormatoPantallaPrincipal(sender, new EventArgs());
         }
 
-
-        #endregion
 
         #endregion
     }

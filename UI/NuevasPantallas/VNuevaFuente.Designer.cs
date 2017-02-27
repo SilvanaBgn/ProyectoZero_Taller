@@ -1,6 +1,6 @@
 ﻿namespace UI.NuevasPantallas
 {
-    partial class VCrearBanner
+    partial class VNuevaFuente
     {
         /// <summary>
         /// Required designer variable.
@@ -28,21 +28,30 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(VCrearBanner));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(VNuevaFuente));
+            this.panelRss.SuspendLayout();
+            this.panelTextoFijo.SuspendLayout();
             this.SuspendLayout();
             // 
             // buttonGuardar
             // 
             this.buttonGuardar.Click += new System.EventHandler(this.ButtonGuardar_Click);
             // 
-            // VCrearBanner
+            // panelTextoFijo
+            // 
+            this.panelTextoFijo.Visible = false;
+            // 
+            // VCrearFuente
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(485, 466);
+            this.ClientSize = new System.Drawing.Size(461, 309);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Name = "VCrearBanner";
-            this.Text = "Nuevo Banner";
+            this.Name = "VCrearFuente";
+            this.Text = "Nueva Fuente";
+            this.panelRss.ResumeLayout(false);
+            this.panelRss.PerformLayout();
+            this.panelTextoFijo.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 

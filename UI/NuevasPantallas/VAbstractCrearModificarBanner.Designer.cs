@@ -38,7 +38,6 @@ namespace UI.NuevasPantallas
             this.buttonGuardar = new System.Windows.Forms.Button();
             this.buttonCancelar = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.buttonNuevo = new System.Windows.Forms.Button();
             this.rangoHorario = new UI.UserControls.RangoHorario();
             this.rangoFecha = new UI.UserControls.RangoFecha();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewMostrarFuentes)).BeginInit();
@@ -94,13 +93,13 @@ namespace UI.NuevasPantallas
             this.dataGridViewMostrarFuentes.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.dataGridViewMostrarFuentes.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(219)))), ((int)(((byte)(188)))));
             this.dataGridViewMostrarFuentes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
-            this.dataGridViewMostrarFuentes.Location = new System.Drawing.Point(6, 65);
+            this.dataGridViewMostrarFuentes.Location = new System.Drawing.Point(6, 19);
             this.dataGridViewMostrarFuentes.MultiSelect = false;
             this.dataGridViewMostrarFuentes.Name = "dataGridViewMostrarFuentes";
             this.dataGridViewMostrarFuentes.ReadOnly = true;
             this.dataGridViewMostrarFuentes.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.dataGridViewMostrarFuentes.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridViewMostrarFuentes.Size = new System.Drawing.Size(436, 148);
+            this.dataGridViewMostrarFuentes.Size = new System.Drawing.Size(436, 194);
             this.dataGridViewMostrarFuentes.TabIndex = 11;
             this.dataGridViewMostrarFuentes.SelectionChanged += new System.EventHandler(this.dataGridViewMostrarFuentes_SelectionChanged);
             // 
@@ -125,7 +124,6 @@ namespace UI.NuevasPantallas
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.buttonNuevo);
             this.groupBox1.Controls.Add(this.dataGridViewMostrarFuentes);
             this.groupBox1.Location = new System.Drawing.Point(17, 206);
             this.groupBox1.Name = "groupBox1";
@@ -133,19 +131,6 @@ namespace UI.NuevasPantallas
             this.groupBox1.TabIndex = 23;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Fuente";
-            // 
-            // buttonNuevo
-            // 
-            this.buttonNuevo.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonNuevo.Image = global::UI.Properties.Resources.Agregar8;
-            this.buttonNuevo.Location = new System.Drawing.Point(6, 19);
-            this.buttonNuevo.Name = "buttonNuevo";
-            this.buttonNuevo.Size = new System.Drawing.Size(131, 40);
-            this.buttonNuevo.TabIndex = 12;
-            this.buttonNuevo.Text = "&Nueva Fuente";
-            this.buttonNuevo.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.buttonNuevo.UseVisualStyleBackColor = true;
-            this.buttonNuevo.Click += new System.EventHandler(this.buttonNuevo_Click);
             // 
             // rangoHorario
             // 
@@ -183,7 +168,6 @@ namespace UI.NuevasPantallas
             this.Name = "VAbstractCrearModificarBanner";
             this.Text = "VAbstractCrearModificarBanner";
             this.Activated += new System.EventHandler(this.VAbstractCrearModificarBanner_Activated);
-            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.VAbstractCrearModificarBanner_FormClosing);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewMostrarFuentes)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.ResumeLayout(false);
@@ -202,7 +186,6 @@ namespace UI.NuevasPantallas
         private System.Windows.Forms.Button buttonCancelar;
         protected UserControls.RangoFecha rangoFecha;
         protected UserControls.RangoHorario rangoHorario;
-        private System.Windows.Forms.GroupBox groupBox1;
-        protected Button buttonNuevo;
+        protected System.Windows.Forms.GroupBox groupBox1;
     }
 }

@@ -13,16 +13,16 @@ using Excepciones.ExcepcionesDominio;
 
 namespace UI.NuevasPantallas
 {
-    public partial class VCrearFuente : VAbstractCrearModificarFuente
+    public partial class VNuevaFuente : VAbstractCrearModificarFuente
     {
         //CONSTRUCTOR
-        public VCrearFuente(ref ControladorDominio pControladorDominio) : base(ref pControladorDominio)
+        public VNuevaFuente(ref ControladorDominio pControladorDominio) : base(ref pControladorDominio)
         {
             InitializeComponent();
-            this.panelTextoFijo.Visible = false;
-            this.panelRss.Visible = false;
         }
 
+
+        #region EVENTOS Botones
         /// <summary>
         /// Evento que se invoca cuando se hace click en el botón guardar, agregando una nueva fuente
         /// </summary>
@@ -78,5 +78,6 @@ namespace UI.NuevasPantallas
                 MessageBox.Show("Se debe seleccionar un tipo de fuente", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+        #endregion
     }
 }

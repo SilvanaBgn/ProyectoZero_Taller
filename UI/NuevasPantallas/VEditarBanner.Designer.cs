@@ -1,6 +1,6 @@
 ﻿namespace UI.NuevasPantallas
 {
-    partial class VModificarBanner
+    partial class VEditarBanner
     {
         /// <summary>
         /// Required designer variable.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(VModificarBanner));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(VEditarBanner));
             this.SuspendLayout();
             // 
             // buttonGuardar
@@ -44,6 +44,7 @@
             this.Name = "VModificarBanner";
             this.Text = "Editar Banner";
             this.Activated += new System.EventHandler(this.VModificarBanner_Activated);
+            this.Load += new System.EventHandler(this.VModificarBanner_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

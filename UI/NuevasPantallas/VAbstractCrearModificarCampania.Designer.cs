@@ -139,6 +139,7 @@
             this.Controls.Add(this.labelTitulo);
             this.Name = "VAbstractCrearModificarCampania";
             this.Text = "VAbstractCrearModificarCampania";
+            this.Load += new System.EventHandler(this.VAbstractCrearModificarCampania_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

@@ -12,27 +12,29 @@ using Excepciones.ExcepcionesPantalla;
 
 namespace UI.NuevasPantallas
 {
-    public partial class VCrearCampania : VAbstractCrearModificarCampania
+    public partial class VNuevaCampania : VAbstractCrearModificarCampania
     {
-        public VCrearCampania(ref ControladorDominio pControladorDominio) : base(ref pControladorDominio)
+        //CONSTRUCTOR
+        public VNuevaCampania(ref ControladorDominio pControladorDominio) : base(ref pControladorDominio)
         {
             InitializeComponent();
         }
 
+        #region EVENTOS Botones
         /// <summary>
-        /// Evento que se invoca cuando se hace click en el botón guardar, agregando una nueva campaña
+        /// Evento que se invoca cuando se hace click en el botón guardar, agregando una nueva campania
         /// </summary>
         private void ButtonGuardar_Click(object sender, EventArgs e)
         {
-            Campania campaniaAAgregar = new Campania();
-            campaniaAAgregar.Titulo = this.textBoxTitulo.Text;
-            campaniaAAgregar.Descripcion = this.textBoxDescripcion.Text;
-            campaniaAAgregar.FechaInicio = this.rangoFecha.FechaInicio;
-            campaniaAAgregar.FechaFin = this.rangoFecha.FechaFin;
-            campaniaAAgregar.HoraInicio = this.rangoHorario.HoraInicio;
-            campaniaAAgregar.HoraFin = this.rangoHorario.HoraFin;
-            campaniaAAgregar.Imagenes = this.galeria.ListaImagenes;
-            campaniaAAgregar.DuracionImagen = this.galeria.Segundos;
+            this.iCampania = new Campania();
+            this.iCampania.Titulo = this.textBoxTitulo.Text;
+            this.iCampania.Descripcion = this.textBoxDescripcion.Text;
+            this.iCampania.FechaInicio = this.rangoFecha.FechaInicio;
+            this.iCampania.FechaFin = this.rangoFecha.FechaFin;
+            this.iCampania.HoraInicio = this.rangoHorario.HoraInicio;
+            this.iCampania.HoraFin = this.rangoHorario.HoraFin;
+            this.iCampania.Imagenes = this.galeria.ListaImagenes;
+            this.iCampania.DuracionImagen = this.galeria.Segundos;
 
             try
             {
@@ -42,8 +44,10 @@ namespace UI.NuevasPantallas
                 }
                 else
                 {
-                    this.iControladorDominio.AgregarCampania(campaniaAAgregar);
+                    //Agregamos la fuente y guardamos los cambios:
+                    this.iControladorDominio.AgregarCampania(this.iCampania);
                     this.iControladorDominio.GuardarCambios();
+
                     this.Close();
                 }
             }
@@ -52,6 +56,6 @@ namespace UI.NuevasPantallas
                 MessageBox.Show(ex.Message, "Faltan campos", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
-
+        #endregion
     }
 }

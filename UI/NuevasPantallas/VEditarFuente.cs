@@ -12,15 +12,21 @@ using Excepciones.ExcepcionesPantalla;
 
 namespace UI.NuevasPantallas
 {
-    public partial class VModificarFuente : VAbstractCrearModificarFuente
+    public partial class VEditarFuente : VAbstractCrearModificarFuente
     {
-        public VModificarFuente(ref ControladorDominio pControladorDominio, Fuente pFuenteAModificar) : base(ref pControladorDominio)
+        //CONSTRUCTOR
+        public VEditarFuente(ref ControladorDominio pControladorDominio, Fuente pFuenteAModificar) : base(ref pControladorDominio)
         {
             InitializeComponent();
             this.iFuente = pFuenteAModificar;
-            this.CargarFuenteAModificar();
         }
 
+
+
+        #region Funciones privadas
+        /// <summary>
+        /// Carga en todos los componentes de la ventana VModificarFuente con los valores de this.iFuente
+        /// </summary>
         private void CargarFuenteAModificar()
         {
             this.comboBoxTipoFuente.Enabled = false;
@@ -43,9 +49,16 @@ namespace UI.NuevasPantallas
                     break;
             }
         }
+        #endregion
 
+        #region EVENTOS
+        /// <summary>
+        /// Evento que se invoca cuando se hace click en el botón guardar. Guarda todos los datos de la
+        /// fuente modificada
+        /// </summary>
         private void ButtonGuardar_Click(object sender, EventArgs e)
         {
+            //Completamos la this.iFuente con los datos modificados:
             switch (this.comboBoxTipoFuente.SelectedItem.ToString())
             {
                 case "Rss":
@@ -73,5 +86,14 @@ namespace UI.NuevasPantallas
                 MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
+        /// <summary>
+        /// Evento que se activa cuando la ventana ya se ha inicializado y se está cargando
+        /// </summary>
+        private void VModificarFuente_Load(object sender, EventArgs e)
+        {
+            this.CargarFuenteAModificar();
+        }
+        #endregion
     }
 }

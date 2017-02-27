@@ -14,16 +14,114 @@ namespace UI.NuevasPantallas
 {
     public partial class VBaseBanner : VAbstractBase
     {
-        private VCrearBanner iVentanaNuevo;
-        private VModificarBanner iVentanaEditar;
+        /// <summary>
+        /// Atributo que almacena la Ventana de "Nuevo Banner"
+        /// </summary>
+        private VNuevoBanner iVentanaNuevo;
+
+        /// <summary>
+        /// Atributo que almacena la Ventana de "Editar Banner"
+        /// </summary>
+        private VEditarBanner iVentanaEditar;
 
 
+        //CONSTRUCTOR
         public VBaseBanner(ref ControladorDominio pControladorDominio) : base(ref pControladorDominio)
         {
             InitializeComponent();
-            this.iControladorDominio = pControladorDominio;
         }
 
+
+
+        #region Funciones privadas
+        /// <summary>
+        /// Devuelve el banner seleccionado en el datagrid
+        /// </summary>
+        /// <returns>Banner a modificar</returns>
+        private Banner BannerSeleccionado()
+        {
+            if (this.dataGridViewMostrar.SelectedRows.Count == 0)
+                return null;
+            else return (Banner)this.dataGridViewMostrar.SelectedRows[0].DataBoundItem;
+        }
+
+        /// <summary>
+        /// Carga el datagrid con los banners que se le pasen en la lista <paramref name="pListaBanners"/>
+        /// </summary>
+        private void CargarDataGridBanners(List<Banner> pListaBanners)
+        {
+            //Cargamos el Datagrid:
+            this.dataGridViewMostrar.DataSource = pListaBanners;
+
+            //Cambiamos el orden, visibilidad y nombre de las columnas:
+            this.dataGridViewMostrar.Columns["FuenteId"].Visible = false;
+
+            this.dataGridViewMostrar.Columns["BannerId"].DisplayIndex = 0;
+            this.dataGridViewMostrar.Columns["Titulo"].DisplayIndex = 1;
+            this.dataGridViewMostrar.Columns["FechaInicio"].DisplayIndex = 2;
+            this.dataGridViewMostrar.Columns["FechaFin"].DisplayIndex = 3;
+            this.dataGridViewMostrar.Columns["HoraInicio"].DisplayIndex = 4;
+            this.dataGridViewMostrar.Columns["HoraFin"].DisplayIndex = 5;
+            this.dataGridViewMostrar.Columns["Descripcion"].DisplayIndex = 6;
+
+            this.dataGridViewMostrar.Columns["BannerId"].HeaderText = "Cod";
+        }
+        #endregion
+
+        #region EVENTOS
+        #region Botones
+        /// <summary>
+        /// Evento que se invoca cuando se hace click sobre el botón nuevo creando un nuevo banner
+        /// </summary>
+        private void buttonNuevo_Click(object sender, EventArgs e)
+        {
+            this.iVentanaNuevo = new VNuevoBanner(ref this.iControladorDominio);
+            this.iVentanaNuevo.Owner = this;
+            this.iVentanaNuevo.ShowDialog();
+            this.iVentanaNuevo = null;
+        }
+
+        /// <summary>
+        /// Evento que se invoca cuando se hace click sobre el botón modificar, modificando un banner
+        /// </summary>
+        private void buttonModificar_Click(object sender, EventArgs e)
+        {
+            if (this.BannerSeleccionado() == null)
+                MessageBox.Show("Se debe seleccionar un banner", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            else
+            {
+                this.iVentanaEditar = new VEditarBanner(ref this.iControladorDominio, this.BannerSeleccionado());
+                this.iVentanaEditar.Owner = this;
+                this.iVentanaEditar.ShowDialog();
+                this.iVentanaEditar = null;
+            }
+        }
+
+        /// <summary>
+        /// Evento que se invoca cuando se hace click sobre el botón eliminar, eliminando un banner
+        /// Actualiza el DataGrid
+        /// </summary>
+        private void buttonEliminar_Click(object sender, EventArgs e)
+        {
+            Banner bannerSeleccionado = this.BannerSeleccionado();
+            if (bannerSeleccionado == null)
+                MessageBox.Show("Se debe seleccionar un banner", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            else
+            {
+                string titulo = bannerSeleccionado.Titulo;
+                DialogResult dialogResult = MessageBox.Show(string.Format("¿Está seguro que desea eliminar el banner \"{0}\"?", titulo), "Eliminar Banner", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                if (dialogResult == DialogResult.Yes)
+                {
+                    int codigo = bannerSeleccionado.BannerId;
+                    this.iControladorDominio.BorrarBanner(codigo);
+                    this.iControladorDominio.GuardarCambios();
+                    this.CargarDataGridBanners(this.iControladorDominio.ObtenerTodosLosBanners());
+                }
+            }
+        }
+        #endregion
+
+        #region Ventana y Otros Componentes
         /// <summary>
         /// Evento que se invoca cuando se hace click en el botón filtrar y muestra 
         /// el nuevo listado de banners según los filtros
@@ -49,91 +147,6 @@ namespace UI.NuevasPantallas
         }
 
         /// <summary>
-        /// Devuelve el banner seleccionado en el datagrid
-        /// </summary>
-        /// <returns>Banner a modificar</returns>
-        private Banner BannerSeleccionado()
-        {
-            if (this.dataGridViewMostrar.SelectedRows.Count == 0)
-                return null;
-            else return (Banner)this.dataGridViewMostrar.SelectedRows[0].DataBoundItem;
-        }
-
-
-        /// <summary>
-        /// Muestra en el datagrid los banners que se encuentran en la base de datos
-        /// </summary>
-        public void CargarDataGridBanners(List<Banner> pListaBanners)
-        {
-            //Cargamos el Datagrid:
-            this.dataGridViewMostrar.DataSource = pListaBanners;
-
-            //Cambiamos el orden de las columnas:
-            this.dataGridViewMostrar.Columns["FuenteId"].Visible = false;
-
-            this.dataGridViewMostrar.Columns["BannerId"].DisplayIndex = 0;
-            this.dataGridViewMostrar.Columns["Titulo"].DisplayIndex = 1;
-            this.dataGridViewMostrar.Columns["FechaInicio"].DisplayIndex = 2;
-            this.dataGridViewMostrar.Columns["FechaFin"].DisplayIndex = 3;
-            this.dataGridViewMostrar.Columns["HoraInicio"].DisplayIndex = 4;
-            this.dataGridViewMostrar.Columns["HoraFin"].DisplayIndex = 5;
-            this.dataGridViewMostrar.Columns["Descripcion"].DisplayIndex = 6;
-
-            this.dataGridViewMostrar.Columns["BannerId"].HeaderText = "Cod";
-
-        }
-
-        /// <summary>
-        /// Evento que se invoca cuando se hace click sobre el botón nuevo creando un nuevo banner
-        /// </summary>
-        private void buttonNuevo_Click(object sender, EventArgs e)
-        {
-            this.iVentanaNuevo = new VCrearBanner(ref this.iControladorDominio);
-            this.iVentanaNuevo.Owner = this;
-            this.iVentanaNuevo.ShowDialog();
-            this.iVentanaNuevo = null;
-        }
-
-        /// <summary>
-        /// Evento que se invoca cuando se hace click sobre el botón modificar, modificando un banner
-        /// </summary>
-        private void buttonModificar_Click(object sender, EventArgs e)
-        {
-            if (this.BannerSeleccionado() == null)
-                MessageBox.Show("Se debe seleccionar un banner", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            else
-            {
-                this.iVentanaEditar = new VModificarBanner(ref this.iControladorDominio, this.BannerSeleccionado());
-                this.iVentanaEditar.Owner = this;
-                this.iVentanaEditar.ShowDialog();
-                this.iVentanaEditar = null;
-            }
-        }
-
-        /// <summary>
-        /// Evento que se invoca cuando se hace click sobre el botón eliminar, eliminando un banner
-        /// Actualiza el DataGrid
-        /// </summary>
-        private void buttonEliminar_Click(object sender, EventArgs e)
-        {
-            Banner bannerSeleccionado = this.BannerSeleccionado();
-            if ( bannerSeleccionado == null)
-                MessageBox.Show("Se debe seleccionar un banner", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            else
-            {
-                string titulo = bannerSeleccionado.Titulo;
-                DialogResult dialogResult = MessageBox.Show(string.Format("¿Está seguro que desea eliminar el banner \"{0}\"?", titulo), "Eliminar Banner", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-                if (dialogResult == DialogResult.Yes)
-                {
-                    int codigo = bannerSeleccionado.BannerId;
-                    this.iControladorDominio.BorrarBanner(codigo);
-                    this.iControladorDominio.GuardarCambios();
-                    this.CargarDataGridBanners(this.iControladorDominio.ObtenerTodosLosBanners());
-                }
-            }
-        }
-
-        /// <summary>
         /// Evento que se invoca cuando VBaseBanner se activa
         /// </summary>
         private void VBaseBanner_Activated(object sender, EventArgs e)
@@ -148,5 +161,7 @@ namespace UI.NuevasPantallas
             else if (this.iVentanaEditar != null)
                 this.iVentanaEditar.Activate();
         }
+        #endregion
+        #endregion
     }
 }

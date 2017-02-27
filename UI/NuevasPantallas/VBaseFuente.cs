@@ -8,16 +8,28 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Dominio;
-using System.Text.RegularExpressions;
+using Helper;
 
 namespace UI.NuevasPantallas
 {
     public partial class VBaseFuente : Form
     {
-        private VCrearFuente iVentanaNueva;
-        private VModificarFuente iVentanaEditar;
-
+        /// <summary>
+        /// Atributo que almacena el Controlador de Dominio
+        /// </summary>
         private ControladorDominio iControladorDominio;
+
+
+        /// <summary>
+        /// Atributo que almacena la Ventana de "Nueva Fuente"
+        /// </summary>
+        private VNuevaFuente iVentanaNueva;
+
+        /// <summary>
+        /// Atributo que almacena la Ventana de "Editar Fuente"
+        /// </summary>
+        private VEditarFuente iVentanaEditar;
+
 
 
         //CONSTRUCTOR
@@ -25,30 +37,38 @@ namespace UI.NuevasPantallas
         {
             InitializeComponent();
             this.iControladorDominio = pControladorDominio;
-            this.comboBoxTipo.Enabled = false;
-            this.textBoxDescripcion.Enabled = false;
 
             //Centramos la pantalla en el centro:
             this.StartPosition = FormStartPosition.CenterScreen;
         }
 
-        /// <summary>
-        /// Evento que se invoca cuando se hace click sobre el botón nuevo, creando una nueva fuente
-        /// </summary>
-        private void buttonNuevo_Click(object sender, EventArgs e)
-        {
-            this.iVentanaNueva = new VCrearFuente(ref this.iControladorDominio);
-            this.iVentanaNueva.Owner = this;
-            this.iVentanaNueva.ShowDialog();
-            this.iVentanaNueva = null;
-        }
 
+
+
+        #region Funciones privadas
+        /// <summary>
+        /// Indica cuál es la fuente que está seleccionada actualmente en el this.dataGridViewMostrar
+        /// </summary>
+        /// <returns>Devuelve la fuente seleccionada </returns>
         private Fuente FuenteSeleccionada()
         {
             if (this.dataGridViewMostrar.SelectedRows.Count == 0)
                 return null;
             else return (Fuente)this.dataGridViewMostrar.SelectedRows[0].DataBoundItem;
+        }
+        #endregion
 
+        #region EVENTOS
+        #region Botones
+        /// <summary>
+        /// Evento que se invoca cuando se hace click sobre el botón nuevo, creando una nueva fuente
+        /// </summary>
+        private void buttonNuevo_Click(object sender, EventArgs e)
+        {
+            this.iVentanaNueva = new VNuevaFuente(ref this.iControladorDominio);
+            this.iVentanaNueva.Owner = this;
+            this.iVentanaNueva.ShowDialog();
+            this.iVentanaNueva = null;
         }
 
         /// <summary>
@@ -61,7 +81,7 @@ namespace UI.NuevasPantallas
                 MessageBox.Show("Se debe seleccionar una fuente", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             else
             {
-                this.iVentanaEditar = new VModificarFuente(ref this.iControladorDominio, fuenteSeleccionada);
+                this.iVentanaEditar = new VEditarFuente(ref this.iControladorDominio, fuenteSeleccionada);
                 this.iVentanaEditar.Owner = this;
                 this.iVentanaEditar.ShowDialog();
                 this.iVentanaEditar = null;
@@ -69,7 +89,7 @@ namespace UI.NuevasPantallas
         }
 
         /// <summary>
-        /// Craga el DataGridFuentes con la lista de fuentes
+        /// Carga el DataGridFuentes con la lista en <paramref name="pListaFuentes"/>
         /// </summary>
         /// <param name="pListaFuentes">lista de fuentes a cargar</param>
         public void CargarDataGridFuentes(List<Fuente> pListaFuentes)
@@ -79,7 +99,6 @@ namespace UI.NuevasPantallas
 
         /// <summary>
         /// Evento que se invoca cuando se hace click sobre el botón eliminar, eliminando una fuente.
-        /// Actualiza el DataGrid
         /// </summary>
         private void buttonEliminar_Click(object sender, EventArgs e)
         {
@@ -96,7 +115,6 @@ namespace UI.NuevasPantallas
                     this.iControladorDominio.BorrarFuente(codigo);
                     this.iControladorDominio.GuardarCambios();
                     this.CargarDataGridFuentes(this.iControladorDominio.ObtenerTodasLasFuentes());
-
                 }
             }
         }
@@ -129,6 +147,16 @@ namespace UI.NuevasPantallas
         }
 
         /// <summary>
+        /// Evento que se invoca cuando se hace click en el botón salir, cerrando la ventana
+        /// </summary>
+        private void buttonSalir_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+        #endregion
+
+        #region Ventana y Otros Componentes
+        /// <summary>
         /// Evento que se invoca cuando cambia el valor del checkBoxDescripcion
         /// </summary>
         private void checkBoxDescripcion_CheckedChanged(object sender, EventArgs e)
@@ -148,12 +176,39 @@ namespace UI.NuevasPantallas
             else this.comboBoxTipo.Enabled = false;
         }
 
+
         /// <summary>
-        /// Evento que se invoca cuando se hace click en el botón salir, cerrando la ventana
+        /// Evento que se activa cuando se quiere introducir texto en algun textbox
         /// </summary>
-        private void buttonSalir_Click(object sender, EventArgs e)
+        private void textBoxValido_KeyPress(object sender, KeyPressEventArgs e)
         {
-            this.Close();
+            ValidacionTexto.InputValido(e);
+        }
+
+
+
+        /// <summary>
+        /// Devuelve la seleccion a la primer fila si no hay filas seleccionadas
+        /// </summary>
+        private void dataGridViewMostrar_SelectionChanged(object sender, EventArgs e)
+        {
+            if (this.dataGridViewMostrar.Rows.Count > 0 && this.dataGridViewMostrar.SelectedRows.Count <= 0)
+            {
+                this.dataGridViewMostrar.CurrentCell = this.dataGridViewMostrar.Rows[0].Cells[1];
+                this.dataGridViewMostrar.Rows[0].Selected = true;
+            }
+        }
+
+
+
+        /// <summary>
+        /// Evento que se activa después de la inicialización, cuando el form se está cargando
+        /// </summary>
+        private void VBaseFuente_Load(object sender, EventArgs e)
+        {
+            this.AutoSizeMode = AutoSizeMode.GrowAndShrink; //Que no permita redimensionar la ventana
+            this.MaximizeBox = false; //Que no permita maximizar
+            this.WindowState = FormWindowState.Normal;
         }
 
         /// <summary>
@@ -171,45 +226,7 @@ namespace UI.NuevasPantallas
             else if (this.iVentanaEditar != null)
                 this.iVentanaEditar.Activate();
         }
-
-        /// <summary>
-        /// Devuelve la seleccion a la primer fila si no hay filas seleccionadas
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void dataGridViewMostrar_SelectionChanged(object sender, EventArgs e)
-        {
-            if (this.dataGridViewMostrar.Rows.Count > 0 && this.dataGridViewMostrar.SelectedRows.Count <= 0)
-            {
-                this.dataGridViewMostrar.CurrentCell = this.dataGridViewMostrar.Rows[0].Cells[1];
-                this.dataGridViewMostrar.Rows[0].Selected = true;
-            }
-        }
-
-        private void InputValido(KeyPressEventArgs e)
-        {
-            var regex = new Regex(@"[^a-zA-Z0-9\s\b]");
-            if (regex.IsMatch(e.KeyChar.ToString()))
-            {
-                e.Handled = true;
-            }
-        }
-
-        private void textBoxDescripcion_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            this.InputValido(e);
-        }
-
-        private void VBaseFuente_Load(object sender, EventArgs e)
-        {
-            this.AutoSizeMode = AutoSizeMode.GrowAndShrink; //Que no permita redimensionar la ventana
-            this.MaximizeBox = false; //Que no permita maximizar
-            this.WindowState = FormWindowState.Normal;
-        }
-
-        private void button2_Click(object sender, EventArgs e)
-        {
-            this.Close();
-        }
+        #endregion
+        #endregion
     }
 }

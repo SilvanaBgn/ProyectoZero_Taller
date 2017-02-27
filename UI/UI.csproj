@@ -138,12 +138,6 @@
     <Compile Include="UserControls\BannerDeslizante.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="NuevasPantallas\DatosBannerCampania.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="NuevasPantallas\DatosBannerCampania.Designer.cs">
-      <DependentUpon>DatosBannerCampania.cs</DependentUpon>
-    </Compile>
     <Compile Include="NuevasPantallas\VAbstractBase.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -174,41 +168,41 @@
     <Compile Include="NuevasPantallas\VBaseFuente.Designer.cs">
       <DependentUpon>VBaseFuente.cs</DependentUpon>
     </Compile>
-    <Compile Include="NuevasPantallas\VCrearBanner.cs">
+    <Compile Include="NuevasPantallas\VNuevoBanner.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="NuevasPantallas\VCrearBanner.Designer.cs">
-      <DependentUpon>VCrearBanner.cs</DependentUpon>
+    <Compile Include="NuevasPantallas\VNuevoBanner.Designer.cs">
+      <DependentUpon>VNuevoBanner.cs</DependentUpon>
     </Compile>
-    <Compile Include="NuevasPantallas\VCrearCampania.cs">
+    <Compile Include="NuevasPantallas\VNuevaCampania.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="NuevasPantallas\VCrearCampania.Designer.cs">
-      <DependentUpon>VCrearCampania.cs</DependentUpon>
+    <Compile Include="NuevasPantallas\VNuevaCampania.Designer.cs">
+      <DependentUpon>VNuevaCampania.cs</DependentUpon>
     </Compile>
-    <Compile Include="NuevasPantallas\VCrearFuente.cs">
+    <Compile Include="NuevasPantallas\VNuevaFuente.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="NuevasPantallas\VCrearFuente.Designer.cs">
-      <DependentUpon>VCrearFuente.cs</DependentUpon>
+    <Compile Include="NuevasPantallas\VNuevaFuente.Designer.cs">
+      <DependentUpon>VNuevaFuente.cs</DependentUpon>
     </Compile>
-    <Compile Include="NuevasPantallas\VModificarBanner.cs">
+    <Compile Include="NuevasPantallas\VEditarBanner.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="NuevasPantallas\VModificarBanner.Designer.cs">
-      <DependentUpon>VModificarBanner.cs</DependentUpon>
+    <Compile Include="NuevasPantallas\VEditarBanner.Designer.cs">
+      <DependentUpon>VEditarBanner.cs</DependentUpon>
     </Compile>
-    <Compile Include="NuevasPantallas\VModificarCampania.cs">
+    <Compile Include="NuevasPantallas\VEditarCampania.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="NuevasPantallas\VModificarCampania.Designer.cs">
-      <DependentUpon>VModificarCampania.cs</DependentUpon>
+    <Compile Include="NuevasPantallas\VEditarCampania.Designer.cs">
+      <DependentUpon>VEditarCampania.cs</DependentUpon>
     </Compile>
-    <Compile Include="NuevasPantallas\VModificarFuente.cs">
+    <Compile Include="NuevasPantallas\VEditarFuente.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="NuevasPantallas\VModificarFuente.Designer.cs">
-      <DependentUpon>VModificarFuente.cs</DependentUpon>
+    <Compile Include="NuevasPantallas\VEditarFuente.Designer.cs">
+      <DependentUpon>VEditarFuente.cs</DependentUpon>
     </Compile>
     <Compile Include="NuevasPantallas\VAbstractCrearModificarFuente.cs">
       <SubType>Form</SubType>
@@ -227,12 +221,6 @@
     </Compile>
     <Compile Include="UserControls\Galeria.Designer.cs">
       <DependentUpon>Galeria.cs</DependentUpon>
-    </Compile>
-    <Compile Include="UserControls\GroupBoxColor.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="UserControls\GroupBoxColor.Designer.cs">
-      <DependentUpon>GroupBoxColor.cs</DependentUpon>
     </Compile>
     <Compile Include="UserControls\RangoFecha.cs">
       <SubType>UserControl</SubType>
@@ -254,9 +242,6 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="NuevasPantallas\DatosBannerCampania.resx">
-      <DependentUpon>DatosBannerCampania.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="NuevasPantallas\VAbstractBase.resx">
       <DependentUpon>VAbstractBase.cs</DependentUpon>
     </EmbeddedResource>
@@ -276,14 +261,14 @@
       <DependentUpon>VBaseFuente.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <EmbeddedResource Include="NuevasPantallas\VCrearBanner.resx">
-      <DependentUpon>VCrearBanner.cs</DependentUpon>
+    <EmbeddedResource Include="NuevasPantallas\VNuevoBanner.resx">
+      <DependentUpon>VNuevoBanner.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="NuevasPantallas\VCrearCampania.resx">
-      <DependentUpon>VCrearCampania.cs</DependentUpon>
+    <EmbeddedResource Include="NuevasPantallas\VNuevaCampania.resx">
+      <DependentUpon>VNuevaCampania.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="NuevasPantallas\VCrearFuente.resx">
-      <DependentUpon>VCrearFuente.cs</DependentUpon>
+    <EmbeddedResource Include="NuevasPantallas\VNuevaFuente.resx">
+      <DependentUpon>VNuevaFuente.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="NuevasPantallas\VPresentacion.resx">
       <DependentUpon>VPresentacion.cs</DependentUpon>
@@ -291,14 +276,14 @@
     <EmbeddedResource Include="NuevasPantallas\VInicial.resx">
       <DependentUpon>VInicial.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="NuevasPantallas\VModificarBanner.resx">
-      <DependentUpon>VModificarBanner.cs</DependentUpon>
+    <EmbeddedResource Include="NuevasPantallas\VEditarBanner.resx">
+      <DependentUpon>VEditarBanner.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="NuevasPantallas\VModificarCampania.resx">
-      <DependentUpon>VModificarCampania.cs</DependentUpon>
+    <EmbeddedResource Include="NuevasPantallas\VEditarCampania.resx">
+      <DependentUpon>VEditarCampania.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="NuevasPantallas\VModificarFuente.resx">
-      <DependentUpon>VModificarFuente.cs</DependentUpon>
+    <EmbeddedResource Include="NuevasPantallas\VEditarFuente.resx">
+      <DependentUpon>VEditarFuente.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="NuevasPantallas\VAbstractCrearModificarFuente.resx">
       <DependentUpon>VAbstractCrearModificarFuente.cs</DependentUpon>

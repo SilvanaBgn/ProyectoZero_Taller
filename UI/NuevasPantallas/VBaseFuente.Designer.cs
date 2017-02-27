@@ -30,7 +30,6 @@ namespace UI.NuevasPantallas
         /// </summary>
         private void InitializeComponent()
         {
-            this.buttonSalir = new System.Windows.Forms.Button();
             this.comboBoxTipo = new System.Windows.Forms.ComboBox();
             this.Banners = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Tipo = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -42,18 +41,18 @@ namespace UI.NuevasPantallas
             this.buttonFiltrar = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.dataGridViewMostrar = new System.Windows.Forms.DataGridView();
-            this.buttonBorrar = new System.Windows.Forms.Button();
-            this.buttonEditar = new System.Windows.Forms.Button();
-            this.buttonNuevo = new System.Windows.Forms.Button();
-            this.pictureBox3 = new System.Windows.Forms.PictureBox();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.ColumnFuenteId = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColumnTipo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColumnDescripcion = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColumnorigenItems = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColumnBanners = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColumnItems = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.buttonBorrar = new System.Windows.Forms.Button();
+            this.buttonEditar = new System.Windows.Forms.Button();
+            this.buttonNuevo = new System.Windows.Forms.Button();
+            this.pictureBox3 = new System.Windows.Forms.PictureBox();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewMostrar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
@@ -61,19 +60,10 @@ namespace UI.NuevasPantallas
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
-            // buttonSalir
-            // 
-            this.buttonSalir.Location = new System.Drawing.Point(645, 391);
-            this.buttonSalir.Name = "buttonSalir";
-            this.buttonSalir.Size = new System.Drawing.Size(75, 23);
-            this.buttonSalir.TabIndex = 4;
-            this.buttonSalir.Text = "Salir";
-            this.buttonSalir.UseVisualStyleBackColor = true;
-            this.buttonSalir.Click += new System.EventHandler(this.buttonSalir_Click);
-            // 
             // comboBoxTipo
             // 
             this.comboBoxTipo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxTipo.Enabled = false;
             this.comboBoxTipo.FormattingEnabled = true;
             this.comboBoxTipo.Items.AddRange(new object[] {
             "Rss",
@@ -109,13 +99,14 @@ namespace UI.NuevasPantallas
             // textBoxDescripcion
             // 
             this.textBoxDescripcion.BackColor = System.Drawing.Color.White;
+            this.textBoxDescripcion.Enabled = false;
             this.textBoxDescripcion.Location = new System.Drawing.Point(396, 417);
             this.textBoxDescripcion.MaxLength = 30;
             this.textBoxDescripcion.Name = "textBoxDescripcion";
             this.textBoxDescripcion.ShortcutsEnabled = false;
             this.textBoxDescripcion.Size = new System.Drawing.Size(152, 20);
             this.textBoxDescripcion.TabIndex = 9;
-            this.textBoxDescripcion.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBoxDescripcion_KeyPress);
+            this.textBoxDescripcion.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBoxValido_KeyPress);
             // 
             // checkBoxTipo
             // 
@@ -148,7 +139,7 @@ namespace UI.NuevasPantallas
             this.buttonFiltrar.Name = "buttonFiltrar";
             this.buttonFiltrar.Size = new System.Drawing.Size(87, 35);
             this.buttonFiltrar.TabIndex = 30;
-            this.buttonFiltrar.Text = "&Filtrar";
+            this.buttonFiltrar.Text = "Filtrar";
             this.buttonFiltrar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.buttonFiltrar.UseVisualStyleBackColor = true;
             this.buttonFiltrar.Click += new System.EventHandler(this.buttonFiltrar_Click);
@@ -159,9 +150,9 @@ namespace UI.NuevasPantallas
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(75, 23);
             this.button2.TabIndex = 25;
-            this.button2.Text = "&Salir";
+            this.button2.Text = "Salir";
             this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
+            this.button2.Click += new System.EventHandler(this.buttonSalir_Click);
             // 
             // dataGridViewMostrar
             // 
@@ -187,72 +178,6 @@ namespace UI.NuevasPantallas
             this.dataGridViewMostrar.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridViewMostrar.Size = new System.Drawing.Size(556, 245);
             this.dataGridViewMostrar.TabIndex = 24;
-            // 
-            // buttonBorrar
-            // 
-            this.buttonBorrar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonBorrar.Image = global::UI.Properties.Resources.Eliminar7;
-            this.buttonBorrar.Location = new System.Drawing.Point(207, 22);
-            this.buttonBorrar.Name = "buttonBorrar";
-            this.buttonBorrar.Size = new System.Drawing.Size(88, 40);
-            this.buttonBorrar.TabIndex = 23;
-            this.buttonBorrar.Text = "&Borrar";
-            this.buttonBorrar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.buttonBorrar.UseVisualStyleBackColor = true;
-            this.buttonBorrar.Click += new System.EventHandler(this.buttonEliminar_Click);
-            // 
-            // buttonEditar
-            // 
-            this.buttonEditar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonEditar.Image = global::UI.Properties.Resources.Editar6;
-            this.buttonEditar.Location = new System.Drawing.Point(114, 22);
-            this.buttonEditar.Name = "buttonEditar";
-            this.buttonEditar.Size = new System.Drawing.Size(88, 40);
-            this.buttonEditar.TabIndex = 22;
-            this.buttonEditar.Text = "&Editar";
-            this.buttonEditar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.buttonEditar.UseVisualStyleBackColor = true;
-            this.buttonEditar.Click += new System.EventHandler(this.buttonModificar_Click);
-            // 
-            // buttonNuevo
-            // 
-            this.buttonNuevo.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonNuevo.Image = global::UI.Properties.Resources.Agregar8;
-            this.buttonNuevo.Location = new System.Drawing.Point(21, 22);
-            this.buttonNuevo.Name = "buttonNuevo";
-            this.buttonNuevo.Size = new System.Drawing.Size(88, 40);
-            this.buttonNuevo.TabIndex = 21;
-            this.buttonNuevo.Text = "&Nuevo";
-            this.buttonNuevo.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.buttonNuevo.UseVisualStyleBackColor = true;
-            this.buttonNuevo.Click += new System.EventHandler(this.buttonNuevo_Click);
-            // 
-            // pictureBox3
-            // 
-            this.pictureBox3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(159)))), ((int)(((byte)(70)))));
-            this.pictureBox3.Location = new System.Drawing.Point(-1, 0);
-            this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(620, 7);
-            this.pictureBox3.TabIndex = 35;
-            this.pictureBox3.TabStop = false;
-            // 
-            // pictureBox2
-            // 
-            this.pictureBox2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(159)))), ((int)(((byte)(70)))));
-            this.pictureBox2.Location = new System.Drawing.Point(-1, -6);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(3, 525);
-            this.pictureBox2.TabIndex = 34;
-            this.pictureBox2.TabStop = false;
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(251)))), ((int)(((byte)(210)))), ((int)(((byte)(59)))));
-            this.pictureBox1.Location = new System.Drawing.Point(-1, 8);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(620, 4);
-            this.pictureBox1.TabIndex = 33;
-            this.pictureBox1.TabStop = false;
             // 
             // ColumnFuenteId
             // 
@@ -304,6 +229,72 @@ namespace UI.NuevasPantallas
             this.ColumnItems.Visible = false;
             this.ColumnItems.Width = 57;
             // 
+            // buttonBorrar
+            // 
+            this.buttonBorrar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonBorrar.Image = global::UI.Properties.Resources.Eliminar7;
+            this.buttonBorrar.Location = new System.Drawing.Point(207, 22);
+            this.buttonBorrar.Name = "buttonBorrar";
+            this.buttonBorrar.Size = new System.Drawing.Size(88, 40);
+            this.buttonBorrar.TabIndex = 23;
+            this.buttonBorrar.Text = "Borrar";
+            this.buttonBorrar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.buttonBorrar.UseVisualStyleBackColor = true;
+            this.buttonBorrar.Click += new System.EventHandler(this.buttonEliminar_Click);
+            // 
+            // buttonEditar
+            // 
+            this.buttonEditar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonEditar.Image = global::UI.Properties.Resources.Editar6;
+            this.buttonEditar.Location = new System.Drawing.Point(114, 22);
+            this.buttonEditar.Name = "buttonEditar";
+            this.buttonEditar.Size = new System.Drawing.Size(88, 40);
+            this.buttonEditar.TabIndex = 22;
+            this.buttonEditar.Text = "Editar";
+            this.buttonEditar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.buttonEditar.UseVisualStyleBackColor = true;
+            this.buttonEditar.Click += new System.EventHandler(this.buttonModificar_Click);
+            // 
+            // buttonNuevo
+            // 
+            this.buttonNuevo.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonNuevo.Image = global::UI.Properties.Resources.Agregar8;
+            this.buttonNuevo.Location = new System.Drawing.Point(21, 22);
+            this.buttonNuevo.Name = "buttonNuevo";
+            this.buttonNuevo.Size = new System.Drawing.Size(88, 40);
+            this.buttonNuevo.TabIndex = 21;
+            this.buttonNuevo.Text = "Nuevo";
+            this.buttonNuevo.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.buttonNuevo.UseVisualStyleBackColor = true;
+            this.buttonNuevo.Click += new System.EventHandler(this.buttonNuevo_Click);
+            // 
+            // pictureBox3
+            // 
+            this.pictureBox3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(159)))), ((int)(((byte)(70)))));
+            this.pictureBox3.Location = new System.Drawing.Point(-1, 0);
+            this.pictureBox3.Name = "pictureBox3";
+            this.pictureBox3.Size = new System.Drawing.Size(620, 7);
+            this.pictureBox3.TabIndex = 35;
+            this.pictureBox3.TabStop = false;
+            // 
+            // pictureBox2
+            // 
+            this.pictureBox2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(159)))), ((int)(((byte)(70)))));
+            this.pictureBox2.Location = new System.Drawing.Point(-1, -6);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(3, 525);
+            this.pictureBox2.TabIndex = 34;
+            this.pictureBox2.TabStop = false;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(251)))), ((int)(((byte)(210)))), ((int)(((byte)(59)))));
+            this.pictureBox1.Location = new System.Drawing.Point(-1, 8);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(620, 4);
+            this.pictureBox1.TabIndex = 33;
+            this.pictureBox1.TabStop = false;
+            // 
             // VBaseFuente
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -321,7 +312,6 @@ namespace UI.NuevasPantallas
             this.Controls.Add(this.checkBoxTipo);
             this.Controls.Add(this.textBoxDescripcion);
             this.Controls.Add(this.checkBoxDescripcion);
-            this.Controls.Add(this.buttonSalir);
             this.Controls.Add(this.dataGridViewMostrar);
             this.Controls.Add(this.groupBox1);
             this.Name = "VBaseFuente";
@@ -339,7 +329,6 @@ namespace UI.NuevasPantallas
         }
 
         #endregion
-        private System.Windows.Forms.Button buttonSalir;
         private System.Windows.Forms.ComboBox comboBoxTipo;
         private System.Windows.Forms.DataGridViewTextBoxColumn Banners;
         private System.Windows.Forms.DataGridViewTextBoxColumn Tipo;
