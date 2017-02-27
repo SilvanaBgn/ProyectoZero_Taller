@@ -13,6 +13,10 @@ using Helper;
 
 namespace UI.UserControls
 {
+    /// <summary>
+    /// UserControl que establece una estructura y un comportamiento para gestionar las imágenes que se quieren
+    /// seleccionar utilizar en una campania deslizante
+    /// </summary>
     public partial class Galeria : UserControl
     {
         /// <summary>
@@ -20,34 +24,8 @@ namespace UI.UserControls
         /// </summary>
         private List<Imagen> iListaImagenes;
 
-        [Browsable(false)]
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
-        // Property
-        public List<Imagen> ListaImagenes
-        {
-            get
-            {
-                //Actualizamos la lista de imágenes y la devolvemos:
-                this.ActualizarListaImagenes();
-                return this.iListaImagenes;
-            }
-            set
-            {
-                this.iListaImagenes = value;
-                this.CargarListView();
-            }
-        }
-        public int Segundos
-        {
 
-            get
-            {
-                return Convert.ToInt32(this.comboBoxSegundos.SelectedItem);
-            }
-            set { this.comboBoxSegundos.SelectedIndex = value-1; }
-        }
-
+        //CONSTRUCTOR
         public Galeria()
         {
             InitializeComponent();
@@ -251,6 +229,36 @@ namespace UI.UserControls
             //Seleccionamos el primer elemento del ListView:
             this.listView.Focus();
             this.listView.Items[0].Selected = true;
+        }
+        #endregion
+
+
+        #region PROPERTIES
+        [Browsable(false)]
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
+        public List<Imagen> ListaImagenes
+        {
+            get
+            {
+                //Actualizamos la lista de imágenes y la devolvemos:
+                this.ActualizarListaImagenes();
+                return this.iListaImagenes;
+            }
+            set
+            {
+                this.iListaImagenes = value;
+                this.CargarListView();
+            }
+        }
+        public int Segundos
+        {
+
+            get
+            {
+                return Convert.ToInt32(this.comboBoxSegundos.SelectedItem);
+            }
+            set { this.comboBoxSegundos.SelectedIndex = value - 1; }
         }
         #endregion
     }

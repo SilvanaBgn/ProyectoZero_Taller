@@ -14,7 +14,7 @@ using Helper;
 namespace UI.UserControls
 {
     /// <summary>
-    /// Clase que contiene todos los métodos necesarios para la movilización por un PictureBox de una campania
+    /// Componente que contiene todos los métodos necesarios para la deslizar una campania por un PictureBox
     /// </summary>
     public class CampaniaDeslizante : PictureBox
     {
@@ -37,6 +37,7 @@ namespace UI.UserControls
         /// Indica si la campaña deslizante está actualmente en funcionamiento
         /// </summary>
         private bool iFuncionando;
+        //(PROPERTY):
         public bool Funcionando
         {
             get { return this.iFuncionando; }
@@ -62,10 +63,11 @@ namespace UI.UserControls
             this.Image=this.iImagenPorDefecto = global::UI.Properties.Resources.NoImage2;
         }
 
+        #region Funciones privadas
         /// <summary>
         /// Evento Tick del this.iTimerImagenes, que indica qué hacer cada un tick
         /// </summary>
-        public void timerImagen_Tick(object sender, EventArgs e)
+        private void timerImagen_Tick(object sender, EventArgs e)
         {
             if (this.iCount < 1)
                 this.iCount++;
@@ -82,8 +84,10 @@ namespace UI.UserControls
                     this.iIndice = -1;
             }
         }
+        #endregion
 
 
+        #region Funciones públicas
         /// <summary>
         /// Sólo se utiliza el pictureBox de la campaña deslizante
         /// </summary>
@@ -128,5 +132,7 @@ namespace UI.UserControls
                 this.Image = this.iImagenPorDefecto;
             }
         }
+
+        #endregion
     }
 }

@@ -44,17 +44,16 @@ namespace UI.NuevasPantallas
         }
 
         /// <summary>
-        /// Carga en todos los componentes de la ventana VModificarBanner los valores de pBannerAModificar
+        /// Carga en todos los componentes de la ventana VModificarBanner con los valores de this.iBanner
         /// </summary>
-        /// <param name="pBannerAModificar">banner a modificar</param>
-        private void CargarBannerAModificar(Banner pBannerAModificar)
+        private void CargarBannerAModificar()
         {
-            this.textBoxTitulo.Text = pBannerAModificar.Titulo;
-            this.textBoxDescripcion.Text = pBannerAModificar.Descripcion;
-            this.rangoFecha.FechaInicio = pBannerAModificar.FechaInicio;
-            this.rangoFecha.FechaFin = pBannerAModificar.FechaFin;
-            this.rangoHorario.HoraInicio = pBannerAModificar.HoraInicio;
-            this.rangoHorario.HoraFin = pBannerAModificar.HoraFin;
+            this.textBoxTitulo.Text = this.iBanner.Titulo;
+            this.textBoxDescripcion.Text = this.iBanner.Descripcion;
+            this.rangoFecha.FechaInicio = this.iBanner.FechaInicio;
+            this.rangoFecha.FechaFin = this.iBanner.FechaFin;
+            this.rangoHorario.HoraInicio = this.iBanner.HoraInicio;
+            this.rangoHorario.HoraFin = this.iBanner.HoraFin;
         }
         #endregion
 
@@ -64,6 +63,7 @@ namespace UI.NuevasPantallas
 
         /// <summary>
         /// Evento que se invoca cuando se hace click en el botón guardar. Guarda todos los datos del banner
+        /// modificado
         /// </summary>
         private void ButtonGuardar_Click(object sender, EventArgs e)
         {
@@ -108,7 +108,7 @@ namespace UI.NuevasPantallas
         /// </summary>
         private void VModificarBanner_Load(object sender, EventArgs e)
         {
-            this.CargarBannerAModificar(this.iBanner);
+            this.CargarBannerAModificar();
         }
     }
     #endregion

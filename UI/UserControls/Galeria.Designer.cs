@@ -51,11 +51,11 @@ namespace UI.UserControls
             // 
             this.labelDuracion.AutoSize = true;
             this.labelDuracion.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.labelDuracion.Location = new System.Drawing.Point(9, 191);
+            this.labelDuracion.Location = new System.Drawing.Point(9, 163);
             this.labelDuracion.Name = "labelDuracion";
             this.labelDuracion.Size = new System.Drawing.Size(50, 13);
             this.labelDuracion.TabIndex = 29;
-            this.labelDuracion.Text = "Duracion";
+            this.labelDuracion.Text = "Duración";
             // 
             // listView
             // 
@@ -69,24 +69,24 @@ namespace UI.UserControls
             this.listView.Location = new System.Drawing.Point(12, 9);
             this.listView.MultiSelect = false;
             this.listView.Name = "listView";
-            this.listView.Size = new System.Drawing.Size(182, 141);
+            this.listView.Size = new System.Drawing.Size(201, 141);
             this.listView.TabIndex = 53;
             this.listView.UseCompatibleStateImageBehavior = false;
             this.listView.View = System.Windows.Forms.View.Details;
             this.listView.SelectedIndexChanged += new System.EventHandler(this.listView1_SelectedIndexChanged);
-            //// 
-            //// columnNumero
-            //// 
+            // 
+            // columnNumero
+            // 
             this.columnNumero.Text = "Nº";
             this.columnNumero.Width = 23;
-            //// 
+            // 
             // columnNombre
             // 
             this.columnNombre.Text = "Imagen";
-            this.columnNombre.Width = 154;
-            //// 
-            //// columnBytes
-            //// 
+            this.columnNombre.Width = 173;
+            // 
+            // columnBytes
+            // 
             this.columnBytes.Text = "Bytes";
             this.columnBytes.Width = 0;
             // 
@@ -97,7 +97,7 @@ namespace UI.UserControls
             this.buttonArriba.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.buttonArriba.FlatAppearance.BorderSize = 0;
             this.buttonArriba.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonArriba.Location = new System.Drawing.Point(195, 35);
+            this.buttonArriba.Location = new System.Drawing.Point(215, 35);
             this.buttonArriba.Name = "buttonArriba";
             this.buttonArriba.Size = new System.Drawing.Size(53, 54);
             this.buttonArriba.TabIndex = 51;
@@ -111,7 +111,7 @@ namespace UI.UserControls
             this.buttonAbajo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.buttonAbajo.FlatAppearance.BorderSize = 0;
             this.buttonAbajo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonAbajo.Location = new System.Drawing.Point(195, 93);
+            this.buttonAbajo.Location = new System.Drawing.Point(215, 93);
             this.buttonAbajo.Name = "buttonAbajo";
             this.buttonAbajo.Size = new System.Drawing.Size(53, 54);
             this.buttonAbajo.TabIndex = 52;
@@ -123,7 +123,7 @@ namespace UI.UserControls
             this.buttonEliminarImagen.BackgroundImage = global::UI.Properties.Resources.Eliminar4;
             this.buttonEliminarImagen.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.buttonEliminarImagen.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.buttonEliminarImagen.Location = new System.Drawing.Point(42, 154);
+            this.buttonEliminarImagen.Location = new System.Drawing.Point(150, 154);
             this.buttonEliminarImagen.Name = "buttonEliminarImagen";
             this.buttonEliminarImagen.Size = new System.Drawing.Size(28, 31);
             this.buttonEliminarImagen.TabIndex = 62;
@@ -136,7 +136,7 @@ namespace UI.UserControls
             this.buttonVistaPrevia.BackgroundImage = global::UI.Properties.Resources.Play1;
             this.buttonVistaPrevia.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.buttonVistaPrevia.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.buttonVistaPrevia.Location = new System.Drawing.Point(79, 154);
+            this.buttonVistaPrevia.Location = new System.Drawing.Point(184, 154);
             this.buttonVistaPrevia.Name = "buttonVistaPrevia";
             this.buttonVistaPrevia.Size = new System.Drawing.Size(30, 31);
             this.buttonVistaPrevia.TabIndex = 49;
@@ -149,7 +149,7 @@ namespace UI.UserControls
             this.buttonAgregarImagenes.BackgroundImage = global::UI.Properties.Resources.AgregarImagen1;
             this.buttonAgregarImagenes.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.buttonAgregarImagenes.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.buttonAgregarImagenes.Location = new System.Drawing.Point(12, 154);
+            this.buttonAgregarImagenes.Location = new System.Drawing.Point(122, 154);
             this.buttonAgregarImagenes.Name = "buttonAgregarImagenes";
             this.buttonAgregarImagenes.Size = new System.Drawing.Size(29, 31);
             this.buttonAgregarImagenes.TabIndex = 48;
@@ -182,25 +182,24 @@ namespace UI.UserControls
             "8",
             "9",
             "10"});
-            this.comboBoxSegundos.Location = new System.Drawing.Point(54, 188);
+            this.comboBoxSegundos.Location = new System.Drawing.Point(56, 160);
             this.comboBoxSegundos.Name = "comboBoxSegundos";
-            this.comboBoxSegundos.Size = new System.Drawing.Size(55, 21);
+            this.comboBoxSegundos.Size = new System.Drawing.Size(41, 21);
             this.comboBoxSegundos.TabIndex = 63;
             // 
             // labelSegundos
             // 
             this.labelSegundos.AutoSize = true;
-            this.labelSegundos.Location = new System.Drawing.Point(115, 191);
+            this.labelSegundos.Location = new System.Drawing.Point(96, 163);
             this.labelSegundos.Name = "labelSegundos";
-            this.labelSegundos.Size = new System.Drawing.Size(53, 13);
+            this.labelSegundos.Size = new System.Drawing.Size(27, 13);
             this.labelSegundos.TabIndex = 64;
-            this.labelSegundos.Text = "segundos";
+            this.labelSegundos.Text = "seg.";
             // 
             // Galeria
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.labelSegundos);
             this.Controls.Add(this.comboBoxSegundos);
             this.Controls.Add(this.buttonEliminarImagen);
             this.Controls.Add(this.listView);
@@ -210,6 +209,7 @@ namespace UI.UserControls
             this.Controls.Add(this.labelDuracion);
             this.Controls.Add(this.buttonArriba);
             this.Controls.Add(this.buttonAbajo);
+            this.Controls.Add(this.labelSegundos);
             this.Name = "Galeria";
             this.Size = new System.Drawing.Size(488, 216);
             ((System.ComponentModel.ISupportInitialize)(this.campaniaDeslizante)).EndInit();

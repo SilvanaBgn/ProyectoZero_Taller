@@ -137,6 +137,7 @@ namespace UI.NuevasPantallas
             this.textBoxAgregarPasoBanner.Name = "textBoxAgregarPasoBanner";
             this.textBoxAgregarPasoBanner.Size = new System.Drawing.Size(345, 20);
             this.textBoxAgregarPasoBanner.TabIndex = 5;
+            this.textBoxAgregarPasoBanner.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBoxValido_KeyPress);
             // 
             // textBoxDescripcionTextoFijo
             // 
@@ -146,6 +147,7 @@ namespace UI.NuevasPantallas
             this.textBoxDescripcionTextoFijo.ShortcutsEnabled = false;
             this.textBoxDescripcionTextoFijo.Size = new System.Drawing.Size(194, 20);
             this.textBoxDescripcionTextoFijo.TabIndex = 3;
+            this.textBoxDescripcionTextoFijo.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBoxValido_KeyPress);
             // 
             // label7
             // 

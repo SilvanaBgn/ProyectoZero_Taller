@@ -30,12 +30,10 @@ namespace UI.NuevasPantallas
         /// <param name="e">Argumentos del evento</param>
         private void VInicial_Load(object sender, EventArgs e)
         {
-            // Start the BackgroundWorker.
+            //Da inicio a que el bgw corra en segundo plano:
             bgwCargarBD.RunWorkerAsync();
-            //Se lanzarían backgroundWorker de cada uno de los elementos a cargar de la DB
 
             List<Imagen> listaImagenes = new List<Imagen>();
-           // ImageConverter imagenConv = new ImageConverter();
 
             listaImagenes.AddRange(new List<Imagen>
             {
@@ -47,14 +45,14 @@ namespace UI.NuevasPantallas
                 new Imagen() { Bytes = ConversorImagen.ImageToByte(Properties.Resources.monumento)},
                 new Imagen() { Bytes = ConversorImagen.ImageToByte(Properties.Resources.melones)}
             });
+
             this.campaniaDeslizante1.Start(listaImagenes,1);
         }
         
         /// <summary>
-        /// Evento del bgwCargarBD
+        /// Evento Do_Work del bgwCargarBD, que comprueba cuándo estará lista la VPantallaPrincipal para ser
+        /// mostrada
         /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
         private void bgwCargarBD_DoWork(object sender, DoWorkEventArgs e)
         {
             while (!((VPrincipal)this.Owner).BDcreada)
@@ -66,10 +64,9 @@ namespace UI.NuevasPantallas
         /// <summary>
         /// Evento que surge cuando el proceso en segundo plano termina la operación
         /// </summary>
-        /// <param name="sender">Objeto que  envía el evento</param>
-        /// <param name="e">Argumentos del evento</param>
         private void bgwCargarBD_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
         {
+            //Se muestra la pantalla VPrincipal:
             this.Hide();
             ((VPrincipal)this.Owner).Show();
         }

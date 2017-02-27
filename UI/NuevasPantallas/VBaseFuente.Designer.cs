@@ -106,7 +106,7 @@ namespace UI.NuevasPantallas
             this.textBoxDescripcion.ShortcutsEnabled = false;
             this.textBoxDescripcion.Size = new System.Drawing.Size(152, 20);
             this.textBoxDescripcion.TabIndex = 9;
-            this.textBoxDescripcion.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBoxDescripcion_KeyPress);
+            this.textBoxDescripcion.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBoxValido_KeyPress);
             // 
             // checkBoxTipo
             // 

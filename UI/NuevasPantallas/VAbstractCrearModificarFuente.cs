@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Dominio;
 using System.Text.RegularExpressions;
+using Helper;
 
 namespace UI.NuevasPantallas
 {
@@ -47,11 +48,9 @@ namespace UI.NuevasPantallas
             this.StartPosition = FormStartPosition.CenterScreen;
         }
 
-        private void buttonCancelar_Click(object sender, EventArgs e)
-        {
-            this.Close();
-        }
 
+
+        #region Funciones privadas
         /// <summary>
         /// Si se selecciona RSS en el comboBox se muestra el panel RSS
         /// Si se selecciona Texto Fijo en el comboBox se muestra el panel texto fijo
@@ -70,19 +69,26 @@ namespace UI.NuevasPantallas
                     break;
             }
         }
+        #endregion
 
-        private void InputValido(KeyPressEventArgs e)
+        #region EVENTOS
+        #region Botones
+        /// <summary>
+        /// Evento que se activa al presionar el botón this.buttonCancelar
+        /// </summary>
+        private void buttonCancelar_Click(object sender, EventArgs e)
         {
-            var regex = new Regex(@"[^a-zA-Z0-9\s\b]");
-            if (regex.IsMatch(e.KeyChar.ToString()))
-            {
-                e.Handled = true;
-            }
+            this.Close();
         }
+        #endregion
 
+        #region Ventana y Otros Componentes
+        /// <summary>
+        /// Evento que se activa cuando se quiere introducir texto en algun textBox
+        /// </summary>
         private void textBoxValido_KeyPress(object sender, KeyPressEventArgs e)
         {
-            this.InputValido(e);
+            ValidacionTexto.InputValido(e);
         }
 
         /// <summary>
@@ -104,10 +110,10 @@ namespace UI.NuevasPantallas
         private void VAbstractCrearModificarFuente_FormClosing(object sender, FormClosingEventArgs e)
         {
             //Le pedimos que haga la Lectura de Items en segundo plano:
-
-            //this.iFuenteAAgregar es distinta de null cuando se apretó el botón Guardar
-            if (/*this.iFuenteAAgregar != null &&*/ !this.bgwActualizarItemsAlGuardar.IsBusy && this.iGuardadoCorrecto)
+            if (this.iGuardadoCorrecto && !this.bgwActualizarItemsAlGuardar.IsBusy)
                 this.bgwActualizarItemsAlGuardar.RunWorkerAsync();
         }
+        #endregion
+        #endregion
     }
 }

@@ -21,6 +21,8 @@ namespace UI.NuevasPantallas
             InitializeComponent();
         }
 
+
+        #region EVENTOS Botones
         /// <summary>
         /// Evento que se invoca cuando se hace click en el botón guardar, agregando una nueva fuente
         /// </summary>
@@ -76,5 +78,6 @@ namespace UI.NuevasPantallas
                 MessageBox.Show("Se debe seleccionar un tipo de fuente", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+        #endregion
     }
 }

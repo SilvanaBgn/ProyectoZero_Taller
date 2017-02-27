@@ -29,7 +29,7 @@ namespace UI.NuevasPantallas
             
         }
 
-        private void backgroundWorker1_DoWork(object sender, DoWorkEventArgs e)
+        private void bgw_DoWork(object sender, DoWorkEventArgs e)
         {
             Thread.Sleep(3000);
         }

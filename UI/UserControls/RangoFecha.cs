@@ -10,6 +10,10 @@ using System.Windows.Forms;
 
 namespace UI.UserControls
 {
+    /// <summary>
+    /// UserControl que establece una estructura y un comportamiento para el control del Rango Horario,
+    /// para utilizar en los Forms
+    /// </summary>
     public partial class RangoFecha : UserControl
     {
         //CONSTRUCTOR
@@ -20,25 +24,6 @@ namespace UI.UserControls
             //this.FechaInicio = DateTime.Today;
         }
 
-        public DateTime FechaInicio
-        {
-            get
-            {
-                return new DateTime(this.dateTimePickerInicio.Value.Year, this.dateTimePickerInicio.Value.Month,
-              this.dateTimePickerInicio.Value.Day);
-            }
-            set { dateTimePickerInicio.Value = value; }
-        }
-
-        public DateTime FechaFin
-        {
-            get
-            {
-                return new DateTime(this.dateTimePickerFin.Value.Year, this.dateTimePickerFin.Value.Month,
-             this.dateTimePickerFin.Value.Day);
-            }
-            set { dateTimePickerFin.Value = value; }
-        }
 
         /// <summary>
         /// Evento que ejecuta al cambiar el valor del dateTimePickerInicio, mostrando en labelCantDias
@@ -141,5 +126,28 @@ namespace UI.UserControls
             }
             return resultado;
         }
+
+
+        #region PROPERTIES
+        public DateTime FechaInicio
+        {
+            get
+            {
+                return new DateTime(this.dateTimePickerInicio.Value.Year, this.dateTimePickerInicio.Value.Month,
+              this.dateTimePickerInicio.Value.Day);
+            }
+            set { dateTimePickerInicio.Value = value; }
+        }
+
+        public DateTime FechaFin
+        {
+            get
+            {
+                return new DateTime(this.dateTimePickerFin.Value.Year, this.dateTimePickerFin.Value.Month,
+             this.dateTimePickerFin.Value.Day);
+            }
+            set { dateTimePickerFin.Value = value; }
+        }
+        #endregion
     }
 }

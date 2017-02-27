@@ -138,12 +138,6 @@
     <Compile Include="UserControls\BannerDeslizante.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="NuevasPantallas\DatosBannerCampania.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="NuevasPantallas\DatosBannerCampania.Designer.cs">
-      <DependentUpon>DatosBannerCampania.cs</DependentUpon>
-    </Compile>
     <Compile Include="NuevasPantallas\VAbstractBase.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -228,12 +222,6 @@
     <Compile Include="UserControls\Galeria.Designer.cs">
       <DependentUpon>Galeria.cs</DependentUpon>
     </Compile>
-    <Compile Include="UserControls\GroupBoxColor.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="UserControls\GroupBoxColor.Designer.cs">
-      <DependentUpon>GroupBoxColor.cs</DependentUpon>
-    </Compile>
     <Compile Include="UserControls\RangoFecha.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -254,9 +242,6 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="NuevasPantallas\DatosBannerCampania.resx">
-      <DependentUpon>DatosBannerCampania.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="NuevasPantallas\VAbstractBase.resx">
       <DependentUpon>VAbstractBase.cs</DependentUpon>
     </EmbeddedResource>

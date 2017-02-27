@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Dominio;
 using System.Text.RegularExpressions;
+using Helper;
 
 namespace UI.UserControls
 {
@@ -19,38 +20,7 @@ namespace UI.UserControls
         /// </summary>
         private List<Item> iListaItems;
 
-        public string Descripcion
-        {
-            get { return this.textBoxDescripcion.Text; }
-            set { this.textBoxDescripcion.Text = value; }
-        }
 
-        [Browsable(false)]
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
-        // Property
-        public List<Item> ListaItems
-        {
-            get //Actualiza la lista de items (this.iListaItems) y la devuelve
-            {
-                this.iListaItems = new List<Item>();
-                foreach (var itemComboBox in this.comboBoxItems.Items)
-                {
-                    Item item = new Item(itemComboBox.ToString());
-                    this.iListaItems.Add(item);
-                }
-
-                return this.iListaItems;
-            }
-            set //Obtiene una lista de items, y la muestra en el comboBoxItems
-            {
-                this.iListaItems = value;
-                foreach (var item in this.iListaItems)
-                {
-                    this.comboBoxItems.Items.Add(item.Descripcion);
-                }
-            }
-        }
 
         //CONSTRUCTOR
         public TextoFijo()
@@ -58,6 +28,8 @@ namespace UI.UserControls
             InitializeComponent();
             this.iListaItems = new List<Item>();
         }
+
+
 
         #region Eventos BOTONES (privados)
         /// <summary>
@@ -165,6 +137,14 @@ namespace UI.UserControls
             if (!string.IsNullOrEmpty(comboBoxItems.Text) && e.KeyChar == (Char)Keys.Enter)
                 this.comboBoxItems.Items.Add(comboBoxItems.Text);
         }
+
+        /// <summary>
+        /// Evento que se activa cuando se quiere introducir texto en algun textBox
+        /// </summary>
+        private void textBoxValido_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            ValidacionTexto.InputValido(e);
+        }
         #endregion
 
         #region Otras funciones auxiliares
@@ -180,19 +160,40 @@ namespace UI.UserControls
         }
         #endregion
 
-        private void InputValido(KeyPressEventArgs e)
+
+        #region PROPERTIES
+        public string Descripcion
         {
-            var regex = new Regex(@"[^a-zA-Z0-9\s\b]");
-            if (regex.IsMatch(e.KeyChar.ToString()))
-            {
-                e.Handled = true;
-            }
+            get { return this.textBoxDescripcion.Text; }
+            set { this.textBoxDescripcion.Text = value; }
         }
 
-        private void textBoxValido_KeyPress(object sender, KeyPressEventArgs e)
+        [Browsable(false)]
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
+        public List<Item> ListaItems
         {
-            this.InputValido(e);
+            get //Actualiza la lista de items (this.iListaItems) y la devuelve
+            {
+                this.iListaItems = new List<Item>();
+                foreach (var itemComboBox in this.comboBoxItems.Items)
+                {
+                    Item item = new Item(itemComboBox.ToString());
+                    this.iListaItems.Add(item);
+                }
+
+                return this.iListaItems;
+            }
+            set //Obtiene una lista de items, y la muestra en el comboBoxItems
+            {
+                this.iListaItems = value;
+                foreach (var item in this.iListaItems)
+                {
+                    this.comboBoxItems.Items.Add(item.Descripcion);
+                }
+            }
         }
+        #endregion
 
     }
 }

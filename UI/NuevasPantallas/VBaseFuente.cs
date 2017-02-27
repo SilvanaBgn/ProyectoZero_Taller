@@ -178,9 +178,9 @@ namespace UI.NuevasPantallas
 
 
         /// <summary>
-        /// Evento que se activa cuando se quiere introducir texto en el this.textBoxDescripcion
+        /// Evento que se activa cuando se quiere introducir texto en algun textbox
         /// </summary>
-        private void textBoxDescripcion_KeyPress(object sender, KeyPressEventArgs e)
+        private void textBoxValido_KeyPress(object sender, KeyPressEventArgs e)
         {
             ValidacionTexto.InputValido(e);
         }

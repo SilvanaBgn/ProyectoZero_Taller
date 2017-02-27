@@ -167,6 +167,7 @@ namespace UI.NuevasPantallas
             this.textBoxTitulo.Name = "textBoxTitulo";
             this.textBoxTitulo.Size = new System.Drawing.Size(139, 20);
             this.textBoxTitulo.TabIndex = 7;
+            this.textBoxTitulo.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textValido_KeyPress);
             // 
             // checkBoxTitulo
             // 
@@ -190,6 +191,7 @@ namespace UI.NuevasPantallas
             this.textBoxDescripcion.ShortcutsEnabled = false;
             this.textBoxDescripcion.Size = new System.Drawing.Size(227, 20);
             this.textBoxDescripcion.TabIndex = 6;
+            this.textBoxDescripcion.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textValido_KeyPress);
             // 
             // checkBoxDescripcion
             // 
