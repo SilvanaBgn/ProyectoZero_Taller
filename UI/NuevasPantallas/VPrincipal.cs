@@ -149,7 +149,7 @@ namespace UI.NuevasPantallas
             }
             catch(ExcepcionAlObtenerCampanias ex)
             {
-                { MessageBox.Show(ex.Message, "Error al intentar obtener campaña", MessageBoxButtons.OK, MessageBoxIcon.Error); }
+                //{ MessageBox.Show(ex.Message, "Error al intentar obtener campaña", MessageBoxButtons.OK, MessageBoxIcon.Error); }
             }
         }
 
@@ -197,7 +197,7 @@ namespace UI.NuevasPantallas
             }
             catch (Exception bEx)
             {
-                MessageBox.Show(bEx.Message, "Se ha producido un error al intentar actualizar el banner", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                //MessageBox.Show(bEx.Message, "Se ha producido un error al intentar actualizar el banner", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -215,7 +215,9 @@ namespace UI.NuevasPantallas
                 this.iBannerAPasar = this.iControladorDominio.ProximoBannerAPasar(this.iFechaActual, this.iHoraActual);
             }
             catch(ExcepcionAlObtenerBanners ex)
-            { MessageBox.Show(ex.Message, "Error al intentar obtener banner", MessageBoxButtons.OK, MessageBoxIcon.Error); }
+            {
+                //MessageBox.Show(ex.Message, "Error al intentar obtener banner", MessageBoxButtons.OK, MessageBoxIcon.Error); 
+            }
             this.timerChequeoCambioBanner.Interval = this.iControladorDominio.IntervaloAlProxCuartoDeHora(this.iHoraActual);
         }
 

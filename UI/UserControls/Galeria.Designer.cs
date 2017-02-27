@@ -53,9 +53,9 @@ namespace UI.UserControls
             this.labelDuracion.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.labelDuracion.Location = new System.Drawing.Point(9, 163);
             this.labelDuracion.Name = "labelDuracion";
-            this.labelDuracion.Size = new System.Drawing.Size(50, 13);
+            this.labelDuracion.Size = new System.Drawing.Size(53, 13);
             this.labelDuracion.TabIndex = 29;
-            this.labelDuracion.Text = "Duración";
+            this.labelDuracion.Text = "Duración:";
             // 
             // listView
             // 
@@ -182,15 +182,15 @@ namespace UI.UserControls
             "8",
             "9",
             "10"});
-            this.comboBoxSegundos.Location = new System.Drawing.Point(56, 160);
+            this.comboBoxSegundos.Location = new System.Drawing.Point(59, 160);
             this.comboBoxSegundos.Name = "comboBoxSegundos";
-            this.comboBoxSegundos.Size = new System.Drawing.Size(41, 21);
+            this.comboBoxSegundos.Size = new System.Drawing.Size(32, 21);
             this.comboBoxSegundos.TabIndex = 63;
             // 
             // labelSegundos
             // 
             this.labelSegundos.AutoSize = true;
-            this.labelSegundos.Location = new System.Drawing.Point(96, 163);
+            this.labelSegundos.Location = new System.Drawing.Point(90, 163);
             this.labelSegundos.Name = "labelSegundos";
             this.labelSegundos.Size = new System.Drawing.Size(27, 13);
             this.labelSegundos.TabIndex = 64;
