@@ -46,6 +46,7 @@ namespace UI.NuevasPantallas
 
         private void ButtonGuardar_Click(object sender, EventArgs e)
         {
+            //Completamos la this.iFuente con los datos modificados:
             switch (this.comboBoxTipoFuente.SelectedItem.ToString())
             {
                 case "Rss":

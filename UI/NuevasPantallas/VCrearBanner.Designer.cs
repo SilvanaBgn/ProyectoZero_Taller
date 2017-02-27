@@ -29,11 +29,31 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(VCrearBanner));
+            this.buttonNuevaFuente = new System.Windows.Forms.Button();
+            this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // buttonGuardar
             // 
             this.buttonGuardar.Click += new System.EventHandler(this.ButtonGuardar_Click);
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.buttonNuevaFuente);
+            this.groupBox1.Controls.SetChildIndex(this.buttonNuevaFuente, 0);
+            // 
+            // buttonNuevaFuente
+            // 
+            this.buttonNuevaFuente.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonNuevaFuente.Image = global::UI.Properties.Resources.Agregar3;
+            this.buttonNuevaFuente.Location = new System.Drawing.Point(6, 19);
+            this.buttonNuevaFuente.Name = "buttonNuevaFuente";
+            this.buttonNuevaFuente.Size = new System.Drawing.Size(135, 39);
+            this.buttonNuevaFuente.TabIndex = 24;
+            this.buttonNuevaFuente.Text = "Nueva Fuente";
+            this.buttonNuevaFuente.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.buttonNuevaFuente.UseVisualStyleBackColor = true;
+            this.buttonNuevaFuente.Click += new System.EventHandler(this.buttonNuevaFuente_Click);
             // 
             // VCrearBanner
             // 
@@ -43,11 +63,15 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "VCrearBanner";
             this.Text = "Nuevo Banner";
+            this.Shown += new System.EventHandler(this.VCrearBanner_Shown);
+            this.groupBox1.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
+
+        private System.Windows.Forms.Button buttonNuevaFuente;
     }
 }

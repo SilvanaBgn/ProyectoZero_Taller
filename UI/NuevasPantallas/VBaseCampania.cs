@@ -13,39 +13,26 @@ namespace UI.NuevasPantallas
 {
     public partial class VBaseCampania : VAbstractBase
     {
+        /// <summary>
+        /// Atributo que almacena la Ventana de "Nueva Campania"
+        /// </summary>
         private VCrearCampania iVentanaNueva;
+
+        /// <summary>
+        /// Atributo que almacena la Ventana de "Editar Campania"
+        /// </summary>
         private VModificarCampania iVentanaEditar;
+
 
 
         public VBaseCampania(ref ControladorDominio pControladorDominio) : base(ref pControladorDominio)
         {
             InitializeComponent();
-            this.iControladorDominio = pControladorDominio;
         }
 
-        /// <summary>
-        /// Evento que se invoca cuando se hace click en el botón filtrar
-        /// </summary>
-        private void buttonFiltrar_Click(object sender, EventArgs e)
-        {
-            DateTime[] filtroFechas = null;
-            TimeSpan[] filtroHoras = null;
-            string filtroTitulo = null;
-            string filtroDescripcion = null;
 
-            if (checkBoxRangoFechas.Checked)
-                filtroFechas = new DateTime[] { this.rangoFecha.FechaInicio, this.rangoFecha.FechaFin };
-            if (checkBoxRangoHoras.Checked)
-                filtroHoras = new TimeSpan[] { this.rangoHorario.HoraInicio, this.rangoHorario.HoraFin };
-            if (checkBoxTitulo.Checked)
-                filtroTitulo = this.textBoxTitulo.Text;
-            if (checkBoxDescripcion.Checked)
-                filtroDescripcion = this.textBoxDescripcion.Text;
 
-            List<Campania> listaFiltrada = this.iControladorDominio.FiltrarCampanias(filtroFechas, filtroHoras, filtroTitulo, filtroDescripcion);
-            this.CargarDataGridCampanias(listaFiltrada);
-        }
-
+        #region Funciones privadas
         /// <summary>
         /// Busca la campania que se va a modificar
         /// </summary>
@@ -66,10 +53,9 @@ namespace UI.NuevasPantallas
             //Cargamos el Datagrid:
             this.dataGridViewMostrar.DataSource = pListaCampanias;
 
-            //Dejamos invisibles las columnas que no deben verse:
+            //Cambiamos el orden, visibilidad y nombre de las columnas:
             this.dataGridViewMostrar.Columns["Imagenes"].Visible = false;
 
-            //Cambiamos el orden de las columnas:
             this.dataGridViewMostrar.Columns["CampaniaId"].DisplayIndex = 0;
             this.dataGridViewMostrar.Columns["Titulo"].DisplayIndex = 1;
             this.dataGridViewMostrar.Columns["FechaInicio"].DisplayIndex = 2;
@@ -79,11 +65,14 @@ namespace UI.NuevasPantallas
             this.dataGridViewMostrar.Columns["DuracionImagen"].DisplayIndex = 6;
             this.dataGridViewMostrar.Columns["Descripcion"].DisplayIndex = 7;
 
-            //Cambiamos el nombre de las columnas:
             this.dataGridViewMostrar.Columns["DuracionImagen"].HeaderText = "Duración imágenes";
             this.dataGridViewMostrar.Columns["CampaniaId"].HeaderText = "Cod";
         }
+        #endregion
 
+
+        #region EVENTOS
+        #region Botones
         /// <summary>
         /// Evento que se invoca cuando se hace click sobre el botón nuevo, creando una nueva campaña
         /// </summary>
@@ -123,8 +112,8 @@ namespace UI.NuevasPantallas
             else
             {
                 string titulo = campaniaSeleccionada.Titulo;
-                DialogResult resultado = MessageBox.Show(string.Format("¿Está seguro que desea eliminar la Campaña \"{0}\"?",titulo), "Eliminar Campaña", MessageBoxButtons.YesNo,MessageBoxIcon.Question);
-                if (resultado == DialogResult.Yes) 
+                DialogResult resultado = MessageBox.Show(string.Format("¿Está seguro que desea eliminar la Campaña \"{0}\"?", titulo), "Eliminar Campaña", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                if (resultado == DialogResult.Yes)
                 {
                     int codigo = campaniaSeleccionada.CampaniaId;
                     this.iControladorDominio.BorrarCampania(codigo);
@@ -132,6 +121,31 @@ namespace UI.NuevasPantallas
                     this.CargarDataGridCampanias(this.iControladorDominio.ObtenerTodasLasCampanias());
                 }
             }
+        }
+        #endregion
+
+        #region Ventana y Otros Componentes
+        /// <summary>
+        /// Evento que se invoca cuando se hace click en el botón filtrar
+        /// </summary>
+        private void buttonFiltrar_Click(object sender, EventArgs e)
+        {
+            DateTime[] filtroFechas = null;
+            TimeSpan[] filtroHoras = null;
+            string filtroTitulo = null;
+            string filtroDescripcion = null;
+
+            if (checkBoxRangoFechas.Checked)
+                filtroFechas = new DateTime[] { this.rangoFecha.FechaInicio, this.rangoFecha.FechaFin };
+            if (checkBoxRangoHoras.Checked)
+                filtroHoras = new TimeSpan[] { this.rangoHorario.HoraInicio, this.rangoHorario.HoraFin };
+            if (checkBoxTitulo.Checked)
+                filtroTitulo = this.textBoxTitulo.Text;
+            if (checkBoxDescripcion.Checked)
+                filtroDescripcion = this.textBoxDescripcion.Text;
+
+            List<Campania> listaFiltrada = this.iControladorDominio.FiltrarCampanias(filtroFechas, filtroHoras, filtroTitulo, filtroDescripcion);
+            this.CargarDataGridCampanias(listaFiltrada);
         }
 
         /// <summary>
@@ -149,5 +163,7 @@ namespace UI.NuevasPantallas
             else if (this.iVentanaEditar != null)
                 this.iVentanaEditar.Activate();
         }
+        #endregion
+        #endregion
     }
 }

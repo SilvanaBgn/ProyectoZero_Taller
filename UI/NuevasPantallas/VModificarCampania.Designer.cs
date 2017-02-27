@@ -35,6 +35,11 @@
             // 
             this.buttonGuardar.Click += new System.EventHandler(this.ButtonGuardar_Click);
             // 
+            // rangoFecha
+            // 
+            this.rangoFecha.FechaFin = new System.DateTime(2017, 2, 26, 0, 0, 0, 0);
+            this.rangoFecha.FechaInicio = new System.DateTime(2017, 2, 26, 0, 0, 0, 0);
+            // 
             // VModificarCampania
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -43,6 +48,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "VModificarCampania";
             this.Text = "Editar Campaña";
+            this.Load += new System.EventHandler(this.VModificarCampania_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

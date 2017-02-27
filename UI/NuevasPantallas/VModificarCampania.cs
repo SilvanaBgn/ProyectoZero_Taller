@@ -14,20 +14,19 @@ namespace UI.NuevasPantallas
 {
     public partial class VModificarCampania : VAbstractCrearModificarCampania
     {
-        private Campania iCampaniaAModificar;
-
         //CONSTRUCTOR
         public VModificarCampania(ref ControladorDominio pControladorDominio, Campania pCampaniaAModificar) : base(ref pControladorDominio)
         {
             InitializeComponent();
-            this.iCampaniaAModificar = pCampaniaAModificar;
-            this.CargarCampaniaAModificar(this.iCampaniaAModificar);
+            this.iCampania = pCampaniaAModificar;
         }
 
+
+        #region Funciones privadas
         /// <summary>
         /// Carga en todos los componentes de la ventana VModificarCampania los valores de pCampaniaAModificar
         /// </summary>
-        /// <param name="pCampaniaAModificar">campaña a modificar</param>
+        /// <param name="pCampaniaAModificar">Campania a modificar</param>
         private void CargarCampaniaAModificar(Campania pCampaniaAModificar)
         {
             this.textBoxTitulo.Text = pCampaniaAModificar.Titulo;
@@ -39,23 +38,24 @@ namespace UI.NuevasPantallas
             this.galeria.ListaImagenes = (List<Imagen>)pCampaniaAModificar.Imagenes;
             this.galeria.Segundos = pCampaniaAModificar.DuracionImagen;
         }
+        #endregion
 
+        #region EVENTOS
+        #region Botones
         /// <summary>
         /// Evento que se invoca cuando se hace click en el botón guardar
         /// Guarda todos los datos de la campaña
         /// </summary>
         private void ButtonGuardar_Click(object sender, EventArgs e)
         {
-            List<Imagen> imagenesViejas = (List<Imagen>)this.iCampaniaAModificar.Imagenes;
-
-            this.iCampaniaAModificar.Titulo = this.textBoxTitulo.Text;
-            this.iCampaniaAModificar.Descripcion = this.textBoxDescripcion.Text;
-            this.iCampaniaAModificar.FechaInicio = this.rangoFecha.FechaInicio;
-            this.iCampaniaAModificar.FechaFin = this.rangoFecha.FechaFin;
-            this.iCampaniaAModificar.HoraInicio = this.rangoHorario.HoraInicio;
-            this.iCampaniaAModificar.HoraFin = this.rangoHorario.HoraFin;
-            this.iCampaniaAModificar.Imagenes = this.galeria.ListaImagenes;
-            this.iCampaniaAModificar.DuracionImagen = this.galeria.Segundos;
+            this.iCampania.Titulo = this.textBoxTitulo.Text;
+            this.iCampania.Descripcion = this.textBoxDescripcion.Text;
+            this.iCampania.FechaInicio = this.rangoFecha.FechaInicio;
+            this.iCampania.FechaFin = this.rangoFecha.FechaFin;
+            this.iCampania.HoraInicio = this.rangoHorario.HoraInicio;
+            this.iCampania.HoraFin = this.rangoHorario.HoraFin;
+            this.iCampania.Imagenes = this.galeria.ListaImagenes;
+            this.iCampania.DuracionImagen = this.galeria.Segundos;
 
             try
             {
@@ -65,8 +65,10 @@ namespace UI.NuevasPantallas
                 }
                 else
                 {
-                    this.iControladorDominio.ModificarCampania(this.iCampaniaAModificar);
+                    //Modificamos la campania y guardamos los cambios:
+                    this.iControladorDominio.ModificarCampania(this.iCampania);
                     this.iControladorDominio.GuardarCambios();
+
                     this.Close();
                 }
         }
@@ -75,5 +77,18 @@ namespace UI.NuevasPantallas
                 MessageBox.Show(ex.Message, "Faltan campos", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
+        #endregion
+
+        #region Ventana
+        /// <summary>
+        /// Evento que se activa cuando la ventana ya se ha inicializado y se está cargando
+        /// </summary>
+        private void VModificarCampania_Load(object sender, EventArgs e)
+        {
+            this.CargarCampaniaAModificar(this.iCampania);
+        }
+        #endregion
+        #endregion
     }
 }

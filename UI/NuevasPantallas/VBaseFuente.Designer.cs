@@ -30,7 +30,6 @@ namespace UI.NuevasPantallas
         /// </summary>
         private void InitializeComponent()
         {
-            this.buttonSalir = new System.Windows.Forms.Button();
             this.comboBoxTipo = new System.Windows.Forms.ComboBox();
             this.Banners = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Tipo = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -42,18 +41,18 @@ namespace UI.NuevasPantallas
             this.buttonFiltrar = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.dataGridViewMostrar = new System.Windows.Forms.DataGridView();
-            this.buttonBorrar = new System.Windows.Forms.Button();
-            this.buttonEditar = new System.Windows.Forms.Button();
-            this.buttonNuevo = new System.Windows.Forms.Button();
-            this.pictureBox3 = new System.Windows.Forms.PictureBox();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.ColumnFuenteId = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColumnTipo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColumnDescripcion = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColumnorigenItems = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColumnBanners = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColumnItems = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.buttonBorrar = new System.Windows.Forms.Button();
+            this.buttonEditar = new System.Windows.Forms.Button();
+            this.buttonNuevo = new System.Windows.Forms.Button();
+            this.pictureBox3 = new System.Windows.Forms.PictureBox();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewMostrar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
@@ -61,19 +60,10 @@ namespace UI.NuevasPantallas
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
-            // buttonSalir
-            // 
-            this.buttonSalir.Location = new System.Drawing.Point(645, 391);
-            this.buttonSalir.Name = "buttonSalir";
-            this.buttonSalir.Size = new System.Drawing.Size(75, 23);
-            this.buttonSalir.TabIndex = 4;
-            this.buttonSalir.Text = "Salir";
-            this.buttonSalir.UseVisualStyleBackColor = true;
-            this.buttonSalir.Click += new System.EventHandler(this.buttonSalir_Click);
-            // 
             // comboBoxTipo
             // 
             this.comboBoxTipo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxTipo.Enabled = false;
             this.comboBoxTipo.FormattingEnabled = true;
             this.comboBoxTipo.Items.AddRange(new object[] {
             "Rss",
@@ -109,6 +99,7 @@ namespace UI.NuevasPantallas
             // textBoxDescripcion
             // 
             this.textBoxDescripcion.BackColor = System.Drawing.Color.White;
+            this.textBoxDescripcion.Enabled = false;
             this.textBoxDescripcion.Location = new System.Drawing.Point(396, 417);
             this.textBoxDescripcion.MaxLength = 30;
             this.textBoxDescripcion.Name = "textBoxDescripcion";
@@ -148,7 +139,7 @@ namespace UI.NuevasPantallas
             this.buttonFiltrar.Name = "buttonFiltrar";
             this.buttonFiltrar.Size = new System.Drawing.Size(87, 35);
             this.buttonFiltrar.TabIndex = 30;
-            this.buttonFiltrar.Text = "&Filtrar";
+            this.buttonFiltrar.Text = "Filtrar";
             this.buttonFiltrar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.buttonFiltrar.UseVisualStyleBackColor = true;
             this.buttonFiltrar.Click += new System.EventHandler(this.buttonFiltrar_Click);
@@ -159,9 +150,9 @@ namespace UI.NuevasPantallas
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(75, 23);
             this.button2.TabIndex = 25;
-            this.button2.Text = "&Salir";
+            this.button2.Text = "Salir";
             this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
+            this.button2.Click += new System.EventHandler(this.buttonSalir_Click);
             // 
             // dataGridViewMostrar
             // 
@@ -187,6 +178,56 @@ namespace UI.NuevasPantallas
             this.dataGridViewMostrar.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridViewMostrar.Size = new System.Drawing.Size(556, 245);
             this.dataGridViewMostrar.TabIndex = 24;
+            // 
+            // ColumnFuenteId
+            // 
+            this.ColumnFuenteId.DataPropertyName = "FuenteId";
+            this.ColumnFuenteId.HeaderText = "Cod";
+            this.ColumnFuenteId.Name = "ColumnFuenteId";
+            this.ColumnFuenteId.ReadOnly = true;
+            this.ColumnFuenteId.Width = 30;
+            // 
+            // ColumnTipo
+            // 
+            this.ColumnTipo.DataPropertyName = "Tipo";
+            this.ColumnTipo.HeaderText = "Tipo";
+            this.ColumnTipo.Name = "ColumnTipo";
+            this.ColumnTipo.ReadOnly = true;
+            this.ColumnTipo.Width = 80;
+            // 
+            // ColumnDescripcion
+            // 
+            this.ColumnDescripcion.DataPropertyName = "Descripcion";
+            this.ColumnDescripcion.HeaderText = "Descripción";
+            this.ColumnDescripcion.Name = "ColumnDescripcion";
+            this.ColumnDescripcion.ReadOnly = true;
+            this.ColumnDescripcion.Width = 160;
+            // 
+            // ColumnorigenItems
+            // 
+            this.ColumnorigenItems.DataPropertyName = "origenItems";
+            this.ColumnorigenItems.HeaderText = "Fuente (origen de datos)";
+            this.ColumnorigenItems.Name = "ColumnorigenItems";
+            this.ColumnorigenItems.ReadOnly = true;
+            this.ColumnorigenItems.Width = 240;
+            // 
+            // ColumnBanners
+            // 
+            this.ColumnBanners.DataPropertyName = "Banners";
+            this.ColumnBanners.HeaderText = "ColumnBanners";
+            this.ColumnBanners.Name = "ColumnBanners";
+            this.ColumnBanners.ReadOnly = true;
+            this.ColumnBanners.Visible = false;
+            this.ColumnBanners.Width = 106;
+            // 
+            // ColumnItems
+            // 
+            this.ColumnItems.DataPropertyName = "Items";
+            this.ColumnItems.HeaderText = "Items";
+            this.ColumnItems.Name = "ColumnItems";
+            this.ColumnItems.ReadOnly = true;
+            this.ColumnItems.Visible = false;
+            this.ColumnItems.Width = 57;
             // 
             // buttonBorrar
             // 
@@ -254,56 +295,6 @@ namespace UI.NuevasPantallas
             this.pictureBox1.TabIndex = 33;
             this.pictureBox1.TabStop = false;
             // 
-            // ColumnFuenteId
-            // 
-            this.ColumnFuenteId.DataPropertyName = "FuenteId";
-            this.ColumnFuenteId.HeaderText = "Cod";
-            this.ColumnFuenteId.Name = "ColumnFuenteId";
-            this.ColumnFuenteId.ReadOnly = true;
-            this.ColumnFuenteId.Width = 30;
-            // 
-            // ColumnTipo
-            // 
-            this.ColumnTipo.DataPropertyName = "Tipo";
-            this.ColumnTipo.HeaderText = "Tipo";
-            this.ColumnTipo.Name = "ColumnTipo";
-            this.ColumnTipo.ReadOnly = true;
-            this.ColumnTipo.Width = 80;
-            // 
-            // ColumnDescripcion
-            // 
-            this.ColumnDescripcion.DataPropertyName = "Descripcion";
-            this.ColumnDescripcion.HeaderText = "Descripción";
-            this.ColumnDescripcion.Name = "ColumnDescripcion";
-            this.ColumnDescripcion.ReadOnly = true;
-            this.ColumnDescripcion.Width = 160;
-            // 
-            // ColumnorigenItems
-            // 
-            this.ColumnorigenItems.DataPropertyName = "origenItems";
-            this.ColumnorigenItems.HeaderText = "Fuente (origen de datos)";
-            this.ColumnorigenItems.Name = "ColumnorigenItems";
-            this.ColumnorigenItems.ReadOnly = true;
-            this.ColumnorigenItems.Width = 240;
-            // 
-            // ColumnBanners
-            // 
-            this.ColumnBanners.DataPropertyName = "Banners";
-            this.ColumnBanners.HeaderText = "ColumnBanners";
-            this.ColumnBanners.Name = "ColumnBanners";
-            this.ColumnBanners.ReadOnly = true;
-            this.ColumnBanners.Visible = false;
-            this.ColumnBanners.Width = 106;
-            // 
-            // ColumnItems
-            // 
-            this.ColumnItems.DataPropertyName = "Items";
-            this.ColumnItems.HeaderText = "Items";
-            this.ColumnItems.Name = "ColumnItems";
-            this.ColumnItems.ReadOnly = true;
-            this.ColumnItems.Visible = false;
-            this.ColumnItems.Width = 57;
-            // 
             // VBaseFuente
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -321,7 +312,6 @@ namespace UI.NuevasPantallas
             this.Controls.Add(this.checkBoxTipo);
             this.Controls.Add(this.textBoxDescripcion);
             this.Controls.Add(this.checkBoxDescripcion);
-            this.Controls.Add(this.buttonSalir);
             this.Controls.Add(this.dataGridViewMostrar);
             this.Controls.Add(this.groupBox1);
             this.Name = "VBaseFuente";
@@ -339,7 +329,6 @@ namespace UI.NuevasPantallas
         }
 
         #endregion
-        private System.Windows.Forms.Button buttonSalir;
         private System.Windows.Forms.ComboBox comboBoxTipo;
         private System.Windows.Forms.DataGridViewTextBoxColumn Banners;
         private System.Windows.Forms.DataGridViewTextBoxColumn Tipo;

@@ -14,6 +14,9 @@ namespace UI.NuevasPantallas
 {
     public partial class VAbstractCrearModificarFuente : Form
     {
+        /// <summary>
+        /// Atributo que almacena el Controlador de Dominio
+        /// </summary>
         protected ControladorDominio iControladorDominio;
 
         /// <summary>

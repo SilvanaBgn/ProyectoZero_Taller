@@ -14,40 +14,26 @@ namespace UI.NuevasPantallas
 {
     public partial class VBaseBanner : VAbstractBase
     {
+        /// <summary>
+        /// Atributo que almacena la Ventana de "Nuevo Banner"
+        /// </summary>
         private VCrearBanner iVentanaNuevo;
+
+        /// <summary>
+        /// Atributo que almacena la Ventana de "Editar Banner"
+        /// </summary>
         private VModificarBanner iVentanaEditar;
 
 
+        //CONSTRUCTOR
         public VBaseBanner(ref ControladorDominio pControladorDominio) : base(ref pControladorDominio)
         {
             InitializeComponent();
-            this.iControladorDominio = pControladorDominio;
         }
 
-        /// <summary>
-        /// Evento que se invoca cuando se hace click en el botón filtrar y muestra 
-        /// el nuevo listado de banners según los filtros
-        /// </summary>
-        private void buttonFiltrar_Click(object sender, EventArgs e)
-        {
-            DateTime[] filtroFechas = null;
-            TimeSpan[] filtroHoras = null;
-            string filtroTitulo = null;
-            string filtroDescripcion = null;
 
-            if (checkBoxRangoFechas.Checked)
-                filtroFechas = new DateTime[] { this.rangoFecha.FechaInicio, this.rangoFecha.FechaFin };
-            if (checkBoxRangoHoras.Checked)
-                filtroHoras = new TimeSpan[] { this.rangoHorario.HoraInicio, this.rangoHorario.HoraFin };
-            if (checkBoxTitulo.Checked)
-                filtroTitulo = this.textBoxTitulo.Text;
-            if (checkBoxDescripcion.Checked)
-                filtroDescripcion = this.textBoxDescripcion.Text;
 
-            List<Banner> listaFiltrada = this.iControladorDominio.FiltrarBanners(filtroFechas, filtroHoras, filtroTitulo, filtroDescripcion);
-            this.CargarDataGridBanners(listaFiltrada);
-        }
-
+        #region Funciones privadas
         /// <summary>
         /// Devuelve el banner seleccionado en el datagrid
         /// </summary>
@@ -59,16 +45,15 @@ namespace UI.NuevasPantallas
             else return (Banner)this.dataGridViewMostrar.SelectedRows[0].DataBoundItem;
         }
 
-
         /// <summary>
-        /// Muestra en el datagrid los banners que se encuentran en la base de datos
+        /// Carga el datagrid con los banners que se le pasen en la lista <paramref name="pListaBanners"/>
         /// </summary>
-        public void CargarDataGridBanners(List<Banner> pListaBanners)
+        private void CargarDataGridBanners(List<Banner> pListaBanners)
         {
             //Cargamos el Datagrid:
             this.dataGridViewMostrar.DataSource = pListaBanners;
 
-            //Cambiamos el orden de las columnas:
+            //Cambiamos el orden, visibilidad y nombre de las columnas:
             this.dataGridViewMostrar.Columns["FuenteId"].Visible = false;
 
             this.dataGridViewMostrar.Columns["BannerId"].DisplayIndex = 0;
@@ -80,9 +65,11 @@ namespace UI.NuevasPantallas
             this.dataGridViewMostrar.Columns["Descripcion"].DisplayIndex = 6;
 
             this.dataGridViewMostrar.Columns["BannerId"].HeaderText = "Cod";
-
         }
+        #endregion
 
+        #region EVENTOS
+        #region Botones
         /// <summary>
         /// Evento que se invoca cuando se hace click sobre el botón nuevo creando un nuevo banner
         /// </summary>
@@ -117,7 +104,7 @@ namespace UI.NuevasPantallas
         private void buttonEliminar_Click(object sender, EventArgs e)
         {
             Banner bannerSeleccionado = this.BannerSeleccionado();
-            if ( bannerSeleccionado == null)
+            if (bannerSeleccionado == null)
                 MessageBox.Show("Se debe seleccionar un banner", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             else
             {
@@ -131,6 +118,32 @@ namespace UI.NuevasPantallas
                     this.CargarDataGridBanners(this.iControladorDominio.ObtenerTodosLosBanners());
                 }
             }
+        }
+        #endregion
+
+        #region Ventana y Otros Componentes
+        /// <summary>
+        /// Evento que se invoca cuando se hace click en el botón filtrar y muestra 
+        /// el nuevo listado de banners según los filtros
+        /// </summary>
+        private void buttonFiltrar_Click(object sender, EventArgs e)
+        {
+            DateTime[] filtroFechas = null;
+            TimeSpan[] filtroHoras = null;
+            string filtroTitulo = null;
+            string filtroDescripcion = null;
+
+            if (checkBoxRangoFechas.Checked)
+                filtroFechas = new DateTime[] { this.rangoFecha.FechaInicio, this.rangoFecha.FechaFin };
+            if (checkBoxRangoHoras.Checked)
+                filtroHoras = new TimeSpan[] { this.rangoHorario.HoraInicio, this.rangoHorario.HoraFin };
+            if (checkBoxTitulo.Checked)
+                filtroTitulo = this.textBoxTitulo.Text;
+            if (checkBoxDescripcion.Checked)
+                filtroDescripcion = this.textBoxDescripcion.Text;
+
+            List<Banner> listaFiltrada = this.iControladorDominio.FiltrarBanners(filtroFechas, filtroHoras, filtroTitulo, filtroDescripcion);
+            this.CargarDataGridBanners(listaFiltrada);
         }
 
         /// <summary>
@@ -148,5 +161,7 @@ namespace UI.NuevasPantallas
             else if (this.iVentanaEditar != null)
                 this.iVentanaEditar.Activate();
         }
+        #endregion
+        #endregion
     }
 }

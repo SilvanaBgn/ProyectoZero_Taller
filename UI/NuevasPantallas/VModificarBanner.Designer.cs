@@ -44,6 +44,7 @@
             this.Name = "VModificarBanner";
             this.Text = "Editar Banner";
             this.Activated += new System.EventHandler(this.VModificarBanner_Activated);
+            this.Load += new System.EventHandler(this.VModificarBanner_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

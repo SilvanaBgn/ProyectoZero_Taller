@@ -9,24 +9,39 @@ namespace UI.NuevasPantallas
         public VCrearBanner(ref ControladorDominio pControladorDominio) : base(ref pControladorDominio)
         {
             InitializeComponent();
-            base.CargarDataGridViewFuentes(this.iControladorDominio.ObtenerTodasLasFuentes());
-            base.dataGridViewMostrarFuentes.Columns["FuenteId"].Visible = false;
         }
 
+        #region EVENTOS
+        /// <summary>
+        /// Evento que se activa cuando la ventana de este Form se muestra
+        /// </summary>
+        private void VCrearBanner_Shown(object sender, EventArgs e)
+        {
+            this.CargarDataGridViewFuentes(this.iControladorDominio.ObtenerTodasLasFuentes());
+            this.dataGridViewMostrarFuentes.Columns["FuenteId"].Visible = false;
+
+            //Re-dimensionamos el datagrid para mostrar el botón this.buttonNuevaFuente
+            this.dataGridViewMostrarFuentes.Location = new System.Drawing.Point(6, 65);
+            this.dataGridViewMostrarFuentes.Size = new System.Drawing.Size(436, 148);
+        }
+
+
+        #region Botones
         /// <summary>
         /// Evento que se invoca cuando se hace click en el botón guardar, agregando un nuevo banner
         /// </summary>
         private void ButtonGuardar_Click(object sender, EventArgs e)
         {
-            Banner bannerAAgregar = new Banner();
-            bannerAAgregar.Titulo = this.textBoxTitulo.Text;
-            bannerAAgregar.Descripcion = this.textBoxDescripcion.Text;
-            bannerAAgregar.FechaInicio = this.rangoFecha.FechaInicio;
-            bannerAAgregar.FechaFin = this.rangoFecha.FechaFin;
-            bannerAAgregar.HoraInicio = this.rangoHorario.HoraInicio;
-            bannerAAgregar.HoraFin = this.rangoHorario.HoraFin;
+            this.iBanner = new Banner();
+            this.iBanner.Titulo = this.textBoxTitulo.Text;
+            this.iBanner.Descripcion = this.textBoxDescripcion.Text;
+            this.iBanner.FechaInicio = this.rangoFecha.FechaInicio;
+            this.iBanner.FechaFin = this.rangoFecha.FechaFin;
+            this.iBanner.HoraInicio = this.rangoHorario.HoraInicio;
+            this.iBanner.HoraFin = this.rangoHorario.HoraFin;
 
-            if (this.dataGridViewMostrarFuentes.SelectedRows.Count == 0)
+            Fuente fuenteSeleccionada = this.FuenteSeleccionada();
+            if (fuenteSeleccionada==null)
             {
                 MessageBox.Show("Se debe seleccionar una fuente", "Faltan campos", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
@@ -36,11 +51,26 @@ namespace UI.NuevasPantallas
             }
             else
             {
-                bannerAAgregar.FuenteId = ((Fuente)this.dataGridViewMostrarFuentes.CurrentRow.DataBoundItem).FuenteId;
-                this.iControladorDominio.AgregarBanner(bannerAAgregar);
+                this.iBanner.FuenteId = fuenteSeleccionada.FuenteId;
+
+                //Agregamos el banner y guardamos los cambios:
+                this.iControladorDominio.AgregarBanner(this.iBanner);
                 this.iControladorDominio.GuardarCambios();
+
                 this.Close();
             }
         }
+
+        /// <summary>
+        /// Evento que se activa cuando se apreta el botón this.buttonNuevaFuente, para abrir VNuevaFuente
+        /// </summary>
+        private void buttonNuevaFuente_Click(object sender, EventArgs e)
+        {
+            VCrearFuente vFuente = new VCrearFuente(ref this.iControladorDominio);
+            vFuente.Show();
+        }
+        #endregion
+
+        #endregion
     }
 }

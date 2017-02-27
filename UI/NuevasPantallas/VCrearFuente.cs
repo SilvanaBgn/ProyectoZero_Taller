@@ -19,8 +19,6 @@ namespace UI.NuevasPantallas
         public VCrearFuente(ref ControladorDominio pControladorDominio) : base(ref pControladorDominio)
         {
             InitializeComponent();
-            this.panelTextoFijo.Visible = false;
-            this.panelRss.Visible = false;
         }
 
         /// <summary>

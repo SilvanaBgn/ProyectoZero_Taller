@@ -13,20 +13,17 @@ namespace UI.NuevasPantallas
 {
     public partial class VModificarBanner : VAbstractCrearModificarBanner
     {
-        private Banner iBannerAModificar;
-
         //CONSTRUCTOR
         public VModificarBanner(ref ControladorDominio pControladorDominio, Banner pBannerAModificar) : base(ref pControladorDominio)
         {
             InitializeComponent();
-            this.iBannerAModificar = pBannerAModificar;
-            this.CargarBannerAModificar(this.iBannerAModificar);
-            //base.dataGridViewMostrarFuentes.Rows.Clear();
-            //base.dataGridViewMostrarFuentes.DataSource = (this.iControladorDominio.BuscarFuentePorId(this.iBannerAModificar.FuenteId)); ;
-            //base.CargarDataGridViewFuentes(this.iControladorDominio.ObtenerTodasLasFuentes());
-            //base.dataGridViewMostrarFuentes.Size = new System.Drawing.Size(436, this.dataGridViewMostrarFuentes.ColumnHeadersHeight * 2);
+            //Asignamos el banner que se desea modificar:
+            this.iBanner = pBannerAModificar;
         }
 
+
+
+        #region Funciones privadas
         /// <summary>
         /// Este método selecciona la fuente que le corresponda al banner
         /// </summary>
@@ -36,7 +33,7 @@ namespace UI.NuevasPantallas
 
             DataGridViewRow row = this.dataGridViewMostrarFuentes.Rows
                 .Cast<DataGridViewRow>()
-                .Where(r => r.Cells["FuenteId"].Value.ToString().Equals(this.iBannerAModificar.FuenteId.ToString()))
+                .Where(r => r.Cells["FuenteId"].Value.ToString().Equals(this.iBanner.FuenteId.ToString()))
                 .First();
 
             indiceFila = row.Index;
@@ -59,19 +56,24 @@ namespace UI.NuevasPantallas
             this.rangoHorario.HoraInicio = pBannerAModificar.HoraInicio;
             this.rangoHorario.HoraFin = pBannerAModificar.HoraFin;
         }
+        #endregion
+
+
+        #region EVENTOS
+        #region Botones
 
         /// <summary>
-        /// Evento que se invoca cuando se hace click en el botón guardar
-        /// Guarda todos los datos del banner
+        /// Evento que se invoca cuando se hace click en el botón guardar. Guarda todos los datos del banner
         /// </summary>
         private void ButtonGuardar_Click(object sender, EventArgs e)
         {
-            this.iBannerAModificar.Titulo = this.textBoxTitulo.Text;
-            this.iBannerAModificar.Descripcion = this.textBoxDescripcion.Text;
-            this.iBannerAModificar.FechaInicio = this.rangoFecha.FechaInicio;
-            this.iBannerAModificar.FechaFin = this.rangoFecha.FechaFin;
-            this.iBannerAModificar.HoraInicio = this.rangoHorario.HoraInicio;
-            this.iBannerAModificar.HoraFin = this.rangoHorario.HoraFin;
+            //Completamos el this.iBanner con los datos modificados:
+            this.iBanner.Titulo = this.textBoxTitulo.Text;
+            this.iBanner.Descripcion = this.textBoxDescripcion.Text;
+            this.iBanner.FechaInicio = this.rangoFecha.FechaInicio;
+            this.iBanner.FechaFin = this.rangoFecha.FechaFin;
+            this.iBanner.HoraInicio = this.rangoHorario.HoraInicio;
+            this.iBanner.HoraFin = this.rangoHorario.HoraFin;
 
             if (!this.rangoHorario.HorarioValido())
             {
@@ -79,23 +81,37 @@ namespace UI.NuevasPantallas
             }
             else
             {
-                this.iControladorDominio.ModificarBanner(this.iBannerAModificar);
+                //Modificamos el banner y guardamos los cambios:
+                this.iControladorDominio.ModificarBanner(this.iBanner);
                 this.iControladorDominio.GuardarCambios();
 
                 this.Close();
             }
         }
+        #endregion
 
+        #region Ventana y Otros Componentes
         /// <summary>
         /// Este evento se activa cuando VModificarBanner se encuentra activada
         /// </summary>
         private void VModificarBanner_Activated(object sender, EventArgs e)
         {
             List<Fuente> fuenteAMostrar = new List<Fuente>();
-            fuenteAMostrar.Add(this.iControladorDominio.BuscarFuentePorId(this.iBannerAModificar.FuenteId));
+            fuenteAMostrar.Add(this.iControladorDominio.BuscarFuentePorId(this.iBanner.FuenteId));
             base.CargarDataGridViewFuentes(fuenteAMostrar);
             base.dataGridViewMostrarFuentes.Size= new System.Drawing.Size(436, this.dataGridViewMostrarFuentes.ColumnHeadersHeight +
                 this.dataGridViewMostrarFuentes.Rows[0].Height);
         }
+
+        /// <summary>
+        /// Evento que se activa cuando la ventana ya se ha inicializado y se está cargando
+        /// </summary>
+        private void VModificarBanner_Load(object sender, EventArgs e)
+        {
+            this.CargarBannerAModificar(this.iBanner);
+        }
     }
+    #endregion
+
+    #endregion
 }
