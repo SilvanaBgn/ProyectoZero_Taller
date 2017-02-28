@@ -33,6 +33,7 @@ namespace UI.NuevasPantallas
         /// </summary>
         private void ButtonGuardar_Click(object sender, EventArgs e)
         {
+            this.buttonGuardar.Enabled = false;
             this.iBanner = new Banner();
             this.iBanner.Titulo = this.textBoxTitulo.Text;
             this.iBanner.Descripcion = this.textBoxDescripcion.Text;
@@ -68,6 +69,7 @@ namespace UI.NuevasPantallas
                 catch (Exception)
                 { throw new Exception(); }
             }
+            this.buttonGuardar.Enabled = true;
         }
 
         /// <summary>

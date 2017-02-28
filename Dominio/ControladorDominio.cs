@@ -26,8 +26,8 @@ namespace Dominio
         {
             try
             {
-                this.iUoW.GuardarCambios();
-            }
+            this.iUoW.GuardarCambios();
+        }
             catch (Exception)
             { throw new Exception(); }
         }
@@ -108,7 +108,7 @@ namespace Dominio
             try
             {
                 return this.iUoW.RepositorioBanners.Obtener(pFilter, null).ToList();
-            }
+        }
             catch (ExcepcionGeneral)
             { throw new ExcepcionAlObtenerBanners("Ocurrió un error al buscar los banners"); }
         }
@@ -317,7 +317,7 @@ namespace Dominio
             try
             {
                 return this.iUoW.RepositorioCampanias.Obtener(pFilter, null).ToList();
-            }
+        }
             catch (ExcepcionGeneral)
             {
                 throw new ExcepcionAlObtenerCampanias("Ocurrió un error al buscar las campañas");
@@ -401,7 +401,7 @@ namespace Dominio
             try
             {
                 return this.iUoW.RepositorioFuentes.Obtener(pFilter, null).ToList();
-            }
+        }
             catch (ExcepcionGeneral)
             {
                 throw new ExcepcionAlObtenerFuentes("Ocurrió un error al obtener las fuentes");
@@ -493,14 +493,14 @@ namespace Dominio
             //Debería devolver un solo banner
             try
             {
-                List<Banner> posiblesBanners = this.BuscarBannerPorAtributo
-                     (x => x.FechaInicio.CompareTo(pFechaActual) <= 0 && x.FechaFin.CompareTo(pFechaActual) >= 0
-                          && x.HoraInicio.CompareTo(pHoraActual) <= 0 && x.HoraFin.CompareTo(pHoraActual) > 0
-                     );
+            List<Banner> posiblesBanners = this.BuscarBannerPorAtributo
+                 (x => x.FechaInicio.CompareTo(pFechaActual) <= 0 && x.FechaFin.CompareTo(pFechaActual) >= 0
+                      && x.HoraInicio.CompareTo(pHoraActual) <= 0 && x.HoraFin.CompareTo(pHoraActual) > 0
+                 );
 
-                if (posiblesBanners.Count > 0) //Si encontró algún banner para el próximo cuarto de hora
-                    return posiblesBanners[0]; //Tomamos el primer banner que encontró
-                else
+            if (posiblesBanners.Count > 0) //Si encontró algún banner para el próximo cuarto de hora
+                return posiblesBanners[0]; //Tomamos el primer banner que encontró
+            else
                     return null;
             }
             catch (ExcepcionGeneral ex)
@@ -533,13 +533,13 @@ namespace Dominio
         {
             try
             {
-                Fuente fuenteDelBanner = this.BuscarFuentePorId(pBanner.FuenteId);
-                fuenteDelBanner.Leer(); //Actualiza los items de la fuente del banner
+            Fuente fuenteDelBanner = this.BuscarFuentePorId(pBanner.FuenteId);
+            fuenteDelBanner.Leer(); //Actualiza los items de la fuente del banner
                 try {
-                    //Guardamos los cambios:
-                    this.ModificarFuente(this.BuscarFuentePorId(pBanner.FuenteId));
-                    this.GuardarCambios();
-                }
+            //Guardamos los cambios:
+            this.ModificarFuente(this.BuscarFuentePorId(pBanner.FuenteId));
+            this.GuardarCambios();
+        }
                 catch(Exception ex)
                 { throw new Exception(ex.Message,ex); }
             }
@@ -585,16 +585,16 @@ namespace Dominio
             //Debería devolver una sola campania
             try
             {
-                List<Campania> posiblesCampanias = this.BuscarCampaniaPorAtributo
-                     (x => x.FechaInicio.CompareTo(pFechaActual) <= 0 && x.FechaFin.CompareTo(pFechaActual) >= 0
-                          && x.HoraInicio.CompareTo(pHoraActual) <= 0 && x.HoraFin.CompareTo(pHoraActual) > 0
-                     );
+            List<Campania> posiblesCampanias = this.BuscarCampaniaPorAtributo
+                 (x => x.FechaInicio.CompareTo(pFechaActual) <= 0 && x.FechaFin.CompareTo(pFechaActual) >= 0
+                      && x.HoraInicio.CompareTo(pHoraActual) <= 0 && x.HoraFin.CompareTo(pHoraActual) > 0
+                 );
 
-                if (posiblesCampanias.Count > 0) //Si encontró alguna campania para el próximo cuarto de hora
-                    return posiblesCampanias[0]; //Tomamos la primera campania que encontró
-                else
-                    return null;
-            }
+            if (posiblesCampanias.Count > 0) //Si encontró alguna campania para el próximo cuarto de hora
+                return posiblesCampanias[0]; //Tomamos la primera campania que encontró
+            else
+                return null;
+        }
             catch (ExcepcionGeneral ex)
             { throw new ExcepcionAlObtenerCampanias(ex.Message); }
         }
@@ -603,14 +603,12 @@ namespace Dominio
         /// Averigua las imágenes y el intervalo de tiempo de la próxima campania a pasar
         /// </summary>
         /// <returns>Devuelve un array, donde el primer argumento es la lista de imágenes y el segundo 
-        /// es la duracion y el tercero es el intervalo. Si no encuentra una campania para pasar en el 
-        /// próximo cuarto de hora, devuelve una lista vacía y el intervalo con la cantidad de 
-        /// milisegundos hasta el próximo</returns>
+        /// es la duracion. Si no encuentra una campania para pasar en el próximo cuarto de hora, 
+        /// devuelve una lista vacía y una duración igual a cero</returns>
         public object[] InfoCampania(Campania pCampaniaAPasar)
         {
             IList<Imagen> listaImagenes = new List<Imagen>();
             int duracion = 0;
-            int intervalo = 0;
             object[] array = new object[3];
 
             DateTime fechaActual = DateTime.Now;
@@ -621,19 +619,13 @@ namespace Dominio
                 //*imágenes* Lo leemos, de acuerdo a la fuente que corresponde al bannerAPasar:
                 listaImagenes = (IList<Imagen>)pCampaniaAPasar.Imagenes;
                 duracion = pCampaniaAPasar.DuracionImagen;
-                //*intervalo*:
-                //Cambia el intervalo al tiempo del nuevo banner a pasar:
-                intervalo = Convert.ToInt32(pCampaniaAPasar.HoraFin.Subtract(horaActual).TotalMilliseconds);
             }
             else
             {
                 // *imágenes* es una lista vacío.
-                //*intervalo*:
-                intervalo = Convert.ToInt32(this.IntervaloAlProxCuartoDeHora(horaActual));
             }
             array[0] = listaImagenes;
             array[1] = duracion;
-            array[2] = intervalo;
             return array;
         }
         #endregion

@@ -20,7 +20,10 @@ namespace UI.UserControls
         public RangoHorario()
         {
             InitializeComponent();
-
+            this.comboBoxH1.DropDownStyle = ComboBoxStyle.DropDownList;
+            this.comboBoxH2.DropDownStyle = ComboBoxStyle.DropDownList;
+            this.comboBoxM1.DropDownStyle = ComboBoxStyle.DropDownList;
+            this.comboBoxM2.DropDownStyle = ComboBoxStyle.DropDownList;
             //Establecemos los valores por defecto de los comboBox de la hora:
             this.comboBoxH1.SelectedIndex = 0;
             this.comboBoxH2.SelectedIndex = 0;

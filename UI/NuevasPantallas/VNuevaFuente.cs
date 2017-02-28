@@ -28,6 +28,7 @@ namespace UI.NuevasPantallas
         /// </summary>
         private void ButtonGuardar_Click(object sender, EventArgs e)
         {
+            this.buttonGuardar.Enabled = false;
             try
             {
                 if (this.comboBoxTipoFuente.SelectedItem == null)
@@ -78,6 +79,7 @@ namespace UI.NuevasPantallas
             {
                 MessageBox.Show("Se debe seleccionar un tipo de fuente", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+            this.buttonGuardar.Enabled = true;
         }
         #endregion
     }

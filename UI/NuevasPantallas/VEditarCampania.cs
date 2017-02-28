@@ -48,6 +48,7 @@ namespace UI.NuevasPantallas
         /// </summary>
         private void ButtonGuardar_Click(object sender, EventArgs e)
         {
+            this.buttonGuardar.Enabled = false;
             this.iCampania.Titulo = this.textBoxTitulo.Text;
             this.iCampania.Descripcion = this.textBoxDescripcion.Text;
             this.iCampania.FechaInicio = this.rangoFecha.FechaInicio;
@@ -78,6 +79,7 @@ namespace UI.NuevasPantallas
                 catch (Exception)
                 { throw new Exception(); }
             }
+            this.buttonGuardar.Enabled = true;
         }
 
         #endregion

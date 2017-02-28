@@ -59,7 +59,20 @@ namespace UI.NuevasPantallas
         private Campania iCampaniaAPasar;
 
         /// <summary>
-        /// Variable booleana que indica cuando la BD está lista para usarse
+        /// Variable booleana de control que indica si en el cuarto de hora actual ya se buscó (obtuvo) el banner
+        /// </summary>
+        private bool iObtenidoBanner;
+        /// <summary>
+        /// Variable booleana de control que indica si en el cuarto de hora actual ya se buscó (obtuvo) la campania
+        /// </summary>
+        private bool iObtenidoCampania;
+        /// <summary>
+        /// Variable booleana de control que indica si en el cuarto de hora actual ya se leyó el banner (rss)
+        /// </summary>
+        private bool iLeidoBanner;
+
+        /// <summary>
+        /// Variable booleana de control que se activa cuando la BD está lista para usarse
         /// </summary>
         public bool BDcreada = false;
 
@@ -70,7 +83,7 @@ namespace UI.NuevasPantallas
         {
             InitializeComponent();
             this.iControladorDominio = new ControladorDominio(Resolucionador<IUnitOfWork>.Resolver());
-            
+            this.StartPosition = FormStartPosition.CenterScreen;
         }
 
 
@@ -83,9 +96,10 @@ namespace UI.NuevasPantallas
         private void ActualizarBannerDeslizante()
         {
             string infoBannerNuevo = this.iControladorDominio.InfoBanner(this.iBannerAPasar);
-
-            if (this.iInfoBannerActual != infoBannerNuevo)//En el caso de una Lectura Externa, serían distintos
-                                                          //Entonces, preguntamos para que en el caso, el bannerDesl no se recargue:
+            //this.labelActualizacion.Text +="B-" + infoBannerNuevo.Substring(0,9);
+            //En el caso de una Lectura Externa o de que el banner cambie a los 15 min, serían distintos,
+            //entonces preguntamos para que en el caso el bannerDeslizante no se recargue:
+            if (this.iInfoBannerActual != infoBannerNuevo)
             {
                 this.iInfoBannerActual = infoBannerNuevo;
                 this.bannerDeslizante.Stop();
@@ -100,35 +114,31 @@ namespace UI.NuevasPantallas
         private void ActualizarCampaniaDeslizante()
         {
             object[] infoCampaniaNueva = this.iControladorDominio.InfoCampania(this.iCampaniaAPasar);
-            this.campaniaDeslizante1.Stop();
+            this.campaniaDeslizante.Stop();
             //Asignamos el valor de y el intervalo en el que debe reproducirlo
-            this.campaniaDeslizante1.Start((List<Imagen>)(infoCampaniaNueva)[0], (int)(infoCampaniaNueva)[1]);
-            this.timerChequeoCambioCampania.Interval = (int)(infoCampaniaNueva)[2]; // arrayInformacion[1]=intervalo
+            this.campaniaDeslizante.Start((List<Imagen>)(infoCampaniaNueva)[0], (int)(infoCampaniaNueva)[1]);
         }
 
 
 
 
-
-
         /// <summary>
-        /// Evento tick del this.timerChequeoCambioCampania, con el cual da la orden de actualizar 
-        /// la campania deslizante
+        /// Evento tick del this.timerChequeoCambio, que indica que estamos en un cuarto de hora, 
+        /// y con el cual da la orden de actualizar la campania y el banner deslizante.
         /// </summary>
-        private void timerChequeoCambioCampania_Tick(object sender, EventArgs e)
+        private void timerChequeoCambio_Tick(object sender, EventArgs e)
         {
-            this.timerChequeoCambioCampania.Stop();
+            //this.labelTick.Text += "Tick del timer!";
+            this.timerChequeoCambio.Stop();
+
+            //Colocamos todas las variables booleanas de control en false:
+            this.iObtenidoBanner = false;
+            this.iObtenidoCampania = false;
+            this.iLeidoBanner = false;
+
             try
             {
-                if (!this.bgwObtenerCampania.IsBusy)
-                {
-                    this.bgwObtenerCampania.RunWorkerAsync();
-                }
-                else //Esperamos 1 seg y volvemos a intentar
-                {
-                    this.timerChequeoCambioCampania.Interval = 1000;
-                    this.timerChequeoCambioCampania.Start();
-                }
+                this.bgwObtenerCampania.RunWorkerAsync();
             }
             catch (Exception bEx)
             {
@@ -140,64 +150,24 @@ namespace UI.NuevasPantallas
         /// </summary>
         private void bgwObtenerCampania_DoWork(object sender, DoWorkEventArgs e)
         {
-            DateTime fechaHora = DateTime.Now;
-            this.iFechaActual = DateTime.Today;
-            this.iHoraActual = new TimeSpan(fechaHora.Hour, fechaHora.Minute, fechaHora.Second);
-
-            try {
-                this.iCampaniaAPasar = this.iControladorDominio.ProximaCampaniaAPasar(this.iFechaActual, this.iHoraActual);
-            }
-            catch(ExcepcionAlObtenerCampanias ex)
-            {
-                { MessageBox.Show(ex.Message, "Error al intentar obtener campaña", MessageBoxButtons.OK, MessageBoxIcon.Error); }
-            }
-        }
-
-        /// <summary>
-        /// Evento RunWorkerCompleted del this.bgwObtenerCampania, con el que se activa a que empiece a correr 
-        /// el timer this.timerChequeoCambioBanner
-        /// </summary>
-        private void bgwObtenerCampania_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
-        {
             try
             {
-                if (e.Error != null)
+                if (!this.iObtenidoCampania)
                 {
-                    throw new Exception("Error al buscar la Campaña a pasar", e.Error);
-                }
-                this.timerChequeoCambioBanner.Start();
-            }
-            catch (Exception ex)
-            {
-            }
-        }
+                    //Actualizamos la fecha y hora actuales:
+                    DateTime fechaHora = DateTime.Now;
+                    this.iFechaActual = DateTime.Today;
+                    this.iHoraActual = new TimeSpan(fechaHora.Hour, fechaHora.Minute, fechaHora.Second);
 
+                    this.iCampaniaAPasar = this.iControladorDominio.ProximaCampaniaAPasar(this.iFechaActual, this.iHoraActual);
 
-
-
-
-        /// <summary>
-        /// Evento tick del this.timerChequeoCambioBanner, con el cual da la orden de actualizar 
-        /// el banner deslizante
-        /// </summary>
-        private void timerChequeoCambioBanner_Tick(object sender, EventArgs e)
-        {
-            this.timerChequeoCambioBanner.Stop();
-            try
-            {
-                if (!this.bgwObtenerBanner.IsBusy)
-                {
-                    this.bgwObtenerBanner.RunWorkerAsync();
-                }
-                else //Esperamos 1 seg y volvemos a intentar
-                {
-                    this.timerChequeoCambioBanner.Interval = 1000;
-                    this.timerChequeoCambioBanner.Start();
+                    //Si pasó es porque se completó la campania (this.iObtenidoCampania==true):
+                    this.iObtenidoCampania = true;
                 }
             }
-            catch (Exception bEx)
+            catch (ExcepcionAlObtenerCampanias ex)
             {
-                MessageBox.Show(bEx.Message, "Se ha producido un error al intentar actualizar el banner", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                //throw new ExcepcionAlObtenerCampanias("Error al buscar la Campaña a pasar", ex);
             }
         }
 
@@ -206,52 +176,81 @@ namespace UI.NuevasPantallas
         /// </summary>
         private void bgwObtenerBanner_DoWork(object sender, DoWorkEventArgs e)
         {
-            DateTime fechaHora = DateTime.Now;
-            this.iFechaActual = DateTime.Today;
-            this.iHoraActual = new TimeSpan(fechaHora.Hour, fechaHora.Minute, fechaHora.Second);
-            //Buscamos el banner a pasar ahora
             try
             {
-                this.iBannerAPasar = this.iControladorDominio.ProximoBannerAPasar(this.iFechaActual, this.iHoraActual);
+                //Buscamos el banner a pasar ahora
+                if (!this.iObtenidoBanner)
+                {
+                    //Actualizamos la fecha y hora actuales:
+                    DateTime fechaHora = DateTime.Now;
+                    this.iFechaActual = DateTime.Today;
+                    this.iHoraActual = new TimeSpan(fechaHora.Hour, fechaHora.Minute, fechaHora.Second);
+
+                    this.iBannerAPasar = this.iControladorDominio.ProximoBannerAPasar(this.iFechaActual, this.iHoraActual);
+
+                    //Si pasó es porque se completó el banner (this.iObtenidoBanner==true):
+                    this.iObtenidoBanner = true;
+                }
             }
-            catch(ExcepcionAlObtenerBanners ex)
-            { MessageBox.Show(ex.Message, "Error al intentar obtener banner", MessageBoxButtons.OK, MessageBoxIcon.Error); }
-            this.timerChequeoCambioBanner.Interval = this.iControladorDominio.IntervaloAlProxCuartoDeHora(this.iHoraActual);
+            catch (ExcepcionAlObtenerBanners ex)
+            {
+                //throw new ExcepcionAlObtenerBanners("Error al buscar el Banner a pasar", ex);
+                MessageBox.Show("No obtuvo banner!!");
+            }
         }
 
         /// <summary>
-        /// Evento RunWorkerCompleted del this.bgwObtenerBanner, con el que se actualiza la pantalla y fianlmente
-        /// se activa a que lea los items del banner en segundo plano, o sino que empiece a correr el timer 
-        /// this.timerChequeoCambioCampania
+        /// Evento RunWorkerCompleted, que pone a correr ya sea el bgwObtenerBanner y/o bgwObtenerCampania.
+        /// Si ambos han sido leidos, actualiza la pantalla.
+        /// Finalmente, busca actualizar los items del banner con el Lector
         /// </summary>
-        private void bgwObtenerBanner_ActualizarPantalla_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
+        private void bgwObtener_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
         {
-            try
+            //En este momento, ni el bgwObtenerBanner ni bgwObtenerCampania deberían estar ocupados:
+            if (!this.iObtenidoBanner && !this.iObtenidoCampania)
             {
-                if (e.Error != null)
-                {
-                    throw new Exception("Error al buscar el Banner a pasar", e.Error);
-                }
-                else
-                {
-                    BDcreada = true;
-                    //Actualiza el contenido de la campania deslizante
-                    this.ActualizarCampaniaDeslizante();
+                //this.labelObtenido.Text += "S/BC-";
+                if (!this.bgwObtenerBanner.IsBusy)
+                    this.bgwObtenerBanner.RunWorkerAsync();
+                else //(!this.bgwObtenerCampania.IsBusy)
+                    this.bgwObtenerCampania.RunWorkerAsync();
+            }
+            else if (!this.iObtenidoBanner)
+            {
+                //this.labelObtenido.Text += "S/B-";
+                this.bgwObtenerBanner.RunWorkerAsync();
+            }
+            else if (!this.iObtenidoCampania)
+            {
+                //this.labelObtenido.Text += "S/C-";
+                this.bgwObtenerCampania.RunWorkerAsync();
+            }
+            else //this.iObtenidoBanner==this.iObtenidoCampania==true --> Actualizar pantalla:
+            {
+                BDcreada = true;
 
-                    //Obtenemos la info del this.iBannerAPasar formateada y la utilizamos para mostrarlo en pantalla:
-                    this.ActualizarBannerDeslizante();
+                //Actualiza el contenido de la campania deslizante
+                this.ActualizarCampaniaDeslizante();
+                
+                //Obtenemos la info del this.iBannerAPasar formateada y la utilizamos para mostrarlo en pantalla:
+                this.ActualizarBannerDeslizante();
+                
+                //Actualizamos la fecha y hora actuales:
+                DateTime fechaHora = DateTime.Now;
+                this.iFechaActual = DateTime.Today;
+                this.iHoraActual = new TimeSpan(fechaHora.Hour, fechaHora.Minute, fechaHora.Second);
+                this.timerChequeoCambio.Interval = this.iControladorDominio.IntervaloAlProxCuartoDeHora(this.iHoraActual);
 
-                    if (this.iBannerAPasar != null)
-                    { //Entonces invocamos a que vaya a leer para actualizar los items:
-                        this.bgwLeerBanner.RunWorkerAsync();
-                    }
-                    else
-                        this.timerChequeoCambioCampania.Start();
+                //Ponemos a correr el timer:
+                this.timerChequeoCambio.Start();
+
+                if (this.iBannerAPasar != null && !this.bgwLeerBanner.IsBusy)
+                { //Finalmente, invocamos a que vaya a leer para actualizar los items:
+                    this.bgwLeerBanner.RunWorkerAsync(1); //donde 1 es la cantIntentos
                 }
             }
-            catch (Exception ex)
-            { }
         }
+
 
         /// <summary>
         /// Evento Do_Work del this.bgwLeerBanner, que realiza la lectura de items en segundo plano del 
@@ -259,7 +258,16 @@ namespace UI.NuevasPantallas
         /// </summary>
         private void bgwLeerBanner_DoWork(object sender, DoWorkEventArgs e)
         {
-            this.iControladorDominio.LeerBanner(this.iBannerAPasar);
+            try
+            {
+                this.iControladorDominio.LeerBanner(this.iBannerAPasar);
+                this.iLeidoBanner = true;
+                e.Result = e.Argument; //Asignamos la variable "cantIntentos"
+            }
+            catch (Exception ex)
+            {
+                //MessageBox.Show(ex.Message);
+            }
         }
 
         /// <summary>
@@ -268,21 +276,22 @@ namespace UI.NuevasPantallas
         /// </summary>
         private void bgwLeerBanner_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
         {
-            try
+            if (this.iLeidoBanner)
             {
-                if (e.Error != null)
-                {
-                    throw new Exception("Error al realizar la Lectura Externa de Banner", e.Error);
-                }
-                else if (!e.Cancelled)
-                {
-                    //Actualizamos el contenido del banner deslizante por si la Lectura cambió los items del banner
-                    this.ActualizarBannerDeslizante();
-                }
-                this.timerChequeoCambioCampania.Start();
+                //Actualizamos el contenido del banner deslizante por si la Lectura cambió los items del banner
+                this.ActualizarBannerDeslizante();
+                //this.labelLeido.Text = "Leyó";
             }
-            catch (Exception ex)
+            else
             {
+                int cantIntentos = ((int)e.Result);
+                cantIntentos += 1;
+                //this.labelLeido.Text += cantIntentos.ToString()+ " int";
+
+                //Intentamos actualizar la lectura rss hasta 5 veces, sino se se volverá a intentar la 
+                //próxima vez que se active la ventana, o bien sino dentro de 15 min
+                if (cantIntentos <= 5) 
+                    this.bgwLeerBanner.RunWorkerAsync(cantIntentos);
             }
         }
         #endregion
@@ -335,7 +344,7 @@ namespace UI.NuevasPantallas
             this.WindowState = FormWindowState.Maximized;
 
             //Objetos visibles:
-            this.menuStrip1.Visible = false;
+            this.menuStrip.Visible = false;
             this.buttonSalirPantallaCompleta.Visible = true;
 
             //Ubicación y tamaño de objetos:
@@ -366,18 +375,20 @@ namespace UI.NuevasPantallas
         /// </summary>
         private void VPrincipal_Load(object sender, EventArgs e)
         {
-            //Pantallas de Presentación y de Pre-Carga:
+            //Pantalla de Presentación:
             VPresentacion ventanaPresentacion = new VPresentacion();
             ventanaPresentacion.Owner = this;
             this.Hide();
             ventanaPresentacion.ShowDialog();
+
+            //Pantalla de Pre-carga:
             VInicial ventanaInicial = new VInicial();
             ventanaInicial.Owner = this;
             this.ActualizarPantalla();
             this.Hide();
             ventanaInicial.ShowDialog();
 
-            this.iCampaniaAPasar = new Campania();
+            //this.iCampaniaAPasar = new Campania();
 
             //Damos formato a la pantalla principal:
             this.IniciarFormatoPantallaPrincipal(new object(), new EventArgs());
@@ -408,12 +419,9 @@ namespace UI.NuevasPantallas
         /// </summary>
         private void ActualizarPantalla()
         {
-            this.timerChequeoCambioCampania.Stop();
-            this.timerChequeoCambioBanner.Stop();
+            this.timerChequeoCambio.Stop();
 
-            this.timerChequeoCambioBanner.Interval = 1000;
-            //this.timerChequeoCambioCampania.Start();
-            this.timerChequeoCambioCampania_Tick(1000, new EventArgs());
+            this.timerChequeoCambio_Tick(1000, new EventArgs());
         }
 
         /// <summary>
@@ -430,7 +438,7 @@ namespace UI.NuevasPantallas
             this.StartPosition = FormStartPosition.CenterScreen;
 
             //Objetos visibles
-            this.menuStrip1.Visible = true; //Menú ppal
+            this.menuStrip.Visible = true; //Menú ppal
             this.buttonSalirPantallaCompleta.Visible = false; //Botón salir de pantalla completa
 
             //Ubicación y tamaño de objetos:
@@ -439,7 +447,7 @@ namespace UI.NuevasPantallas
             this.groupBoxBanner.Location = new System.Drawing.Point(27, 547);
             this.groupBoxBanner.Size = new System.Drawing.Size(781, 91);
             this.bannerDeslizante.Size = new System.Drawing.Size(735, 46);
-            this.campaniaDeslizante1.Size = new System.Drawing.Size(735, 459);
+            this.campaniaDeslizante.Size = new System.Drawing.Size(735, 459);
             this.bannerDeslizante.Font = new System.Drawing.Font("Microsoft Sans Serif", 30F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
         }
 
@@ -450,8 +458,6 @@ namespace UI.NuevasPantallas
         {
             this.IniciarFormatoPantallaPrincipal(sender, new EventArgs());
         }
-
-
         #endregion
     }
 }

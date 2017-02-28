@@ -35,11 +35,6 @@
             // 
             this.buttonGuardar.Click += new System.EventHandler(this.ButtonGuardar_Click);
             // 
-            // rangoFecha
-            // 
-            this.rangoFecha.FechaFin = new System.DateTime(2017, 2, 26, 0, 0, 0, 0);
-            this.rangoFecha.FechaInicio = new System.DateTime(2017, 2, 26, 0, 0, 0, 0);
-            // 
             // VModificarCampania
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
