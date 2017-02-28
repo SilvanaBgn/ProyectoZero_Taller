@@ -19,6 +19,7 @@ namespace Dominio
         /// </summary>
         //[DataType(DataType.Text),Required/*(ErrorMessage = "Debe completarse Descripción")*/]
         [Required]
+        [StringLength(100)]
         public string Descripcion { get; set; }
 
 
@@ -63,7 +64,7 @@ namespace Dominio
         /// Información especifica de la Fuente en cuestión
         /// </summary>
         //[RegularExpression(@"^http(s)?://([\w-]+.)+[\w-]+(/[\w- ./?%&=])?$", ErrorMessage = "You can not have that")]
-        [StringLength(80)]
+        [StringLength(100)]
         [Required]
         public string OrigenItems //{ get; set; }
         {

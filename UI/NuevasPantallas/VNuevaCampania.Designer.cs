@@ -35,13 +35,13 @@
             // 
             this.buttonGuardar.Click += new System.EventHandler(this.ButtonGuardar_Click);
             // 
-            // VCrearCampania
+            // VNuevaCampania
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(520, 466);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Name = "VCrearCampania";
+            this.Name = "VNuevaCampania";
             this.Text = "Nueva Campaña";
             this.ResumeLayout(false);
             this.PerformLayout();

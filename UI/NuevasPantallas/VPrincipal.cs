@@ -83,6 +83,8 @@ namespace UI.NuevasPantallas
         {
             InitializeComponent();
             this.iControladorDominio = new ControladorDominio(Resolucionador<IUnitOfWork>.Resolver());
+
+            //Se ubica la ventana en el centro de la pantalla:
             this.StartPosition = FormStartPosition.CenterScreen;
         }
 
@@ -96,14 +98,13 @@ namespace UI.NuevasPantallas
         private void ActualizarBannerDeslizante()
         {
             string infoBannerNuevo = this.iControladorDominio.InfoBanner(this.iBannerAPasar);
-            //this.labelActualizacion.Text +="B-" + infoBannerNuevo.Substring(0,9);
             //En el caso de una Lectura Externa o de que el banner cambie a los 15 min, serían distintos,
             //entonces preguntamos para que en el caso el bannerDeslizante no se recargue:
             if (this.iInfoBannerActual != infoBannerNuevo)
             {
                 this.iInfoBannerActual = infoBannerNuevo;
                 this.bannerDeslizante.Stop();
-                //Asignamos el valor del texto y el intervalo en el que debe reproducirlo
+                //Asignamos el valor del texto que debe reproducir:
                 this.bannerDeslizante.Start(this.iInfoBannerActual);
             }
         }
@@ -115,7 +116,7 @@ namespace UI.NuevasPantallas
         {
             object[] infoCampaniaNueva = this.iControladorDominio.InfoCampania(this.iCampaniaAPasar);
             this.campaniaDeslizante.Stop();
-            //Asignamos el valor de y el intervalo en el que debe reproducirlo
+            //Asignamos el valor y la duración de c/imagen, que debe reproducir:
             this.campaniaDeslizante.Start((List<Imagen>)(infoCampaniaNueva)[0], (int)(infoCampaniaNueva)[1]);
         }
 
@@ -124,11 +125,10 @@ namespace UI.NuevasPantallas
 
         /// <summary>
         /// Evento tick del this.timerChequeoCambio, que indica que estamos en un cuarto de hora, 
-        /// y con el cual da la orden de actualizar la campania y el banner deslizante.
+        /// y con el cual da la orden de comenzar la actualización de la campania deslizante.
         /// </summary>
         private void timerChequeoCambio_Tick(object sender, EventArgs e)
         {
-            //this.labelTick.Text += "Tick del timer!";
             this.timerChequeoCambio.Stop();
 
             //Colocamos todas las variables booleanas de control en false:
@@ -165,10 +165,7 @@ namespace UI.NuevasPantallas
                     this.iObtenidoCampania = true;
                 }
             }
-            catch (ExcepcionAlObtenerCampanias ex)
-            {
-                //throw new ExcepcionAlObtenerCampanias("Error al buscar la Campaña a pasar", ex);
-            }
+            catch (ExcepcionAlObtenerCampanias ex) { }
         }
 
         /// <summary>
@@ -192,11 +189,7 @@ namespace UI.NuevasPantallas
                     this.iObtenidoBanner = true;
                 }
             }
-            catch (ExcepcionAlObtenerBanners ex)
-            {
-                //throw new ExcepcionAlObtenerBanners("Error al buscar el Banner a pasar", ex);
-                MessageBox.Show("No obtuvo banner!!");
-            }
+            catch (ExcepcionAlObtenerBanners ex) { }
         }
 
         /// <summary>
@@ -209,7 +202,6 @@ namespace UI.NuevasPantallas
             //En este momento, ni el bgwObtenerBanner ni bgwObtenerCampania deberían estar ocupados:
             if (!this.iObtenidoBanner && !this.iObtenidoCampania)
             {
-                //this.labelObtenido.Text += "S/BC-";
                 if (!this.bgwObtenerBanner.IsBusy)
                     this.bgwObtenerBanner.RunWorkerAsync();
                 else //(!this.bgwObtenerCampania.IsBusy)
@@ -217,15 +209,13 @@ namespace UI.NuevasPantallas
             }
             else if (!this.iObtenidoBanner)
             {
-                //this.labelObtenido.Text += "S/B-";
                 this.bgwObtenerBanner.RunWorkerAsync();
             }
             else if (!this.iObtenidoCampania)
             {
-                //this.labelObtenido.Text += "S/C-";
                 this.bgwObtenerCampania.RunWorkerAsync();
             }
-            else //this.iObtenidoBanner==this.iObtenidoCampania==true --> Actualizar pantalla:
+            else //this.iObtenidoBanner==this.iObtenidoCampania == true --> Actualizar pantalla:
             {
                 BDcreada = true;
 
@@ -246,7 +236,7 @@ namespace UI.NuevasPantallas
 
                 if (this.iBannerAPasar != null && !this.bgwLeerBanner.IsBusy)
                 { //Finalmente, invocamos a que vaya a leer para actualizar los items:
-                    this.bgwLeerBanner.RunWorkerAsync(1); //donde 1 es la cantIntentos
+                    this.bgwLeerBanner.RunWorkerAsync();
                 }
             }
         }
@@ -262,7 +252,6 @@ namespace UI.NuevasPantallas
             {
                 this.iControladorDominio.LeerBanner(this.iBannerAPasar);
                 this.iLeidoBanner = true;
-                e.Result = e.Argument; //Asignamos la variable "cantIntentos"
             }
             catch (Exception ex)
             {
@@ -280,18 +269,6 @@ namespace UI.NuevasPantallas
             {
                 //Actualizamos el contenido del banner deslizante por si la Lectura cambió los items del banner
                 this.ActualizarBannerDeslizante();
-                //this.labelLeido.Text = "Leyó";
-            }
-            else
-            {
-                int cantIntentos = ((int)e.Result);
-                cantIntentos += 1;
-                //this.labelLeido.Text += cantIntentos.ToString()+ " int";
-
-                //Intentamos actualizar la lectura rss hasta 5 veces, sino se se volverá a intentar la 
-                //próxima vez que se active la ventana, o bien sino dentro de 15 min
-                if (cantIntentos <= 5) 
-                    this.bgwLeerBanner.RunWorkerAsync(cantIntentos);
             }
         }
         #endregion
@@ -388,8 +365,6 @@ namespace UI.NuevasPantallas
             this.Hide();
             ventanaInicial.ShowDialog();
 
-            //this.iCampaniaAPasar = new Campania();
-
             //Damos formato a la pantalla principal:
             this.IniciarFormatoPantallaPrincipal(new object(), new EventArgs());
 
@@ -420,7 +395,6 @@ namespace UI.NuevasPantallas
         private void ActualizarPantalla()
         {
             this.timerChequeoCambio.Stop();
-
             this.timerChequeoCambio_Tick(1000, new EventArgs());
         }
 

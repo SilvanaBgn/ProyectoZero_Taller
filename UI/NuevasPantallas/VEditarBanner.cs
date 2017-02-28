@@ -44,7 +44,7 @@ namespace UI.NuevasPantallas
         }
 
         /// <summary>
-        /// Carga en todos los componentes de la ventana VModificarBanner con los valores de this.iBanner
+        /// Carga en todos los componentes de la ventana VEditarBanner con los valores de this.iBanner
         /// </summary>
         private void CargarBannerAModificar()
         {
@@ -93,9 +93,9 @@ namespace UI.NuevasPantallas
 
         #region Ventana y Otros Componentes
         /// <summary>
-        /// Este evento se activa cuando VModificarBanner se encuentra activada
+        /// Este evento se activa cuando VEditarBanner se encuentra activada
         /// </summary>
-        private void VModificarBanner_Activated(object sender, EventArgs e)
+        private void VEditarBanner_Activated(object sender, EventArgs e)
         {
             List<Fuente> fuenteAMostrar = new List<Fuente>();
             fuenteAMostrar.Add(this.iControladorDominio.BuscarFuentePorId(this.iBanner.FuenteId));
@@ -107,7 +107,7 @@ namespace UI.NuevasPantallas
         /// <summary>
         /// Evento que se activa cuando la ventana ya se ha inicializado y se está cargando
         /// </summary>
-        private void VModificarBanner_Load(object sender, EventArgs e)
+        private void VEditarBanner_Load(object sender, EventArgs e)
         {
             this.CargarBannerAModificar();
         }

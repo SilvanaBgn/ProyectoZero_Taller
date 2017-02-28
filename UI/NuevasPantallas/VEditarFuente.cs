@@ -25,7 +25,7 @@ namespace UI.NuevasPantallas
 
         #region Funciones privadas
         /// <summary>
-        /// Carga en todos los componentes de la ventana VModificarFuente con los valores de this.iFuente
+        /// Carga en todos los componentes de la ventana VEditarFuente con los valores de this.iFuente
         /// </summary>
         private void CargarFuenteAModificar()
         {
@@ -92,7 +92,7 @@ namespace UI.NuevasPantallas
         /// <summary>
         /// Evento que se activa cuando la ventana ya se ha inicializado y se está cargando
         /// </summary>
-        private void VModificarFuente_Load(object sender, EventArgs e)
+        private void VEditarFuente_Load(object sender, EventArgs e)
         {
             this.CargarFuenteAModificar();
         }

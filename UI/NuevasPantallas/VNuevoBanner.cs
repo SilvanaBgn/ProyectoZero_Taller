@@ -15,7 +15,7 @@ namespace UI.NuevasPantallas
         /// <summary>
         /// Evento que se activa cuando la ventana de este Form se muestra
         /// </summary>
-        private void VCrearBanner_Shown(object sender, EventArgs e)
+        private void VNuevoBanner_Shown(object sender, EventArgs e)
         {
             this.CargarDataGridViewFuentes(this.iControladorDominio.ObtenerTodasLasFuentes());
             this.dataGridViewMostrarFuentes.Columns["FuenteId"].Visible = false;

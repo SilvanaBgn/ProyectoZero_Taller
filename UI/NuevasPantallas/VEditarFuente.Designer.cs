@@ -37,15 +37,15 @@
             // 
             this.buttonGuardar.Click += new System.EventHandler(this.ButtonGuardar_Click);
             // 
-            // VModificarFuente
+            // VEditarFuente
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(461, 309);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Name = "VModificarFuente";
+            this.Name = "VEditarFuente";
             this.Text = "Editar Fuente";
-            this.Load += new System.EventHandler(this.VModificarFuente_Load);
+            this.Load += new System.EventHandler(this.VEditarFuente_Load);
             this.panelRss.ResumeLayout(false);
             this.panelRss.PerformLayout();
             this.panelTextoFijo.ResumeLayout(false);

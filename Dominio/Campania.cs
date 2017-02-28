@@ -26,7 +26,7 @@ namespace Dominio
         /// <summary>
         /// Explicación del contenido de la campaña
         /// </summary>
-        [StringLength(80)]
+        [StringLength(100)]
         public string Descripcion { get; set; }
 
         /// <summary>
