@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Dominio;
+using Excepciones.ExcepcionesPantalla;
 
 namespace UI.NuevasPantallas
 {
@@ -72,8 +73,7 @@ namespace UI.NuevasPantallas
             this.iBanner.Descripcion = this.textBoxDescripcion.Text;
             this.iBanner.FechaInicio = this.rangoFecha.FechaInicio;
             this.iBanner.FechaFin = this.rangoFecha.FechaFin;
-            this.iBanner.HoraInicio = this.rangoHorario.HoraInicio;
-            this.iBanner.HoraFin = this.rangoHorario.HoraFin;
+
 
             if (!this.rangoHorario.HorarioValido())
             {
@@ -81,13 +81,26 @@ namespace UI.NuevasPantallas
             }
             else
             {
-                //Modificamos el banner y guardamos los cambios:
-                this.iControladorDominio.ModificarBanner(this.iBanner);
-                this.iControladorDominio.GuardarCambios();
+                this.iBanner.HoraInicio = this.rangoHorario.HoraInicio;
+                this.iBanner.HoraFin = this.rangoHorario.HoraFin;
+                try
+                {
+                    this.iControladorDominio.ModificarBanner(this.iBanner);
+                    this.iControladorDominio.GuardarCambios();
+                    this.Close();
+                }
 
-                this.Close();
+                catch (ExcepcionCamposSinCompletar ex)
+                {
+                    MessageBox.Show(ex.Message, "Faltan campos", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                catch (Exception)
+                {
+                    throw new Exception();
+                }
             }
         }
+
         #endregion
 
         #region Ventana y Otros Componentes
@@ -99,7 +112,7 @@ namespace UI.NuevasPantallas
             List<Fuente> fuenteAMostrar = new List<Fuente>();
             fuenteAMostrar.Add(this.iControladorDominio.BuscarFuentePorId(this.iBanner.FuenteId));
             base.CargarDataGridViewFuentes(fuenteAMostrar);
-            base.dataGridViewMostrarFuentes.Size= new System.Drawing.Size(436, this.dataGridViewMostrarFuentes.ColumnHeadersHeight +
+            base.dataGridViewMostrarFuentes.Size = new System.Drawing.Size(436, this.dataGridViewMostrarFuentes.ColumnHeadersHeight +
                 this.dataGridViewMostrarFuentes.Rows[0].Height);
         }
 

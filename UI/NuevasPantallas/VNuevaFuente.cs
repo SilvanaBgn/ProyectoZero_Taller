@@ -60,7 +60,6 @@ namespace UI.NuevasPantallas
 
                         //Luego de guardar, activamos la variable booleana que indica que se guardó correctamente:
                         this.iGuardadoCorrecto = true;
-
                         this.Close();
                     }
                     catch (ExcepcionFormatoURLIncorrecto ex)
@@ -71,6 +70,8 @@ namespace UI.NuevasPantallas
                     {
                         MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
+                    catch(Exception)
+                    { throw new Exception(); }
                 }
             }
             catch (NullReferenceException)

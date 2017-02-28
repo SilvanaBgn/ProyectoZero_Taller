@@ -82,7 +82,7 @@ namespace UI.NuevasPantallas
             this.buttonSalir.Location = new System.Drawing.Point(532, 489);
             this.buttonSalir.Name = "buttonSalir";
             this.buttonSalir.Size = new System.Drawing.Size(75, 23);
-            this.buttonSalir.TabIndex = 9;
+            this.buttonSalir.TabIndex = 10;
             this.buttonSalir.Text = "Salir";
             this.buttonSalir.UseVisualStyleBackColor = true;
             this.buttonSalir.Click += new System.EventHandler(this.buttonSalir_Click);
@@ -166,7 +166,7 @@ namespace UI.NuevasPantallas
             this.textBoxTitulo.MaxLength = 20;
             this.textBoxTitulo.Name = "textBoxTitulo";
             this.textBoxTitulo.Size = new System.Drawing.Size(139, 20);
-            this.textBoxTitulo.TabIndex = 7;
+            this.textBoxTitulo.TabIndex = 9;
             this.textBoxTitulo.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textValido_KeyPress);
             // 
             // checkBoxTitulo
@@ -175,7 +175,7 @@ namespace UI.NuevasPantallas
             this.checkBoxTitulo.Location = new System.Drawing.Point(397, 426);
             this.checkBoxTitulo.Name = "checkBoxTitulo";
             this.checkBoxTitulo.Size = new System.Drawing.Size(63, 17);
-            this.checkBoxTitulo.TabIndex = 7;
+            this.checkBoxTitulo.TabIndex = 8;
             this.checkBoxTitulo.Text = "   Título";
             this.checkBoxTitulo.UseVisualStyleBackColor = true;
             this.checkBoxTitulo.CheckedChanged += new System.EventHandler(this.checkBoxTitulo_CheckedChanged);
@@ -190,7 +190,7 @@ namespace UI.NuevasPantallas
             this.textBoxDescripcion.Name = "textBoxDescripcion";
             this.textBoxDescripcion.ShortcutsEnabled = false;
             this.textBoxDescripcion.Size = new System.Drawing.Size(227, 20);
-            this.textBoxDescripcion.TabIndex = 6;
+            this.textBoxDescripcion.TabIndex = 7;
             this.textBoxDescripcion.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textValido_KeyPress);
             // 
             // checkBoxDescripcion

@@ -1,6 +1,7 @@
 ﻿using System;
 using Dominio;
 using System.Windows.Forms;
+using Excepciones.ExcepcionesPantalla;
 
 namespace UI.NuevasPantallas
 {
@@ -37,11 +38,9 @@ namespace UI.NuevasPantallas
             this.iBanner.Descripcion = this.textBoxDescripcion.Text;
             this.iBanner.FechaInicio = this.rangoFecha.FechaInicio;
             this.iBanner.FechaFin = this.rangoFecha.FechaFin;
-            this.iBanner.HoraInicio = this.rangoHorario.HoraInicio;
-            this.iBanner.HoraFin = this.rangoHorario.HoraFin;
 
             Fuente fuenteSeleccionada = this.FuenteSeleccionada();
-            if (fuenteSeleccionada==null)
+            if (fuenteSeleccionada == null)
             {
                 MessageBox.Show("Se debe seleccionar una fuente", "Faltan campos", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
@@ -51,13 +50,23 @@ namespace UI.NuevasPantallas
             }
             else
             {
+                this.iBanner.HoraInicio = this.rangoHorario.HoraInicio;
+                this.iBanner.HoraFin = this.rangoHorario.HoraFin;
                 this.iBanner.FuenteId = fuenteSeleccionada.FuenteId;
 
-                //Agregamos el banner y guardamos los cambios:
-                this.iControladorDominio.AgregarBanner(this.iBanner);
-                this.iControladorDominio.GuardarCambios();
-
-                this.Close();
+                try
+                {
+                    //Agregamos el banner y guardamos los cambios:
+                    this.iControladorDominio.AgregarBanner(this.iBanner);
+                    this.iControladorDominio.GuardarCambios();
+                    this.Close();
+                }
+                catch (ExcepcionCamposSinCompletar ex)
+                {
+                    MessageBox.Show(ex.Message, "Faltan campos", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                catch (Exception)
+                { throw new Exception(); }
             }
         }
 

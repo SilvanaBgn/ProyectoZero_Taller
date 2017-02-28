@@ -135,8 +135,9 @@ namespace Dominio
                         this.Items = listaLeida;
                 }
             }
-            catch (Exception) //excepcion cuando no hay internet u otra.. entendible para el usuario..=> No leyó
+            catch (Exception ex) //excepcion cuando no hay internet u otra.. entendible para el usuario..=> No leyó
             {
+                throw new ExcepcionErrorDeLectura("No se pudo leer la fuente",ex);
             }
         }
     }

@@ -101,7 +101,11 @@ namespace UI.NuevasPantallas
 
             //Una vez leída la Fuente, modificamos y guardamos los cambios:
             this.iControladorDominio.ModificarFuente(this.iFuente);
-            this.iControladorDominio.GuardarCambios();
+            try {
+                this.iControladorDominio.GuardarCambios();
+            }
+            catch(Exception)
+            {  }
         }
 
         /// <summary>

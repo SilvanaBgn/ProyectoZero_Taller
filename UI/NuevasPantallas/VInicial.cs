@@ -69,6 +69,7 @@ namespace UI.NuevasPantallas
             //Se muestra la pantalla VPrincipal:
             this.Hide();
             ((VPrincipal)this.Owner).Show();
+
         }
     }
 }

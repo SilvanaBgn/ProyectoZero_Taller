@@ -75,16 +75,17 @@ namespace UI.NuevasPantallas
                 //Modificamos la fuente y guardamos los cambios:
                 this.iControladorDominio.ModificarFuente(this.iFuente);
                 this.iControladorDominio.GuardarCambios();
+                this.Close();
 
                 //Luego de guardar, activamos la variable booleana que indica que se guardó correctamente:
                 this.iGuardadoCorrecto = true;
-
-                this.Close();
             }
             catch (ExcepcionCamposSinCompletar ex)
             {
                 MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+            catch (Exception)
+            {  }
         }
 
         /// <summary>

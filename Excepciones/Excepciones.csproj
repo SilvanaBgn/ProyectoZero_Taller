@@ -68,6 +68,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ExcepcionesDominio\ExcepcionAlLeerFuenteExternaDelBanner.cs" />
+    <Compile Include="ExcepcionesDominio\ExepcionErrorDeLectura.cs" />
     <Compile Include="ExcepcionesPantalla\ExcepcionAlObtenerBanners.cs" />
     <Compile Include="ExcepcionesPantalla\ExcepcionAlObtenerCampanias.cs" />
     <Compile Include="ExcepcionesPantalla\ExcepcionAlObtenerFuentes.cs" />
