@@ -95,7 +95,7 @@ namespace UI.NuevasPantallas
             {
                 this.iVentanaEditar = new VEditarCampania(ref this.iControladorDominio, this.CampaniaSeleccionada());
                 this.iVentanaEditar.Owner = this;
-                this.iVentanaEditar.ShowDialog();
+                this.iVentanaEditar.ShowDialog(); 
                 this.iVentanaEditar = null;
             }
         }

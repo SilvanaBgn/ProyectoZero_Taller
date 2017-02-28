@@ -69,23 +69,24 @@ namespace UI.NuevasPantallas
         private void ButtonGuardar_Click(object sender, EventArgs e)
         {
             this.buttonGuardar.Enabled = false;
-            //Completamos el this.iBanner con los datos modificados:
-            this.iBanner.Titulo = this.textBoxTitulo.Text;
-            this.iBanner.Descripcion = this.textBoxDescripcion.Text;
-            this.iBanner.FechaInicio = this.rangoFecha.FechaInicio;
-            this.iBanner.FechaFin = this.rangoFecha.FechaFin;
-
 
             if (!this.rangoHorario.HorarioValido())
             {
                 MessageBox.Show("La hora de fin debe ser posterior a la hora de inicio", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                this.buttonGuardar.Enabled = true;
             }
             else
             {
-                this.iBanner.HoraInicio = this.rangoHorario.HoraInicio;
-                this.iBanner.HoraFin = this.rangoHorario.HoraFin;
                 try
                 {
+                    //Completamos el this.iBanner con los datos modificados:
+                    this.iBanner.Titulo = this.textBoxTitulo.Text;
+                    this.iBanner.Descripcion = this.textBoxDescripcion.Text;
+                    this.iBanner.FechaInicio = this.rangoFecha.FechaInicio;
+                    this.iBanner.FechaFin = this.rangoFecha.FechaFin;
+                    this.iBanner.HoraInicio = this.rangoHorario.HoraInicio;
+                    this.iBanner.HoraFin = this.rangoHorario.HoraFin;
+
                     this.iControladorDominio.ModificarBanner(this.iBanner);
                     this.iControladorDominio.GuardarCambios();
                     this.Close();
@@ -94,6 +95,7 @@ namespace UI.NuevasPantallas
                 catch (ExcepcionCamposSinCompletar ex)
                 {
                     MessageBox.Show(ex.Message, "Faltan campos", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    this.buttonGuardar.Enabled = true;
                 }
                 catch (Exception)
                 {
@@ -107,6 +109,7 @@ namespace UI.NuevasPantallas
         #region Ventana y Otros Componentes
         /// <summary>
         /// Este evento se activa cuando VModificarBanner se encuentra activada
+        /// Muestra la fuente del banner a modificar
         /// </summary>
         private void VModificarBanner_Activated(object sender, EventArgs e)
         {

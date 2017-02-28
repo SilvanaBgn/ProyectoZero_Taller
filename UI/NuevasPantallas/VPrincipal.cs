@@ -11,6 +11,7 @@ using System.Windows.Forms;
 using Contenedor;
 using System.Threading;
 using Excepciones.ExcepcionesPantalla;
+using Excepciones.ExcepcionesDominio;
 
 namespace UI.NuevasPantallas
 {
@@ -246,7 +247,11 @@ namespace UI.NuevasPantallas
 
                 if (this.iBannerAPasar != null && !this.bgwLeerBanner.IsBusy)
                 { //Finalmente, invocamos a que vaya a leer para actualizar los items:
-                    this.bgwLeerBanner.RunWorkerAsync(1); //donde 1 es la cantIntentos
+                    try {
+                        this.bgwLeerBanner.RunWorkerAsync();
+                    }
+                    catch(ExcepcionAlLeerFuenteExternaDelBanner ex)
+                    { }
                 }
             }
         }
@@ -262,12 +267,10 @@ namespace UI.NuevasPantallas
             {
                 this.iControladorDominio.LeerBanner(this.iBannerAPasar);
                 this.iLeidoBanner = true;
-                e.Result = e.Argument; //Asignamos la variable "cantIntentos"
+                //    e.Result = e.Argument; //Asignamos la variable "cantIntentos"
             }
-            catch (Exception ex)
-            {
-                //MessageBox.Show(ex.Message);
-            }
+            catch (ExcepcionAlLeerFuenteExternaDelBanner ex)
+            { this.iLeidoBanner = false; }
         }
 
         /// <summary>
@@ -280,19 +283,21 @@ namespace UI.NuevasPantallas
             {
                 //Actualizamos el contenido del banner deslizante por si la Lectura cambió los items del banner
                 this.ActualizarBannerDeslizante();
-                //this.labelLeido.Text = "Leyó";
+                //    //this.labelLeido.Text = "Leyó";
             }
             else
-            {
-                int cantIntentos = ((int)e.Result);
-                cantIntentos += 1;
-                //this.labelLeido.Text += cantIntentos.ToString()+ " int";
+                this.iToolStripStatusLabel.Text = "No se pudo establecer la conexion o la url no existe";
+            //else
+            //{
+            //    int cantIntentos = ((int)e.Result);
+            //    cantIntentos += 1;
+            //    //this.labelLeido.Text += cantIntentos.ToString()+ " int";
 
-                //Intentamos actualizar la lectura rss hasta 5 veces, sino se se volverá a intentar la 
-                //próxima vez que se active la ventana, o bien sino dentro de 15 min
-                if (cantIntentos <= 5) 
-                    this.bgwLeerBanner.RunWorkerAsync(cantIntentos);
-            }
+            //    //Intentamos actualizar la lectura rss hasta 5 veces, sino se se volverá a intentar la 
+            //    //próxima vez que se active la ventana, o bien sino dentro de 15 min
+            //    if (cantIntentos <= 5) 
+            //        this.bgwLeerBanner.RunWorkerAsync(cantIntentos);
+            //}
         }
         #endregion
 

@@ -38,6 +38,7 @@ namespace UI.NuevasPantallas
             if (!this.rangoHorario.HorarioValido())
             {
                 MessageBox.Show("La hora de fin debe ser posterior a la hora de inicio", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                this.buttonGuardar.Enabled = true;
             }
             else
             {
@@ -53,12 +54,11 @@ namespace UI.NuevasPantallas
                 catch (ExcepcionCamposSinCompletar ex)
                 {
                     MessageBox.Show(ex.Message, "Faltan campos", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    this.buttonGuardar.Enabled = true;
                 }
                 catch (Exception)
                 { throw new Exception(); }
-
             }
-            this.buttonGuardar.Enabled = true;
         }
         #endregion
     }

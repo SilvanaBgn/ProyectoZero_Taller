@@ -66,10 +66,12 @@ namespace UI.NuevasPantallas
                     catch (ExcepcionFormatoURLIncorrecto ex)
                     {
                         MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        this.buttonGuardar.Enabled = true;
                     }
                     catch (ExcepcionCamposSinCompletar ex)
                     {
                         MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        this.buttonGuardar.Enabled = true;
                     }
                     catch(Exception)
                     { throw new Exception(); }

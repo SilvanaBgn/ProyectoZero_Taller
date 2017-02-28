@@ -26,8 +26,8 @@ namespace Dominio
         {
             try
             {
-            this.iUoW.GuardarCambios();
-        }
+                this.iUoW.GuardarCambios();
+            }
             catch (Exception)
             { throw new Exception(); }
         }
@@ -108,7 +108,7 @@ namespace Dominio
             try
             {
                 return this.iUoW.RepositorioBanners.Obtener(pFilter, null).ToList();
-        }
+            }
             catch (ExcepcionGeneral)
             { throw new ExcepcionAlObtenerBanners("Ocurrió un error al buscar los banners"); }
         }
@@ -216,8 +216,8 @@ namespace Dominio
             {
                 throw new ExcepcionCamposSinCompletar("Se debe seleccionar la duración de las imágenes");
             }
-
-            this.iUoW.RepositorioCampanias.Modificar(pCampania);
+            else
+                this.iUoW.RepositorioCampanias.Modificar(pCampania);
         }
 
         /// <summary>
@@ -317,7 +317,7 @@ namespace Dominio
             try
             {
                 return this.iUoW.RepositorioCampanias.Obtener(pFilter, null).ToList();
-        }
+            }
             catch (ExcepcionGeneral)
             {
                 throw new ExcepcionAlObtenerCampanias("Ocurrió un error al buscar las campañas");
@@ -401,7 +401,7 @@ namespace Dominio
             try
             {
                 return this.iUoW.RepositorioFuentes.Obtener(pFilter, null).ToList();
-        }
+            }
             catch (ExcepcionGeneral)
             {
                 throw new ExcepcionAlObtenerFuentes("Ocurrió un error al obtener las fuentes");
@@ -493,14 +493,14 @@ namespace Dominio
             //Debería devolver un solo banner
             try
             {
-            List<Banner> posiblesBanners = this.BuscarBannerPorAtributo
-                 (x => x.FechaInicio.CompareTo(pFechaActual) <= 0 && x.FechaFin.CompareTo(pFechaActual) >= 0
-                      && x.HoraInicio.CompareTo(pHoraActual) <= 0 && x.HoraFin.CompareTo(pHoraActual) > 0
-                 );
+                List<Banner> posiblesBanners = this.BuscarBannerPorAtributo
+                     (x => x.FechaInicio.CompareTo(pFechaActual) <= 0 && x.FechaFin.CompareTo(pFechaActual) >= 0
+                          && x.HoraInicio.CompareTo(pHoraActual) <= 0 && x.HoraFin.CompareTo(pHoraActual) > 0
+                     );
 
-            if (posiblesBanners.Count > 0) //Si encontró algún banner para el próximo cuarto de hora
-                return posiblesBanners[0]; //Tomamos el primer banner que encontró
-            else
+                if (posiblesBanners.Count > 0) //Si encontró algún banner para el próximo cuarto de hora
+                    return posiblesBanners[0]; //Tomamos el primer banner que encontró
+                else
                     return null;
             }
             catch (ExcepcionGeneral ex)
@@ -533,22 +533,17 @@ namespace Dominio
         {
             try
             {
-            Fuente fuenteDelBanner = this.BuscarFuentePorId(pBanner.FuenteId);
-            fuenteDelBanner.Leer(); //Actualiza los items de la fuente del banner
-                try {
-            //Guardamos los cambios:
-            this.ModificarFuente(this.BuscarFuentePorId(pBanner.FuenteId));
-            this.GuardarCambios();
-        }
-                catch(Exception ex)
-                { throw new Exception(ex.Message,ex); }
+                Fuente fuenteDelBanner = this.BuscarFuentePorId(pBanner.FuenteId);
+                fuenteDelBanner.Leer(); //Actualiza los items de la fuente del banner
+                                        //Guardamos los cambios:
+                this.ModificarFuente(this.BuscarFuentePorId(pBanner.FuenteId));
+                this.GuardarCambios();
             }
-            catch(ExcepcionErrorDeLectura ex)
-            {
-                throw new ExcepcionAlLeerFuenteExternaDelBanner(ex.Message,ex);
-            }
+
             catch (Exception ex)
-            { throw new Exception(ex.Message,ex); }
+            {
+                throw new ExcepcionAlLeerFuenteExternaDelBanner(ex.Message, ex);
+            }
         }
 
         /// <summary>
@@ -585,16 +580,16 @@ namespace Dominio
             //Debería devolver una sola campania
             try
             {
-            List<Campania> posiblesCampanias = this.BuscarCampaniaPorAtributo
-                 (x => x.FechaInicio.CompareTo(pFechaActual) <= 0 && x.FechaFin.CompareTo(pFechaActual) >= 0
-                      && x.HoraInicio.CompareTo(pHoraActual) <= 0 && x.HoraFin.CompareTo(pHoraActual) > 0
-                 );
+                List<Campania> posiblesCampanias = this.BuscarCampaniaPorAtributo
+                     (x => x.FechaInicio.CompareTo(pFechaActual) <= 0 && x.FechaFin.CompareTo(pFechaActual) >= 0
+                          && x.HoraInicio.CompareTo(pHoraActual) <= 0 && x.HoraFin.CompareTo(pHoraActual) > 0
+                     );
 
-            if (posiblesCampanias.Count > 0) //Si encontró alguna campania para el próximo cuarto de hora
-                return posiblesCampanias[0]; //Tomamos la primera campania que encontró
-            else
-                return null;
-        }
+                if (posiblesCampanias.Count > 0) //Si encontró alguna campania para el próximo cuarto de hora
+                    return posiblesCampanias[0]; //Tomamos la primera campania que encontró
+                else
+                    return null;
+            }
             catch (ExcepcionGeneral ex)
             { throw new ExcepcionAlObtenerCampanias(ex.Message); }
         }

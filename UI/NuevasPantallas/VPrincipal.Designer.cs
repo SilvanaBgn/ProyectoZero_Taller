@@ -32,7 +32,6 @@ namespace UI.NuevasPantallas
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(VPrincipal));
             this.groupBoxBanner = new System.Windows.Forms.GroupBox();
-            this.bannerDeslizante = new UI.UserControls.BannerDeslizante();
             this.menuStrip = new System.Windows.Forms.MenuStrip();
             this.pantallaCompletaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.configuracionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -50,10 +49,14 @@ namespace UI.NuevasPantallas
             this.labelLeido = new System.Windows.Forms.Label();
             this.labelObtenido = new System.Windows.Forms.Label();
             this.labelTick = new System.Windows.Forms.Label();
+            this.iStatusStrip = new System.Windows.Forms.StatusStrip();
+            this.iToolStripStatusLabel = new System.Windows.Forms.ToolStripStatusLabel();
+            this.bannerDeslizante = new UI.UserControls.BannerDeslizante();
             this.campaniaDeslizante = new UI.UserControls.CampaniaDeslizante();
             this.groupBoxBanner.SuspendLayout();
             this.menuStrip.SuspendLayout();
             this.groupBoxCampania.SuspendLayout();
+            this.iStatusStrip.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.campaniaDeslizante)).BeginInit();
             this.SuspendLayout();
             // 
@@ -66,18 +69,6 @@ namespace UI.NuevasPantallas
             this.groupBoxBanner.Size = new System.Drawing.Size(781, 91);
             this.groupBoxBanner.TabIndex = 2;
             this.groupBoxBanner.TabStop = false;
-            // 
-            // bannerDeslizante
-            // 
-            this.bannerDeslizante.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(180)))), ((int)(((byte)(92)))));
-            this.bannerDeslizante.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.bannerDeslizante.Enabled = false;
-            this.bannerDeslizante.Font = new System.Drawing.Font("Microsoft Sans Serif", 30F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bannerDeslizante.ForeColor = System.Drawing.Color.White;
-            this.bannerDeslizante.Location = new System.Drawing.Point(22, 25);
-            this.bannerDeslizante.Name = "bannerDeslizante";
-            this.bannerDeslizante.Size = new System.Drawing.Size(735, 46);
-            this.bannerDeslizante.TabIndex = 0;
             // 
             // menuStrip
             // 
@@ -237,6 +228,34 @@ namespace UI.NuevasPantallas
             this.labelTick.Size = new System.Drawing.Size(0, 20);
             this.labelTick.TabIndex = 4;
             // 
+            // iStatusStrip
+            // 
+            this.iStatusStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.iToolStripStatusLabel});
+            this.iStatusStrip.Location = new System.Drawing.Point(0, 626);
+            this.iStatusStrip.Name = "iStatusStrip";
+            this.iStatusStrip.Size = new System.Drawing.Size(840, 22);
+            this.iStatusStrip.TabIndex = 4;
+            this.iStatusStrip.Text = "statusStrip";
+            // 
+            // iToolStripStatusLabel
+            // 
+            this.iToolStripStatusLabel.Name = "iToolStripStatusLabel";
+            this.iToolStripStatusLabel.Size = new System.Drawing.Size(0, 17);
+            this.iToolStripStatusLabel.Visible = false;
+            // 
+            // bannerDeslizante
+            // 
+            this.bannerDeslizante.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(180)))), ((int)(((byte)(92)))));
+            this.bannerDeslizante.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.bannerDeslizante.Enabled = false;
+            this.bannerDeslizante.Font = new System.Drawing.Font("Microsoft Sans Serif", 30F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.bannerDeslizante.ForeColor = System.Drawing.Color.White;
+            this.bannerDeslizante.Location = new System.Drawing.Point(22, 25);
+            this.bannerDeslizante.Name = "bannerDeslizante";
+            this.bannerDeslizante.Size = new System.Drawing.Size(735, 46);
+            this.bannerDeslizante.TabIndex = 0;
+            // 
             // campaniaDeslizante
             // 
             this.campaniaDeslizante.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("campaniaDeslizante.BackgroundImage")));
@@ -257,6 +276,7 @@ namespace UI.NuevasPantallas
             this.BackColor = System.Drawing.Color.Wheat;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.ClientSize = new System.Drawing.Size(840, 648);
+            this.Controls.Add(this.iStatusStrip);
             this.Controls.Add(this.buttonSalirPantallaCompleta);
             this.Controls.Add(this.groupBoxBanner);
             this.Controls.Add(this.groupBoxCampania);
@@ -274,6 +294,8 @@ namespace UI.NuevasPantallas
             this.menuStrip.PerformLayout();
             this.groupBoxCampania.ResumeLayout(false);
             this.groupBoxCampania.PerformLayout();
+            this.iStatusStrip.ResumeLayout(false);
+            this.iStatusStrip.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.campaniaDeslizante)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -302,5 +324,7 @@ namespace UI.NuevasPantallas
         private System.Windows.Forms.Label labelLeido;
         private System.Windows.Forms.Label labelObtenido;
         private System.Windows.Forms.Label labelActualizacion;
+        private System.Windows.Forms.StatusStrip iStatusStrip;
+        private System.Windows.Forms.ToolStripStatusLabel iToolStripStatusLabel;
     }
 }
