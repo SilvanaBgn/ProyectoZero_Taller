@@ -58,6 +58,7 @@ namespace UI.NuevasPantallas
         /// </summary>
         private void ButtonGuardar_Click(object sender, EventArgs e)
         {
+            this.buttonGuardar.Enabled = false;
             //Completamos la this.iFuente con los datos modificados:
             switch (this.comboBoxTipoFuente.SelectedItem.ToString())
             {
@@ -85,6 +86,7 @@ namespace UI.NuevasPantallas
             {
                 MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+            this.buttonGuardar.Enabled = true;
         }
 
         /// <summary>

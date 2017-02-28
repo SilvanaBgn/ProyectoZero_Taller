@@ -26,6 +26,7 @@ namespace UI.NuevasPantallas
         /// </summary>
         private void ButtonGuardar_Click(object sender, EventArgs e)
         {
+            this.buttonGuardar.Enabled = false;
             this.iCampania = new Campania();
             this.iCampania.Titulo = this.textBoxTitulo.Text;
             this.iCampania.Descripcion = this.textBoxDescripcion.Text;
@@ -55,6 +56,7 @@ namespace UI.NuevasPantallas
             {
                 MessageBox.Show(ex.Message, "Faltan campos", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+            this.buttonGuardar.Enabled = true;
         }
         #endregion
     }
