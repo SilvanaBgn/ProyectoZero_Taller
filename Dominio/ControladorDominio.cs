@@ -534,13 +534,31 @@ namespace Dominio
             try
             {
                 Fuente fuenteDelBanner = this.BuscarFuentePorId(pBanner.FuenteId);
-                fuenteDelBanner.Leer(); //Actualiza los items de la fuente del banner
-                                        //Guardamos los cambios:
-                this.ModificarFuente(this.BuscarFuentePorId(pBanner.FuenteId));
+                this.LeerFuente(fuenteDelBanner);
+            }
+
+            catch (ExcepcionAlLeerFuenteExternaDelBanner ex)
+            {
+                throw new ExcepcionAlLeerFuenteExternaDelBanner(ex.Message, ex);
+            }
+        }
+
+        /// <summary>
+        /// Invocar al método Leer() de la fuente, para que actualice sus items
+        /// </summary>
+        /// <param name="pFuente">Fuente a leer</param>
+        public void LeerFuente(Fuente pFuente)
+        {
+            try
+            {
+                pFuente.Leer(); //Actualiza los items de la fuente del 
+                
+                //Guardamos los cambios:
+                this.ModificarFuente(pFuente);
                 this.GuardarCambios();
             }
 
-            catch (Exception ex)
+            catch (ExcepcionAlLeerFuenteExternaDelBanner ex)
             {
                 throw new ExcepcionAlLeerFuenteExternaDelBanner(ex.Message, ex);
             }
