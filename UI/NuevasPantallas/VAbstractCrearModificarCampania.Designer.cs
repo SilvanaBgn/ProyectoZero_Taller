@@ -60,7 +60,7 @@
             // textBoxTitulo
             // 
             this.textBoxTitulo.Location = new System.Drawing.Point(97, 13);
-            this.textBoxTitulo.MaxLength = 20;
+            this.textBoxTitulo.MaxLength = 80;
             this.textBoxTitulo.Name = "textBoxTitulo";
             this.textBoxTitulo.ShortcutsEnabled = false;
             this.textBoxTitulo.Size = new System.Drawing.Size(385, 20);
@@ -70,7 +70,7 @@
             // textBoxDescripcion
             // 
             this.textBoxDescripcion.Location = new System.Drawing.Point(97, 43);
-            this.textBoxDescripcion.MaxLength = 30;
+            this.textBoxDescripcion.MaxLength = 100;
             this.textBoxDescripcion.Name = "textBoxDescripcion";
             this.textBoxDescripcion.ShortcutsEnabled = false;
             this.textBoxDescripcion.Size = new System.Drawing.Size(385, 20);
@@ -152,7 +152,7 @@
         protected System.Windows.Forms.TextBox textBoxTitulo;
         protected System.Windows.Forms.TextBox textBoxDescripcion;
         protected System.Windows.Forms.Button buttonGuardar;
-        private System.Windows.Forms.Button buttonCancelar;
+        protected System.Windows.Forms.Button buttonCancelar;
         protected UserControls.RangoFecha rangoFecha;
         protected UserControls.RangoHorario rangoHorario;
         protected UserControls.Galeria galeria;

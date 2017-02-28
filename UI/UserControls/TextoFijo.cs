@@ -104,15 +104,15 @@ namespace UI.UserControls
             this.buttonAbajo.Enabled = !this.buttonAbajo.Enabled;
             this.comboBoxItems.Enabled = !this.comboBoxItems.Enabled;
 
-            if (!this.bannerDeslizante1.Funcionando)
+            if (!this.bannerDeslizante.Funcionando)
             {
                 //Cambiamos la imagen del botón this.buttonVistaPrevia a "Pausa"
                 this.buttonVistaPrevia.BackgroundImage = global::UI.Properties.Resources.Pausa1;
-                this.bannerDeslizante1.Start(ConvertirItemsATexto(this.comboBoxItems));
+                this.bannerDeslizante.Start(ConvertirItemsATexto(this.comboBoxItems));
             }
             else
             {
-                this.bannerDeslizante1.Stop();
+                this.bannerDeslizante.Stop();
                 //Cambiamos la imagen del botón this.buttonVistaPrevia a "Play"
                 this.buttonVistaPrevia.BackgroundImage = global::UI.Properties.Resources.Play1;
             }

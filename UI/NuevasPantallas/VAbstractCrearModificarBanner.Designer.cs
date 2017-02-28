@@ -57,7 +57,7 @@ namespace UI.NuevasPantallas
             // 
             this.textBoxTitulo.BackColor = System.Drawing.Color.White;
             this.textBoxTitulo.Location = new System.Drawing.Point(97, 13);
-            this.textBoxTitulo.MaxLength = 20;
+            this.textBoxTitulo.MaxLength = 80;
             this.textBoxTitulo.Name = "textBoxTitulo";
             this.textBoxTitulo.ShortcutsEnabled = false;
             this.textBoxTitulo.Size = new System.Drawing.Size(362, 20);
@@ -76,7 +76,7 @@ namespace UI.NuevasPantallas
             // textBoxDescripcion
             // 
             this.textBoxDescripcion.Location = new System.Drawing.Point(97, 43);
-            this.textBoxDescripcion.MaxLength = 30;
+            this.textBoxDescripcion.MaxLength = 100;
             this.textBoxDescripcion.Name = "textBoxDescripcion";
             this.textBoxDescripcion.ShortcutsEnabled = false;
             this.textBoxDescripcion.Size = new System.Drawing.Size(362, 20);

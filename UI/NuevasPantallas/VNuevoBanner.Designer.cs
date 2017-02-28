@@ -55,15 +55,15 @@
             this.buttonNuevaFuente.UseVisualStyleBackColor = true;
             this.buttonNuevaFuente.Click += new System.EventHandler(this.buttonNuevaFuente_Click);
             // 
-            // VCrearBanner
+            // VNuevoBanner
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(485, 466);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Name = "VCrearBanner";
+            this.Name = "VNuevoBanner";
             this.Text = "Nuevo Banner";
-            this.Shown += new System.EventHandler(this.VCrearBanner_Shown);
+            this.Shown += new System.EventHandler(this.VNuevoBanner_Shown);
             this.groupBox1.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();

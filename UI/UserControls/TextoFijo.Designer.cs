@@ -36,7 +36,7 @@
             this.buttonAgregarItem = new System.Windows.Forms.Button();
             this.buttonArriba = new System.Windows.Forms.Button();
             this.buttonAbajo = new System.Windows.Forms.Button();
-            this.bannerDeslizante1 = new UI.UserControls.BannerDeslizante();
+            this.bannerDeslizante = new UI.UserControls.BannerDeslizante();
             this.label1 = new System.Windows.Forms.Label();
             this.textBoxDescripcion = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
@@ -127,13 +127,13 @@
             this.buttonAbajo.UseVisualStyleBackColor = true;
             this.buttonAbajo.Click += new System.EventHandler(this.buttonAbajo_Click);
             // 
-            // bannerDeslizante1
+            // bannerDeslizante
             // 
-            this.bannerDeslizante1.Enabled = false;
-            this.bannerDeslizante1.Location = new System.Drawing.Point(115, 198);
-            this.bannerDeslizante1.Name = "bannerDeslizante1";
-            this.bannerDeslizante1.Size = new System.Drawing.Size(242, 20);
-            this.bannerDeslizante1.TabIndex = 76;
+            this.bannerDeslizante.Enabled = false;
+            this.bannerDeslizante.Location = new System.Drawing.Point(115, 198);
+            this.bannerDeslizante.Name = "bannerDeslizante";
+            this.bannerDeslizante.Size = new System.Drawing.Size(242, 20);
+            this.bannerDeslizante.TabIndex = 76;
             // 
             // label1
             // 
@@ -142,15 +142,15 @@
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(63, 13);
             this.label1.TabIndex = 77;
-            this.label1.Text = "Descripcion";
+            this.label1.Text = "Descripción";
             // 
             // textBoxDescripcion
             // 
             this.textBoxDescripcion.Location = new System.Drawing.Point(12, 21);
-            this.textBoxDescripcion.MaxLength = 30;
+            this.textBoxDescripcion.MaxLength = 100;
             this.textBoxDescripcion.Name = "textBoxDescripcion";
             this.textBoxDescripcion.ShortcutsEnabled = false;
-            this.textBoxDescripcion.Size = new System.Drawing.Size(100, 20);
+            this.textBoxDescripcion.Size = new System.Drawing.Size(345, 20);
             this.textBoxDescripcion.TabIndex = 78;
             this.textBoxDescripcion.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBoxValido_KeyPress);
             // 
@@ -160,7 +160,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.textBoxDescripcion);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.bannerDeslizante1);
+            this.Controls.Add(this.bannerDeslizante);
             this.Controls.Add(this.buttonEliminarItem);
             this.Controls.Add(this.buttonVistaPrevia);
             this.Controls.Add(this.buttonAgregarItem);
@@ -177,7 +177,7 @@
 
         #endregion
 
-        private BannerDeslizante bannerDeslizante1;
+        private BannerDeslizante bannerDeslizante;
         private System.Windows.Forms.Button buttonEliminarItem;
         private System.Windows.Forms.Button buttonVistaPrevia;
         private System.Windows.Forms.Button buttonAgregarItem;

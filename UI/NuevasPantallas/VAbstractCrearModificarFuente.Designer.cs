@@ -63,7 +63,7 @@ namespace UI.NuevasPantallas
             // textBoxDescripcionRss
             // 
             this.textBoxDescripcionRss.Location = new System.Drawing.Point(83, 33);
-            this.textBoxDescripcionRss.MaxLength = 30;
+            this.textBoxDescripcionRss.MaxLength = 100;
             this.textBoxDescripcionRss.Name = "textBoxDescripcionRss";
             this.textBoxDescripcionRss.ShortcutsEnabled = false;
             this.textBoxDescripcionRss.Size = new System.Drawing.Size(194, 20);
@@ -107,7 +107,7 @@ namespace UI.NuevasPantallas
             // textBoxFuenteRss
             // 
             this.textBoxFuenteRss.Location = new System.Drawing.Point(79, 99);
-            this.textBoxFuenteRss.MaxLength = 50;
+            this.textBoxFuenteRss.MaxLength = 100;
             this.textBoxFuenteRss.Name = "textBoxFuenteRss";
             this.textBoxFuenteRss.Size = new System.Drawing.Size(283, 20);
             this.textBoxFuenteRss.TabIndex = 5;
@@ -128,26 +128,23 @@ namespace UI.NuevasPantallas
             this.listBoxPasosBanner.Name = "listBoxPasosBanner";
             this.listBoxPasosBanner.Size = new System.Drawing.Size(345, 69);
             this.listBoxPasosBanner.TabIndex = 6;
-            // 
-            // textBoxAgregarPasoBanner
-            // 
-            this.textBoxAgregarPasoBanner.Location = new System.Drawing.Point(21, 69);
-            this.textBoxAgregarPasoBanner.MaxLength = 50;
-            this.textBoxAgregarPasoBanner.Multiline = true;
-            this.textBoxAgregarPasoBanner.Name = "textBoxAgregarPasoBanner";
-            this.textBoxAgregarPasoBanner.Size = new System.Drawing.Size(345, 20);
-            this.textBoxAgregarPasoBanner.TabIndex = 5;
-            this.textBoxAgregarPasoBanner.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBoxValido_KeyPress);
-            // 
-            // textBoxDescripcionTextoFijo
-            // 
-            this.textBoxDescripcionTextoFijo.Location = new System.Drawing.Point(83, 12);
-            this.textBoxDescripcionTextoFijo.MaxLength = 30;
-            this.textBoxDescripcionTextoFijo.Name = "textBoxDescripcionTextoFijo";
-            this.textBoxDescripcionTextoFijo.ShortcutsEnabled = false;
-            this.textBoxDescripcionTextoFijo.Size = new System.Drawing.Size(194, 20);
-            this.textBoxDescripcionTextoFijo.TabIndex = 3;
-            this.textBoxDescripcionTextoFijo.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBoxValido_KeyPress);
+            //// 
+            //// textBoxAgregarPasoBanner
+            //// 
+            //this.textBoxAgregarPasoBanner.Location = new System.Drawing.Point(21, 69);
+            //this.textBoxAgregarPasoBanner.MaxLength = 100;
+            //this.textBoxAgregarPasoBanner.Multiline = true;
+            //this.textBoxAgregarPasoBanner.Name = "textBoxAgregarPasoBanner";
+            //this.textBoxAgregarPasoBanner.Size = new System.Drawing.Size(345, 20);
+            //this.textBoxAgregarPasoBanner.TabIndex = 5;
+            //this.textBoxAgregarPasoBanner.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBoxValido_KeyPress);
+            //// 
+            //// textBoxDescripcionTextoFijo
+            //// 
+            //this.textBoxDescripcionTextoFijo.Location = new System.Drawing.Point(0, 0);
+            //this.textBoxDescripcionTextoFijo.Name = "textBoxDescripcionTextoFijo";
+            //this.textBoxDescripcionTextoFijo.Size = new System.Drawing.Size(100, 20);
+            //this.textBoxDescripcionTextoFijo.TabIndex = 0;
             // 
             // label7
             // 

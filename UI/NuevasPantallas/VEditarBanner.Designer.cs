@@ -35,16 +35,16 @@
             // 
             this.buttonGuardar.Click += new System.EventHandler(this.ButtonGuardar_Click);
             // 
-            // VModificarBanner
+            // VEditarBanner
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(485, 466);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Name = "VModificarBanner";
+            this.Name = "VEditarBanner";
             this.Text = "Editar Banner";
-            this.Activated += new System.EventHandler(this.VModificarBanner_Activated);
-            this.Load += new System.EventHandler(this.VModificarBanner_Load);
+            this.Activated += new System.EventHandler(this.VEditarBanner_Activated);
+            this.Load += new System.EventHandler(this.VEditarBanner_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

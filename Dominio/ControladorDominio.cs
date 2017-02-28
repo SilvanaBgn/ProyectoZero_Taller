@@ -534,13 +534,31 @@ namespace Dominio
             try
             {
                 Fuente fuenteDelBanner = this.BuscarFuentePorId(pBanner.FuenteId);
-                fuenteDelBanner.Leer(); //Actualiza los items de la fuente del banner
-                                        //Guardamos los cambios:
-                this.ModificarFuente(this.BuscarFuentePorId(pBanner.FuenteId));
+                this.LeerFuente(fuenteDelBanner);
+            }
+
+            catch (ExcepcionAlLeerFuenteExternaDelBanner ex)
+            {
+                throw new ExcepcionAlLeerFuenteExternaDelBanner(ex.Message, ex);
+            }
+        }
+
+        /// <summary>
+        /// Invocar al método Leer() de la fuente, para que actualice sus items
+        /// </summary>
+        /// <param name="pFuente">Fuente a leer</param>
+        public void LeerFuente(Fuente pFuente)
+        {
+            try
+            {
+                pFuente.Leer(); //Actualiza los items de la fuente del 
+                
+                //Guardamos los cambios:
+                this.ModificarFuente(pFuente);
                 this.GuardarCambios();
             }
 
-            catch (Exception ex)
+            catch (ExcepcionAlLeerFuenteExternaDelBanner ex)
             {
                 throw new ExcepcionAlLeerFuenteExternaDelBanner(ex.Message, ex);
             }
@@ -552,16 +570,14 @@ namespace Dominio
         /// <returns>Devuelve un string, con el texto del pBanner. Si el banner es null, devuelve un texto por defecto</returns>
         public string InfoBanner(Banner pBanner)
         {
-            string texto = "";
+            //*texto* con valor por defecto:
+            string texto = "EASY NEWS. El lugar para su espacio publicitario. Publicite aquí."; 
+
             if (pBanner != null)
             {
-                texto = FormatearTextoBanner(pBanner); //*texto* con el valor del pBanner
-                if (texto == "")   //porque la fuente del pBanner no tiene items todavia
-                    texto = "EASY NEWS. El lugar para su espacio publicitario. Publicite aquí. Obteniendo Items RSS"; //*texto* con valor por defecto
+                if (FormatearTextoBanner(pBanner) != "") //*texto* con el valor del pBanner
+                    texto = FormatearTextoBanner(pBanner);
             }
-            else   //Ya sea porque pBanner==null o porque la fuente del pBanner no tiene items todavia
-                texto = "EASY NEWS. El lugar para su espacio publicitario. Publicite aquí."; //*texto* con valor por defecto
-
             return texto;
         }
 

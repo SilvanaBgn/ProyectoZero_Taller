@@ -120,18 +120,6 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <Compile Include="PruebaGaleria.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="PruebaGaleria.Designer.cs">
-      <DependentUpon>PruebaGaleria.cs</DependentUpon>
-    </Compile>
-    <Compile Include="PruebaRangoHorario.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="PruebaRangoHorario.Designer.cs">
-      <DependentUpon>PruebaRangoHorario.cs</DependentUpon>
-    </Compile>
     <Compile Include="UserControls\CampaniaDeslizante.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -209,12 +197,6 @@
     </Compile>
     <Compile Include="NuevasPantallas\VAbstractCrearModificarFuente.Designer.cs">
       <DependentUpon>VAbstractCrearModificarFuente.cs</DependentUpon>
-    </Compile>
-    <Compile Include="PruebaRangoFecha.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="PruebaRangoFecha.Designer.cs">
-      <DependentUpon>PruebaRangoFecha.cs</DependentUpon>
     </Compile>
     <Compile Include="UserControls\Galeria.cs">
       <SubType>UserControl</SubType>
@@ -295,15 +277,6 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <SubType>Designer</SubType>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
-    </EmbeddedResource>
-    <EmbeddedResource Include="PruebaGaleria.resx">
-      <DependentUpon>PruebaGaleria.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="PruebaRangoFecha.resx">
-      <DependentUpon>PruebaRangoFecha.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="PruebaRangoHorario.resx">
-      <DependentUpon>PruebaRangoHorario.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UserControls\Galeria.resx">
       <DependentUpon>Galeria.cs</DependentUpon>
