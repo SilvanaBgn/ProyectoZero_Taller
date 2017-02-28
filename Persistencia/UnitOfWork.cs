@@ -72,7 +72,11 @@ namespace Persistencia
         /// </summary>
         public void GuardarCambios()
         {
+            try {
                 iContexto.SaveChanges();
+            }
+            catch(Exception)
+            { throw new Exception(); }
 
             //catch (System.Data.Entity.Validation.DbEntityValidationException dbEx)
             //{

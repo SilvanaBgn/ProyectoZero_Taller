@@ -61,17 +61,20 @@ namespace UI.NuevasPantallas
 
                         //Luego de guardar, activamos la variable booleana que indica que se guardó correctamente:
                         this.iGuardadoCorrecto = true;
-
                         this.Close();
                     }
                     catch (ExcepcionFormatoURLIncorrecto ex)
                     {
                         MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        this.buttonGuardar.Enabled = true;
                     }
                     catch (ExcepcionCamposSinCompletar ex)
                     {
                         MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        this.buttonGuardar.Enabled = true;
                     }
+                    catch(Exception)
+                    { throw new Exception(); }
                 }
             }
             catch (NullReferenceException)

@@ -112,10 +112,15 @@ namespace UI.NuevasPantallas
                 DialogResult dialogResult = MessageBox.Show(string.Format("¿Está seguro que desea eliminar el banner \"{0}\"?", titulo), "Eliminar Banner", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                 if (dialogResult == DialogResult.Yes)
                 {
-                    int codigo = bannerSeleccionado.BannerId;
-                    this.iControladorDominio.BorrarBanner(codigo);
-                    this.iControladorDominio.GuardarCambios();
-                    this.CargarDataGridBanners(this.iControladorDominio.ObtenerTodosLosBanners());
+                    try
+                    {
+                        int codigo = bannerSeleccionado.BannerId;
+                        this.iControladorDominio.BorrarBanner(codigo);
+                        this.iControladorDominio.GuardarCambios();
+                        this.CargarDataGridBanners(this.iControladorDominio.ObtenerTodosLosBanners());
+                    }
+                    catch (Exception)
+                    { MessageBox.Show("No se pudo borrar el banner", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error); }
                 }
             }
         }

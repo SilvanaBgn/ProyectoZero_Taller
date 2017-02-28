@@ -1,6 +1,7 @@
 ﻿using System;
 using Dominio;
 using System.Windows.Forms;
+using Excepciones.ExcepcionesPantalla;
 
 namespace UI.NuevasPantallas
 {
@@ -33,34 +34,44 @@ namespace UI.NuevasPantallas
         private void ButtonGuardar_Click(object sender, EventArgs e)
         {
             this.buttonGuardar.Enabled = false;
-            this.iBanner = new Banner();
-            this.iBanner.Titulo = this.textBoxTitulo.Text;
-            this.iBanner.Descripcion = this.textBoxDescripcion.Text;
-            this.iBanner.FechaInicio = this.rangoFecha.FechaInicio;
-            this.iBanner.FechaFin = this.rangoFecha.FechaFin;
-            this.iBanner.HoraInicio = this.rangoHorario.HoraInicio;
-            this.iBanner.HoraFin = this.rangoHorario.HoraFin;
-
             Fuente fuenteSeleccionada = this.FuenteSeleccionada();
-            if (fuenteSeleccionada==null)
+
+            if (fuenteSeleccionada == null)
             {
                 MessageBox.Show("Se debe seleccionar una fuente", "Faltan campos", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                this.buttonGuardar.Enabled = true;
             }
             else if (!this.rangoHorario.HorarioValido())
             {
                 MessageBox.Show("La hora de fin debe ser posterior a la hora de inicio", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                this.buttonGuardar.Enabled = true;
             }
             else
             {
-                this.iBanner.FuenteId = fuenteSeleccionada.FuenteId;
+                try
+                {
+                    this.iBanner = new Banner();
+                    this.iBanner.Titulo = this.textBoxTitulo.Text;
+                    this.iBanner.Descripcion = this.textBoxDescripcion.Text;
+                    this.iBanner.FechaInicio = this.rangoFecha.FechaInicio;
+                    this.iBanner.FechaFin = this.rangoFecha.FechaFin;
+                    this.iBanner.HoraInicio = this.rangoHorario.HoraInicio;
+                    this.iBanner.HoraFin = this.rangoHorario.HoraFin;
+                    this.iBanner.FuenteId = fuenteSeleccionada.FuenteId;
 
-                //Agregamos el banner y guardamos los cambios:
-                this.iControladorDominio.AgregarBanner(this.iBanner);
-                this.iControladorDominio.GuardarCambios();
-
-                this.Close();
+                    //Agregamos el banner y guardamos los cambios:
+                    this.iControladorDominio.AgregarBanner(this.iBanner);
+                    this.iControladorDominio.GuardarCambios();
+                    this.Close();
+                }
+                catch (ExcepcionCamposSinCompletar ex)
+                {
+                    MessageBox.Show(ex.Message, "Faltan campos", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    this.buttonGuardar.Enabled = true;
+                }
+                catch (Exception)
+                { throw new Exception(); }
             }
-            this.buttonGuardar.Enabled = true;
         }
 
         /// <summary>

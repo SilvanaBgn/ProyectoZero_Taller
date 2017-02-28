@@ -95,7 +95,7 @@ namespace UI.NuevasPantallas
             {
                 this.iVentanaEditar = new VEditarCampania(ref this.iControladorDominio, this.CampaniaSeleccionada());
                 this.iVentanaEditar.Owner = this;
-                this.iVentanaEditar.ShowDialog();
+                this.iVentanaEditar.ShowDialog(); 
                 this.iVentanaEditar = null;
             }
         }
@@ -115,10 +115,14 @@ namespace UI.NuevasPantallas
                 DialogResult resultado = MessageBox.Show(string.Format("¿Está seguro que desea eliminar la Campaña \"{0}\"?", titulo), "Eliminar Campaña", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                 if (resultado == DialogResult.Yes)
                 {
-                    int codigo = campaniaSeleccionada.CampaniaId;
-                    this.iControladorDominio.BorrarCampania(codigo);
-                    this.iControladorDominio.GuardarCambios();
-                    this.CargarDataGridCampanias(this.iControladorDominio.ObtenerTodasLasCampanias());
+                    try {
+                        int codigo = campaniaSeleccionada.CampaniaId;
+                        this.iControladorDominio.BorrarCampania(codigo);
+                        this.iControladorDominio.GuardarCambios();
+                        this.CargarDataGridCampanias(this.iControladorDominio.ObtenerTodasLasCampanias());
+                    }
+                    catch(Exception)
+                    { MessageBox.Show("No se pudo borrar la campaña", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error); }
                 }
             }
         }

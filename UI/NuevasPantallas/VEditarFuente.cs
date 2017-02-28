@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Dominio;
 using Excepciones.ExcepcionesPantalla;
+using Excepciones.ExcepcionesDominio;
 
 namespace UI.NuevasPantallas
 {
@@ -60,33 +61,38 @@ namespace UI.NuevasPantallas
         {
             this.buttonGuardar.Enabled = false;
             //Completamos la this.iFuente con los datos modificados:
-            switch (this.comboBoxTipoFuente.SelectedItem.ToString())
-            {
-                case "Rss":
-                    this.iFuente.OrigenItems = this.textBoxFuenteRss.Text;
-                    this.iFuente.Descripcion = this.textBoxDescripcionRss.Text;
-                    break;
-                case "Texto Fijo":
-                    this.iFuente.Descripcion = this.textoFijo.Descripcion;
-                    this.iFuente.Items = this.textoFijo.ListaItems;
-                    break;
-            }
             try //Intentamos agregarla al repositorio y luego guardarla en base de datos:
             {
+                switch (this.comboBoxTipoFuente.SelectedItem.ToString())
+                {
+                    case "Rss":
+                        this.iFuente.OrigenItems = this.textBoxFuenteRss.Text;
+                        this.iFuente.Descripcion = this.textBoxDescripcionRss.Text;
+                        break;
+                    case "Texto Fijo":
+                        this.iFuente.Descripcion = this.textoFijo.Descripcion;
+                        this.iFuente.Items = this.textoFijo.ListaItems;
+                        break;
+                }
                 //Modificamos la fuente y guardamos los cambios:
                 this.iControladorDominio.ModificarFuente(this.iFuente);
                 this.iControladorDominio.GuardarCambios();
-
                 //Luego de guardar, activamos la variable booleana que indica que se guardó correctamente:
                 this.iGuardadoCorrecto = true;
-
                 this.Close();
+            }
+            catch (ExcepcionFormatoURLIncorrecto ex)
+            {
+                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                this.buttonGuardar.Enabled = true;
             }
             catch (ExcepcionCamposSinCompletar ex)
             {
                 MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                this.buttonGuardar.Enabled = true;
             }
-            this.buttonGuardar.Enabled = true;
+            catch (Exception)
+            { throw new Exception(); }
         }
 
         /// <summary>

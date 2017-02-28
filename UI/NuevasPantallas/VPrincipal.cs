@@ -11,6 +11,7 @@ using System.Windows.Forms;
 using Contenedor;
 using System.Threading;
 using Excepciones.ExcepcionesPantalla;
+using Excepciones.ExcepcionesDominio;
 
 namespace UI.NuevasPantallas
 {
@@ -236,7 +237,11 @@ namespace UI.NuevasPantallas
 
                 if (this.iBannerAPasar != null && !this.bgwLeerBanner.IsBusy)
                 { //Finalmente, invocamos a que vaya a leer para actualizar los items:
-                    this.bgwLeerBanner.RunWorkerAsync();
+                    try {
+                        this.bgwLeerBanner.RunWorkerAsync();
+                    }
+                    catch(ExcepcionAlLeerFuenteExternaDelBanner ex)
+                    { }
                 }
             }
         }
@@ -253,10 +258,8 @@ namespace UI.NuevasPantallas
                 this.iControladorDominio.LeerBanner(this.iBannerAPasar);
                 this.iLeidoBanner = true;
             }
-            catch (Exception ex)
-            {
-                //MessageBox.Show(ex.Message);
-            }
+            catch (ExcepcionAlLeerFuenteExternaDelBanner ex)
+            { this.iLeidoBanner = false; }
         }
 
         /// <summary>

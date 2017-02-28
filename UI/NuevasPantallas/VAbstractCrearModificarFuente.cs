@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using Dominio;
 using System.Text.RegularExpressions;
 using Helper;
+using Excepciones.ExcepcionesDominio;
 
 namespace UI.NuevasPantallas
 {
@@ -96,12 +97,17 @@ namespace UI.NuevasPantallas
         /// </summary>
         private void bgwActualizarItemsAlGuardar_DoWork(object sender, DoWorkEventArgs e)
         {
-            //Realizamos la lectura de items:
-            this.iFuente.Leer();
+            try
+            {
+                //Realizamos la lectura de items:
+                this.iFuente.Leer();
 
-            //Una vez leída la Fuente, modificamos y guardamos los cambios:
-            this.iControladorDominio.ModificarFuente(this.iFuente);
-            this.iControladorDominio.GuardarCambios();
+                //Una vez leída la Fuente, modificamos y guardamos los cambios:
+                this.iControladorDominio.ModificarFuente(this.iFuente);
+                this.iControladorDominio.GuardarCambios();
+            }
+            catch (ExcepcionAlLeerFuenteExternaDelBanner)
+            { }
         }
 
         /// <summary>

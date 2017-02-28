@@ -14,20 +14,19 @@ namespace UI.NuevasPantallas
 {
     public partial class VEditarCampania : VAbstractCrearModificarCampania
     {
-        private Campania iCampanita;
 
         //CONSTRUCTOR
         public VEditarCampania(ref ControladorDominio pControladorDominio, Campania pCampaniaAModificar) : base(ref pControladorDominio)
         {
             InitializeComponent();
             this.iCampania = pCampaniaAModificar;
-            this.iCampanita = pCampaniaAModificar;
+
         }
 
 
         #region Funciones privadas
         /// <summary>
-        /// Carga en todos los componentes de la ventana VEditarCampania los valores de pCampaniaAModificar
+        /// Carga en todos los componentes de la ventana VModificarCampania los valores de pCampaniaAModificar
         /// </summary>
         /// <param name="pCampaniaAModificar">Campania a modificar</param>
         private void CargarCampaniaAModificar(Campania pCampaniaAModificar)
@@ -56,34 +55,36 @@ namespace UI.NuevasPantallas
             this.iCampania.Descripcion = this.textBoxDescripcion.Text;
             this.iCampania.FechaInicio = this.rangoFecha.FechaInicio;
             this.iCampania.FechaFin = this.rangoFecha.FechaFin;
-            this.iCampania.HoraInicio = this.rangoHorario.HoraInicio;
-            this.iCampania.HoraFin = this.rangoHorario.HoraFin;
             this.iCampania.Imagenes = this.galeria.ListaImagenes;
             this.iCampania.DuracionImagen = this.galeria.Segundos;
 
-            try
+            if (!this.rangoHorario.HorarioValido())
             {
-                if (!this.rangoHorario.HorarioValido())
-                {
-                    MessageBox.Show("La hora de fin debe ser posterior a la hora de inicio", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
-                else
+                MessageBox.Show("La hora de fin debe ser posterior a la hora de inicio", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                this.buttonGuardar.Enabled = true;
+            }
+            else
+            {
+                this.iCampania.HoraInicio = this.rangoHorario.HoraInicio;
+                this.iCampania.HoraFin = this.rangoHorario.HoraFin;
+
+                try
                 {
                     //Modificamos la campania y guardamos los cambios:
                     this.iControladorDominio.ModificarCampania(this.iCampania);
                     this.iControladorDominio.GuardarCambios();
-
                     this.Close();
                 }
-        }
-            catch (ExcepcionCamposSinCompletar ex)
-            {
-                MessageBox.Show(ex.Message, "Faltan campos", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-            this.buttonGuardar.Enabled = true;
-        }
 
-        
+                catch (ExcepcionCamposSinCompletar ex)
+                {
+                    MessageBox.Show(ex.Message, "Faltan campos", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    this.buttonGuardar.Enabled = true;
+                }
+                catch (Exception)
+                { throw new Exception(); }
+            }
+        }
 
         #endregion
 
@@ -91,7 +92,7 @@ namespace UI.NuevasPantallas
         /// <summary>
         /// Evento que se activa cuando la ventana ya se ha inicializado y se está cargando
         /// </summary>
-        private void VEditarCampania_Load(object sender, EventArgs e)
+        private void VModificarCampania_Load(object sender, EventArgs e)
         {
             this.CargarCampaniaAModificar(this.iCampania);
         }
