@@ -283,6 +283,7 @@ namespace UI.NuevasPantallas
             {
                 //Actualizamos el contenido del banner deslizante por si la Lectura cambió los items del banner
                 this.ActualizarBannerDeslizante();
+                this.iToolStripStatusLabel.Text = "";
                 //    //this.labelLeido.Text = "Leyó";
             }
             else
