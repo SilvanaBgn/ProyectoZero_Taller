@@ -100,7 +100,7 @@ namespace UI.NuevasPantallas
             try
             {
                 //Realizamos la lectura de items:
-                this.iFuente.Leer();
+                this.iControladorDominio.LeerFuente(this.iFuente);
 
                 //Una vez leída la Fuente, modificamos y guardamos los cambios:
                 this.iControladorDominio.ModificarFuente(this.iFuente);
