@@ -26,7 +26,7 @@ namespace UI.NuevasPantallas
 
         #region Funciones privadas
         /// <summary>
-        /// Carga en todos los componentes de la ventana VModificarCampania los valores de pCampaniaAModificar
+        /// Carga en todos los componentes de la ventana VEditarCampania los valores de pCampaniaAModificar
         /// </summary>
         /// <param name="pCampaniaAModificar">Campania a modificar</param>
         private void CargarCampaniaAModificar(Campania pCampaniaAModificar)
@@ -92,7 +92,7 @@ namespace UI.NuevasPantallas
         /// <summary>
         /// Evento que se activa cuando la ventana ya se ha inicializado y se está cargando
         /// </summary>
-        private void VModificarCampania_Load(object sender, EventArgs e)
+        private void VEditarCampania_Load(object sender, EventArgs e)
         {
             this.CargarCampaniaAModificar(this.iCampania);
         }

@@ -526,7 +526,7 @@ namespace Dominio
         }
 
         /// <summary>
-        /// Invocar al método Leer() de la fuente del banner, para que actualice sus items
+        /// Invoca al método Leer() de la fuente del banner, para que actualice sus items
         /// </summary>
         /// <param name="pBanner">Banner a leer</param>
         public void LeerBanner(Banner pBanner)
@@ -544,14 +544,14 @@ namespace Dominio
         }
 
         /// <summary>
-        /// Invocar al método Leer() de la fuente, para que actualice sus items
+        /// Invoca al método Leer() de la fuente, para que actualice sus items
         /// </summary>
         /// <param name="pFuente">Fuente a leer</param>
         public void LeerFuente(Fuente pFuente)
         {
             try
             {
-                pFuente.Leer(); //Actualiza los items de la fuente del 
+                pFuente.Leer(); //Actualiza los items de la fuente
                 
                 //Guardamos los cambios:
                 this.ModificarFuente(pFuente);

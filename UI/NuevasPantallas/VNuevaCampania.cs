@@ -46,7 +46,7 @@ namespace UI.NuevasPantallas
                 this.iCampania.HoraFin = this.rangoHorario.HoraFin;
                 try
                 {
-                    //Agregamos la campaña y guardamos
+                    //Agregamos la campaña y guardamos:
                     this.iControladorDominio.AgregarCampania(this.iCampania);
                     this.iControladorDominio.GuardarCambios();
                     this.Close();
