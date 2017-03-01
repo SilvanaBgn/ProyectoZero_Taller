@@ -2,6 +2,7 @@
 using Dominio;
 using System.Windows.Forms;
 using Excepciones.ExcepcionesPantalla;
+using Excepciones;
 
 namespace UI.NuevasPantallas
 {
@@ -69,8 +70,16 @@ namespace UI.NuevasPantallas
                     MessageBox.Show(ex.Message, "Faltan campos", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     this.buttonGuardar.Enabled = true;
                 }
+                catch (ExcepcionAlGuardarCambios ex)
+                {
+                    MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    this.buttonGuardar.Enabled = true;
+                }
                 catch (Exception)
-                { throw new Exception(); }
+                {
+                    MessageBox.Show("Ha ocurrido un error. Contacte con el administrador", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    this.buttonGuardar.Enabled = true;
+                }
             }
         }
 

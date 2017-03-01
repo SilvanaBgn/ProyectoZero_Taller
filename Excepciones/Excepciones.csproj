@@ -73,17 +73,11 @@
     <Compile Include="ExcepcionesPantalla\ExcepcionAlObtenerBanners.cs" />
     <Compile Include="ExcepcionesPantalla\ExcepcionAlObtenerCampanias.cs" />
     <Compile Include="ExcepcionesPantalla\ExcepcionAlObtenerFuentes.cs" />
-    <Compile Include="ExcepcionesPantalla\ExcepcionCampoIncorrecto.cs" />
     <Compile Include="ExcepcionesPantalla\ExcepcionCamposSinCompletar.cs" />
     <Compile Include="ExcepcionesDominio\ExcepcionErrorEnLaBusqueda.cs" />
-    <Compile Include="ExcepcionesDominio\ExcepcionErrorAlGuardar.cs" />
-    <Compile Include="ExcepcionesPantalla\ExcepcionHoraInicioMayorAHoraFin.cs" />
-    <Compile Include="ExcepcionesPantalla\ExcepcionFechaFinMenorAFechaInicio.cs" />
-    <Compile Include="ExcepcionesPantalla\ExcepcionFechaFinMayorAFechaInicio.cs" />
-    <Compile Include="ExcepcionesPantalla\ExcepcionAlCargarPantalla.cs" />
     <Compile Include="ExcepcionesDominio\ExcepcionFormatoURLIncorrecto.cs" />
-    <Compile Include="ExcepcionesPersistencia\ExcepcionValidacionBBDD.cs" />
     <Compile Include="ExcepcionesDominio\ExcepcionGeneral.cs" />
+    <Compile Include="ExcepcionAlGuardarCambios.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -109,6 +103,9 @@
     <None Include="App.config">
       <SubType>Designer</SubType>
     </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="ExcepcionesPersistencia\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

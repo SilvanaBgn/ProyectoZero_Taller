@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using Dominio;
 using Excepciones.ExcepcionesPantalla;
 using Excepciones.ExcepcionesDominio;
+using Excepciones;
 
 namespace UI.NuevasPantallas
 {
@@ -32,7 +33,10 @@ namespace UI.NuevasPantallas
             try
             {
                 if (this.comboBoxTipoFuente.SelectedItem == null)
+                {
                     MessageBox.Show("Se debe seleccionar un tipo de fuente", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    this.buttonGuardar.Enabled = true;
+                }
                 else
                 {
                     //Creamos la fuente:
@@ -73,15 +77,23 @@ namespace UI.NuevasPantallas
                         MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         this.buttonGuardar.Enabled = true;
                     }
-                    catch(Exception)
-                    { throw new Exception(); }
+                    catch (ExcepcionAlGuardarCambios ex)
+                    {
+                        MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        this.buttonGuardar.Enabled = true;
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("Ha ocurrido un error. Contacte con el administrador", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        this.buttonGuardar.Enabled = true;
+                    }
                 }
             }
             catch (NullReferenceException)
             {
                 MessageBox.Show("Se debe seleccionar un tipo de fuente", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                this.buttonGuardar.Enabled = true;
             }
-            this.buttonGuardar.Enabled = true;
         }
         #endregion
     }

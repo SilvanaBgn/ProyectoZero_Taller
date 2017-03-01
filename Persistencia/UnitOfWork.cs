@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 using Dominio;
 using System.Data.Entity.Infrastructure;
 using System.Data.Entity.Validation;
-using Excepciones.ExcepcionesDominio;
+using Excepciones;
 
 namespace Persistencia
 {
@@ -72,36 +72,15 @@ namespace Persistencia
         /// </summary>
         public void GuardarCambios()
         {
-            try {
+            try
+            {
                 iContexto.SaveChanges();
             }
-            catch(Exception)
-            { throw new Exception(); }
-
-            //catch (System.Data.Entity.Validation.DbEntityValidationException dbEx)
-            //{
-            //    Exception raise = dbEx;
-            //    foreach (var validationErrors in dbEx.EntityValidationErrors)
-            //    {
-            //        foreach (var validationError in validationErrors.ValidationErrors)
-            //        {
-            //            string message = string.Format("{0}:{1}",
-            //                validationErrors.Entry.Entity.ToString(),
-            //                validationError.ErrorMessage);
-            //            // raise a new exception nesting
-            //            // the current instance as InnerException
-            //            raise = new InvalidOperationException(message, raise);
-            //        }
-            //    }
-            //    throw raise;
-            //}
-            //catch (DbUpdateException e)
-            //{ throw new ExcepcionValidacionBBDD(e.Message,e); }
+            catch (ExcepcionAlGuardarCambios ex)
+            {
+                throw new ExcepcionAlGuardarCambios("No se pudo guardar", ex);
+            }
         }
-
-
-
-
 
 
         /// <summary>

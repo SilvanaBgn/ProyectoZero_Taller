@@ -4,6 +4,7 @@ using System.Linq;
 using System.Linq.Expressions;
 using Excepciones.ExcepcionesPantalla;
 using Excepciones.ExcepcionesDominio;
+using Excepciones;
 
 namespace Dominio
 {
@@ -28,8 +29,10 @@ namespace Dominio
             {
                 this.iUoW.GuardarCambios();
             }
-            catch (Exception)
-            { throw new Exception(); }
+            catch (ExcepcionAlGuardarCambios ex)
+            {
+                throw new ExcepcionAlGuardarCambios(ex.Message,ex);
+            }
         }
 
         /// <summary>

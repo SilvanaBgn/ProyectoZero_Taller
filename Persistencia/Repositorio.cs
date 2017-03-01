@@ -13,7 +13,7 @@ namespace Persistencia
     /// <summary>
     /// Implementación de un repositorio genérico
     /// </summary>
-    public class Repositorio<T>: IRepositorio<T> where T : class
+    public class Repositorio<T> : IRepositorio<T> where T : class
     {
         protected IDbSet<T> iDbSet;
 
@@ -34,7 +34,8 @@ namespace Persistencia
         public virtual IEnumerable<T> Obtener(Expression<Func<T, bool>> pFilter = null, Func<IQueryable<T>, IOrderedQueryable<T>> pOrderBy = null)
         {
             IQueryable<T> query = this.iDbSet;
-            try {
+            try
+            {
                 if (pFilter != null)
                     query = query.Where(pFilter);
 
@@ -43,8 +44,8 @@ namespace Persistencia
                 else
                     return query.ToList();
             }
-            catch(Exception)
-            { throw new ExcepcionGeneral("Ocurrió un error al obtener entidades"); }
+            catch (Exception ex)
+            { throw new ExcepcionGeneral("Ocurrió un error al obtener entidades", ex); }
         }
 
         /// <summary>
@@ -61,20 +62,26 @@ namespace Persistencia
                                 Expression<Func<T, bool>> pFiltroDescripcion)
         {
             IQueryable<T> query = this.iDbSet;
+            try
+            {
+                if (pFiltroFechas != null)
+                    query = query.Where(pFiltroFechas);
 
-            if (pFiltroFechas != null)
-                query = query.Where(pFiltroFechas);
+                if (pFiltroHoras != null)
+                    query = query.Where(pFiltroHoras);
 
-            if (pFiltroHoras != null)
-            query = query.Where(pFiltroHoras);
+                if (pFiltroTitulo != null)
+                    query = query.Where(pFiltroTitulo);
 
-            if (pFiltroTitulo != null)
-                query = query.Where(pFiltroTitulo);
+                if (pFiltroDescripcion != null)
+                    query = query.Where(pFiltroDescripcion);
 
-            if (pFiltroDescripcion != null)
-                query = query.Where(pFiltroDescripcion);
-
-            return query.ToList();
+                return query.ToList();
+            }
+            catch (Exception ex)
+            {
+                throw new ExcepcionGeneral("Ocurrió un error al obtener entidades para el filtrado", ex);
+            }
         }
 
         /// <summary>
@@ -87,14 +94,20 @@ namespace Persistencia
                         Expression<Func<T, bool>> pFiltroDescripcion)
         {
             IQueryable<T> query = iDbSet;
+            try
+            {
+                if (pFiltroTipoFuente != null)
+                    query = query.Where(pFiltroTipoFuente);
 
-            if (pFiltroTipoFuente != null)
-                query = query.Where(pFiltroTipoFuente);
+                if (pFiltroDescripcion != null)
+                    query = query.Where(pFiltroDescripcion);
 
-            if (pFiltroDescripcion != null)
-                query = query.Where(pFiltroDescripcion);
-
-            return query.ToList();
+                return query.ToList();
+            }
+            catch (Exception ex)
+            {
+                throw new ExcepcionGeneral("Ocurrió un error al obtener entidades para el filtrado", ex);
+            }
         }
 
         /// <summary>
@@ -104,35 +117,15 @@ namespace Persistencia
         /// <returns>devuelve un objeto buscado por su ID</returns>
         public virtual T ObtenerPorId(int pId)
         {
-            return this.iDbSet.Find(pId);
+            try
+            {
+                return this.iDbSet.Find(pId);
+            }
+            catch (Exception ex)
+            {
+                throw new ExcepcionGeneral("Ocurrió un error al obtener la entidad", ex);
+            }
         }
-
-        //public virtual IEnumerable<T> ObtenerTodos(Func<IQueryable<T>, IOrderedQueryable<T>> orderBy = null)
-        //{
-        //    if (orderBy == null)
-        //        return this.Obtener(null, null);
-        //    else
-        //        return this.Obtener(null, orderBy);
-        //}
-
-
-        //public IEnumerable<Campania> ObtenerTodos()
-        //{
-        //    return iContexto.Campania.ToList();
-        //}
-
-
-        //public virtual IEnumerable<T> ObtenerPorAtributo(Expression<Func<T, bool>> filter = null)
-        //{
-        //    IQueryable<T> query = dbSet;
-
-        //    if (filter != null)
-        //    {
-        //        query = query.Where(filter);
-        //    }
-
-        //    return query.ToList();
-        //}
 
         /// <summary>
         /// Método genérico que agrega una entidad a la base de datos
@@ -140,7 +133,14 @@ namespace Persistencia
         /// <param name="pEntidad">entidad a agregar</param>
         public void Agregar(T pEntidad)
         {
-            this.iDbSet.Add(pEntidad);
+            try
+            {
+                this.iDbSet.Add(pEntidad);
+            }
+            catch (Exception ex)
+            {
+                throw new ExcepcionGeneral("Ocurrió un error al agregar la entidad", ex);
+            }
         }
 
         /// <summary>
@@ -149,8 +149,15 @@ namespace Persistencia
         /// <param name="pId">ID de la entidad a borrar</param>
         public void Borrar(int pId)
         {
-            T entidadABorrar = this.iDbSet.Find(pId);
-            Borrar(entidadABorrar);
+            try
+            {
+                T entidadABorrar = this.iDbSet.Find(pId);
+                Borrar(entidadABorrar);
+            }
+            catch (Exception ex)
+            {
+                throw new ExcepcionGeneral("Ocurrió un error al borrar la entidad", ex);
+            }
         }
 
         /// <summary>
@@ -159,11 +166,18 @@ namespace Persistencia
         /// <param name="pEntidadABorrar">entidad a borrar</param>
         public virtual void Borrar(T pEntidadABorrar)
         {
-            if (this.iContexto.Entry(pEntidadABorrar).State == EntityState.Detached)
+            try
             {
-                this.iDbSet.Attach(pEntidadABorrar);
+                if (this.iContexto.Entry(pEntidadABorrar).State == EntityState.Detached)
+                {
+                    this.iDbSet.Attach(pEntidadABorrar);
+                }
+                this.iDbSet.Remove(pEntidadABorrar);
             }
-            this.iDbSet.Remove(pEntidadABorrar);
+            catch (Exception ex)
+            {
+                throw new ExcepcionGeneral("Ocurrió un error al borrar la entidad", ex);
+            }
         }
 
         /// <summary>
@@ -172,13 +186,15 @@ namespace Persistencia
         /// <param name="entidadAModificar">entidad a modificar</param>
         public void Modificar(T pEntidadAModificar)
         {
-            this.iDbSet.Attach(pEntidadAModificar);
-            this.iContexto.Entry(pEntidadAModificar).State = EntityState.Modified;
+            try
+            {
+                this.iDbSet.Attach(pEntidadAModificar);
+                this.iContexto.Entry(pEntidadAModificar).State = EntityState.Modified;
+            }
+            catch (Exception ex)
+            {
+                throw new ExcepcionGeneral("Ocurrió un error al modificar la entidad", ex);
+            }
         }
-
-        //VER SI NOS SIRVE:
-        //IEnumerable<TEntity> ExecuteQuery<TEntity>(string sqlQuery, params object[] parameters);
-
-        //int ExecuteCommand(string sqlCommand, params object[] parameters);
     }
 }
