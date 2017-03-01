@@ -526,7 +526,7 @@ namespace Dominio
         }
 
         /// <summary>
-        /// Invoca al método Leer() de la fuente del banner, para que actualice sus items
+        /// Invocar al método Leer() de la fuente del banner, para que actualice sus items
         /// </summary>
         /// <param name="pBanner">Banner a leer</param>
         public void LeerBanner(Banner pBanner)
@@ -537,28 +537,28 @@ namespace Dominio
                 this.LeerFuente(fuenteDelBanner);
             }
 
-            catch (ExcepcionAlLeerFuenteExternaDelBanner ex)
+            catch (ExcepcionErrorDeLectura ex)
             {
                 throw new ExcepcionAlLeerFuenteExternaDelBanner(ex.Message, ex);
             }
         }
 
         /// <summary>
-        /// Invoca al método Leer() de la fuente, para que actualice sus items
+        /// Invocar al método Leer() de la fuente, para que actualice sus items
         /// </summary>
         /// <param name="pFuente">Fuente a leer</param>
         public void LeerFuente(Fuente pFuente)
         {
             try
             {
-                pFuente.Leer(); //Actualiza los items de la fuente
+                pFuente.Leer(); //Actualiza los items de la fuente del banner
                 
                 //Guardamos los cambios:
                 this.ModificarFuente(pFuente);
                 this.GuardarCambios();
             }
 
-            catch (ExcepcionAlLeerFuenteExternaDelBanner ex)
+            catch (ExcepcionErrorDeLectura ex)
             {
                 throw new ExcepcionAlLeerFuenteExternaDelBanner(ex.Message, ex);
             }

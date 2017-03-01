@@ -45,7 +45,7 @@ namespace UI.NuevasPantallas
         }
 
         /// <summary>
-        /// Carga en todos los componentes de la ventana VEditarBanner con los valores de this.iBanner
+        /// Carga en todos los componentes de la ventana VModificarBanner con los valores de this.iBanner
         /// </summary>
         private void CargarBannerAModificar()
         {
@@ -108,7 +108,7 @@ namespace UI.NuevasPantallas
 
         #region Ventana y Otros Componentes
         /// <summary>
-        /// Este evento se activa cuando VEditarBanner se encuentra activada
+        /// Este evento se activa cuando VModificarBanner se encuentra activada
         /// Muestra la fuente del banner a modificar
         /// </summary>
         private void VEditarBanner_Activated(object sender, EventArgs e)
