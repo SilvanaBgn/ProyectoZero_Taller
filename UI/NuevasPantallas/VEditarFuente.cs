@@ -21,6 +21,7 @@ namespace UI.NuevasPantallas
         {
             InitializeComponent();
             this.iFuente = pFuenteAModificar;
+            this.comboBoxTipoFuente.DropDownStyle = ComboBoxStyle.DropDownList;
         }
 
 
