@@ -167,7 +167,7 @@ namespace UI.NuevasPantallas
                 }
             }
             catch (ExcepcionAlObtenerCampanias ex) { }
-        }
+            }
 
         /// <summary>
         /// Evento Do_Work del this.bgwObtenerBanner, que obtiene el próximo banner a pasar
@@ -191,7 +191,7 @@ namespace UI.NuevasPantallas
                 }
             }
             catch (ExcepcionAlObtenerBanners ex) { }
-        }
+            }
 
         /// <summary>
         /// Evento RunWorkerCompleted, que pone a correr ya sea el bgwObtenerBanner y/o bgwObtenerCampania.
@@ -272,7 +272,22 @@ namespace UI.NuevasPantallas
             {
                 //Actualizamos el contenido del banner deslizante por si la Lectura cambió los items del banner
                 this.ActualizarBannerDeslizante();
+                this.iToolStripStatusLabel.Text = "";
+                //    //this.labelLeido.Text = "Leyó";
             }
+            else
+                this.iToolStripStatusLabel.Text = "No se pudo establecer la conexion o la url no existe";
+            //else
+            //{
+            //    int cantIntentos = ((int)e.Result);
+            //    cantIntentos += 1;
+            //    //this.labelLeido.Text += cantIntentos.ToString()+ " int";
+
+            //    //Intentamos actualizar la lectura rss hasta 5 veces, sino se se volverá a intentar la 
+            //    //próxima vez que se active la ventana, o bien sino dentro de 15 min
+            //    if (cantIntentos <= 5) 
+            //        this.bgwLeerBanner.RunWorkerAsync(cantIntentos);
+            //}
         }
         #endregion
 

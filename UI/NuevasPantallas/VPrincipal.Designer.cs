@@ -190,6 +190,7 @@ namespace UI.NuevasPantallas
             this.iToolStripStatusLabel});
             this.iStatusStrip.Location = new System.Drawing.Point(0, 626);
             this.iStatusStrip.Name = "iStatusStrip";
+            this.iStatusStrip.ShowItemToolTips = true;
             this.iStatusStrip.Size = new System.Drawing.Size(840, 22);
             this.iStatusStrip.TabIndex = 4;
             this.iStatusStrip.Text = "statusStrip";
@@ -198,7 +199,7 @@ namespace UI.NuevasPantallas
             // 
             this.iToolStripStatusLabel.Name = "iToolStripStatusLabel";
             this.iToolStripStatusLabel.Size = new System.Drawing.Size(0, 17);
-            this.iToolStripStatusLabel.Visible = false;
+            this.iToolStripStatusLabel.Visible = true;
             // 
             // bannerDeslizante
             // 
