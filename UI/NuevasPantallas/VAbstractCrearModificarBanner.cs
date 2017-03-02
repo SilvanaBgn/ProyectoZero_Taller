@@ -8,7 +8,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Dominio;
-using Helper;
+using HelperUI;
+using Excepciones.ExcepcionesPantalla;
 
 namespace UI.NuevasPantallas
 {
@@ -30,9 +31,6 @@ namespace UI.NuevasPantallas
         public VAbstractCrearModificarBanner()
         {
             InitializeComponent();
-
-            //Centramos la pantalla en el centro:
-            this.StartPosition = FormStartPosition.CenterParent;
         }
 
         //CONSTRUCTOR
@@ -78,7 +76,8 @@ namespace UI.NuevasPantallas
         {
             if (this.dataGridViewMostrarFuentes.SelectedRows.Count == 0)
                 return null;
-            return (Fuente)this.dataGridViewMostrarFuentes.SelectedRows[0].DataBoundItem;
+            else
+                return (Fuente)this.dataGridViewMostrarFuentes.SelectedRows[0].DataBoundItem;
         }
         #endregion
 
@@ -100,7 +99,11 @@ namespace UI.NuevasPantallas
         /// </summary>
         protected void VAbstractCrearModificarBanner_Activated(object sender, EventArgs e)
         {
-            this.CargarDataGridViewFuentes(this.iControladorDominio.ObtenerTodasLasFuentes());
+            try
+            {
+                this.CargarDataGridViewFuentes(this.iControladorDominio.ObtenerTodasLasFuentes());
+            }
+            catch (ExcepcionAlObtenerFuentes) { }
         }
 
         /// <summary>

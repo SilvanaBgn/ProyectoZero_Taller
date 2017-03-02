@@ -8,7 +8,9 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Dominio;
-using Helper;
+using HelperUI;
+using Excepciones;
+using Excepciones.ExcepcionesPantalla;
 
 namespace UI.NuevasPantallas
 {
@@ -54,7 +56,8 @@ namespace UI.NuevasPantallas
         {
             if (this.dataGridViewMostrar.SelectedRows.Count == 0)
                 return null;
-            else return (Fuente)this.dataGridViewMostrar.SelectedRows[0].DataBoundItem;
+            else
+                return (Fuente)this.dataGridViewMostrar.SelectedRows[0].DataBoundItem;
         }
         #endregion
 
@@ -104,17 +107,31 @@ namespace UI.NuevasPantallas
         {
             Fuente fuenteSeleccionada = this.FuenteSeleccionada();
             if (fuenteSeleccionada == null)
-            {    MessageBox.Show("Se debe seleccionar una fuente", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error); }
+            { MessageBox.Show("Se debe seleccionar una fuente", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error); }
             else
             {
                 string descripcion = fuenteSeleccionada.Descripcion;
                 DialogResult dialogResult = MessageBox.Show(string.Format("¿Está seguro que desea eliminar la fuente \"{0}\"?", descripcion), "Eliminar Fuente", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                 if (dialogResult == DialogResult.Yes)
                 {
-                    int codigo = fuenteSeleccionada.FuenteId;
-                    this.iControladorDominio.BorrarFuente(codigo);
-                    this.iControladorDominio.GuardarCambios();
-                    this.CargarDataGridFuentes(this.iControladorDominio.ObtenerTodasLasFuentes());
+                    try
+                    {
+                        int codigo = fuenteSeleccionada.FuenteId;
+                        this.iControladorDominio.BorrarFuente(codigo);
+                        this.iControladorDominio.GuardarCambios();
+                        this.CargarDataGridFuentes(this.iControladorDominio.ObtenerTodasLasFuentes());
+                    }
+                    catch (ExcepcionAlObtenerFuentes) { }
+                    catch (ExcepcionAlEliminar ex)
+                    {
+                        MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                    catch (ExcepcionAlGuardarCambios ex)
+                    {
+                        MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                    catch (Exception)
+                    { MessageBox.Show("Ha ocurrido un error. Contacte con el administrador", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error); }
                 }
             }
         }
@@ -141,9 +158,15 @@ namespace UI.NuevasPantallas
 
             if (checkBoxDescripcion.Checked)
                 filtroDescripcion = this.textBoxDescripcion.Text;
-
-            List<Fuente> listaFiltrada = this.iControladorDominio.FiltrarFuentes(filtroTipoFuente, filtroDescripcion);
-            this.dataGridViewMostrar.DataSource = listaFiltrada;
+            try
+            {
+                List<Fuente> listaFiltrada = this.iControladorDominio.FiltrarFuentes(filtroTipoFuente, filtroDescripcion);
+                this.CargarDataGridFuentes(listaFiltrada);
+            }
+            catch (ExcepcionAlObtenerFuentes ex)
+            {
+                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         /// <summary>
@@ -163,7 +186,8 @@ namespace UI.NuevasPantallas
         {
             if (this.checkBoxDescripcion.Checked)
                 this.textBoxDescripcion.Enabled = true;
-            else this.textBoxDescripcion.Enabled = false;
+            else
+                this.textBoxDescripcion.Enabled = false;
         }
 
         /// <summary>
@@ -173,7 +197,8 @@ namespace UI.NuevasPantallas
         {
             if (this.checkBoxTipo.Checked)
                 this.comboBoxTipo.Enabled = true;
-            else this.comboBoxTipo.Enabled = false;
+            else
+                this.comboBoxTipo.Enabled = false;
         }
 
 
@@ -216,8 +241,12 @@ namespace UI.NuevasPantallas
         /// </summary>
         private void VBaseFuente_Activated(object sender, EventArgs e)
         {
-            //Actualizamos el contenido del Datagrid:
-            this.CargarDataGridFuentes(this.iControladorDominio.ObtenerTodasLasFuentes());
+            try
+            {
+                //Actualizamos el contenido del Datagrid:
+                this.CargarDataGridFuentes(this.iControladorDominio.ObtenerTodasLasFuentes());
+            }
+            catch (ExcepcionAlObtenerFuentes) { }
 
             //Preguntamos si las ventanas hijas son nulas, sino significa que están abiertas
             //y les dejamos el foco 

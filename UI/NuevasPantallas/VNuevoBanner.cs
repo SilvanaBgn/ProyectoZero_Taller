@@ -25,8 +25,11 @@ namespace UI.NuevasPantallas
         /// </summary>
         private void VNuevoBanner_Shown(object sender, EventArgs e)
         {
-            this.CargarDataGridViewFuentes(this.iControladorDominio.ObtenerTodasLasFuentes());
-            this.dataGridViewMostrarFuentes.Columns["FuenteId"].Visible = false;
+            try
+            {
+                this.CargarDataGridViewFuentes(this.iControladorDominio.ObtenerTodasLasFuentes());
+            }
+            catch (ExcepcionAlObtenerFuentes) { }
 
             //Re-dimensionamos el datagrid para mostrar el botón this.buttonNuevaFuente
             this.dataGridViewMostrarFuentes.Location = new System.Drawing.Point(6, 65);
@@ -111,7 +114,7 @@ namespace UI.NuevasPantallas
         private void VNuevoBanner_Activated(object sender, EventArgs e)
         {
             //Ejecuta el Activated del padre:
-            base.VAbstractCrearModificarBanner_Activated(sender,e);
+            base.VAbstractCrearModificarBanner_Activated(sender, e);
 
             //Activa la ventana atributo this.iVentanaNuevaFuente:
             if (this.iVentanaNuevaFuente != null)

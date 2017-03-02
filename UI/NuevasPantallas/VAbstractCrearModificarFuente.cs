@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Dominio;
 using System.Text.RegularExpressions;
-using Helper;
+using HelperUI;
 using Excepciones.ExcepcionesDominio;
 
 namespace UI.NuevasPantallas
@@ -100,14 +100,13 @@ namespace UI.NuevasPantallas
             try
             {
                 //Realizamos la lectura de items:
-                this.iControladorDominio.LeerFuente(this.iFuente);
+                this.iFuente.Leer();
 
                 //Una vez leída la Fuente, modificamos y guardamos los cambios:
                 this.iControladorDominio.ModificarFuente(this.iFuente);
                 this.iControladorDominio.GuardarCambios();
             }
-            catch (ExcepcionAlLeerFuenteExternaDelBanner)
-            { }
+            catch (Exception) { } //Ignoramos este error, ya que no es fundamental que lea en esta instancia.
         }
 
         /// <summary>
