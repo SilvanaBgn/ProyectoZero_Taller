@@ -8,6 +8,12 @@ namespace UI.NuevasPantallas
 {
     public partial class VNuevoBanner : VAbstractCrearModificarBanner
     {
+        /// <summary>
+        /// Atributo que almacena la Ventana de "Nueva Fuente"
+        /// </summary>
+        private VNuevaFuente iVentanaNuevaFuente;
+
+        //CONSTRUCTOR
         public VNuevoBanner(ref ControladorDominio pControladorDominio) : base(ref pControladorDominio)
         {
             InitializeComponent();
@@ -70,6 +76,11 @@ namespace UI.NuevasPantallas
                     MessageBox.Show(ex.Message, "Faltan campos", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     this.buttonGuardar.Enabled = true;
                 }
+                catch (ExcepcionAlAgregar ex)
+                {
+                    MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    this.buttonGuardar.Enabled = true;
+                }
                 catch (ExcepcionAlGuardarCambios ex)
                 {
                     MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -88,11 +99,28 @@ namespace UI.NuevasPantallas
         /// </summary>
         private void buttonNuevaFuente_Click(object sender, EventArgs e)
         {
-            VNuevaFuente vFuente = new VNuevaFuente(ref this.iControladorDominio);
-            vFuente.Show();
+            this.iVentanaNuevaFuente = new VNuevaFuente(ref this.iControladorDominio);
+            this.iVentanaNuevaFuente.Owner = this;
+            this.iVentanaNuevaFuente.ShowDialog();
+            this.iVentanaNuevaFuente = null;
+        }
+
+        /// <summary>
+        /// Evento que se invoca cuando se activa VNuevoBanner.
+        /// </summary>
+        private void VNuevoBanner_Activated(object sender, EventArgs e)
+        {
+            //Ejecuta el Activated del padre:
+            base.VAbstractCrearModificarBanner_Activated(sender,e);
+
+            //Activa la ventana atributo this.iVentanaNuevaFuente:
+            if (this.iVentanaNuevaFuente != null)
+                this.iVentanaNuevaFuente.Activate();
         }
         #endregion
 
         #endregion
+
+
     }
 }

@@ -98,7 +98,7 @@ namespace UI.NuevasPantallas
         /// <summary>
         /// Evento que se invoca cuando se activa VAbstractCrearModificarBanner.
         /// </summary>
-        private void VAbstractCrearModificarBanner_Activated(object sender, EventArgs e)
+        protected void VAbstractCrearModificarBanner_Activated(object sender, EventArgs e)
         {
             this.CargarDataGridViewFuentes(this.iControladorDominio.ObtenerTodasLasFuentes());
         }

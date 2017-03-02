@@ -31,7 +31,7 @@ namespace Dominio
             }
             catch (ExcepcionAlGuardarCambios ex)
             {
-                throw new ExcepcionAlGuardarCambios(ex.Message,ex);
+                throw new ExcepcionAlGuardarCambios(ex.Message, ex);
             }
         }
 
@@ -47,48 +47,81 @@ namespace Dominio
 
         #region Banner
         /// <summary>
-        /// Agrega un nuevo banner al respositorio
+        /// Agrega un nuevo banner al repositorio
         /// </summary>
         /// <param name="pBanner">banner a agregar</param>
         public void AgregarBanner(Banner pBanner)
         {
             if (pBanner.Titulo == "")
             {
-                throw new ExcepcionCamposSinCompletar("Se debe agregar un título");
+                throw new ExcepcionCamposSinCompletar("Se debe agregar un título.");
             }
-
-            this.iUoW.RepositorioBanners.Agregar(pBanner);
+            else
+            {
+                try
+                {
+                    this.iUoW.RepositorioBanners.Agregar(pBanner);
+                }
+                catch (ExcepcionGeneral ex)
+                {
+                    throw new ExcepcionAlAgregar("No fue posible agregar el banner.", ex);
+                }
+            }
         }
 
         /// <summary>
-        /// Modifica un banner del respositorio
+        /// Modifica un banner del repositorio
         /// </summary>
         /// <param name="pBanner">banner a modificar</param>
         public void ModificarBanner(Banner pBanner)
         {
             if (pBanner.Titulo == "")
             {
-                throw new ExcepcionCamposSinCompletar("Se debe agregar un título");
+                throw new ExcepcionCamposSinCompletar("Se debe agregar un título.");
             }
-            this.iUoW.RepositorioBanners.Modificar(pBanner);
+            else
+            {
+                try
+                {
+                    this.iUoW.RepositorioBanners.Modificar(pBanner);
+                }
+                catch (ExcepcionGeneral ex)
+                {
+                    throw new ExcepcionAlModificar("No fue posible modificar el banner.", ex);
+                }
+            }
         }
 
         /// <summary>
-        /// Borra un banner del respositorio
+        /// Borra un banner del repositorio
         /// </summary>
         /// <param name="pBanner">banner a borrar</param>
         public void BorrarBanner(Banner pBanner)
         {
-            this.iUoW.RepositorioBanners.Borrar(pBanner);
+            try
+            {
+                this.iUoW.RepositorioBanners.Borrar(pBanner);
+            }
+            catch (ExcepcionGeneral ex)
+            {
+                throw new ExcepcionAlEliminar("No fue posible eliminar el banner.", ex);
+            }
         }
 
         /// <summary>
-        /// Borra un banner del respositorio
+        /// Borra un banner del repositorio
         /// </summary>
         /// <param name="pCodigo">código del banner a borrar</param>
         public void BorrarBanner(int pCodigo)
         {
-            this.iUoW.RepositorioBanners.Borrar(pCodigo);
+            try
+            {
+                this.iUoW.RepositorioBanners.Borrar(pCodigo);
+            }
+            catch (ExcepcionGeneral ex)
+            {
+                throw new ExcepcionAlEliminar("No fue posible eliminar el banner.", ex);
+            }
         }
 
         /// <summary>
@@ -98,7 +131,14 @@ namespace Dominio
         /// <returns>devuelve un banner de tipo banner</returns>
         public Banner BuscarBannerPorId(int pId)
         {
-            return this.iUoW.RepositorioBanners.ObtenerPorId(pId);
+            try
+            {
+                return this.iUoW.RepositorioBanners.ObtenerPorId(pId);
+            }
+            catch (ExcepcionGeneral ex)
+            {
+                throw new ExcepcionAlObtenerBanners("No fue posible buscar el banner.", ex);
+            }
         }
 
         /// <summary>
@@ -112,8 +152,10 @@ namespace Dominio
             {
                 return this.iUoW.RepositorioBanners.Obtener(pFilter, null).ToList();
             }
-            catch (ExcepcionGeneral)
-            { throw new ExcepcionAlObtenerBanners("Ocurrió un error al buscar los banners"); }
+            catch (ExcepcionGeneral ex)
+            {
+                throw new ExcepcionAlObtenerBanners("No fue posible buscar los banners.", ex);
+            }
         }
 
         /// <summary>
@@ -164,7 +206,14 @@ namespace Dominio
             {
                 filtroDescripcion = x => x.Descripcion.Contains(pFiltroDescripcion);
             }
-            return this.iUoW.RepositorioBanners.Filtrar(filtroFechas, filtroHoras, filtroTitulo, filtroDescripcion).ToList();
+            try
+            {
+                return this.iUoW.RepositorioBanners.Filtrar(filtroFechas, filtroHoras, filtroTitulo, filtroDescripcion).ToList();
+            }
+            catch (ExcepcionGeneral ex)
+            {
+                throw new ExcepcionAlObtenerBanners("No fue posible filtrar los banners.", ex);
+            }
         }
 
         /// <summary>
@@ -173,7 +222,14 @@ namespace Dominio
         /// <returns>devuelve la lista de banners</returns>
         public List<Banner> ObtenerTodosLosBanners()
         {
-            return this.iUoW.RepositorioBanners.Obtener(null, null).ToList();
+            try
+            {
+                return this.iUoW.RepositorioBanners.Obtener(null, null).ToList();
+            }
+            catch (ExcepcionGeneral ex)
+            {
+                throw new ExcepcionAlObtenerBanners("No fue posible obtener los banners.", ex);
+            }
         }
         #endregion
 
@@ -187,18 +243,27 @@ namespace Dominio
         {
             if (pCampania.Imagenes.Count == 0)
             {
-                throw new ExcepcionCamposSinCompletar("Se deben agregar imágenes a la campaña");
+                throw new ExcepcionCamposSinCompletar("Se deben agregar imágenes a la campaña.");
             }
-            if (pCampania.Titulo == "")
+            else if (pCampania.Titulo == "")
             {
-                throw new ExcepcionCamposSinCompletar("Se debe agregar un título");
+                throw new ExcepcionCamposSinCompletar("Se debe agregar un título.");
             }
-            if (pCampania.DuracionImagen == 0)
+            else if (pCampania.DuracionImagen == 0)
             {
-                throw new ExcepcionCamposSinCompletar("Se debe seleccionar la duración de las imágenes");
+                throw new ExcepcionCamposSinCompletar("Se debe seleccionar la duración de las imágenes.");
             }
-
-            this.iUoW.RepositorioCampanias.Agregar(pCampania);
+            else
+            {
+                try
+                {
+                    this.iUoW.RepositorioCampanias.Agregar(pCampania);
+                }
+                catch (ExcepcionGeneral ex)
+                {
+                    throw new ExcepcionAlAgregar("No fue posible agregar la campaña.", ex);
+                }
+            }
         }
 
         /// <summary>
@@ -209,18 +274,27 @@ namespace Dominio
         {
             if (pCampania.Imagenes.Count == 0)
             {
-                throw new ExcepcionCamposSinCompletar("Se deben agregar imágenes a la campaña");
+                throw new ExcepcionCamposSinCompletar("Se deben agregar imágenes a la campaña.");
             }
-            if (pCampania.Titulo == "")
+            else if (pCampania.Titulo == "")
             {
-                throw new ExcepcionCamposSinCompletar("Se debe agregar un título");
+                throw new ExcepcionCamposSinCompletar("Se debe agregar un título.");
             }
-            if (pCampania.DuracionImagen == 0)
+            else if (pCampania.DuracionImagen == 0)
             {
-                throw new ExcepcionCamposSinCompletar("Se debe seleccionar la duración de las imágenes");
+                throw new ExcepcionCamposSinCompletar("Se debe seleccionar la duración de las imágenes.");
             }
             else
-                this.iUoW.RepositorioCampanias.Modificar(pCampania);
+            {
+                try
+                {
+                    this.iUoW.RepositorioCampanias.Modificar(pCampania);
+                }
+                catch (ExcepcionGeneral ex)
+                {
+                    throw new ExcepcionAlModificar("No fue posible modificar la campaña.", ex);
+                }
+            }
         }
 
         /// <summary>
@@ -229,7 +303,14 @@ namespace Dominio
         /// <param name="pCampania">campaña a borrar</param>
         public void BorrarCampania(Campania pCampania)
         {
-            this.iUoW.RepositorioCampanias.Borrar(pCampania);
+            try
+            {
+                this.iUoW.RepositorioCampanias.Borrar(pCampania);
+            }
+            catch (ExcepcionGeneral ex)
+            {
+                throw new ExcepcionAlEliminar("No fue posible eliminar la campaña.", ex);
+            }
         }
 
         /// <summary>
@@ -238,7 +319,14 @@ namespace Dominio
         /// <param name="pCodigo">identificador de la campaña a borrar</param>
         public void BorrarCampania(int pCodigo)
         {
-            this.iUoW.RepositorioCampanias.Borrar(pCodigo);
+            try
+            {
+                this.iUoW.RepositorioCampanias.Borrar(pCodigo);
+            }
+            catch (ExcepcionGeneral ex)
+            {
+                throw new ExcepcionAlEliminar("No fue posible eliminar la campaña.", ex);
+            }
         }
 
         /// <summary>
@@ -247,7 +335,14 @@ namespace Dominio
         /// <returns>devuelve una lista de campañas</returns>
         public List<Campania> ObtenerTodasLasCampanias()
         {
-            return iUoW.RepositorioCampanias.Obtener(null, null).ToList();
+            try
+            {
+                return iUoW.RepositorioCampanias.Obtener(null, null).ToList();
+            }
+            catch (ExcepcionGeneral ex)
+            {
+                throw new ExcepcionAlObtenerCampanias("No fue posible obtener las campañas.", ex);
+            }
         }
 
         /// <summary>
@@ -257,7 +352,14 @@ namespace Dominio
         /// <returns>devuelve la campaña buscada</returns>
         public Campania BuscarCampaniaPorId(int pId)
         {
-            return this.iUoW.RepositorioCampanias.ObtenerPorId(pId);
+            try
+            {
+                return this.iUoW.RepositorioCampanias.ObtenerPorId(pId);
+            }
+            catch (ExcepcionGeneral ex)
+            {
+                throw new ExcepcionAlObtenerCampanias("No fue posible buscar la campaña.", ex);
+            }
         }
 
         /// <summary>
@@ -307,7 +409,15 @@ namespace Dominio
             {
                 filtroDescripcion = x => x.Descripcion.Contains(pFiltroDescripcion);
             }
-            return this.iUoW.RepositorioCampanias.Filtrar(filtroFechas, filtroHoras, filtroTitulo, filtroDescripcion).ToList();
+
+            try
+            {
+                return this.iUoW.RepositorioCampanias.Filtrar(filtroFechas, filtroHoras, filtroTitulo, filtroDescripcion).ToList();
+            }
+            catch (ExcepcionGeneral ex)
+            {
+                throw new ExcepcionAlObtenerCampanias("No fue posible filtrar las campañas.", ex);
+            }
         }
 
         /// <summary>
@@ -323,7 +433,7 @@ namespace Dominio
             }
             catch (ExcepcionGeneral)
             {
-                throw new ExcepcionAlObtenerCampanias("Ocurrió un error al buscar las campañas");
+                throw new ExcepcionAlObtenerCampanias("No fue posible obtener las campañas.");
             }
         }
         #endregion
@@ -337,19 +447,27 @@ namespace Dominio
         {
             if (pFuente.Tipo == TipoFuente.Rss && pFuente.OrigenItems == "")
             {
-                throw new ExcepcionCamposSinCompletar("Se debe establecer el origen de la fuente");
+                throw new ExcepcionCamposSinCompletar("Se debe establecer el origen de la fuente.");
             }
-            if (pFuente.Tipo == TipoFuente.TextoFijo && pFuente.Items.Count == 0)
+            else if (pFuente.Tipo == TipoFuente.TextoFijo && pFuente.Items.Count == 0)
             {
-                throw new ExcepcionCamposSinCompletar("Se debe establecer el texto a mostrar");
+                throw new ExcepcionCamposSinCompletar("Se debe establecer el texto a mostrar.");
             }
-            if (pFuente.Descripcion == "")
+            else if (pFuente.Descripcion == "")
             {
-                throw new ExcepcionCamposSinCompletar("Se debe establecer una descripción de la fuente");
+                throw new ExcepcionCamposSinCompletar("Se debe establecer una descripción de la fuente.");
             }
-
-            this.iUoW.RepositorioFuentes.Agregar(pFuente);
-
+            else
+            {
+                try
+                {
+                    this.iUoW.RepositorioFuentes.Agregar(pFuente);
+                }
+                catch (ExcepcionGeneral ex)
+                {
+                    throw new ExcepcionAlAgregar("No fue posible agregar la fuente.", ex);
+                }
+            }
         }
 
         /// <summary>
@@ -361,18 +479,27 @@ namespace Dominio
 
             if (pFuente.Tipo == TipoFuente.Rss && pFuente.OrigenItems == "")
             {
-                throw new ExcepcionCamposSinCompletar("Se debe establecer el origen de la fuente");
+                throw new ExcepcionCamposSinCompletar("Se debe establecer el origen de la fuente.");
             }
-            if (pFuente.Tipo == TipoFuente.TextoFijo && pFuente.Items.Count == 0)
+            else if (pFuente.Tipo == TipoFuente.TextoFijo && pFuente.Items.Count == 0)
             {
-                throw new ExcepcionCamposSinCompletar("Se debe establecer el texto a mostrar");
+                throw new ExcepcionCamposSinCompletar("Se debe establecer el texto a mostrar.");
             }
-            if (pFuente.Descripcion == "")
+            else if (pFuente.Descripcion == "")
             {
-                throw new ExcepcionCamposSinCompletar("Se debe establecer una descripción de la fuente");
+                throw new ExcepcionCamposSinCompletar("Se debe establecer una descripción de la fuente.");
             }
-
-            this.iUoW.RepositorioFuentes.Modificar(pFuente);
+            else
+            {
+                try
+                {
+                    this.iUoW.RepositorioFuentes.Modificar(pFuente);
+                }
+                catch (ExcepcionGeneral ex)
+                {
+                    throw new ExcepcionAlModificar("No fue posible modificar la fuente.", ex);
+                }
+            }
         }
 
         /// <summary>
@@ -381,7 +508,14 @@ namespace Dominio
         /// <param name="pCodigo">identificador de la fuente a borrar</param>
         public void BorrarFuente(int pCodigo)
         {
-            this.iUoW.RepositorioFuentes.Borrar(pCodigo);
+            try
+            {
+                this.iUoW.RepositorioFuentes.Borrar(pCodigo);
+            }
+            catch (ExcepcionGeneral ex)
+            {
+                throw new ExcepcionAlEliminar("No fue posible eliminar la fuente.", ex);
+            }
         }
 
         /// <summary>
@@ -391,7 +525,14 @@ namespace Dominio
         /// <returns>devuelve la fuente buscada</returns>
         public Fuente BuscarFuentePorId(int pId)
         {
-            return this.iUoW.RepositorioFuentes.ObtenerPorId(pId);
+            try
+            {
+                return this.iUoW.RepositorioFuentes.ObtenerPorId(pId);
+            }
+            catch (ExcepcionGeneral ex)
+            {
+                throw new ExcepcionAlObtenerFuentes("No fue posible buscar la fuente.", ex);
+            }
         }
 
         /// <summary>
@@ -405,9 +546,9 @@ namespace Dominio
             {
                 return this.iUoW.RepositorioFuentes.Obtener(pFilter, null).ToList();
             }
-            catch (ExcepcionGeneral)
+            catch (ExcepcionGeneral ex)
             {
-                throw new ExcepcionAlObtenerFuentes("Ocurrió un error al obtener las fuentes");
+                throw new ExcepcionAlObtenerFuentes("No fue posible obtener las fuentes.", ex);
             }
         }
 
@@ -417,7 +558,14 @@ namespace Dominio
         /// <returns>devuelve la lista de las fuentes existentes</returns>
         public List<Fuente> ObtenerTodasLasFuentes()
         {
-            return iUoW.RepositorioFuentes.Obtener().ToList();
+            try
+            {
+                return iUoW.RepositorioFuentes.Obtener().ToList();
+            }
+            catch (ExcepcionGeneral ex)
+            {
+                throw new ExcepcionAlObtenerFuentes("No fue posible obtener las fuentes.", ex);
+            }
         }
 
         /// <summary>
@@ -452,7 +600,15 @@ namespace Dominio
             {
                 filtroDescripcion = x => x.Descripcion.Contains(pFiltroDescripcion);
             }
-            return this.iUoW.RepositorioFuentes.Filtrar(filtroTipoFuente, filtroDescripcion).ToList();
+
+            try
+            {
+                return this.iUoW.RepositorioFuentes.Filtrar(filtroTipoFuente, filtroDescripcion).ToList();
+            }
+            catch (ExcepcionGeneral ex)
+            {
+                throw new ExcepcionAlObtenerFuentes("No fue posible filtrar las fuentes.", ex);
+            }
         }
 
         #endregion
@@ -506,8 +662,8 @@ namespace Dominio
                 else
                     return null;
             }
-            catch (ExcepcionGeneral ex)
-            { throw new ExcepcionAlObtenerBanners(ex.Message); }
+            catch (ExcepcionAlObtenerBanners ex)
+            { throw new ExcepcionAlObtenerBanners(ex.Message, ex); }
         }
 
         /// <summary>
@@ -518,13 +674,17 @@ namespace Dominio
         private string FormatearTextoBanner(Banner pBanner)
         {
             string texto = "";
-            Fuente fuenteDelBanner = this.BuscarFuentePorId(pBanner.FuenteId);
-            //Asignamos su contenido a la variable texto:
-            IList<Item> listaItems = (List<Item>)fuenteDelBanner.Items;
-            for (int i = 0; i < listaItems.Count; i++)
+            try
             {
-                texto += listaItems[i].ToString() + " • ";
+                Fuente fuenteDelBanner = this.BuscarFuentePorId(pBanner.FuenteId);
+                //Asignamos su contenido a la variable texto:
+                IList<Item> listaItems = (List<Item>)fuenteDelBanner.Items;
+                for (int i = 0; i < listaItems.Count; i++)
+                {
+                    texto += listaItems[i].ToString() + " • ";
+                }
             }
+            catch (Exception) { } //Si tira algún error, devolverá un *texto* vacío:
             return texto;
         }
 
@@ -539,7 +699,6 @@ namespace Dominio
                 Fuente fuenteDelBanner = this.BuscarFuentePorId(pBanner.FuenteId);
                 this.LeerFuente(fuenteDelBanner);
             }
-
             catch (ExcepcionAlLeerFuenteExternaDelBanner ex)
             {
                 throw new ExcepcionAlLeerFuenteExternaDelBanner(ex.Message, ex);
@@ -555,7 +714,7 @@ namespace Dominio
             try
             {
                 pFuente.Leer(); //Actualiza los items de la fuente del banner
-                
+
                 //Guardamos los cambios:
                 this.ModificarFuente(pFuente);
                 this.GuardarCambios();
@@ -564,6 +723,10 @@ namespace Dominio
             catch (ExcepcionErrorDeLectura ex)
             {
                 throw new ExcepcionAlLeerFuenteExternaDelBanner(ex.Message, ex);
+            }
+            catch (Exception ex)
+            {
+                throw new ExcepcionAlLeerFuenteExternaDelBanner("No se pudo completar la lectura", ex);
             }
         }
 
@@ -574,7 +737,7 @@ namespace Dominio
         public string InfoBanner(Banner pBanner)
         {
             //*texto* con valor por defecto:
-            string texto = "EASY NEWS. El lugar para su espacio publicitario. Publicite aquí."; 
+            string texto = "EASY NEWS. El lugar para su espacio publicitario. Publicite aquí.";
 
             if (pBanner != null)
             {
@@ -609,8 +772,8 @@ namespace Dominio
                 else
                     return null;
             }
-            catch (ExcepcionGeneral ex)
-            { throw new ExcepcionAlObtenerCampanias(ex.Message); }
+            catch (ExcepcionAlObtenerCampanias ex)
+            { throw new ExcepcionAlObtenerCampanias(ex.Message, ex); }
         }
 
         /// <summary>
@@ -633,10 +796,6 @@ namespace Dominio
                 //*imágenes* Lo leemos, de acuerdo a la fuente que corresponde al bannerAPasar:
                 listaImagenes = (IList<Imagen>)pCampaniaAPasar.Imagenes;
                 duracion = pCampaniaAPasar.DuracionImagen;
-            }
-            else
-            {
-                // *imágenes* es una lista vacío.
             }
             array[0] = listaImagenes;
             array[1] = duracion;

@@ -70,6 +70,9 @@
   <ItemGroup>
     <Compile Include="ExcepcionesDominio\ExcepcionAlLeerFuenteExternaDelBanner.cs" />
     <Compile Include="ExcepcionesDominio\ExepcionErrorDeLectura.cs" />
+    <Compile Include="ExcepcionesPantalla\ExcepcionAlEliminar.cs" />
+    <Compile Include="ExcepcionesPantalla\ExcepcionAlModificar.cs" />
+    <Compile Include="ExcepcionesPantalla\ExcepcionAlAgregar.cs" />
     <Compile Include="ExcepcionesPantalla\ExcepcionAlObtenerBanners.cs" />
     <Compile Include="ExcepcionesPantalla\ExcepcionAlObtenerCampanias.cs" />
     <Compile Include="ExcepcionesPantalla\ExcepcionAlObtenerFuentes.cs" />
