@@ -33,11 +33,6 @@ namespace Dominio
         public string Url { get; set; }
 
         /// <summary>
-        /// Fecha de publicación.
-        /// </summary>
-        public DateTime? FechaDePublicacion { get; set; }
-
-        /// <summary>
         /// Sobreescribe el método ToString del objeto ItemRSS
         /// </summary>
         /// <returns>devuelve el título más la descripción del ItemRSS</returns>

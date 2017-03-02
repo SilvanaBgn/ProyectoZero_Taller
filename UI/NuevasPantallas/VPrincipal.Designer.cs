@@ -186,9 +186,10 @@ namespace UI.NuevasPantallas
             // 
             // iStatusStrip
             // 
+            this.iStatusStrip.BackColor = System.Drawing.Color.DarkGray;
             this.iStatusStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.iToolStripStatusLabel});
-            this.iStatusStrip.Location = new System.Drawing.Point(0, 626);
+            this.iStatusStrip.Location = new System.Drawing.Point(0, 653);
             this.iStatusStrip.Name = "iStatusStrip";
             this.iStatusStrip.ShowItemToolTips = true;
             this.iStatusStrip.Size = new System.Drawing.Size(840, 22);
@@ -199,7 +200,6 @@ namespace UI.NuevasPantallas
             // 
             this.iToolStripStatusLabel.Name = "iToolStripStatusLabel";
             this.iToolStripStatusLabel.Size = new System.Drawing.Size(0, 17);
-            this.iToolStripStatusLabel.Visible = true;
             // 
             // bannerDeslizante
             // 
@@ -232,7 +232,7 @@ namespace UI.NuevasPantallas
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Wheat;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
-            this.ClientSize = new System.Drawing.Size(840, 648);
+            this.ClientSize = new System.Drawing.Size(840, 675);
             this.Controls.Add(this.iStatusStrip);
             this.Controls.Add(this.buttonSalirPantallaCompleta);
             this.Controls.Add(this.groupBoxBanner);
@@ -250,7 +250,6 @@ namespace UI.NuevasPantallas
             this.menuStrip.ResumeLayout(false);
             this.menuStrip.PerformLayout();
             this.groupBoxCampania.ResumeLayout(false);
-            this.groupBoxCampania.PerformLayout();
             this.iStatusStrip.ResumeLayout(false);
             this.iStatusStrip.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.campaniaDeslizante)).EndInit();

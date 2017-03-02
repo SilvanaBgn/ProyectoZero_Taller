@@ -20,7 +20,7 @@ namespace Dominio.Lecturas
             IEnumerable<Item> items = new List<Item>();
 
             Uri urlCorrecta;
-                Uri.TryCreate(pUrl.Trim(), UriKind.Absolute, out urlCorrecta);
+            if(Uri.TryCreate(pUrl.Trim(), UriKind.Absolute, out urlCorrecta))
                 items = this.ItemRss_a_Item(this.Leer(urlCorrecta));
 
             return items;
@@ -69,11 +69,10 @@ namespace Dominio.Lecturas
             //    </item>
             //  </channel>
             //</rss>
+
             XmlTextReader xmlReader = new XmlTextReader(pUrl.AbsoluteUri);
             XmlDocument xmlDocument = new XmlDocument();
             IList<ItemRss> items = new List<ItemRss>();
-            //try
-            //{
             xmlDocument.Load(xmlReader);
 
             foreach (XmlNode itemXml in xmlDocument.SelectNodes("//channel/item"))
@@ -83,15 +82,8 @@ namespace Dominio.Lecturas
                     Titulo = LectorRss.GetXmlNodeValue<string>(itemXml, "title"),
                     Descripcion = LectorRss.GetXmlNodeValue<string>(itemXml, "description"),
                     Url = new Uri(LectorRss.GetXmlNodeValue<string>(itemXml, "link")).ToString(),
-                    FechaDePublicacion = LectorRss.GetXmlNodeValue<DateTime?>(itemXml, "pubDate")
                 });
-                //}
             }
-            //catch (Exception) //Averiguar cómo se llama la excepcion cuando no hay internet
-            //                  //y otras excepciones
-            //{
-            //    //Lanzar excepcion entendible para usuario
-            //}
             return items;
         }
 

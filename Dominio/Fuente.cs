@@ -83,7 +83,7 @@ namespace Dominio
                             throw new UriFormatException();
                         }
                         else
-                            this.iOrigenItems = value;
+                            this.iOrigenItems = value.Trim();
                     }
                     else // this.iTipo == TipoFuente.TextoFijo
                         this.iOrigenItems = "Sin fuente";

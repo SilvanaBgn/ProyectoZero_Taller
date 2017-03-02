@@ -540,7 +540,7 @@ namespace Dominio
                 this.LeerFuente(fuenteDelBanner);
             }
 
-            catch (ExcepcionErrorDeLectura ex)
+            catch (ExcepcionAlLeerFuenteExternaDelBanner ex)
             {
                 throw new ExcepcionAlLeerFuenteExternaDelBanner(ex.Message, ex);
             }

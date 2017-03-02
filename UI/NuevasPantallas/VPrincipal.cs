@@ -237,11 +237,7 @@ namespace UI.NuevasPantallas
 
                 if (this.iBannerAPasar != null && !this.bgwLeerBanner.IsBusy)
                 { //Finalmente, invocamos a que vaya a leer para actualizar los items:
-                    try {
-                        this.bgwLeerBanner.RunWorkerAsync();
-                    }
-                    catch(ExcepcionAlLeerFuenteExternaDelBanner ex)
-                    { }
+                    this.bgwLeerBanner.RunWorkerAsync();
                 }
             }
         }
@@ -273,21 +269,9 @@ namespace UI.NuevasPantallas
                 //Actualizamos el contenido del banner deslizante por si la Lectura cambió los items del banner
                 this.ActualizarBannerDeslizante();
                 this.iToolStripStatusLabel.Text = "";
-                //    //this.labelLeido.Text = "Leyó";
             }
             else
                 this.iToolStripStatusLabel.Text = "No se pudo establecer la conexion o la url no existe";
-            //else
-            //{
-            //    int cantIntentos = ((int)e.Result);
-            //    cantIntentos += 1;
-            //    //this.labelLeido.Text += cantIntentos.ToString()+ " int";
-
-            //    //Intentamos actualizar la lectura rss hasta 5 veces, sino se se volverá a intentar la 
-            //    //próxima vez que se active la ventana, o bien sino dentro de 15 min
-            //    if (cantIntentos <= 5) 
-            //        this.bgwLeerBanner.RunWorkerAsync(cantIntentos);
-            //}
         }
         #endregion
 
@@ -422,7 +406,7 @@ namespace UI.NuevasPantallas
         private void IniciarFormatoPantallaPrincipal(object sender, EventArgs e)
         {
             //Ventana:
-            this.Size = new System.Drawing.Size(851, 680);
+            this.Size = new System.Drawing.Size(856, 713);
             this.AutoSizeMode = AutoSizeMode.GrowAndShrink; //Que no permita redimensionar la ventana
             this.MaximizeBox = false; //Que no permita maximizar
             this.FormBorderStyle = FormBorderStyle.Fixed3D; //Barra de estado
