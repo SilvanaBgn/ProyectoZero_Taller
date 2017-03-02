@@ -328,12 +328,12 @@ namespace UI.NuevasPantallas
 
             //Ubicación y tamaño de objetos:
 
-            this.groupBoxCampania.Location = new System.Drawing.Point(312, 5);
-            //this.groupBoxCampania.Size = new System.Drawing.Size(734, 650);
+            this.groupBoxCampania.Location = new System.Drawing.Point(29, 5);
+            this.groupBoxCampania.Size = new System.Drawing.Size(1300, 650);
             this.groupBoxBanner.Location = new System.Drawing.Point(29, 660);
             this.groupBoxBanner.Size = new System.Drawing.Size(1300, 100);
             this.bannerDeslizante.Size = new System.Drawing.Size(1263, 55);
-            //this.campaniaDeslizante1.Size = new System.Drawing.Size(700, 568);
+            this.campaniaDeslizante.Size = new System.Drawing.Size(1263, 595);
             this.bannerDeslizante.Font = new System.Drawing.Font("Microsoft Sans Serif", 37F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonSalirPantallaCompleta.Focus();
         }

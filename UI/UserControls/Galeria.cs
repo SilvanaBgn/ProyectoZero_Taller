@@ -31,6 +31,7 @@ namespace UI.UserControls
             InitializeComponent();
             //Inicializamos la lista de imágenes:
             this.ActualizarListaImagenes();
+            this.comboBoxSegundos.DropDownStyle = ComboBoxStyle.DropDownList;
         }
 
 

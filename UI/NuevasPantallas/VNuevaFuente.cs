@@ -20,6 +20,7 @@ namespace UI.NuevasPantallas
         public VNuevaFuente(ref ControladorDominio pControladorDominio) : base(ref pControladorDominio)
         {
             InitializeComponent();
+            this.comboBoxTipoFuente.DropDownStyle = ComboBoxStyle.DropDownList;
         }
 
 
