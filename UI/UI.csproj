@@ -120,6 +120,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="HelperUI\InfoActualPantallaPublicitaria.cs" />
+    <Compile Include="HelperUI\ValidacionTexto.cs" />
+    <Compile Include="NuevasPantallas\ExcepcionAlEliminar.cs" />
     <Compile Include="NuevasPantallas\VBaseBanner.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -286,6 +289,7 @@
     </EmbeddedResource>
     <EmbeddedResource Include="NuevasPantallas\VInicial.resx">
       <DependentUpon>VInicial.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="NuevasPantallas\VEditarBanner.resx">
       <DependentUpon>VEditarBanner.cs</DependentUpon>

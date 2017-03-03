@@ -82,6 +82,11 @@ namespace UI.NuevasPantallas
                     MessageBox.Show(ex.Message, "Faltan campos", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     this.buttonGuardar.Enabled = true;
                 }
+                catch (ExcepcionAlModificar ex)
+                {
+                    MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    this.buttonGuardar.Enabled = true;
+                }
                 catch (ExcepcionAlGuardarCambios ex)
                 {
                     MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);

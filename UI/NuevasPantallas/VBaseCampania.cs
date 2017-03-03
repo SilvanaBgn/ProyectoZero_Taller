@@ -8,6 +8,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Dominio;
+using Excepciones;
+using Excepciones.ExcepcionesPantalla;
 
 namespace UI.NuevasPantallas
 {
@@ -95,7 +97,7 @@ namespace UI.NuevasPantallas
             {
                 this.iVentanaEditar = new VEditarCampania(ref this.iControladorDominio, this.CampaniaSeleccionada());
                 this.iVentanaEditar.Owner = this;
-                this.iVentanaEditar.ShowDialog(); 
+                this.iVentanaEditar.ShowDialog();
                 this.iVentanaEditar = null;
             }
         }
@@ -115,14 +117,24 @@ namespace UI.NuevasPantallas
                 DialogResult resultado = MessageBox.Show(string.Format("¿Está seguro que desea eliminar la Campaña \"{0}\"?", titulo), "Eliminar Campaña", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                 if (resultado == DialogResult.Yes)
                 {
-                    try {
+                    try
+                    {
                         int codigo = campaniaSeleccionada.CampaniaId;
                         this.iControladorDominio.BorrarCampania(codigo);
                         this.iControladorDominio.GuardarCambios();
                         this.CargarDataGridCampanias(this.iControladorDominio.ObtenerTodasLasCampanias());
                     }
-                    catch(Exception)
-                    { MessageBox.Show("No se pudo borrar la campaña", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error); }
+                    catch (ExcepcionAlObtenerCampanias) { }
+                    catch (ExcepcionAlEliminar ex)
+                    {
+                        MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                    catch (ExcepcionAlGuardarCambios ex)
+                    {
+                        MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                    catch (Exception)
+                    { MessageBox.Show("Ha ocurrido un error. Contacte con el administrador", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error); }
                 }
             }
         }
@@ -139,17 +151,25 @@ namespace UI.NuevasPantallas
             string filtroTitulo = null;
             string filtroDescripcion = null;
 
-            if (checkBoxRangoFechas.Checked)
+            if (this.checkBoxRangoFechas.Checked)
                 filtroFechas = new DateTime[] { this.rangoFecha.FechaInicio, this.rangoFecha.FechaFin };
-            if (checkBoxRangoHoras.Checked)
+            if (this.checkBoxRangoHoras.Checked)
                 filtroHoras = new TimeSpan[] { this.rangoHorario.HoraInicio, this.rangoHorario.HoraFin };
-            if (checkBoxTitulo.Checked)
+            if (this.checkBoxTitulo.Checked)
                 filtroTitulo = this.textBoxTitulo.Text;
-            if (checkBoxDescripcion.Checked)
+            if (this.checkBoxDescripcion.Checked)
                 filtroDescripcion = this.textBoxDescripcion.Text;
 
-            List<Campania> listaFiltrada = this.iControladorDominio.FiltrarCampanias(filtroFechas, filtroHoras, filtroTitulo, filtroDescripcion);
-            this.CargarDataGridCampanias(listaFiltrada);
+            try
+            {
+                List<Campania> listaFiltrada = this.iControladorDominio.FiltrarCampanias(filtroFechas, filtroHoras, filtroTitulo, filtroDescripcion);
+                this.CargarDataGridCampanias(listaFiltrada);
+            }
+            catch (ExcepcionAlObtenerCampanias ex)
+            {
+                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            this.buttonBorrarFiltros.Enabled = true;
         }
 
         /// <summary>
@@ -157,8 +177,12 @@ namespace UI.NuevasPantallas
         /// </summary>
         private void VBaseCampania_Activated(object sender, EventArgs e)
         {
-            //Actualizamos el contenido del Datagrid:
-            this.CargarDataGridCampanias(this.iControladorDominio.ObtenerTodasLasCampanias());
+            try
+            {
+                //Actualizamos el contenido del Datagrid:
+                this.CargarDataGridCampanias(this.iControladorDominio.ObtenerTodasLasCampanias());
+            }
+            catch (ExcepcionAlObtenerCampanias) { }
 
             //Preguntamos si las ventanas hijas son nulas, sino significa que están abiertas
             //y les dejamos el foco 
@@ -167,7 +191,25 @@ namespace UI.NuevasPantallas
             else if (this.iVentanaEditar != null)
                 this.iVentanaEditar.Activate();
         }
+
         #endregion
+
         #endregion
+
+        private void buttonBorrarFiltros_Click(object sender, EventArgs e)
+        {
+            this.checkBoxDescripcion.Checked = false;
+            this.checkBoxRangoFechas.Checked = false;
+            this.checkBoxRangoHoras.Checked = false;
+            this.checkBoxTitulo.Checked = false;
+            this.textBoxDescripcion.Text = "";
+            this.textBoxTitulo.Text = "";
+            this.rangoHorario.HoraInicio = TimeSpan.Parse("00:00:00");
+            this.rangoHorario.HoraFin = TimeSpan.Parse("23:59:59");
+            this.rangoFecha.FechaInicio = DateTime.Today;
+            this.rangoFecha.FechaFin = DateTime.Today;
+            this.buttonFiltrar_Click(sender, e);
+            this.buttonBorrarFiltros.Enabled = false;
+        }
     }
 }

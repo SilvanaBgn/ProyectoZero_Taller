@@ -47,6 +47,7 @@ namespace UI.NuevasPantallas
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.buttonBorrarFiltros = new System.Windows.Forms.Button();
             this.ColumnFuenteId = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColumnTipo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColumnDescripcion = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -122,6 +123,7 @@ namespace UI.NuevasPantallas
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.buttonBorrarFiltros);
             this.groupBox1.Controls.Add(this.buttonFiltrar);
             this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox1.Location = new System.Drawing.Point(13, 336);
@@ -178,6 +180,56 @@ namespace UI.NuevasPantallas
             this.dataGridViewMostrar.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridViewMostrar.Size = new System.Drawing.Size(556, 245);
             this.dataGridViewMostrar.TabIndex = 24;
+            // 
+            // ColumnFuenteId
+            // 
+            this.ColumnFuenteId.DataPropertyName = "FuenteId";
+            this.ColumnFuenteId.HeaderText = "Cod";
+            this.ColumnFuenteId.Name = "ColumnFuenteId";
+            this.ColumnFuenteId.ReadOnly = true;
+            this.ColumnFuenteId.Width = 30;
+            // 
+            // ColumnTipo
+            // 
+            this.ColumnTipo.DataPropertyName = "Tipo";
+            this.ColumnTipo.HeaderText = "Tipo";
+            this.ColumnTipo.Name = "ColumnTipo";
+            this.ColumnTipo.ReadOnly = true;
+            this.ColumnTipo.Width = 80;
+            // 
+            // ColumnDescripcion
+            // 
+            this.ColumnDescripcion.DataPropertyName = "Descripcion";
+            this.ColumnDescripcion.HeaderText = "Descripción";
+            this.ColumnDescripcion.Name = "ColumnDescripcion";
+            this.ColumnDescripcion.ReadOnly = true;
+            this.ColumnDescripcion.Width = 160;
+            // 
+            // ColumnorigenItems
+            // 
+            this.ColumnorigenItems.DataPropertyName = "origenItems";
+            this.ColumnorigenItems.HeaderText = "Fuente (origen de datos)";
+            this.ColumnorigenItems.Name = "ColumnorigenItems";
+            this.ColumnorigenItems.ReadOnly = true;
+            this.ColumnorigenItems.Width = 240;
+            // 
+            // ColumnBanners
+            // 
+            this.ColumnBanners.DataPropertyName = "Banners";
+            this.ColumnBanners.HeaderText = "ColumnBanners";
+            this.ColumnBanners.Name = "ColumnBanners";
+            this.ColumnBanners.ReadOnly = true;
+            this.ColumnBanners.Visible = false;
+            this.ColumnBanners.Width = 106;
+            // 
+            // ColumnItems
+            // 
+            this.ColumnItems.DataPropertyName = "Items";
+            this.ColumnItems.HeaderText = "Items";
+            this.ColumnItems.Name = "ColumnItems";
+            this.ColumnItems.ReadOnly = true;
+            this.ColumnItems.Visible = false;
+            this.ColumnItems.Width = 57;
             // 
             // buttonBorrar
             // 
@@ -245,55 +297,20 @@ namespace UI.NuevasPantallas
             this.pictureBox1.TabIndex = 33;
             this.pictureBox1.TabStop = false;
             // 
-            // ColumnFuenteId
+            // buttonBorrarFiltros
             // 
-            this.ColumnFuenteId.DataPropertyName = "FuenteId";
-            this.ColumnFuenteId.HeaderText = "Cod";
-            this.ColumnFuenteId.Name = "ColumnFuenteId";
-            this.ColumnFuenteId.ReadOnly = true;
-            this.ColumnFuenteId.Width = 30;
-            // 
-            // ColumnTipo
-            // 
-            this.ColumnTipo.DataPropertyName = "Tipo";
-            this.ColumnTipo.HeaderText = "Tipo";
-            this.ColumnTipo.Name = "ColumnTipo";
-            this.ColumnTipo.ReadOnly = true;
-            this.ColumnTipo.Width = 80;
-            // 
-            // ColumnDescripcion
-            // 
-            this.ColumnDescripcion.DataPropertyName = "Descripcion";
-            this.ColumnDescripcion.HeaderText = "Descripción";
-            this.ColumnDescripcion.Name = "ColumnDescripcion";
-            this.ColumnDescripcion.ReadOnly = true;
-            this.ColumnDescripcion.Width = 160;
-            // 
-            // ColumnorigenItems
-            // 
-            this.ColumnorigenItems.DataPropertyName = "origenItems";
-            this.ColumnorigenItems.HeaderText = "Origen de los datos";
-            this.ColumnorigenItems.Name = "ColumnorigenItems";
-            this.ColumnorigenItems.ReadOnly = true;
-            this.ColumnorigenItems.Width = 240;
-            // 
-            // ColumnBanners
-            // 
-            this.ColumnBanners.DataPropertyName = "Banners";
-            this.ColumnBanners.HeaderText = "ColumnBanners";
-            this.ColumnBanners.Name = "ColumnBanners";
-            this.ColumnBanners.ReadOnly = true;
-            this.ColumnBanners.Visible = false;
-            this.ColumnBanners.Width = 106;
-            // 
-            // ColumnItems
-            // 
-            this.ColumnItems.DataPropertyName = "Items";
-            this.ColumnItems.HeaderText = "Items";
-            this.ColumnItems.Name = "ColumnItems";
-            this.ColumnItems.ReadOnly = true;
-            this.ColumnItems.Visible = false;
-            this.ColumnItems.Width = 57;
+            this.buttonBorrarFiltros.Enabled = false;
+            this.buttonBorrarFiltros.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonBorrarFiltros.Image = global::UI.Properties.Resources.Eliminar7;
+            this.buttonBorrarFiltros.Location = new System.Drawing.Point(101, 23);
+            this.buttonBorrarFiltros.Name = "buttonBorrarFiltros";
+            this.buttonBorrarFiltros.Size = new System.Drawing.Size(115, 35);
+            this.buttonBorrarFiltros.TabIndex = 36;
+            this.buttonBorrarFiltros.Text = "Borrar filtros";
+            this.buttonBorrarFiltros.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.buttonBorrarFiltros.UseVisualStyleBackColor = true;
+            this.buttonBorrarFiltros.Click += new System.EventHandler(this.buttonBorrarFiltros_Click);
+            this.buttonBorrarFiltros.Enabled = false;
             // 
             // VBaseFuente
             // 
@@ -352,5 +369,6 @@ namespace UI.NuevasPantallas
         private DataGridViewTextBoxColumn ColumnorigenItems;
         private DataGridViewTextBoxColumn ColumnBanners;
         private DataGridViewTextBoxColumn ColumnItems;
+        protected Button buttonBorrarFiltros;
     }
 }

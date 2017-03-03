@@ -9,6 +9,8 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using UI.NuevasPantallas;
 using Dominio;
+using Excepciones.ExcepcionesPantalla;
+using Excepciones;
 
 namespace UI.NuevasPantallas
 {
@@ -42,7 +44,8 @@ namespace UI.NuevasPantallas
         {
             if (this.dataGridViewMostrar.SelectedRows.Count == 0)
                 return null;
-            else return (Banner)this.dataGridViewMostrar.SelectedRows[0].DataBoundItem;
+            else
+                return (Banner)this.dataGridViewMostrar.SelectedRows[0].DataBoundItem;
         }
 
         /// <summary>
@@ -119,8 +122,17 @@ namespace UI.NuevasPantallas
                         this.iControladorDominio.GuardarCambios();
                         this.CargarDataGridBanners(this.iControladorDominio.ObtenerTodosLosBanners());
                     }
+                    catch (ExcepcionAlObtenerBanners) { }
+                    catch (ExcepcionAlEliminar ex)
+                    {
+                        MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                    catch (ExcepcionAlGuardarCambios ex)
+                    {
+                        MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
                     catch (Exception)
-                    { MessageBox.Show("No se pudo borrar el banner", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error); }
+                    { MessageBox.Show("Ha ocurrido un error. Contacte con el administrador", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error); }
                 }
             }
         }
@@ -146,9 +158,16 @@ namespace UI.NuevasPantallas
                 filtroTitulo = this.textBoxTitulo.Text;
             if (checkBoxDescripcion.Checked)
                 filtroDescripcion = this.textBoxDescripcion.Text;
-
-            List<Banner> listaFiltrada = this.iControladorDominio.FiltrarBanners(filtroFechas, filtroHoras, filtroTitulo, filtroDescripcion);
-            this.CargarDataGridBanners(listaFiltrada);
+            try
+            {
+                List<Banner> listaFiltrada = this.iControladorDominio.FiltrarBanners(filtroFechas, filtroHoras, filtroTitulo, filtroDescripcion);
+                this.CargarDataGridBanners(listaFiltrada);
+            }
+            catch (ExcepcionAlObtenerBanners ex)
+            {
+                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            this.buttonBorrarFiltros.Enabled = true;
         }
 
         /// <summary>
@@ -156,8 +175,12 @@ namespace UI.NuevasPantallas
         /// </summary>
         private void VBaseBanner_Activated(object sender, EventArgs e)
         {
-            //Actualizamos el contenido del Datagrid:
-            this.CargarDataGridBanners(this.iControladorDominio.ObtenerTodosLosBanners());
+            try
+            {
+                //Actualizamos el contenido del Datagrid:
+                this.CargarDataGridBanners(this.iControladorDominio.ObtenerTodosLosBanners());
+            }
+            catch (ExcepcionAlObtenerBanners) { }
 
             //Preguntamos si las ventanas hijas son nulas, sino significa que están abiertas
             //y les dejamos el foco 
@@ -167,6 +190,23 @@ namespace UI.NuevasPantallas
                 this.iVentanaEditar.Activate();
         }
         #endregion
+
         #endregion
+
+        private void buttonBorrarFiltros_Click(object sender, EventArgs e)
+        {
+            this.checkBoxDescripcion.Checked = false;
+            this.checkBoxRangoFechas.Checked = false;
+            this.checkBoxRangoHoras.Checked = false;
+            this.checkBoxTitulo.Checked = false;
+            this.textBoxDescripcion.Text = "";
+            this.textBoxTitulo.Text = "";
+            this.rangoHorario.HoraInicio = TimeSpan.Parse("00:00:00");
+            this.rangoHorario.HoraFin = TimeSpan.Parse("23:59:59");
+            this.rangoFecha.FechaInicio = DateTime.Today;
+            this.rangoFecha.FechaFin = DateTime.Today;
+            this.buttonFiltrar_Click(sender, e);
+            this.buttonBorrarFiltros.Enabled = false;
+        }
     }
 }

@@ -63,6 +63,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "VNuevoBanner";
             this.Text = "Nuevo Banner";
+            this.Activated += new System.EventHandler(this.VNuevoBanner_Activated);
             this.Shown += new System.EventHandler(this.VNuevoBanner_Shown);
             this.groupBox1.ResumeLayout(false);
             this.ResumeLayout(false);

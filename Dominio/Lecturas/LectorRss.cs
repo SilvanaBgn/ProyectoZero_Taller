@@ -81,7 +81,7 @@ namespace Dominio.Lecturas
                 {
                     Titulo = LectorRss.GetXmlNodeValue<string>(itemXml, "title"),
                     Descripcion = LectorRss.GetXmlNodeValue<string>(itemXml, "description"),
-                    Url = new Uri(LectorRss.GetXmlNodeValue<string>(itemXml, "link")).ToString(),
+                    Url = new Uri(LectorRss.GetXmlNodeValue<string>(itemXml, "link")).ToString()
                 });
             }
             return items;
