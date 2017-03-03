@@ -11,7 +11,6 @@ using Dominio;
 using Contenedor;
 using System.Threading;
 using System.IO;
-using Helper;
 
 namespace UI.NuevasPantallas
 {

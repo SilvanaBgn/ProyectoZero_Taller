@@ -106,10 +106,6 @@
       <Project>{c0bd7184-1899-4535-96fd-223de19e1d25}</Project>
       <Name>Excepciones</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Helper\Helper.csproj">
-      <Project>{86b9361e-1c96-41b4-80c6-5e7dcb76e8de}</Project>
-      <Name>Helper</Name>
-    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Properties\Resources.resx">

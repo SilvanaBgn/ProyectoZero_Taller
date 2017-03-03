@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.IO;
 using Dominio;
-using Helper;
+using HelperUI;
 
 
 namespace UI.UserControls

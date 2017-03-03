@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using System.Drawing;
 using System.IO;
 
-namespace Helper
+namespace HelperUI
 {
     /// <summary>
     /// Clase que pone a disposición los métodos para hacer conversiones de tipos de imágenes

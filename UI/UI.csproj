@@ -74,7 +74,7 @@
   </PropertyGroup>
   <PropertyGroup />
   <PropertyGroup>
-    <ManifestCertificateThumbprint>56EFB9CF38E69CF1C79F1AF306954ADE4D7F856A</ManifestCertificateThumbprint>
+    <ManifestCertificateThumbprint>8A1F0A2CAAD84F7F1539C8FE8A5A7DD42C3BB07F</ManifestCertificateThumbprint>
   </PropertyGroup>
   <PropertyGroup>
     <ManifestKeyFile>UI_TemporaryKey.pfx</ManifestKeyFile>
@@ -83,7 +83,10 @@
     <GenerateManifests>true</GenerateManifests>
   </PropertyGroup>
   <PropertyGroup>
-    <SignManifests>true</SignManifests>
+    <SignManifests>false</SignManifests>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignAssembly>false</SignAssembly>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="log4net, Version=1.2.14.0, Culture=neutral, PublicKeyToken=669e0ddf0bb1aa2a, processorArchitecture=MSIL">
@@ -120,6 +123,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="HelperUI\ConversorImagen.cs" />
     <Compile Include="HelperUI\InfoActualPantallaPublicitaria.cs" />
     <Compile Include="HelperUI\ValidacionTexto.cs" />
     <Compile Include="NuevasPantallas\ExcepcionAlEliminar.cs" />
@@ -355,10 +359,6 @@
     <ProjectReference Include="..\Excepciones\Excepciones.csproj">
       <Project>{c0bd7184-1899-4535-96fd-223de19e1d25}</Project>
       <Name>Excepciones</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Helper\Helper.csproj">
-      <Project>{86b9361e-1c96-41b4-80c6-5e7dcb76e8de}</Project>
-      <Name>Helper</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
