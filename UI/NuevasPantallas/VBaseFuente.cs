@@ -167,6 +167,7 @@ namespace UI.NuevasPantallas
             {
                 MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+            this.buttonBorrarFiltros.Enabled = true;
         }
 
         /// <summary>
