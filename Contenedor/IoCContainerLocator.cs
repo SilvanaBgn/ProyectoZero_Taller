@@ -29,10 +29,6 @@ namespace Contenedor
             //mUnityContainer.RegisterType<IUnitOfWork, UnitOfWork>(new ContainerControlledLifetimeManager());
             mUnityContainer.RegisterType<IUnitOfWork, UnitOfWork>();
 
-            //mUnityContainer.RegisterType<IRepositorio<Campania>, Repositorio<Campania>>(new InjectionConstructor
-            //    (typeof(IEntityFrameworkUnitOfWork)));
-            mUnityContainer.RegisterType<IRepositorio<Campania>, Repositorio<Campania>>();
-
             return mUnityContainer;
         });
 

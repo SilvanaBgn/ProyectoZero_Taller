@@ -86,7 +86,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ControladorContenedor.cs" />
     <Compile Include="IoCContainerLocator.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Resolucionador.cs" />
