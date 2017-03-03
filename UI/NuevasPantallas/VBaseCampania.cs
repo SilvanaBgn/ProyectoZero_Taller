@@ -151,13 +151,13 @@ namespace UI.NuevasPantallas
             string filtroTitulo = null;
             string filtroDescripcion = null;
 
-            if (checkBoxRangoFechas.Checked)
+            if (this.checkBoxRangoFechas.Checked)
                 filtroFechas = new DateTime[] { this.rangoFecha.FechaInicio, this.rangoFecha.FechaFin };
-            if (checkBoxRangoHoras.Checked)
+            if (this.checkBoxRangoHoras.Checked)
                 filtroHoras = new TimeSpan[] { this.rangoHorario.HoraInicio, this.rangoHorario.HoraFin };
-            if (checkBoxTitulo.Checked)
+            if (this.checkBoxTitulo.Checked)
                 filtroTitulo = this.textBoxTitulo.Text;
-            if (checkBoxDescripcion.Checked)
+            if (this.checkBoxDescripcion.Checked)
                 filtroDescripcion = this.textBoxDescripcion.Text;
 
             try
@@ -169,6 +169,7 @@ namespace UI.NuevasPantallas
             {
                 MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+            this.buttonBorrarFiltros.Enabled = true;
         }
 
         /// <summary>
@@ -190,7 +191,25 @@ namespace UI.NuevasPantallas
             else if (this.iVentanaEditar != null)
                 this.iVentanaEditar.Activate();
         }
+
         #endregion
+
         #endregion
+
+        private void buttonBorrarFiltros_Click(object sender, EventArgs e)
+        {
+            this.checkBoxDescripcion.Checked = false;
+            this.checkBoxRangoFechas.Checked = false;
+            this.checkBoxRangoHoras.Checked = false;
+            this.checkBoxTitulo.Checked = false;
+            this.textBoxDescripcion.Text = "";
+            this.textBoxTitulo.Text = "";
+            this.rangoHorario.HoraInicio = TimeSpan.Parse("00:00:00");
+            this.rangoHorario.HoraFin = TimeSpan.Parse("23:59:59");
+            this.rangoFecha.FechaInicio = DateTime.Today;
+            this.rangoFecha.FechaFin = DateTime.Today;
+            this.buttonFiltrar_Click(sender, e);
+            this.buttonBorrarFiltros.Enabled = false;
+        }
     }
 }

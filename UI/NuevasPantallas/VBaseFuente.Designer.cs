@@ -41,18 +41,19 @@ namespace UI.NuevasPantallas
             this.buttonFiltrar = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.dataGridViewMostrar = new System.Windows.Forms.DataGridView();
-            this.ColumnFuenteId = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColumnTipo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColumnDescripcion = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColumnorigenItems = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColumnBanners = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColumnItems = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.buttonBorrar = new System.Windows.Forms.Button();
             this.buttonEditar = new System.Windows.Forms.Button();
             this.buttonNuevo = new System.Windows.Forms.Button();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.buttonBorrarFiltros = new System.Windows.Forms.Button();
+            this.ColumnFuenteId = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnTipo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnDescripcion = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnorigenItems = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnBanners = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnItems = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewMostrar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
@@ -122,6 +123,7 @@ namespace UI.NuevasPantallas
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.buttonBorrarFiltros);
             this.groupBox1.Controls.Add(this.buttonFiltrar);
             this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox1.Location = new System.Drawing.Point(13, 336);
@@ -295,6 +297,21 @@ namespace UI.NuevasPantallas
             this.pictureBox1.TabIndex = 33;
             this.pictureBox1.TabStop = false;
             // 
+            // buttonBorrarFiltros
+            // 
+            this.buttonBorrarFiltros.Enabled = false;
+            this.buttonBorrarFiltros.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonBorrarFiltros.Image = global::UI.Properties.Resources.Eliminar7;
+            this.buttonBorrarFiltros.Location = new System.Drawing.Point(101, 23);
+            this.buttonBorrarFiltros.Name = "buttonBorrarFiltros";
+            this.buttonBorrarFiltros.Size = new System.Drawing.Size(115, 35);
+            this.buttonBorrarFiltros.TabIndex = 36;
+            this.buttonBorrarFiltros.Text = "Borrar filtros";
+            this.buttonBorrarFiltros.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.buttonBorrarFiltros.UseVisualStyleBackColor = true;
+            this.buttonBorrarFiltros.Click += new System.EventHandler(this.buttonBorrarFiltros_Click);
+            this.buttonBorrarFiltros.Enabled = false;
+            // 
             // VBaseFuente
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -352,5 +369,6 @@ namespace UI.NuevasPantallas
         private DataGridViewTextBoxColumn ColumnorigenItems;
         private DataGridViewTextBoxColumn ColumnBanners;
         private DataGridViewTextBoxColumn ColumnItems;
+        protected Button buttonBorrarFiltros;
     }
 }

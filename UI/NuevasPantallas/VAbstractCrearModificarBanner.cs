@@ -62,7 +62,7 @@ namespace UI.NuevasPantallas
             this.dataGridViewMostrarFuentes.Columns["Tipo"].DisplayIndex = 0;
             this.dataGridViewMostrarFuentes.Columns["Descripcion"].DisplayIndex = 1;
             this.dataGridViewMostrarFuentes.Columns["origenItems"].DisplayIndex = 2;
-            this.dataGridViewMostrarFuentes.Columns["origenItems"].HeaderText = "Origen items";
+            this.dataGridViewMostrarFuentes.Columns["origenItems"].HeaderText = "Origen de los datos";
             this.dataGridViewMostrarFuentes.Columns["FuenteId"].Visible = false;
             this.dataGridViewMostrarFuentes.Columns["Banners"].Visible = false;
             this.dataGridViewMostrarFuentes.Columns["Items"].Visible = false;

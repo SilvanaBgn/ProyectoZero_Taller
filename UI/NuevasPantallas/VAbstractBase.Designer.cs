@@ -50,6 +50,7 @@ namespace UI.NuevasPantallas
             this.rangoHorario = new UI.UserControls.RangoHorario();
             this.rangoFecha = new UI.UserControls.RangoFecha();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.buttonBorrarFiltros = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewMostrar)).BeginInit();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -89,6 +90,7 @@ namespace UI.NuevasPantallas
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.buttonBorrarFiltros);
             this.groupBox1.Controls.Add(this.buttonFiltrar);
             this.groupBox1.Controls.Add(this.checkBoxRangoHoras);
             this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -262,6 +264,19 @@ namespace UI.NuevasPantallas
             this.pictureBox2.TabIndex = 31;
             this.pictureBox2.TabStop = false;
             // 
+            // buttonBorrarFiltros
+            // 
+            this.buttonBorrarFiltros.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonBorrarFiltros.Image = global::UI.Properties.Resources.Eliminar7;
+            this.buttonBorrarFiltros.Location = new System.Drawing.Point(101, 23);
+            this.buttonBorrarFiltros.Name = "buttonBorrarFiltros";
+            this.buttonBorrarFiltros.Size = new System.Drawing.Size(115, 35);
+            this.buttonBorrarFiltros.TabIndex = 11;
+            this.buttonBorrarFiltros.Text = "Borrar filtros";
+            this.buttonBorrarFiltros.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.buttonBorrarFiltros.UseVisualStyleBackColor = true;
+            this.buttonBorrarFiltros.Enabled = false;
+            // 
             // VAbstractBase
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -319,5 +334,6 @@ namespace UI.NuevasPantallas
         private PictureBox pictureBox3;
         protected Button buttonFiltrar;
         private PictureBox pictureBox2;
+        protected Button buttonBorrarFiltros;
     }
 }

@@ -167,6 +167,7 @@ namespace UI.NuevasPantallas
             {
                 MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+            this.buttonBorrarFiltros.Enabled = true;
         }
 
         /// <summary>
@@ -189,6 +190,23 @@ namespace UI.NuevasPantallas
                 this.iVentanaEditar.Activate();
         }
         #endregion
+
         #endregion
+
+        private void buttonBorrarFiltros_Click(object sender, EventArgs e)
+        {
+            this.checkBoxDescripcion.Checked = false;
+            this.checkBoxRangoFechas.Checked = false;
+            this.checkBoxRangoHoras.Checked = false;
+            this.checkBoxTitulo.Checked = false;
+            this.textBoxDescripcion.Text = "";
+            this.textBoxTitulo.Text = "";
+            this.rangoHorario.HoraInicio = TimeSpan.Parse("00:00:00");
+            this.rangoHorario.HoraFin = TimeSpan.Parse("23:59:59");
+            this.rangoFecha.FechaInicio = DateTime.Today;
+            this.rangoFecha.FechaFin = DateTime.Today;
+            this.buttonFiltrar_Click(sender, e);
+            this.buttonBorrarFiltros.Enabled = false;
+        }
     }
 }

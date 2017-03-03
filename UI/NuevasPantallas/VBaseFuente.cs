@@ -167,6 +167,7 @@ namespace UI.NuevasPantallas
             {
                 MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+            this.buttonBorrarFiltros.Enabled = true;
         }
 
         /// <summary>
@@ -256,6 +257,17 @@ namespace UI.NuevasPantallas
                 this.iVentanaEditar.Activate();
         }
         #endregion
+
         #endregion
+
+        private void buttonBorrarFiltros_Click(object sender, EventArgs e)
+        {
+            this.checkBoxDescripcion.Checked = false;
+            this.checkBoxTipo.Checked = false;
+            this.textBoxDescripcion.Text = "";
+            this.comboBoxTipo.SelectedText = "";
+            this.buttonFiltrar_Click(sender, e);
+            this.buttonBorrarFiltros.Enabled = false;
+        }
     }
 }
