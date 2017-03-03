@@ -20,7 +20,6 @@ namespace UI.NuevasPantallas
         public VNuevaFuente(ref ControladorDominio pControladorDominio) : base(ref pControladorDominio)
         {
             InitializeComponent();
-            this.comboBoxTipoFuente.DropDownStyle = ComboBoxStyle.DropDownList;
         }
 
 
@@ -78,12 +77,17 @@ namespace UI.NuevasPantallas
                         MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         this.buttonGuardar.Enabled = true;
                     }
+                    catch (ExcepcionAlAgregar ex)
+                    {
+                        MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        this.buttonGuardar.Enabled = true;
+                    }
                     catch (ExcepcionAlGuardarCambios ex)
                     {
                         MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         this.buttonGuardar.Enabled = true;
                     }
-                    catch (Exception ex)
+                    catch (Exception)
                     {
                         MessageBox.Show("Ha ocurrido un error. Contacte con el administrador", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         this.buttonGuardar.Enabled = true;

@@ -8,46 +8,11 @@ using System.IO;
 
 namespace Helper
 {
+    /// <summary>
+    /// Clase que pone a disposición los métodos para hacer conversiones de tipos de imágenes
+    /// </summary>
     public static class ConversorImagen
     {
-
-        //public static byte[] Resize2Max50Kbytes(byte[] byteImageIn)
-        //{
-        //    byte[] currentByteImageArray = byteImageIn;
-        //    double scale=0.75f;
-
-        //    //if (!IsValidImage(byteImageIn))
-        //    //{
-        //    //    return null;
-        //    //}
-
-        //    MemoryStream inputMemoryStream = new MemoryStream(byteImageIn);
-        //    Image fullsizeImage = Image.FromStream(inputMemoryStream);
-        //    inputMemoryStream.Dispose();
-        //    inputMemoryStream.Close();
-        //    //inputMemoryStream.SetLength(0);
-
-        //    if (currentByteImageArray.Length>50000)
-        //    {
-            //    while (currentByteImageArray.Length > 50000)
-            //    {
-            //        Bitmap fullSizeBitmap = new Bitmap(fullsizeImage, new Size((int)(fullsizeImage.Width * scale), (int)(fullsizeImage.Height * scale)));
-            //        MemoryStream resultStream = new MemoryStream();
-
-            //        fullSizeBitmap.Save(resultStream, fullsizeImage.RawFormat);
-
-            //        currentByteImageArray = resultStream.ToArray();
-            //        resultStream.Dispose();
-            //        resultStream.Close();
-
-            //        scale -= 0.05f;
-            //    }
-            //}
-
-
-        //    return currentByteImageArray;
-        //}
-
         /// <summary>
         /// Convierte una imagen de una ruta de archivo en una cadena de bytes
         /// </summary>

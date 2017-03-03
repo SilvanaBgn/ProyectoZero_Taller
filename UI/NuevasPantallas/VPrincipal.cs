@@ -12,6 +12,7 @@ using Contenedor;
 using System.Threading;
 using Excepciones.ExcepcionesPantalla;
 using Excepciones.ExcepcionesDominio;
+using UI.HelperUI;
 
 namespace UI.NuevasPantallas
 {
@@ -77,6 +78,11 @@ namespace UI.NuevasPantallas
         /// </summary>
         public bool BDcreada = false;
 
+        /// <summary>
+        /// Atributo que pone a disposición los métodos para hacer la actualización de la ventana VPrincipal
+        /// </summary>
+        private InfoActualPantallaPublicitaria iInfoActualPantallaPrincipal;
+
 
 
         //CONSTRUCTOR
@@ -84,6 +90,7 @@ namespace UI.NuevasPantallas
         {
             InitializeComponent();
             this.iControladorDominio = new ControladorDominio(Resolucionador<IUnitOfWork>.Resolver());
+            this.iInfoActualPantallaPrincipal = new InfoActualPantallaPublicitaria(ref this.iControladorDominio);
 
             //Se ubica la ventana en el centro de la pantalla:
             this.StartPosition = FormStartPosition.CenterScreen;
@@ -98,7 +105,7 @@ namespace UI.NuevasPantallas
         /// </summary>
         private void ActualizarBannerDeslizante()
         {
-            string infoBannerNuevo = this.iControladorDominio.InfoBanner(this.iBannerAPasar);
+            string infoBannerNuevo = this.iInfoActualPantallaPrincipal.InfoBanner(this.iBannerAPasar);
             //En el caso de una Lectura Externa o de que el banner cambie a los 15 min, serían distintos,
             //entonces preguntamos para que en el caso el bannerDeslizante no se recargue:
             if (this.iInfoBannerActual != infoBannerNuevo)
@@ -115,7 +122,7 @@ namespace UI.NuevasPantallas
         /// </summary>
         private void ActualizarCampaniaDeslizante()
         {
-            object[] infoCampaniaNueva = this.iControladorDominio.InfoCampania(this.iCampaniaAPasar);
+            object[] infoCampaniaNueva = this.iInfoActualPantallaPrincipal.InfoCampania(this.iCampaniaAPasar);
             this.campaniaDeslizante.Stop();
             //Asignamos el valor y la duración de c/imagen, que debe reproducir:
             this.campaniaDeslizante.Start((List<Imagen>)(infoCampaniaNueva)[0], (int)(infoCampaniaNueva)[1]);
@@ -160,7 +167,7 @@ namespace UI.NuevasPantallas
                     this.iFechaActual = DateTime.Today;
                     this.iHoraActual = new TimeSpan(fechaHora.Hour, fechaHora.Minute, fechaHora.Second);
 
-                    this.iCampaniaAPasar = this.iControladorDominio.ProximaCampaniaAPasar(this.iFechaActual, this.iHoraActual);
+                    this.iCampaniaAPasar = this.iInfoActualPantallaPrincipal.ProximaCampaniaAPasar(this.iFechaActual, this.iHoraActual);
 
                     //Si pasó es porque se completó la campania (this.iObtenidoCampania==true):
                     this.iObtenidoCampania = true;
@@ -184,7 +191,7 @@ namespace UI.NuevasPantallas
                     this.iFechaActual = DateTime.Today;
                     this.iHoraActual = new TimeSpan(fechaHora.Hour, fechaHora.Minute, fechaHora.Second);
 
-                    this.iBannerAPasar = this.iControladorDominio.ProximoBannerAPasar(this.iFechaActual, this.iHoraActual);
+                    this.iBannerAPasar = this.iInfoActualPantallaPrincipal.ProximoBannerAPasar(this.iFechaActual, this.iHoraActual);
 
                     //Si pasó es porque se completó el banner (this.iObtenidoBanner==true):
                     this.iObtenidoBanner = true;
@@ -230,7 +237,7 @@ namespace UI.NuevasPantallas
                 DateTime fechaHora = DateTime.Now;
                 this.iFechaActual = DateTime.Today;
                 this.iHoraActual = new TimeSpan(fechaHora.Hour, fechaHora.Minute, fechaHora.Second);
-                this.timerChequeoCambio.Interval = this.iControladorDominio.IntervaloAlProxCuartoDeHora(this.iHoraActual);
+                this.timerChequeoCambio.Interval = this.iInfoActualPantallaPrincipal.IntervaloAlProxCuartoDeHora(this.iHoraActual);
 
                 //Ponemos a correr el timer:
                 this.timerChequeoCambio.Start();
@@ -251,7 +258,7 @@ namespace UI.NuevasPantallas
         {
             try
             {
-                this.iControladorDominio.LeerBanner(this.iBannerAPasar);
+                this.iInfoActualPantallaPrincipal.LeerBanner(this.iBannerAPasar);
                 this.iLeidoBanner = true;
             }
             catch (ExcepcionAlLeerFuenteExternaDelBanner ex)

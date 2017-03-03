@@ -21,7 +21,6 @@ namespace UI.NuevasPantallas
         {
             InitializeComponent();
             this.iFuente = pFuenteAModificar;
-            this.comboBoxTipoFuente.DropDownStyle = ComboBoxStyle.DropDownList;
         }
 
 
@@ -89,6 +88,11 @@ namespace UI.NuevasPantallas
                 this.buttonGuardar.Enabled = true;
             }
             catch (ExcepcionCamposSinCompletar ex)
+            {
+                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                this.buttonGuardar.Enabled = true;
+            }
+            catch (ExcepcionAlModificar ex)
             {
                 MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 this.buttonGuardar.Enabled = true;

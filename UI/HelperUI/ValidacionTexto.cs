@@ -4,8 +4,11 @@ using System.Text;
 using System.Text.RegularExpressions;
 using System.Windows.Forms;
 
-namespace Helper
+namespace HelperUI
 {
+    /// <summary>
+    /// Clase que pone a disposición los métodos para controlar carateres que sigan una determinada expresión regular.
+    /// </summary>
     public static class ValidacionTexto
     {
         /// <summary>
