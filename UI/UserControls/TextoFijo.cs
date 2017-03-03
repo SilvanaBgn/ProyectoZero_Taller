@@ -18,7 +18,7 @@ namespace UI.UserControls
         /// <summary>
         /// Atributo que mantiene actualizadas la lista de items del comboBoxItems
         /// </summary>
-        private List<ItemFuenteInformacion> iListaItems;
+        private List<Item> iListaItems;
 
 
 
@@ -26,7 +26,7 @@ namespace UI.UserControls
         public TextoFijo()
         {
             InitializeComponent();
-            this.iListaItems = new List<ItemFuenteInformacion>();
+            this.iListaItems = new List<Item>();
         }
 
 
@@ -171,14 +171,14 @@ namespace UI.UserControls
         [Browsable(false)]
         [EditorBrowsable(EditorBrowsableState.Never)]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
-        public List<ItemFuenteInformacion> ListaItems
+        public List<Item> ListaItems
         {
             get //Actualiza la lista de items (this.iListaItems) y la devuelve
             {
-                this.iListaItems = new List<ItemFuenteInformacion>();
+                this.iListaItems = new List<Item>();
                 foreach (var itemComboBox in this.comboBoxItems.Items)
                 {
-                    ItemFuenteInformacion item = new ItemFuenteInformacion(itemComboBox.ToString());
+                    Item item = new Item(itemComboBox.ToString());
                     this.iListaItems.Add(item);
                 }
 

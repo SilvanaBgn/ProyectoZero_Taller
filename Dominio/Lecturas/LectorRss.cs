@@ -8,16 +8,16 @@ namespace Dominio.Lecturas
     /// <summary>
     /// Lector de RSS, que procesa directamente el XML en bruto de la fuente.
     /// </summary>
-    public class LectorRss : ILectorFuenteInformacion
+    public class LectorRss : ILector
     {
         /// <summary>
         /// Lee una URL válida 
         /// </summary>
         /// <param name="pUrl">String de la URL a leer</param>
         /// <returns>devuelve una colección de los elementos que contiene la URL</returns>
-        public IEnumerable<ItemFuenteInformacion> Leer(String pUrl)
+        public IEnumerable<Item> Leer(String pUrl)
         {
-            IEnumerable<ItemFuenteInformacion> items = new List<ItemFuenteInformacion>();
+            IEnumerable<Item> items = new List<Item>();
 
             Uri urlCorrecta;
             if(Uri.TryCreate(pUrl.Trim(), UriKind.Absolute, out urlCorrecta))
@@ -31,12 +31,12 @@ namespace Dominio.Lecturas
         /// </summary>
         /// <param name="pItemsRss">colección de Item RSS</param>
         /// <returns>devuelve una colección de items con la descripción del Item RSS</returns>
-        private IEnumerable<ItemFuenteInformacion> ItemRss_a_Item(IEnumerable<ItemRss> pItemsRss)
+        private IEnumerable<Item> ItemRss_a_Item(IEnumerable<ItemRss> pItemsRss)
         {
-            IList<ItemFuenteInformacion> listaItems = new List<ItemFuenteInformacion>();
+            IList<Item> listaItems = new List<Item>();
             foreach (var itemRss in pItemsRss)
             {
-                ItemFuenteInformacion item = new ItemFuenteInformacion(itemRss.ToString());
+                Item item = new Item(itemRss.ToString());
                 listaItems.Add(item);
             }
             return listaItems;

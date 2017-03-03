@@ -40,7 +40,7 @@ namespace UI.Pantallas
                 else
                 {
                     //Creamos la fuente:
-                    this.iFuente = new FuenteInformacion();
+                    this.iFuente = new Fuente();
 
                     try
                     {

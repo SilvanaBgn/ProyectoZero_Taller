@@ -125,7 +125,7 @@ namespace UI.Pantallas
         /// </summary>
         private void VEditarBanner_Activated(object sender, EventArgs e)
         {
-            List<FuenteInformacion> fuenteAMostrar = new List<FuenteInformacion>();
+            List<Fuente> fuenteAMostrar = new List<Fuente>();
             fuenteAMostrar.Add(this.iControladorDominio.BuscarFuentePorId(this.iBanner.FuenteId));
             base.CargarDataGridViewFuentes(fuenteAMostrar);
             base.dataGridViewMostrarFuentes.Size = new System.Drawing.Size(436, this.dataGridViewMostrarFuentes.ColumnHeadersHeight +

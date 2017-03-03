@@ -17,7 +17,7 @@ namespace UI.Pantallas
     public partial class VEditarFuente : VAbstractCrearModificarFuente
     {
         //CONSTRUCTOR
-        public VEditarFuente(ref ControladorDominio pControladorDominio, FuenteInformacion pFuenteAModificar) : base(ref pControladorDominio)
+        public VEditarFuente(ref ControladorDominio pControladorDominio, Fuente pFuenteAModificar) : base(ref pControladorDominio)
         {
             InitializeComponent();
             this.iFuente = pFuenteAModificar;
@@ -47,7 +47,7 @@ namespace UI.Pantallas
                     this.panelRss.Visible = false;
                     this.panelTextoFijo.Visible = true;
                     this.textoFijo.Descripcion = this.iFuente.Descripcion;
-                    this.textoFijo.ListaItems = (List<ItemFuenteInformacion>)this.iFuente.Items;
+                    this.textoFijo.ListaItems = (List<Item>)this.iFuente.Items;
                     break;
             }
         }

@@ -24,7 +24,7 @@ namespace Dominio
         /// <summary>
         /// Repositorio de las fuentes
         /// </summary>
-        IRepositorio<FuenteInformacion> RepositorioFuentes { get; }
+        IRepositorio<Fuente> RepositorioFuentes { get; }
 
         /// <summary>
         /// Commit sobre la base de datos. Si hay un problema de concurrencia lanzará una excepción

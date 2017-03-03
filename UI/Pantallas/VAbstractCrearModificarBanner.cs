@@ -51,7 +51,7 @@ namespace UI.Pantallas
         /// <summary>
         /// Carga el DataGridViewFuentes con la lista de fuentes
         /// </summary>
-        protected void CargarDataGridViewFuentes(List<FuenteInformacion> pListaFuentes)
+        protected void CargarDataGridViewFuentes(List<Fuente> pListaFuentes)
         {
             //Asignamos la lista al DataSource del DataGrid:
             this.dataGridViewMostrarFuentes.DataSource = pListaFuentes;
@@ -72,12 +72,12 @@ namespace UI.Pantallas
         /// Indica cuál es la fuente que está seleccionada actualmente en el this.dataGridViewMostrarFuentes
         /// </summary>
         /// <returns>Devuelve la fuente seleccionada </returns>
-        protected FuenteInformacion FuenteSeleccionada()
+        protected Fuente FuenteSeleccionada()
         {
             if (this.dataGridViewMostrarFuentes.SelectedRows.Count == 0)
                 return null;
             else
-                return (FuenteInformacion)this.dataGridViewMostrarFuentes.SelectedRows[0].DataBoundItem;
+                return (Fuente)this.dataGridViewMostrarFuentes.SelectedRows[0].DataBoundItem;
         }
         #endregion
 

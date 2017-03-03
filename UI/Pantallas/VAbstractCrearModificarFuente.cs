@@ -24,7 +24,7 @@ namespace UI.Pantallas
         /// <summary>
         /// Atributo que se utiliza para almacenar la fuente
         /// </summary>
-        protected FuenteInformacion iFuente;
+        protected Fuente iFuente;
 
         /// <summary>
         /// Variable booleana que se actualiza a true cuando se ha podido Guardar la Nueva fuente. Su finalidad 

@@ -443,7 +443,7 @@ namespace Dominio
         /// Agrega una nueva fuente al repositorio
         /// </summary>
         /// <param name="pFuente">fuente a agregar</param>
-        public void AgregarFuente(FuenteInformacion pFuente)
+        public void AgregarFuente(Fuente pFuente)
         {
             if (pFuente.Tipo == TipoFuente.Rss && pFuente.OrigenItems == "")
             {
@@ -474,7 +474,7 @@ namespace Dominio
         /// Modifica una fuente del repositorio
         /// </summary>
         /// <param name="pFuente">fuente a agregar</param>
-        public void ModificarFuente(FuenteInformacion pFuente)
+        public void ModificarFuente(Fuente pFuente)
         {
 
             if (pFuente.Tipo == TipoFuente.Rss && pFuente.OrigenItems == "")
@@ -523,7 +523,7 @@ namespace Dominio
         /// </summary>
         /// <param name="pId">ID de la fuente a buscar</param>
         /// <returns>devuelve la fuente buscada</returns>
-        public FuenteInformacion BuscarFuentePorId(int pId)
+        public Fuente BuscarFuentePorId(int pId)
         {
             try
             {
@@ -540,7 +540,7 @@ namespace Dominio
         /// </summary>
         /// <param name="pFilter">filtro de búsqueda para una fuente</param>
         /// <returns>devuelve el listado de fuentes buscadas</returns>
-        public List<FuenteInformacion> BuscarFuentePorAtributo(Expression<Func<FuenteInformacion, bool>> pFilter = null)
+        public List<Fuente> BuscarFuentePorAtributo(Expression<Func<Fuente, bool>> pFilter = null)
         {
             try
             {
@@ -556,7 +556,7 @@ namespace Dominio
         /// Obtiene todas las fuentes del repositorio fuentes
         /// </summary>
         /// <returns>devuelve la lista de las fuentes existentes</returns>
-        public List<FuenteInformacion> ObtenerTodasLasFuentes()
+        public List<Fuente> ObtenerTodasLasFuentes()
         {
             try
             {
@@ -574,7 +574,7 @@ namespace Dominio
         /// <param name="pFiltroTipoFuente">tipo de fuente</param>
         /// <param name="pFiltroDescripcion">descripción de la fuente</param>
         /// <returns>devuelve una lista de fuentes filtradas</returns>
-        public List<FuenteInformacion> FiltrarFuentes(string pFiltroTipoFuente, string pFiltroDescripcion)
+        public List<Fuente> FiltrarFuentes(string pFiltroTipoFuente, string pFiltroDescripcion)
         {
 
             TipoFuente tipoFuente;
@@ -586,8 +586,8 @@ namespace Dominio
             }
 
 
-            Expression<Func<FuenteInformacion, bool>> filtroTipoFuente = null;
-            Expression<Func<FuenteInformacion, bool>> filtroDescripcion = null;
+            Expression<Func<Fuente, bool>> filtroTipoFuente = null;
+            Expression<Func<Fuente, bool>> filtroDescripcion = null;
 
             //filtra por tipo de fuente
             if (pFiltroTipoFuente != null)

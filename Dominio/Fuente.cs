@@ -8,7 +8,7 @@ using Excepciones.ExcepcionesDominio;
 
 namespace Dominio
 {
-    public class FuenteInformacion
+    public class Fuente
     {
         /// <summary>
         /// Esta clase representa la información que tiene el objeto fuente del banner
@@ -27,7 +27,7 @@ namespace Dominio
 
         public virtual ICollection<Banner> Banners { get; set; }
 
-        public virtual ICollection<ItemFuenteInformacion> Items { get; set; }
+        public virtual ICollection<Item> Items { get; set; }
 
 
 
@@ -35,7 +35,7 @@ namespace Dominio
         /// Indica el método de lectura de esta fuente, según su Tipo
         /// </summary>
         [NotMapped]
-        private ILectorFuenteInformacion iLector { get; set; }
+        private ILector iLector { get; set; }
 
         private TipoFuente iTipo;
 
@@ -97,16 +97,16 @@ namespace Dominio
         /// <summary>
         /// Constructor para el caso del texto fijo, donde no hay origen de items
         /// </summary>
-        public FuenteInformacion() : this("", "Sin fuente", TipoFuente.TextoFijo)
+        public Fuente() : this("", "Sin fuente", TipoFuente.TextoFijo)
         { }
 
         /// <summary>
         /// Constructor de una fuente para el caso que tenga un origen de items
         /// </summary>
-        public FuenteInformacion(string pDescripcion, string pOrigenItems, TipoFuente pTipo)
+        public Fuente(string pDescripcion, string pOrigenItems, TipoFuente pTipo)
         {
             this.Banners = new List<Banner>();
-            this.Items = new List<ItemFuenteInformacion>();
+            this.Items = new List<Item>();
             this.iTipo = pTipo;
             this.Descripcion = pDescripcion;
             this.iOrigenItems = pOrigenItems;
@@ -131,8 +131,8 @@ namespace Dominio
                 //Con la siguiente sentencia, lee y asigna los items:
                 if (this.iLector != null)
                 {
-                    List<ItemFuenteInformacion> listaLeida = new List<ItemFuenteInformacion>();
-                    listaLeida = (List<ItemFuenteInformacion>)this.iLector.Leer(this.iOrigenItems);
+                    List<Item> listaLeida = new List<Item>();
+                    listaLeida = (List<Item>)this.iLector.Leer(this.iOrigenItems);
                     if (listaLeida.Count > 0)
                         this.Items = listaLeida;
                 }

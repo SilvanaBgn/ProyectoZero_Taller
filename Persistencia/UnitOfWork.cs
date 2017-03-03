@@ -20,7 +20,7 @@ namespace Persistencia
         private Contexto iContexto = new Contexto();
         private Repositorio<Campania> iRepoCampanias;
         private Repositorio<Banner> iRepoBanners;
-        private Repositorio<FuenteInformacion> iRepoFuentes;
+        private Repositorio<Fuente> iRepoFuentes;
 
         /// <summary>
         /// Si no existe el repositorio campania lo crea
@@ -55,13 +55,13 @@ namespace Persistencia
         /// <summary>
         /// Si no existe el repositorio fuente lo crea
         /// </summary>
-        public IRepositorio<FuenteInformacion> RepositorioFuentes
+        public IRepositorio<Fuente> RepositorioFuentes
         {
             get
             {
                 if (this.iRepoFuentes == null)
                 {
-                    this.iRepoFuentes = new Repositorio<FuenteInformacion>(this.iContexto);
+                    this.iRepoFuentes = new Repositorio<Fuente>(this.iContexto);
                 }
                 return this.iRepoFuentes;
             }
