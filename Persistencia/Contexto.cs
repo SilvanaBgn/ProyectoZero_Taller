@@ -36,77 +36,32 @@ namespace Persistencia
             base.OnModelCreating(pModelBuilder);
             pModelBuilder.Conventions.Remove<PluralizingTableNameConvention>();
 
-            // modelBuilder.Entity<Fuente>().HasOptional(c => c.Items).WithOptionalDependent().WillCascadeOnDelete(true);
-
-
-            //Campania-imagen
+            //Establece la navegabilidad entre las clases
             pModelBuilder.Entity<Campania>()
             .HasMany(o => o.Imagenes)
             .WithOptional()
             .HasForeignKey(oi => oi.CampaniaId);
 
-            pModelBuilder.Entity<Imagen>()
-            .HasKey(oi => new { oi.ImagenId, oi.CampaniaId })
-            .Property(oi => oi.ImagenId)
-            .HasDatabaseGeneratedOption(DatabaseGeneratedOption.Identity);
-
-
-            //Fuente-Banner
             pModelBuilder.Entity<Fuente>()
             .HasMany(o => o.Banners)
             .WithRequired()
             .HasForeignKey(oi => oi.FuenteId);
 
-            //pModelBuilder.Entity<Banner>()
-            //.HasKey(oi => new { oi.BannerId, oi.FuenteId })
-            //.Property(oi => oi.BannerId)
-            //.HasDatabaseGeneratedOption(DatabaseGeneratedOption.Identity);
-
-
-            //Fuente-Item
             pModelBuilder.Entity<Fuente>()
             .HasMany(o => o.Items)
             .WithOptional()
             .HasForeignKey(oi => oi.FuenteId);
 
+            //Establece las claves foráneas
+            pModelBuilder.Entity<Imagen>()
+            .HasKey(oi => new { oi.ImagenId, oi.CampaniaId })
+            .Property(oi => oi.ImagenId)
+            .HasDatabaseGeneratedOption(DatabaseGeneratedOption.Identity);
+
             pModelBuilder.Entity<Item>()
             .HasKey(oi => new { oi.ItemId, oi.FuenteId })
             .Property(oi => oi.ItemId)
             .HasDatabaseGeneratedOption(DatabaseGeneratedOption.Identity);
-
-
-
-
-
-
-
-
-
-            //pModelBuilder.Entity<Item>()
-            //.HasRequired<Fuente>(s => s.Fuente)
-            //.WithMany(i => i.Items)
-            //.WillCascadeOnDelete(true);
-
-            //pModelBuilder.Entity<Imagen>()
-            //.HasRequired<Campania>(s => s.Campania)
-            //.WithMany(i => i.Imagenes)
-            //.WillCascadeOnDelete(true);
-
-            //pModelBuilder.Entity<Banner>()
-            //.HasRequired<Fuente>(s => s.Fuente)
-            //.WithMany(i => i.Banners)
-            //.WillCascadeOnDelete(true);
-
-            //        pModelBuilder
-            //.Entity<Fuente>()
-            //.Property(t => t.origenItems)
-            //.HasColumnAnnotation(
-            //    "Index",
-            //    new IndexAnnotation(new[]
-            //        {
-            //            new IndexAttribute("Index1"),
-            //            new IndexAttribute("Index2") { IsUnique = true }
-            //        }));
         }
     }
 }

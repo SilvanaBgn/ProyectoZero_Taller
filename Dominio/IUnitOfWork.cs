@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 namespace Dominio
 {
     /// <summary>
-    /// Iterface que se encarga de la conección con la base de datos
+    /// Iterface que se encarga de la conexión con la base de datos
     /// </summary>
     public interface IUnitOfWork
     {
