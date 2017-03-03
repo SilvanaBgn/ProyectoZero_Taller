@@ -32,23 +32,28 @@
             // 
             // buttonNuevo
             // 
-            this.buttonNuevo.Text = "Nuevo";
             this.buttonNuevo.Click += new System.EventHandler(this.buttonNuevo_Click);
             // 
             // buttonModificar
             // 
-            this.buttonModificar.Text = "Editar";
             this.buttonModificar.Click += new System.EventHandler(this.buttonModificar_Click);
             // 
             // buttonEliminar
             // 
-            this.buttonEliminar.Text = "Borrar";
             this.buttonEliminar.Click += new System.EventHandler(this.buttonEliminar_Click);
+            // 
+            // rangoFecha
+            // 
+            this.rangoFecha.FechaFin = new System.DateTime(2017, 3, 3, 0, 0, 0, 0);
+            this.rangoFecha.FechaInicio = new System.DateTime(2017, 3, 3, 0, 0, 0, 0);
             // 
             // buttonFiltrar
             // 
-            this.buttonFiltrar.Text = "Filtrar";
             this.buttonFiltrar.Click += new System.EventHandler(this.buttonFiltrar_Click);
+            // 
+            // buttonBorrarFiltros
+            // 
+            this.buttonBorrarFiltros.Click += new System.EventHandler(this.buttonBorrarFiltros_Click);
             // 
             // VBaseBanner
             // 

@@ -149,6 +149,7 @@ namespace UI.NuevasPantallas
 
             List<Banner> listaFiltrada = this.iControladorDominio.FiltrarBanners(filtroFechas, filtroHoras, filtroTitulo, filtroDescripcion);
             this.CargarDataGridBanners(listaFiltrada);
+            this.buttonBorrarFiltros.Enabled = true;
         }
 
         /// <summary>
@@ -167,6 +168,19 @@ namespace UI.NuevasPantallas
                 this.iVentanaEditar.Activate();
         }
         #endregion
+
         #endregion
+
+        private void buttonBorrarFiltros_Click(object sender, EventArgs e)
+        {
+            this.checkBoxDescripcion.Checked = false;
+            this.checkBoxRangoFechas.Checked = false;
+            this.checkBoxRangoHoras.Checked = false;
+            this.checkBoxTitulo.Checked = false;
+            this.textBoxDescripcion.Text = "";
+            this.textBoxTitulo.Text = "";
+            this.buttonFiltrar_Click(sender, e);
+            this.buttonBorrarFiltros.Enabled = false;
+        }
     }
 }

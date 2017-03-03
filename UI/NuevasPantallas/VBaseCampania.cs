@@ -139,17 +139,18 @@ namespace UI.NuevasPantallas
             string filtroTitulo = null;
             string filtroDescripcion = null;
 
-            if (checkBoxRangoFechas.Checked)
+            if (this.checkBoxRangoFechas.Checked)
                 filtroFechas = new DateTime[] { this.rangoFecha.FechaInicio, this.rangoFecha.FechaFin };
-            if (checkBoxRangoHoras.Checked)
+            if (this.checkBoxRangoHoras.Checked)
                 filtroHoras = new TimeSpan[] { this.rangoHorario.HoraInicio, this.rangoHorario.HoraFin };
-            if (checkBoxTitulo.Checked)
+            if (this.checkBoxTitulo.Checked)
                 filtroTitulo = this.textBoxTitulo.Text;
-            if (checkBoxDescripcion.Checked)
+            if (this.checkBoxDescripcion.Checked)
                 filtroDescripcion = this.textBoxDescripcion.Text;
 
             List<Campania> listaFiltrada = this.iControladorDominio.FiltrarCampanias(filtroFechas, filtroHoras, filtroTitulo, filtroDescripcion);
             this.CargarDataGridCampanias(listaFiltrada);
+            this.buttonBorrarFiltros.Enabled = true;
         }
 
         /// <summary>
@@ -167,7 +168,21 @@ namespace UI.NuevasPantallas
             else if (this.iVentanaEditar != null)
                 this.iVentanaEditar.Activate();
         }
+
         #endregion
+
         #endregion
+
+        private void buttonBorrarFiltros_Click(object sender, EventArgs e)
+        {
+            this.checkBoxDescripcion.Checked = false;
+            this.checkBoxRangoFechas.Checked = false;
+            this.checkBoxRangoHoras.Checked = false;
+            this.checkBoxTitulo.Checked = false;
+            this.textBoxDescripcion.Text = "";
+            this.textBoxTitulo.Text = "";
+            this.buttonFiltrar_Click(sender, e);
+            this.buttonBorrarFiltros.Enabled = false;
+        }
     }
 }
