@@ -6,12 +6,12 @@ namespace Dominio
     /// <summary>
     /// Lector genérico
     /// </summary>
-    public interface ILector
+    public interface ILectorFuenteInformacion
     {
         /// <summary>
         /// Obtiene los ítems de la lectura, donde <paramref name="pInfo"/> es un <see cref="System.String"/>.
         /// </summary>
         /// <returns>Ítems con la información</returns>
-        IEnumerable<Item> Leer(String pInfo=null);
+        IEnumerable<ItemFuenteInformacion> Leer(String pInfo=null);
     }
 }

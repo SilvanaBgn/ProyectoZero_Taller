@@ -83,9 +83,9 @@ namespace UI.HelperUI
             string texto = "";
             try
             {
-                Fuente fuenteDelBanner = this.iControladorDominio.BuscarFuentePorId(pBanner.FuenteId);
+                FuenteInformacion fuenteDelBanner = this.iControladorDominio.BuscarFuentePorId(pBanner.FuenteId);
                 //Asignamos su contenido a la variable texto:
-                IList<Item> listaItems = (List<Item>)fuenteDelBanner.Items;
+                IList<ItemFuenteInformacion> listaItems = (List<ItemFuenteInformacion>)fuenteDelBanner.Items;
                 for (int i = 0; i < listaItems.Count; i++)
                 {
                     texto += listaItems[i].ToString() + " • ";
@@ -103,7 +103,7 @@ namespace UI.HelperUI
         {
             try
             {
-                Fuente fuenteDelBanner = this.iControladorDominio.BuscarFuentePorId(pBanner.FuenteId);
+                FuenteInformacion fuenteDelBanner = this.iControladorDominio.BuscarFuentePorId(pBanner.FuenteId);
                 this.LeerFuente(fuenteDelBanner);
             }
             catch (ExcepcionAlLeerFuenteExternaDelBanner ex)
@@ -116,7 +116,7 @@ namespace UI.HelperUI
         /// Invocar al método Leer() de la fuente, para que actualice sus items
         /// </summary>
         /// <param name="pFuente">Fuente a leer</param>
-        public void LeerFuente(Fuente pFuente)
+        public void LeerFuente(FuenteInformacion pFuente)
         {
             try
             {

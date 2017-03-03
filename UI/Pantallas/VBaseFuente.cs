@@ -52,12 +52,12 @@ namespace UI.Pantallas
         /// Indica cuál es la fuente que está seleccionada actualmente en el this.dataGridViewMostrar
         /// </summary>
         /// <returns>Devuelve la fuente seleccionada </returns>
-        private Fuente FuenteSeleccionada()
+        private FuenteInformacion FuenteSeleccionada()
         {
             if (this.dataGridViewMostrar.SelectedRows.Count == 0)
                 return null;
             else
-                return (Fuente)this.dataGridViewMostrar.SelectedRows[0].DataBoundItem;
+                return (FuenteInformacion)this.dataGridViewMostrar.SelectedRows[0].DataBoundItem;
         }
         #endregion
 
@@ -79,7 +79,7 @@ namespace UI.Pantallas
         /// </summary>
         private void buttonModificar_Click(object sender, EventArgs e)
         {
-            Fuente fuenteSeleccionada = this.FuenteSeleccionada();
+            FuenteInformacion fuenteSeleccionada = this.FuenteSeleccionada();
             if (fuenteSeleccionada == null)
                 MessageBox.Show("Se debe seleccionar una fuente", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             else
@@ -95,7 +95,7 @@ namespace UI.Pantallas
         /// Carga el DataGridFuentes con la lista en <paramref name="pListaFuentes"/>
         /// </summary>
         /// <param name="pListaFuentes">lista de fuentes a cargar</param>
-        public void CargarDataGridFuentes(List<Fuente> pListaFuentes)
+        public void CargarDataGridFuentes(List<FuenteInformacion> pListaFuentes)
         {
             this.dataGridViewMostrar.DataSource = pListaFuentes;
         }
@@ -105,7 +105,7 @@ namespace UI.Pantallas
         /// </summary>
         private void buttonEliminar_Click(object sender, EventArgs e)
         {
-            Fuente fuenteSeleccionada = this.FuenteSeleccionada();
+            FuenteInformacion fuenteSeleccionada = this.FuenteSeleccionada();
             if (fuenteSeleccionada == null)
             { MessageBox.Show("Se debe seleccionar una fuente", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error); }
             else
@@ -160,7 +160,7 @@ namespace UI.Pantallas
                 filtroDescripcion = this.textBoxDescripcion.Text;
             try
             {
-                List<Fuente> listaFiltrada = this.iControladorDominio.FiltrarFuentes(filtroTipoFuente, filtroDescripcion);
+                List<FuenteInformacion> listaFiltrada = this.iControladorDominio.FiltrarFuentes(filtroTipoFuente, filtroDescripcion);
                 this.CargarDataGridFuentes(listaFiltrada);
             }
             catch (ExcepcionAlObtenerFuentes ex)

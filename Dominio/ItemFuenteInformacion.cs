@@ -11,7 +11,7 @@ namespace Dominio
     /// <summary>
     /// Clase que contiene la inforación del item
     /// </summary>
-    public class Item
+    public class ItemFuenteInformacion
     {
         /// <summary>
         /// Atributo ID del item
@@ -37,8 +37,8 @@ namespace Dominio
         /// <summary>
         /// Constructores
         /// </summary>
-        public Item(): this("") {}
-        public Item(string pDescripcion)
+        public ItemFuenteInformacion(): this("") {}
+        public ItemFuenteInformacion(string pDescripcion)
         {
             this.Descripcion = pDescripcion;
         }

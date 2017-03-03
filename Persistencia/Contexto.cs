@@ -18,7 +18,7 @@ namespace Persistencia
     {
         public DbSet<Campania> Campanias { get; }
         public DbSet<Banner> Banners { get; }
-        public DbSet<Fuente> Fuentes { get; }
+        public DbSet<FuenteInformacion> Fuentes { get; }
 
         public Contexto() : base("DataBase")
         {
@@ -42,12 +42,12 @@ namespace Persistencia
             .WithOptional()
             .HasForeignKey(oi => oi.CampaniaId);
 
-            pModelBuilder.Entity<Fuente>()
+            pModelBuilder.Entity<FuenteInformacion>()
             .HasMany(o => o.Banners)
             .WithRequired()
             .HasForeignKey(oi => oi.FuenteId);
 
-            pModelBuilder.Entity<Fuente>()
+            pModelBuilder.Entity<FuenteInformacion>()
             .HasMany(o => o.Items)
             .WithOptional()
             .HasForeignKey(oi => oi.FuenteId);
@@ -58,7 +58,7 @@ namespace Persistencia
             .Property(oi => oi.ImagenId)
             .HasDatabaseGeneratedOption(DatabaseGeneratedOption.Identity);
 
-            pModelBuilder.Entity<Item>()
+            pModelBuilder.Entity<ItemFuenteInformacion>()
             .HasKey(oi => new { oi.ItemId, oi.FuenteId })
             .Property(oi => oi.ItemId)
             .HasDatabaseGeneratedOption(DatabaseGeneratedOption.Identity);

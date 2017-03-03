@@ -44,7 +44,7 @@ namespace UI.Pantallas
         private void ButtonGuardar_Click(object sender, EventArgs e)
         {
             this.buttonGuardar.Enabled = false;
-            Fuente fuenteSeleccionada = this.FuenteSeleccionada();
+            FuenteInformacion fuenteSeleccionada = this.FuenteSeleccionada();
 
             if (fuenteSeleccionada == null)
             {

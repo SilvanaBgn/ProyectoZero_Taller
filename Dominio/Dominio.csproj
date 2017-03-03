@@ -70,11 +70,11 @@
     <Compile Include="Banner.cs" />
     <Compile Include="Campania.cs" />
     <Compile Include="ControladorDominio.cs" />
-    <Compile Include="Fuente.cs" />
-    <Compile Include="ILector.cs" />
+    <Compile Include="FuenteInformacion.cs" />
+    <Compile Include="ILectorFuenteInformacion.cs" />
     <Compile Include="Imagen.cs" />
     <Compile Include="IRepositorio.cs" />
-    <Compile Include="Item.cs" />
+    <Compile Include="ItemFuenteInformacion.cs" />
     <Compile Include="ItemRss.cs" />
     <Compile Include="IUnitOfWork.cs" />
     <Compile Include="Lecturas\LectorRss.cs" />
