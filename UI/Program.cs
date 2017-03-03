@@ -16,7 +16,7 @@ namespace UI
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new UI.NuevasPantallas.VPrincipal());
+            Application.Run(new UI.Pantallas.VPrincipal());
         }
     }
 }
